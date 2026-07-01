@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume - Gaëtan FRANÇOIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22pt;
+      font-weight: bold;
+      color: #e8c040;
+      letter-spacing: 1px;
+      overflow: hidden;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 10px;
+    }
+
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 28px 26px 28px 24px;
+      background: #fff;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 14px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 10px;
+    }
+
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="sidebar">
+
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email :</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location :</div>
+        <div class="contact-value">Biarritz, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Availability :</div>
+        <div class="contact-value">Immediate - Remote</div>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title">Expertise</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Training &amp; L&amp;D Design</li>
+        <li>AI Evaluation &amp; Quality Assessment</li>
+        <li>Onboarding &amp; Enablement</li>
+        <li>Instructional Feedback</li>
+        <li>Knowledge Transfer</li>
+        <li>Python &amp; Machine Learning</li>
+        <li>SAP HR &amp; HR Tech</li>
+        <li>Change Management</li>
+      </ul>
+    </div>
+
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Language</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">French</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Spanish</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+    </div>
+
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Interests</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Running</li>
+        <li>Surfing</li>
+        <li>Tennis</li>
+        <li>Gym</li>
+        <li>Chess</li>
+        <li>Travel</li>
+        <li>Daily Reading</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="main">
+
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Training &amp; Enablement Specialist – AI &amp; HR Tech</div>
+
+    <h2>Profile</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Training and enablement professional with 15+ years designing and delivering onboarding programs, key-user training, and knowledge transfer in complex enterprise environments across 40+ countries. Formal training in Python, Machine Learning, and Deep Learning; daily practitioner of generative AI tools with hands-on experience evaluating AI outputs against defined quality standards. Master's degree in Engineering (Applied Mathematics). Fluent in English; native French speaker.
+    </p>
+
+    <h2>Experience</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Senior Onboarding &amp; Enablement Specialist – SAP HR (Global)</div>
+        <ul>
+          <li>Designed and delivered key-user training programs for SAP SuccessFactors Employee Central (<strong>OneProfile</strong>) across 40+ countries and 80,000+ employees</li>
+          <li>Built structured onboarding plans, milestone frameworks, and post-go-live hypercare programs for global HR platform rollouts</li>
+          <li>Delivered written and verbal feedback to HR teams on platform adoption quality; tracked enablement outcomes against defined success criteria</li>
+          <li>Ran QBR/EBR cycles with senior HR stakeholders; produced structured evaluation reports and recommendations</li>
+          <li>Coached HR teams on embedding AI and analytics tools into daily workflows; assessed adoption quality and identified gaps</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-founder - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Co-founder – Onboarding &amp; User Enablement</div>
+        <ul>
+          <li>Designed and iterated onboarding content for a B2C SaaS platform; evaluated user experience quality and delivered structured improvement feedback</li>
+          <li>Built and animated a learning community; produced instructional content across multiple formats</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Personal Projects</div>
+        <div class="exp-location">R&amp;D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">AI &amp; Machine Learning – Research &amp; Evaluation</div>
+        <ul>
+          <li>Completed Coursera specialisations in Python, Machine Learning, and Deep Learning; applied models to financial time-series prediction</li>
+          <li>Evaluated AI-generated outputs against domain-specific quality criteria; identified errors in factual accuracy and model behaviour</li>
+          <li>Daily practitioner of generative AI tools (ChatGPT, Claude, Midjourney); experienced in assessing output quality across text, code, and structured content</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">HRIS Consultant – Training &amp; Knowledge Transfer</div>
+        <ul>
+          <li>Designed and led knowledge transfer program to offshore team (India) for SAP HR managed services across 40 countries; produced training documentation and assessed team readiness</li>
+          <li>Delivered SAP HR end-user and key-user training for multiple clients across Europe (L'Oréal, FMC Technologies, Air France, Sanofi)</li>
+          <li>Evaluated trainee performance against quality rubrics; produced structured written feedback and remediation plans</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront &amp; Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Software Support &amp; Configuration</div>
+        <ul>
+          <li>Support, maintenance and configuration of finance &amp; quality management software</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Education</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">Master's degree in Engineering – Applied Mathematics, 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci – Courbevoie La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Exchange semester – Science courses in English, 2008<br>
+      <span style="color:#777; font-size:8pt;">Seoul, South Korea</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Preparatory Classes MPSI – Mathematics, Physics, Engineering<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

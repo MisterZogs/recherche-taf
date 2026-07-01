@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV Gaëtan FRANÇOIS - CSM SAP Taulia</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 7px;
+    }
+
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 28px 26px 28px 24px;
+      background: #fff;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 10px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 7px;
+    }
+
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 7px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════
+       SIDEBAR
+  ══════════════════════════════ -->
+  <div class="sidebar">
+
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email :</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Localisation :</div>
+        <div class="contact-value">Biarritz, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Disponibilité :</div>
+        <div class="contact-value">Immédiate - Remote</div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES -->
+    <div class="sb-section">
+      <div class="sb-title">Compétences</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Ownership compte stratégique SAP</li>
+        <li>QBR/EBR &amp; présentations executives</li>
+        <li>Renouvellement, upsell &amp; expansion</li>
+        <li>Gestion des escalades &amp; SLA</li>
+        <li>SAP HR/HCM : config., LSMW, ABAP</li>
+        <li>SAP SuccessFactors EC</li>
+        <li>Structures financières &amp; procure-to-pay</li>
+        <li>Centralisation paie mondiale</li>
+        <li>Salesforce, Jira, Confluence</li>
+        <li>Excel avancé, PowerPoint, SQL</li>
+      </ul>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Langues</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">Français</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Espagnol</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portugais</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Allemand</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+
+    <!-- LOISIRS -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Loisirs</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Course à pied</li>
+        <li>Surf</li>
+        <li>Tennis</li>
+        <li>Salle de sport</li>
+        <li>Échecs</li>
+        <li>Voyages</li>
+        <li>Lecture quotidienne</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════
+       MAIN
+  ══════════════════════════════ -->
+  <div class="main">
+
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Customer Success Manager - Écosystème SAP &amp; Grands Comptes</div>
+
+    <!-- PROFIL -->
+    <h2>Profil</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Professionnel Customer Success Senior avec 15 ans d'expérience dans l'écosystème SAP, gérant des grands comptes enterprise à l'échelle mondiale (40+ pays). Expertise fonctionnelle approfondie en SAP HR/HCM et SAP SuccessFactors, avec une compréhension solide de l'intégration des solutions SAP dans les opérations globales des entreprises, les flux financiers et les processus supply chain. Solide historique en gestion de compte post go-live, business reviews, change management et engagement stakeholders au niveau senior et C-suite. Communicant orienté données, capable de traduire des outputs système complexes en narratifs business clairs. Co-fondateur d'une startup tech ; passionné par l'IA générative.
+    </p>
+
+    <!-- EXPÉRIENCE -->
+    <h2>Expérience Professionnelle</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Customer Success Manager Senior - Écosystème SAP (Grand Compte Mondial)</div>
+        <ul>
+          <li><strong>Ownership stratégique du compte</strong> L'Oréal sur la plateforme SAP RH mondiale pour 40+ pays - interlocuteur unique entre les stakeholders métier et les équipes techniques</li>
+          <li>Pilotage du change management et adoption SAP SuccessFactors EC (projet <strong>OneProfile</strong>) : plan d'onboarding, jalons, formation utilisateurs-clés, hypercare post go-live</li>
+          <li>Conduite de la <strong>centralisation de la paie et des processus financiers mondiaux</strong> (projet <strong>OnePayroll</strong>) : coordination cross-fonctionnelle, migration de données, mise en production - adjacent aux flux procure-to-pay et supply chain</li>
+          <li>Animation de <strong>business reviews régulières</strong> avec stakeholders seniors (QBR/EBR) : KPIs, escalades, roadmap ; gestion des incidents SAP multi-pays, conformité SLA</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-fondateur - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Co-fondateur &amp; Directeur Général - Startup SaaS B2C</div>
+        <ul>
+          <li>Responsabilité end-to-end du customer success, support utilisateur et animation de communauté de traders</li>
+          <li>Approche data-driven de l'adoption produit, tests &amp; validation, SEO, Facebook Ads, management d'alternants</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Projets personnels</div>
+        <div class="exp-location">R&amp;D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">IA, Machine Learning &amp; Robotique</div>
+        <ul>
+          <li><strong>Machine Learning</strong> (mai 2017 - janv. 2018) : formations Coursera - Python, ML, Deep Learning - appliqués à la prédiction financière et l'analytique comportementale</li>
+          <li><strong>Drone autonome</strong> (nov. 2016 - avr. 2017) : drone GoPro étanche, Pixhawk / Mission Planner, électronique &amp; robotique</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Consultant SAP SIRH - Gestion de Comptes Grands Comptes Enterprise</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016) : TMA SAP HR pour 40 pays (L1/L2/L3) ; gain du RFP d'externalisation ; transfert de connaissances vers l'équipe offshore (Inde)</li>
+          <li><strong>FMC Technologies</strong> (2013) : déploiement SAP HR sur 8 pays européens - onboarding, paramétrage, migration de données, business blueprint - groupe industriel mondial avec opérations supply chain complexes</li>
+          <li><strong>Air France, Generali, Sanofi, Canal+, Degremont</strong> : paramétrage, support et reprise de données SAP HR (finance, assurance, énergie, médias)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront &amp; Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Support, maintenance et paramétrage - logiciels finance &amp; qualité</div>
+      </div>
+    </div>
+
+    <!-- FORMATION -->
+    <h2>Formation</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">Diplôme d'Ingénieur - Calcul Scientifique (Mathématiques Appliquées), 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci - Paris La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Semestre d'échange - cours scientifiques en anglais, 2008<br>
+      <span style="color:#777; font-size:8pt;">Séoul, Corée du Sud</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Classes préparatoires MPSI - Mathématiques, Physique &amp; Sciences de l'Ingénieur<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

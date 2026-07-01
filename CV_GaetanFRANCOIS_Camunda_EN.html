@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Gaëtan FRANÇOIS - Senior Customer Success Manager</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 10px;
+    }
+
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 28px 26px 28px 24px;
+      background: #fff;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 14px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 10px;
+    }
+
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email:</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location:</div>
+        <div class="contact-value">Biarritz, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Availability:</div>
+        <div class="contact-value">Immediate - Remote</div>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title">Skills</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Enterprise Account Management</li>
+        <li>Customer Success &amp; Value Delivery</li>
+        <li>SaaS Adoption &amp; Deployment</li>
+        <li>Executive Stakeholder Management</li>
+        <li>Process Automation &amp; Integration</li>
+        <li>QBR &amp; Success Planning</li>
+        <li>Health Score &amp; Churn Prevention</li>
+        <li>Python &amp; Data Analysis</li>
+        <li>Salesforce, Jira, Confluence</li>
+      </ul>
+    </div>
+
+    <div class="sb-section" style="margin-top:4px;">
+      <div class="sb-title">Languages</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">French</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Spanish</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+    </div>
+
+    <div class="sb-section" style="margin-top:4px;">
+      <div class="sb-title">Interests</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Running</li>
+        <li>Surfing</li>
+        <li>Tennis</li>
+        <li>Gym</li>
+        <li>Chess</li>
+        <li>Travel</li>
+        <li>Daily reading</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Senior Customer Success Manager – Enterprise SaaS</div>
+
+    <h2>Profile</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Senior Customer Success Manager with 15 years of enterprise experience driving adoption, retention and expansion of complex SaaS platforms across 40+ countries. Built and led end-to-end success programs for mission-critical deployments serving 80,000+ users at Fortune 500 clients (L'Oréal, Air France, Sanofi, Generali). Proven ability to engage C-level and technical stakeholders, build value-aligned success plans and translate business process objectives into measurable outcomes. Co-founder of WallOfTraders.com (B2C SaaS). Hands-on Python and Machine Learning practitioner; daily user of AI tools. M.Sc. Applied Mathematics. Fluent in English; native French speaker.
+    </p>
+
+    <h2>Professional Experience</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Senior Customer Success Manager – Global Enterprise Platform</div>
+        <ul>
+          <li>Owned end-to-end success program for SAP SuccessFactors Employee Central (<strong>OneProfile</strong>) across 40+ countries and 80,000+ users — success plans, KPIs, milestone frameworks and executive QBR cycles</li>
+          <li>Drove platform adoption and process automation end-to-end: stakeholder alignment, deployment planning, health monitoring, risk escalation and expansion opportunities</li>
+          <li>Served as trusted advisor and primary escalation point for senior HR and IT stakeholders across 40+ countries; resolved critical incidents and unblocked stalled rollouts</li>
+          <li>Led SaaS deployment of global time &amp; attendance platform (Tamigo) across worldwide retail operations: UAT, go-live, post-launch hypercare</li>
+          <li>Coordinated data migration and production rollout for global payroll process centralisation (<strong>OnePayroll</strong>) — cross-functional teams across IT, finance and HR</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-founder - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Co-founder &amp; CEO – B2C SaaS Platform (crypto trading)</div>
+        <ul>
+          <li>Built and managed a live trader community; drove product adoption, retention and feature engagement through structured onboarding and 1:many communication</li>
+          <li>Owned full product lifecycle: feature validation, UX testing, SEO, paid acquisition</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Enterprise Customer Success – Fortune 500 Accounts</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016): managed SAP HR enterprise account across 40 countries (L1/L2/L3 FR &amp; EN); won outsourcing RFP; led knowledge transfer and offshore team management (India)</li>
+          <li><strong>FMC Technologies</strong> (2013): end-to-end enterprise platform deployment across 8 European countries — process design, configuration, data migration, go-live</li>
+          <li><strong>Air France, Sanofi, Generali, Canal+</strong>: configuration, support, testing, data migration and reporting across complex multi-entity environments</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Personal Projects</div>
+        <div class="exp-location">R&amp;D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Python, Machine Learning &amp; AI</div>
+        <ul>
+          <li>Coursera specialisations in Python, Machine Learning and Deep Learning; applied to financial time-series prediction</li>
+          <li>Daily practitioner of generative AI tools; experienced in evaluating and integrating AI capabilities into workflows</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront &amp; Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Software Support &amp; Configuration – Finance &amp; Quality Management</div>
+        <ul>
+          <li>Support, maintenance and configuration of enterprise software solutions in finance and quality management</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Education</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">M.Sc. in Applied Mathematics, 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci – Paris La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Exchange Semester – scientific courses in English, 2008<br>
+      <span style="color:#777; font-size:8pt;">Seoul, South Korea</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Preparatory Classes (MPSI) – Mathematics, Physics &amp; Engineering Sciences<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV Gaëtan FRANÇOIS - Enterprise CSM - Areti Group</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 7px;
+    }
+
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 28px 26px 28px 24px;
+      background: #fff;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 10px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 7px;
+    }
+
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 7px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════
+       SIDEBAR
+  ══════════════════════════════ -->
+  <div class="sidebar">
+
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email :</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Localisation :</div>
+        <div class="contact-value">Biarritz, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Disponibilité :</div>
+        <div class="contact-value">Immédiate - Remote</div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES -->
+    <div class="sb-section">
+      <div class="sb-title">Compétences</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Gestion de compte stratégique</li>
+        <li>QBR/EBR &amp; engagement C-suite</li>
+        <li>Adoption produit &amp; change mgmt</li>
+        <li>HR Tech &amp; avantages sociaux mondiaux</li>
+        <li>SAP SuccessFactors EC</li>
+        <li>SAP HR/HCM (40+ pays)</li>
+        <li>Centralisation paie (OnePayroll)</li>
+        <li>RFP remporté &amp; offshore (Inde)</li>
+        <li>Salesforce, Jira, Confluence</li>
+        <li>Python &amp; Machine Learning</li>
+      </ul>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Langues</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">Français</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Espagnol</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portugais</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Allemand</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+
+    <!-- LOISIRS -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Loisirs</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Course à pied</li>
+        <li>Surf</li>
+        <li>Tennis</li>
+        <li>Salle de sport</li>
+        <li>Échecs</li>
+        <li>Voyages</li>
+        <li>Lecture quotidienne</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════
+       MAIN
+  ══════════════════════════════ -->
+  <div class="main">
+
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Enterprise Customer Success Manager - HR Tech &amp; Grands Comptes</div>
+
+    <!-- PROFIL -->
+    <h2>Profil</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Professionnel Customer Success Senior avec 15 ans d'expérience en HR Tech, spécialisé dans la gestion de grands comptes enterprise à l'échelle internationale (40+ pays). Expertise approfondie en SAP HR/HCM et SAP SuccessFactors Employee Central - socle des systèmes RH, de compensation et d'avantages sociaux des multinationales. Solide expérience en gestion de compte stratégique, onboarding structuré, adoption produit et renouvellement, avec une exposition concrète aux structures mondiales d'avantages sociaux et de paie (OnePayroll, conformité multi-pays). Reconnu pour construire des relations de confiance avec des interlocuteurs RH seniors et C-suite, animer des QBR/EBR et faire le lien entre les besoins métier et les équipes produit/technique.
+    </p>
+
+    <!-- EXPÉRIENCE -->
+    <h2>Expérience Professionnelle</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Customer Success Manager Senior Enterprise - HR Tech (SAP SuccessFactors)</div>
+        <ul>
+          <li><strong>Ownership stratégique du compte</strong> - interlocuteur unique entre l'organisation RH mondiale de L'Oréal et les équipes techniques, pour 40+ pays</li>
+          <li>Pilotage de l'onboarding et adoption SAP SuccessFactors EC (projet <strong>OneProfile</strong>) : plan structuré, jalons, formation utilisateurs-clés, hypercare post go-live</li>
+          <li>Pilotage de la <strong>centralisation de la paie mondiale</strong> (projet <strong>OnePayroll</strong>) : migration de données, alignement stakeholders, mise en production</li>
+          <li>Animation de revues stratégiques avec stakeholders RH seniors (QBR/EBR) : reporting KPIs, résolution d'escalades, alignement roadmap</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-fondateur - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Co-fondateur &amp; Directeur Général - Startup SaaS B2C</div>
+        <ul>
+          <li>Responsabilité end-to-end du customer success et support utilisateurs - communauté de traders actifs</li>
+          <li>Tests produit, remontée structurée des feedbacks dans la roadmap, SEO, Facebook Ads, management d'alternants</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Projets personnels</div>
+        <div class="exp-location">R&amp;D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">IA, Machine Learning &amp; Robotique</div>
+        <ul>
+          <li><strong>Machine Learning</strong> (mai 2017 - janv. 2018) : formations Coursera - Python, ML, Deep Learning - appliqués à la prédiction financière sur crypto</li>
+          <li><strong>Drone autonome</strong> (nov. 2016 - avr. 2017) : drone GoPro étanche, Pixhawk / Mission Planner, électronique &amp; robotique</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Consultant SIRH - Gestion de Comptes Grands Comptes &amp; Enablement</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016) : TMA SAP HR pour 40 pays (L1/L2/L3) ; gain du RFP d'externalisation ; programme de transfert de connaissances vers l'équipe offshore (Inde)</li>
+          <li><strong>FMC Technologies</strong> (2013) : déploiement SAP HR sur 8 pays européens - onboarding structuré, paramétrage, migration de données, business blueprint</li>
+          <li><strong>Air France, Generali, Degremont, Canal+, Sanofi</strong> : étude LMS, paramétrage, support et migration de données SAP HR</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront &amp; Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Support, maintenance et paramétrage - logiciels finance &amp; qualité</div>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">Mar. - Sep. 2010</div>
+        <div class="exp-company">Diagnostica - Stago</div>
+        <div class="exp-location">Stage</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Stage ingénieur - Développeur C++ / OpenGL (simulation 3D d'usine)</div>
+      </div>
+    </div>
+
+    <!-- FORMATION -->
+    <h2>Formation</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">Diplôme d'Ingénieur - Calcul Scientifique (Mathématiques Appliquées), 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci - Paris La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Semestre d'échange - cours scientifiques en anglais, 2008<br>
+      <span style="color:#777; font-size:8pt;">Séoul, Corée du Sud</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Classes préparatoires MPSI - Mathématiques, Physique &amp; Sciences de l'Ingénieur<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

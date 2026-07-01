@@ -1,0 +1,115 @@
+REQUÊTES LINKEDIN OPTIMISÉES – Gaëtan FRANÇOIS
+================================================
+Profil : Consultant SIRH Senior / CSM Senior / SAP HR / SAP HCM / SAP SuccessFactors
+Cible : Remote, CDI ou Freelance, FR ou EN
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. CSM / ACCOUNT MANAGEMENT HR TECH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Customer Success Manager" ("SAP" OR "SIRH" OR "HRIS" OR "HR Tech") remote
+
+"Customer Success" ("SuccessFactors" OR "SAP HR" OR "SAP HCM") (CDI OR freelance OR remote)
+
+"Key Account Manager" ("HR Tech" OR "SIRH" OR "SaaS RH") remote
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. CONSULTANT SIRH / SAP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Consultant SIRH" OR "Consultant SAP HR" OR "Consultant SAP HCM" remote
+
+"SAP SuccessFactors" ("Employee Central" OR "EC") (consultant OR freelance) remote
+
+"Consultant fonctionnel" ("SAP HR" OR "SAP HCM" OR "SuccessFactors") remote
+
+"HRIS Consultant" ("SAP" OR "SuccessFactors") remote Europe
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. CHEF DE PROJET / MOA / BUSINESS ANALYST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Chef de projet SIRH" OR "HRIS Project Manager" remote
+
+"MOA SIRH" OR "Business Analyst SIRH" ("SAP" OR "SuccessFactors") remote
+
+"Chef de projet SAP HR" OR "Chef de projet SAP HCM" remote
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. MIGRATION DE DONNÉES SAP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Data Migration" ("SAP HR" OR "SAP HCM" OR "SuccessFactors") consultant remote
+
+"migration SAP" ("HR" OR "HCM" OR "SuccessFactors") freelance
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. PRE-SALES / SOLUTION CONSULTANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Pre-Sales Consultant" ("SIRH" OR "SAP" OR "HR Tech") remote
+
+"Solution Consultant" ("SAP SuccessFactors" OR "HRIS") remote
+
+"Functional Consultant" "SAP SuccessFactors" remote Europe
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. FORMATEUR / TRAINING MANAGER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Formateur SIRH" OR "Training Manager" ("SAP" OR "HRIS" OR "SuccessFactors") remote
+
+"Enablement" ("SAP" OR "SIRH" OR "HR Tech") remote
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. PRODUCT OWNER SIRH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Product Owner" ("SIRH" OR "HRIS" OR "SAP" OR "HR Tech") remote
+
+"Product Owner" "SAP SuccessFactors" remote
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OPÉRATEURS BOOLÉENS ET MODIFICATEURS UTILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REMOTE
+  Ajouter : remote  |  télétravail  |  "full remote"  |  "100% remote"
+
+TYPE DE CONTRAT
+  Ajouter : CDI  |  freelance  |  mission  |  contract  |  "contrat"
+
+NIVEAU
+  Ajouter : senior  |  "grands comptes"  |  enterprise  |  "10 ans"
+
+EXCLUSIONS
+  Exclure Workday (hors profil) : -Workday
+  Exclure juniors : -junior  |  -stage  |  -alternance
+
+CIBLAGE GÉOGRAPHIQUE
+  Remote FR  : ajouter "France" ou "Paris" avec remote/télétravail
+  Remote EU  : ajouter "Europe" ou laisser sans filtre géo
+  Remote EN  : rechercher en anglais, ajouter "Europe" ou "EMEA"
+
+GUILLEMETS
+  Toujours mettre les titres exacts entre guillemets ("Chef de projet SIRH")
+  Les OR doivent être en majuscules
+  Les AND sont implicites entre mots sans opérateur
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AGENCES DE RECRUTEMENT SPÉCIALISÉES À CONTACTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+hansonregan.com     - SAP & IT, EMEA + monde, CDI + contrats
+talentlakeit.com    - SAP exclusivement, contrats Europe
+belsberg.com        - RH & HR Tech, Benelux, CDI + missions
+movementgroup.uk    - SAP + HR Tech + Executive, monde, CDI + contrats
