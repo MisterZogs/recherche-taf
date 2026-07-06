@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV IA - Gaëtan FRANÇOIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 10px;
+    }
+
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+    .expertise-list .tag-ia {
+      color: #e8c040;
+      font-weight: bold;
+    }
+
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 28px 26px 28px 24px;
+      background: #fff;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 14px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 10px;
+    }
+
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════
+       SIDEBAR
+  ══════════════════════════════ -->
+  <div class="sidebar">
+
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email :</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Localisation :</div>
+        <div class="contact-value">Biarritz, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Disponibilité :</div>
+        <div class="contact-value">Immédiate - Remote</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Projets IA :</div>
+        <div class="contact-value">lifaia.com · archikk.com</div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES IA -->
+    <div class="sb-section">
+      <div class="sb-title">Compétences IA</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li class="tag-ia">Claude · ChatGPT · Gemini · Copilot</li>
+        <li class="tag-ia">Claude Code (CLI Anthropic)</li>
+        <li class="tag-ia">Prompt Engineering</li>
+        <li class="tag-ia">N8N · Automatisation IA</li>
+        <li>Python · Machine Learning</li>
+        <li>Deep Learning (Coursera)</li>
+        <li>Formation &amp; pédagogie active</li>
+        <li>Conduite du changement</li>
+        <li>Gestion de programme (PMO)</li>
+        <li>HTML5, CSS3, JS, APIs</li>
+      </ul>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Langues</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">Français</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Espagnol</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portugais</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+    </div>
+
+    <!-- LOISIRS -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Loisirs</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Course à pied</li>
+        <li>Surf</li>
+        <li>Tennis</li>
+        <li>Salle de sport</li>
+        <li>Échecs</li>
+        <li>Voyages</li>
+        <li>Lecture quotidienne</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════
+       MAIN
+  ══════════════════════════════ -->
+  <div class="main">
+
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Formateur &amp; Chef de Projet IA Générative</div>
+
+    <!-- PROFIL -->
+    <h2>Profil</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Praticien IA générative au quotidien depuis janvier 2026 : développement de deux plateformes IA appliquées (lifaia.com - assistance médicale ; archikk.com - outils IA pour architectes) et usage intensif de Claude Code (CLI Anthropic) en production. 15 ans d'expérience en gestion de programme complexe, conduite du changement et formation utilisateurs sur des environnements enterprise multi-pays - dont 10 ans sur le compte L'Oréal mondial (40+ pays). Formation Machine Learning et Deep Learning (Coursera, Python). Profil rare à l'intersection de la pratique terrain IA générative, du pilotage de programme international et de la pédagogie active.
+    </p>
+
+    <!-- EXPÉRIENCE -->
+    <h2>Expérience professionnelle</h2>
+    <hr class="section-line">
+
+    <!-- Projets IA -->
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">Jan. 2026 – Présent</div>
+        <div class="exp-company">Projets IA</div>
+        <div class="exp-location">Fondateur - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Développeur &amp; Formateur IA Générative</div>
+        <ul>
+          <li><strong>lifaia.com</strong> : conception et déploiement d'une plateforme d'assistance médicale personnalisée par IA (architecture, développement, mise en production)</li>
+          <li><strong>archikk.com</strong> : conception et déploiement d'une plateforme d'outils IA pour professionnels de l'architecture</li>
+          <li>Usage quotidien de <strong>Claude Code</strong> (CLI Anthropic) : développement de fonctionnalités IA en production, workflows agentiques, intégration d'APIs IA</li>
+          <li>Prompt engineering avancé, automatisation de processus (N8N), intégration Claude · ChatGPT · Gemini</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- L'Oréal -->
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Chef de Projet Programme Mondial &amp; Conduite du Changement</div>
+        <ul>
+          <li>Pilotage du programme <strong>OneProfile</strong> (migration ERP : SAP HR vers SAP SuccessFactors EC, 40+ pays) : ateliers stratégiques avec les Business Units, spécifications fonctionnelles, conduite du changement, formation des référents RH monde</li>
+          <li>Pilotage du programme <strong>OnePayroll</strong> (centralisation mondiale de la paie) : coordination cross-fonctionnelle multi-pays, go-live, suivi des KPI</li>
+          <li>Animation des formations utilisateurs-clés et transfert de connaissances (FR &amp; EN, 40+ pays)</li>
+          <li>Déploiement Tamigo en boutiques : animation d'ateliers, UAT, support post go-live</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WallOfTraders -->
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-fondateur - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Associé &amp; Directeur Général - Startup SaaS B2C</div>
+        <ul>
+          <li>Plateforme de trading crypto : gestion produit, animation communauté, publicité Facebook ; gestion de contenus et SEO</li>
+          <li>Pilotage d'alternants ; recette et déploiement de nouvelles fonctionnalités</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- R&D IA / ML -->
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Projets R&amp;D</div>
+        <div class="exp-location">Personnel</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">IA, Machine Learning &amp; Automatisation</div>
+        <ul>
+          <li><strong>Machine Learning</strong> (mai 2017 - avr. 2018) : formations Coursera - Python, ML, Deep Learning ; modèles de prédiction financière appliqués aux crypto-monnaies ; scraping et traitement de données</li>
+          <li><strong>Robotique</strong> (nov. 2016 - avr. 2017) : conception d'un drone autonome waterproof (contrôleur Pixhawk / Mission Planner)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ALTI - TCS -->
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Consultant SIRH &amp; Formateur Utilisateurs-Clés</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016) : TMA SAP HR 40 pays (FR &amp; EN) ; formation et transfert de connaissances vers l'équipe offshore Inde ; animation d'ateliers RFP ; refonte application GTA (spécifications, recette, Jira)</li>
+          <li><strong>FMC Technologies</strong> (2013) : déploiement SAP HR 8 pays Europe - structure organisation, reprise de données</li>
+          <li>Air France, Generali, Canal+, Sanofi : paramétrage SAP HR, support, formation utilisateurs</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- eFront & Enablon -->
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront &amp; Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Support &amp; Paramétrage Logiciel</div>
+        <ul>
+          <li>Support, maintenance et paramétrage de solutions de gestion finance et qualité</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FORMATION -->
+    <h2>Formation</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">Coursera</div>
+      <div class="edu-detail">Machine Learning Specialization · Deep Learning Specialization · Python, 2017-2018<br>
+      <span style="color:#777; font-size:8pt;">Andrew Ng / Stanford – en ligne</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">Diplôme d'Ingénieur en Calcul Scientifique, 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci - Courbevoie La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Univ. de Konkuk</div>
+      <div class="edu-detail">Semestre d'échange - cours scientifiques en anglais, 2008<br>
+      <span style="color:#777; font-size:8pt;">Séoul, Corée du Sud</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Classe Préparatoire MPSI - Mathématiques, Physique, Sciences de l'Ingénieur<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
