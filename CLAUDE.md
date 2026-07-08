@@ -9,7 +9,7 @@
 ## Contexte général
 
 Gaëtan FRANÇOIS (gaetan8francois@gmail.com) est en recherche d'emploi.
-Basé à **Biarritz**, disponible immédiatement, souhaite du **100% remote**.
+Basé à **Anglet**, disponible immédiatement, souhaite du **100% remote**.
 Cible : postes **Customer Success Manager Senior**, CDI ou Freelance, FR ou EN.
 Cible également : postes **SIRH / HRIS**, **SAP RH / SAP HR**, **SAP HCM**, **SAP SuccessFactors**, en tant que **consultant** (freelance/mission) ou **CDI**.
 
@@ -118,7 +118,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 
 ## Choix stylistiques CV
 
-- **Localisation** : Biarritz (pas Paris)
+- **Localisation** : Anglet (pas Paris)
 - **Disponibilité** : Remote (pas "hybrid setup")
 - **Langues** : Espagnol et Portugais à 50% (intermédiaire)
 - **Formation** : "Applied Mathematics" (EN) / "Calcul Scientifique" (FR)
@@ -162,6 +162,30 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | comet.co | Plateforme freelance tech France (50k+ freelances certifiés), Paris/Lyon/Lille/Nantes — missions SIRH, AMOA, SAP — site nécessite auth, chercher via free-work.com/fr/tech-it/jobs/sirh (missions Comet bien référencées) |
 | ergalis.com / up-skills.fr | Groupe Actual — Ergalis (recrutement IT/RH) + Up Skills (cadres & experts) — CDI Chef/Directeur de Projet SIRH, postes publiés sur welcometothejungle.com/fr/companies/ergalis/jobs |
 | njoyn.com | ATS propriétaire CGI — offres SIRH/SAP non indexées ailleurs, chercher directement sur cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001 |
+
+---
+
+## Catégories free-work.com à fetcher systématiquement
+
+**Problème identifié (2026-07-08) :** les WebSearch `site:free-work.com` ne remontent pas les pages de catégories `/job-mission/`. Il faut les fetcher directement, URL par URL, à chaque relance.
+
+### Catégories SIRH / SAP (onglet "Offres SIRH")
+| URL à fetcher | Ce qu'on y trouve |
+|---|---|
+| `https://www.free-work.com/fr/tech-it/job-mission/administrateur-applicatif-erp-crm-sirh/` | SIRH, SAP HR, Responsable SIRH, PMO SIRH, Chef de projet SIRH |
+| `https://www.free-work.com/fr/tech-it/job-mission/consultant-erp-ms-dynamics-oracle-sage-sap/` | Missions SAP SuccessFactors, SAP HCM, SAP HR |
+| `https://www.free-work.com/fr/tech-it/job-mission/consultant-moa-amoa/` | AMOA SIRH, AMOA IA/Data, Business Analyst RH |
+
+### Catégories IA / Chef de projet (onglets "Offres IA" + "Offres SIRH")
+| URL à fetcher | Ce qu'on y trouve |
+|---|---|
+| `https://www.free-work.com/fr/tech-it/job-mission/assistant-chef-de-projet/` | Chef de projet IA, Chef de projet SIRH, Chef de projet Formation IA |
+| `https://www.free-work.com/fr/tech-it/job-mission/consultant/` | Consultant IA agentique, Formateur IA, Consultant transformation |
+| `https://www.free-work.com/fr/tech-it/job-mission/consultant-decisionnel-bi-powerbi-sas-tableau/` | PMO programme IA, PMO SIRH |
+| `https://www.free-work.com/fr/tech-it/jobs/ia` | Missions IA (recherche transversale) |
+| `https://www.free-work.com/fr/tech-it/jobs/ia-generative` | Missions IA générative spécifiquement |
+
+> **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
 ---
 
