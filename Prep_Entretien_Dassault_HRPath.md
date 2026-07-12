@@ -10,7 +10,7 @@ Deux entretiens successifs :
 1. **Brief interne** avec **Laurent Tarnat**, Associé HR Path en charge de l'entité **HR Mind**. HR Mind est la ligne conseil "amont / métier" du groupe HR Path (2500 collaborateurs, 28 pays) ; ils font de l'AMOA fonctionnel, pas du paramétrage. Laurent est chez HR Path depuis 2006 côté business development et pilotage projet.
 2. **Entretien client Dassault** la semaine suivante.
 
-Ta position : HR Path te "vend" à Dassault. Le brief avec Laurent Tarnat sert à te calibrer sur le contexte, ta posture, ton TJM ; il a intérêt à ce que tu réussisses car il touche la marge. Sois collaboratif, poses les vraies questions.
+Ta position : HR Path te "vend" à Dassault. Le brief avec Laurent Tarnat sert à te calibrer sur le contexte, ta posture, ton TJM ; il a intérêt à ce que tu réussisses car il touche la marge. Sois collaboratif, pose les vraies questions.
 
 Le rôle chez Dassault : consultant senior SF, AMOA fonctionnel pur (pas de paramétrage), pour **challenger l'intégrateur** sur les choix fonctionnels et accompagner le métier. C'est exactement ce que tu faisais chez L'Oréal pendant 10 ans côté DPO.
 
