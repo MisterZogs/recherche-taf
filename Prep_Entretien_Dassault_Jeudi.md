@@ -148,6 +148,12 @@ Dassault Systèmes est éditeur logiciel (3DEXPERIENCE), pas un OIV (Opérateur 
 
 ---
 
+## À clarifier avec Laurent Tarnat AVANT l'entretien
+
+- **"HR Path fait-il uniquement le conseil AMOA sur ce projet, ou aussi l'implémentation technique ?"** — si HR Path est aussi l'intégrateur, ta posture de "challenger" change : tu collabores avec des collègues indirects, pas avec un prestataire externe. Calibre ça avec Laurent avant d'entrer dans la salle.
+
+---
+
 ## Ce que tu sais sur PeopleSoft
 
 PeopleSoft est un SIRH Oracle historique, répandu dans les grandes entreprises françaises des années 2000. Sa logique est différente de SF EC ; c'est un point d'attention majeur pour la migration.
