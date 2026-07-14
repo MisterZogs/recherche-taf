@@ -206,7 +206,7 @@ PeopleSoft est un SIRH Oracle historique, répandu dans les grandes entreprises 
 
 ### Organisation du projet
 
-- "L'intégrateur est-il déjà retenu, ou êtes-vous encore en sélection ?"
+- "L'intégrateur est-il déjà retenu, ou êtes-vous encore en sélection ? Et qui est-il ?"
 - "Quelle est la structure de l'équipe côté Dassault — HRIS Manager, DPO, DRH corporate, DSI ?"
 - "Quel est le sponsor du projet — côté RH, côté DSI, ou les deux ?"
 - "Qu'est-ce qui motive la migration maintenant — fin de maintenance PeopleSoft, décision stratégique groupe, ou les deux ?"
