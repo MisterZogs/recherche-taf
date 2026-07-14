@@ -3,6 +3,40 @@
 
 ---
 
+## Dassault Systèmes — chiffres clés à connaître
+
+### Dirigeante RH — point critique
+
+**Laurence Barthès — Executive Vice President, Chief People & Information Officer**
+
+Elle est à la fois DRH ET DSI. Double portefeurique rare : elle a l'autorité RH et l'autorité IT dans le même périmètre. Le projet SIRH est au cœur de sa fonction. La décision sur l'architecture (cloud souverain, ECP, intégrateur) passe par elle. Si elle est dans la salle jeudi, tu sais à qui tu parles.
+
+Autres dirigeants à connaître :
+- **Pascal Daloz** — CEO (a remplacé Bernard Charlès récemment)
+- **Florence Verzelen** — EVP EMEA
+- **Rouven Bergmann** — CFO
+
+### Effectifs et géographie
+
+- ~**26 000 collaborateurs** dans le monde
+- **184 sites**, **159 pays** avec clients actifs
+- Répartition : **41% Europe / 32% Asie-Pacifique / 27% Amériques**
+- **41% des effectifs en R&D** — culture d'ingénieurs confirmée
+
+### Financier
+
+- **CA 2025 : 6,24 milliards €** (+4% à taux constants)
+- **82% de revenus récurrents**
+- Répartition du CA : USA 47%, France 16%, reste Europe 12%, Asie 19%
+- Le marché américain domine — l'anglais est la langue de travail interne
+
+### Ce que tu places en entretien
+
+- *"26 000 collaborateurs dans 159 pays, c'est un périmètre comparable à L'Oréal — même complexité multi-pays, mêmes enjeux core vs local."*
+- *"J'ai travaillé dans un contexte similaire d'ingénieurs — L'Oréal est une entreprise de science. Le métier RH y est exigeant sur la preuve, pas sur l'intention. C'est une posture que j'ai naturellement."*
+
+---
+
 ## Contexte confirmé
 
 - **Format** : plusieurs interlocuteurs Dassault Systèmes + Laurent Tarnat (HR Path), jeudi 9h
