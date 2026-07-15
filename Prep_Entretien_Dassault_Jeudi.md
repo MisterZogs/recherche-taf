@@ -148,6 +148,24 @@ Dassault Systèmes est éditeur logiciel (3DEXPERIENCE), pas un OIV (Opérateur 
 
 ---
 
+## Points d'attention à mentionner en entretien
+
+### Double saisie pendant et après la migration
+
+Pendant la période de transition — entre le moment où SF EC est en production et celui où PeopleSoft est officiellement décommissionné — les équipes RH risquent de devoir saisir les mêmes informations dans les deux systèmes : tout mouvement (embauche, promotion, départ) saisi dans SF doit parfois être resaisi dans PeopleSoft tant que celui-ci alimente encore d'autres processus (paie Meta4, reporting legacy, badge, Active Directory...).
+
+C'est un point d'attention majeur pour trois raisons :
+
+1. **Charge de travail** — les RH font deux fois le travail pendant une période qui peut durer plusieurs semaines ou mois selon le planning de décommissionnement
+2. **Risque de divergence** — une saisie oubliée ou différente entre les deux systèmes crée une incohérence qui peut bloquer la paie ou fausser le reporting
+3. **Question de gouvernance** — pendant la cohabitation, quel système fait foi ? SF ou PeopleSoft ?
+
+**Ce que tu peux dire en entretien :**
+
+> "Un point d'attention que j'anticipe sur ce type de migration : la période de double saisie entre le go-live SF et le décommissionnement effectif de PeopleSoft. C'est souvent sous-estimé côté charge RH et risque de divergence. Il faut planifier très précisément cette fenêtre — idéalement la réduire au maximum — et décider dès le cadrage quel système est la donnée maître pendant cette cohabitation. Sur L'Oréal on avait imposé une règle simple : dès le go-live SF, SF est la donnée maître ; PeopleSoft est alimenté par interface en lecture seule le temps du décommissionnement, les RH ne saisissent plus dedans."
+
+---
+
 ## À clarifier avec Laurent Tarnat AVANT l'entretien
 
 - **"HR Path fait-il uniquement le conseil AMOA sur ce projet, ou aussi l'implémentation technique ?"** — si HR Path est aussi l'intégrateur, ta posture de "challenger" change : tu collabores avec des collègues indirects, pas avec un prestataire externe. Calibre ça avec Laurent avant d'entrer dans la salle.
