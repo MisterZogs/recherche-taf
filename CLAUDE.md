@@ -162,6 +162,8 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | comet.co | Plateforme freelance tech France (50k+ freelances certifiés), Paris/Lyon/Lille/Nantes — missions SIRH, AMOA, SAP — site nécessite auth, chercher via free-work.com/fr/tech-it/jobs/sirh (missions Comet bien référencées) |
 | ergalis.com / up-skills.fr | Groupe Actual — Ergalis (recrutement IT/RH) + Up Skills (cadres & experts) — CDI Chef/Directeur de Projet SIRH, postes publiés sur welcometothejungle.com/fr/companies/ergalis/jobs |
 | njoyn.com | ATS propriétaire CGI — offres SIRH/SAP non indexées ailleurs, chercher directement sur cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001 |
+| glassdoor.fr | Board généraliste FR + avis salariés — données salariales réelles utiles pour cibler les prétentions ; offres CSM, Account Manager, SAP (bloquer scraping direct, passer par WebSearch "glassdoor.fr actuaire CSM" ou glassdoor.com/Job/france-...) |
+| hellowork.com | Grand board généraliste FR (ex-RegionsJob/Cadreo) — bonne couverture CDI IT/SIRH cadres France ; complémentaire à APEC ; URL directe fetchable : https://www.hellowork.com/fr-fr/emplois/[métier].html |
 
 ---
 
