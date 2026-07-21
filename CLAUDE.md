@@ -210,7 +210,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Aon | `https://jobs.aon.com/jobs?q=SAP+HR&location=France` | HR Consulting, SIRH, données RH |
 | Willis Towers Watson (WTW) | `https://careers.wtwco.com/en/jobs?q=SAP+HR&location=France` | Consultant RH, transformation SIRH |
 | Korn Ferry | `https://jobs.kornferry.com/?search=SAP+HR+France` | Consultant RH, SIRH, talent management |
-| Sia Partners | `https://www.sia-partners.com/fr/carriere/nos-offres` | Consultant IA, transformation RH, AMOA SIRH |
+| Sia Partners | WebSearch `"Sia Partners" consultant SIRH SAP IA France CDI 2026` | Consultant IA, transformation RH, AMOA SIRH (URL directe retournait 404) |
 | Forvis Mazars | `https://www.mazars.fr/Home/Carrieres/Nos-offres-d-emploi` | Consultant SIRH, transformation RH |
 | Oliver Wyman | `https://careers.oliverwyman.com/search/?q=HR+SAP&locationsearch=France` | Conseil RH, transformation digitale |
 | Roland Berger | `https://www.rolandberger.com/fr/Careers/Open-positions/` | Conseil stratégique RH, transformation IA |
