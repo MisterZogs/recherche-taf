@@ -164,6 +164,34 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | njoyn.com | ATS propriétaire CGI — offres SIRH/SAP non indexées ailleurs, chercher directement sur cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001 |
 | glassdoor.fr | Board généraliste FR + avis salariés — données salariales réelles utiles pour cibler les prétentions ; offres CSM, Account Manager, SAP (bloquer scraping direct, passer par WebSearch "glassdoor.fr actuaire CSM" ou glassdoor.com/Job/france-...) |
 | hellowork.com | Grand board généraliste FR (ex-RegionsJob/Cadreo) — bonne couverture CDI IT/SIRH cadres France ; complémentaire à APEC ; URL directe fetchable : https://www.hellowork.com/fr-fr/emplois/[métier].html |
+| welcometothejungle.com | N°1 FR + EU, meilleur board pour remote/senior — filtres remote, contrat, niveau — URL : app.welcometothejungle.com/jobs?remoteOnly=true — rechercher "customer success manager", "consultant SIRH", "formateur IA" |
+| collective.work | Plateforme freelance senior tech FR — missions SIRH, data, consulting — profil à activer |
+| cremedelacreme.io | Freelance senior tech FR — TJM affiché, missions curated — missions SIRH, consulting |
+| wellfound.com | Startups monde, filtres remote + salaire — ex-AngelList ; rechercher "customer success" remote |
+| workatastartup.com | Y Combinator — énorme volume startups, filtres remote + data — rechercher "customer success" ou "HRIS" |
+| ai-jobs.net | Board spécialisé IA/ML — postes formateur IA, consultant IA, AI adoption, Change Manager IA |
+| remoteok.com | Board remote monde — rechercher "customer success" ou "HRIS" — URL : remoteok.com/remote-customer-success-jobs |
+| weworkremotely.com | Board remote monde — rechercher "customer success" — URL : weworkremotely.com/categories/remote-customer-success-jobs |
+| remotive.com | Board remote monde — jobs.remotive.com/remote-jobs/customer-success |
+| euremotejobs.com | Board remote EU — rechercher "customer success" ou "HRIS" |
+| himalayas.app | Remote world — salaire souvent affiché — rechercher "customer success manager" ou "HRIS" |
+
+### ATS directs (à interroger via WebSearch ou fetch direct)
+| ATS | URL / méthode | Ce qu'on cherche |
+|-----|--------------|-----------------|
+| AshbyHQ | jobs.ashbyhq.com — WebSearch `site:jobs.ashbyhq.com "customer success" remote` | Scale-ups modernes : Owkin, ElevenLabs, Plain, Vibe... |
+| Lever | jobs.lever.co — WebSearch `site:jobs.lever.co "customer success manager" remote France` | Qonto, Aircall, autres scale-ups FR |
+| Greenhouse | boards.greenhouse.io — WebSearch `site:boards.greenhouse.io "customer success" remote France` | Typeform, autres |
+
+### Boards VC (portfolio startups bien financées)
+| VC | URL | Ce qu'on cherche |
+|----|-----|-----------------|
+| Index Ventures | jobs.indexventures.com | CSM, HRIS, remote startups portfolio |
+| Balderton | careers.balderton.com/jobs | CSM, consultant, remote EU |
+| Atomico | atomico.com/careers-at-portfolio | CSM, HRIS, remote EU |
+| a16z | jobs.a16z.com | CSM senior, remote world |
+| Sequoia | jobs.sequoiacap.com | CSM, HRIS, startups |
+| Ribbit (fintech) | ribbitcap.com/companies | CSM fintech/HRIS |
 
 ---
 
