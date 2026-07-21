@@ -190,7 +190,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Cabinet | URL carrière | Ce qu'on cherche |
 |---------|-------------|-----------------|
 | Accenture | `https://www.accenture.com/fr-fr/careers/jobsearch?jk=SAP+HCM+SIRH` | SAP HCM, SuccessFactors, Consultant SIRH, CSM |
-| Capgemini | `https://www.capgemini.com/fr-fr/carrieres/offres-d-emploi/` | SAP HR, SIRH, Chef de projet SIRH, AMOA |
+| Capgemini | `https://www.capgemini.com/fr-fr/jobs/` | SAP HR, SIRH, Chef de projet SIRH, AMOA (ancienne URL retournait 404) |
 | IBM Consulting | `https://www.ibm.com/fr-fr/employment/` | SAP SuccessFactors, HRIS Consultant, AI Transformation |
 | Sopra Steria | `https://careers.soprasteria.fr/` | Consultant SAP HR/HCM/SF, Chef de projet SIRH |
 | CGI | `https://cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001` | SAP HCM, SIRH (ATS propriétaire, déjà référencé) |
