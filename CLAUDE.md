@@ -240,20 +240,18 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 ### Éditeurs HRIS (postes CSM / Pre-sales / Implémentation)
 | Entreprise | URL carrière | Ce qu'on cherche |
 |-----------|-------------|-----------------|
-| ADP | `https://jobs.adp.com/search-results/?keywords=SAP+OR+HRIS+OR+customer+success&location=France` | CSM Senior, Implementation Consultant HRIS, Solution Advisor, Account Manager — HRIS global |
-| SD Worx | `https://www.sdworx.com/en-gb/about-sd-worx/jobs` | Implementation Consultant, Customer Success, SAP HR — paie/RH Europe |
-| Ceridian / Dayforce | `https://www.ceridian.com/en-gb/about/careers` | CSM Senior, Implementation Consultant, Solution Consultant HRIS |
-| Workday | `https://www.workday.com/en-us/company/careers/open-positions.html` | CSM Enterprise, Implementation Consultant, Pre-sales HCM — profil senior |
+| ADP | WebSearch `ADP "customer success" OR "implementation consultant" OR "solution advisor" France emploi 2026` | CSM Senior, Implementation Consultant HRIS, Solution Advisor — HRIS global (URL directe en 404, passer par welcometothejungle.com/fr/companies/adp/jobs) |
+| SD Worx | WebSearch `"SD Worx" implementation consultant OR CSM France emploi 2026` | Implementation Consultant, Customer Success, SAP HR — paie/RH Europe (URL directe en 404) |
+| Ceridian / Dayforce | `https://www.dayforce.com/about/careers` | CSM Senior, Implementation Consultant, Solution Consultant HRIS (redirige depuis ceridian.com) |
+| Workday | `https://workday.wd5.myworkdayjobs.com/Workday` | CSM Enterprise, Implementation Consultant, Pre-sales HCM — profil senior (URL redirigée) |
 | Cornerstone OnDemand | `https://www.cornerstoneondemand.com/company/careers/` | CSM Senior, Account Manager — talent management SaaS |
 | ServiceNow | `https://careers.servicenow.com/jobs/` | CSM Senior, Solution Consultant HR Service Delivery |
 | UKG (Ultimate Kronos) | `https://www.ukg.com/about-us/careers` | Implementation Consultant, CSM, HCM consultant |
-| Cegid | `https://www.cegid.com/fr/nous-rejoindre/offres-d-emploi/` | CSM, Chef de projet SIRH, Implementation Consultant — éditeur SIRH FR |
+| Cegid | WebSearch `"Cegid" consultant SIRH OR CSM OR chef projet emploi France 2026` | CSM, Chef de projet SIRH, Implementation Consultant — éditeur SIRH FR (URL directe en 404) |
 | Talentia Software | WebSearch `"Talentia Software" consultant SIRH emploi France 2026` | Consultant SIRH, Implementation, CSM — éditeur RH/Finance FR |
-| Lucca | `https://www.lucca.fr/rejoindre-lucca/nos-offres/` | CSM, Account Manager, Implementation — SIRH SaaS France |
-| Payfit | `https://jobs.payfit.com/` | CSM, Account Manager — paie/SIRH SaaS France |
-| Personio | `https://www.personio.com/about-personio/careers/` | CSM Senior, Account Executive, Implementation — SIRH PME Europe |
-
-> **Note :** Pour Alight, le site charge parfois en JS ; si le fetch échoue, utiliser WebSearch `"Alight" consultant SAP HCM OR SuccessFactors France 2026`.
+| Lucca | WebSearch `"Lucca" CSM OR "customer success" OR implémentation emploi France 2026` | CSM, Account Manager, Implementation — SIRH SaaS France (URL directe en 404) |
+| Payfit | WebSearch `"Payfit" CSM OR "customer success" OR "account manager" emploi France 2026` | CSM, Account Manager — paie/SIRH SaaS France (URL directe ECONNREFUSED) |
+| Personio | WebSearch `"Personio" CSM OR "customer success" France emploi 2026` | CSM Senior, Account Executive, Implementation — SIRH PME Europe (URL directe en 404) |
 
 ---
 
