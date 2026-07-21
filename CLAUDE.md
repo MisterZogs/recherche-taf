@@ -229,13 +229,13 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 ### Partenaires SAP HR / Intégrateurs spécialisés
 | Entreprise | URL carrière | Ce qu'on cherche |
 |-----------|-------------|-----------------|
-| Alight (ex-NGA Human Resources) | `https://careers.alight.com/us/en/search-results?keywords=SAP` | CSM, SAP HCM Consultant, Implementation Consultant, Project Manager HRIS — 1er partenaire mondial SAP HR managed services |
+| Alight (ex-NGA Human Resources) | WebSearch `"Alight Solutions" consultant SAP HCM OR SuccessFactors France 2026` | CSM, SAP HCM Consultant, Implementation Consultant, Project Manager HRIS — 1er partenaire mondial SAP HR managed services (site JS, URL directe en 404) |
 | Zalaris | `https://www.zalaris.com/careers/` | SAP HR/HCM Consultant, Project Manager, Payroll Consultant — spécialiste SAP HR Europe nordique + DACH + France |
-| Rizing (groupe Verizon) | `https://rizing.com/careers/` | SAP HCM / SuccessFactors Consultant, Senior Consultant — pure player SAP HCM/SF |
-| Inetum (ex-GFI) | `https://carriere.inetum.com/` | Consultant SAP HR, Chef de projet SIRH, AMOA SIRH — acteur majeur SAP France |
+| Rizing (groupe Verizon) | WebSearch `"Rizing" SAP HCM SuccessFactors consultant France emploi 2026` | SAP HCM / SuccessFactors Consultant, Senior Consultant — pure player SAP HCM/SF (URL directe en 404) |
+| Inetum (ex-GFI) | WebSearch `"Inetum" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR, Chef de projet SIRH, AMOA SIRH — acteur majeur SAP France (site ECONNREFUSED) |
 | Expleo | `https://www.expleo.com/fr/carrieres/nos-offres/` | Consultant SAP HR, Chef de projet SIRH — consulting technique France |
 | Randstad Digital (ex-Ausy) | WebSearch `"Randstad Digital" SAP HCM SuccessFactors consultant France 2026` | SAP HCM, SuccessFactors, AMOA SIRH |
-| Alten | `https://www.alten.fr/offres-emploi/` | Consultant SAP HR/HCM, Chef de projet SIRH — SSII France |
+| Alten | WebSearch `"Alten" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR/HCM, Chef de projet SIRH — SSII France (site en 403) |
 
 ### Éditeurs HRIS (postes CSM / Pre-sales / Implémentation)
 | Entreprise | URL carrière | Ce qu'on cherche |
