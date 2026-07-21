@@ -222,6 +222,41 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 
 ---
 
+## Éditeurs HRIS & Partenaires d'implémentation SAP - Pages carrière directes
+
+Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logiciels HRIS** et des **intégrateurs SAP spécialisés**. Postes ciblés : **CSM / Account Manager**, **Implementation Consultant**, **Solution Advisor / Pre-sales**, **Consultant SAP HCM/SF**, **Chef de projet HRIS**.
+
+### Partenaires SAP HR / Intégrateurs spécialisés
+| Entreprise | URL carrière | Ce qu'on cherche |
+|-----------|-------------|-----------------|
+| Alight (ex-NGA Human Resources) | `https://careers.alight.com/us/en/search-results?keywords=SAP` | CSM, SAP HCM Consultant, Implementation Consultant, Project Manager HRIS — 1er partenaire mondial SAP HR managed services |
+| Zalaris | `https://www.zalaris.com/careers/` | SAP HR/HCM Consultant, Project Manager, Payroll Consultant — spécialiste SAP HR Europe nordique + DACH + France |
+| Rizing (groupe Verizon) | `https://rizing.com/careers/` | SAP HCM / SuccessFactors Consultant, Senior Consultant — pure player SAP HCM/SF |
+| Inetum (ex-GFI) | `https://carriere.inetum.com/` | Consultant SAP HR, Chef de projet SIRH, AMOA SIRH — acteur majeur SAP France |
+| Expleo | `https://www.expleo.com/fr/carrieres/nos-offres/` | Consultant SAP HR, Chef de projet SIRH — consulting technique France |
+| Randstad Digital (ex-Ausy) | WebSearch `"Randstad Digital" SAP HCM SuccessFactors consultant France 2026` | SAP HCM, SuccessFactors, AMOA SIRH |
+| Alten | `https://www.alten.fr/offres-emploi/` | Consultant SAP HR/HCM, Chef de projet SIRH — SSII France |
+
+### Éditeurs HRIS (postes CSM / Pre-sales / Implémentation)
+| Entreprise | URL carrière | Ce qu'on cherche |
+|-----------|-------------|-----------------|
+| ADP | `https://jobs.adp.com/search-results/?keywords=SAP+OR+HRIS+OR+customer+success&location=France` | CSM Senior, Implementation Consultant HRIS, Solution Advisor, Account Manager — HRIS global |
+| SD Worx | `https://www.sdworx.com/en-gb/about-sd-worx/jobs` | Implementation Consultant, Customer Success, SAP HR — paie/RH Europe |
+| Ceridian / Dayforce | `https://www.ceridian.com/en-gb/about/careers` | CSM Senior, Implementation Consultant, Solution Consultant HRIS |
+| Workday | `https://www.workday.com/en-us/company/careers/open-positions.html` | CSM Enterprise, Implementation Consultant, Pre-sales HCM — profil senior |
+| Cornerstone OnDemand | `https://www.cornerstoneondemand.com/company/careers/` | CSM Senior, Account Manager — talent management SaaS |
+| ServiceNow | `https://careers.servicenow.com/jobs/` | CSM Senior, Solution Consultant HR Service Delivery |
+| UKG (Ultimate Kronos) | `https://www.ukg.com/about-us/careers` | Implementation Consultant, CSM, HCM consultant |
+| Cegid | `https://www.cegid.com/fr/nous-rejoindre/offres-d-emploi/` | CSM, Chef de projet SIRH, Implementation Consultant — éditeur SIRH FR |
+| Talentia Software | WebSearch `"Talentia Software" consultant SIRH emploi France 2026` | Consultant SIRH, Implementation, CSM — éditeur RH/Finance FR |
+| Lucca | `https://www.lucca.fr/rejoindre-lucca/nos-offres/` | CSM, Account Manager, Implementation — SIRH SaaS France |
+| Payfit | `https://jobs.payfit.com/` | CSM, Account Manager — paie/SIRH SaaS France |
+| Personio | `https://www.personio.com/about-personio/careers/` | CSM Senior, Account Executive, Implementation — SIRH PME Europe |
+
+> **Note :** Pour Alight, le site charge parfois en JS ; si le fetch échoue, utiliser WebSearch `"Alight" consultant SAP HCM OR SuccessFactors France 2026`.
+
+---
+
 ## Catégories free-work.com à fetcher systématiquement
 
 **Problème identifié (2026-07-08) :** les WebSearch `site:free-work.com` ne remontent pas les pages de catégories `/job-mission/`. Il faut les fetcher directement, URL par URL, à chaque relance.
