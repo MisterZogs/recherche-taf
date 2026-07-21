@@ -214,8 +214,8 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Forvis Mazars | `https://www.mazars.fr/Home/Carrieres/Nos-offres-d-emploi` | Consultant SIRH, transformation RH |
 | Oliver Wyman | `https://careers.oliverwyman.com/search/?q=HR+SAP&locationsearch=France` | Conseil RH, transformation digitale |
 | Roland Berger | `https://www.rolandberger.com/fr/Careers/Open-positions/` | Conseil stratégique RH, transformation IA |
-| Colombus Consulting | `https://www.colombus-consulting.com/rejoignez-nous/nos-offres/` | AMOA SIRH, SAP, transformation RH |
-| Eleven (ex-Eurogroup) | `https://eleven-advisory.com/rejoindre-eleven/offres/` | Conseil RH, SIRH, transformation |
+| Colombus Consulting | WebSearch `"Colombus Consulting" SIRH SAP AMOA emploi France 2026` | AMOA SIRH, SAP, transformation RH (URL directe retournait 404) |
+| Eleven (ex-Eurogroup) | WebSearch `"Eleven Advisory" OR "Eurogroup Consulting" consultant RH SIRH France CDI 2026` | Conseil RH, SIRH, transformation (site ECONNREFUSED) |
 | Ayming | `https://www.ayming.fr/carrieres/` | Conseil RH, SIRH, performance |
 
 > **Note WebSearch :** Pour les sites qui bloquent le fetch direct (TCS, Infosys, Wipro, HCL), utiliser WebSearch avec `"[cabinet] SAP HCM OR SuccessFactors consultant France 2026"`.
