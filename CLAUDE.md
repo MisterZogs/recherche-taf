@@ -192,7 +192,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Accenture | `https://www.accenture.com/fr-fr/careers/jobsearch?jk=SAP+HCM+SIRH` | SAP HCM, SuccessFactors, Consultant SIRH, CSM |
 | Capgemini | `https://www.capgemini.com/fr-fr/carrieres/offres-d-emploi/` | SAP HR, SIRH, Chef de projet SIRH, AMOA |
 | IBM Consulting | `https://www.ibm.com/fr-fr/employment/` | SAP SuccessFactors, HRIS Consultant, AI Transformation |
-| Sopra Steria | `https://www.soprasteria.com/fr/carrieres/nos-offres` | Consultant SAP HR/HCM/SF, Chef de projet SIRH |
+| Sopra Steria | `https://careers.soprasteria.fr/` | Consultant SAP HR/HCM/SF, Chef de projet SIRH |
 | CGI | `https://cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001` | SAP HCM, SIRH (ATS propriétaire, déjà référencé) |
 | Atos / Eviden | `https://jobs.eviden.com/?search=SAP+HR` | SAP HR, SuccessFactors, AMOA SIRH |
 | Wavestone | `https://www.wavestone.com/fr/rejoindre-wavestone/nos-offres/` | Consultant transformation RH, SIRH, IA RH |
