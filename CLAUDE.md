@@ -167,6 +167,61 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 
 ---
 
+## Cabinets de conseil - Pages carrière directes
+
+À fetcher directement lors de chaque relance de recherche. Postes ciblés : **Consultant SIRH / SAP HCM / SuccessFactors**, **Chef de projet SIRH**, **AMOA**, **Pre-sales / Solution Advisor HR Tech**, **CSM Enterprise**, **Formateur IA / Consultant IA**.
+
+### Big 4 (audit + conseil)
+| Cabinet | URL carrière | Ce qu'on cherche |
+|---------|-------------|-----------------|
+| Deloitte | `https://apply.deloitte.com/careers/SearchJobs/?3_56_3=300060` | Consultant SIRH, SAP HCM, Chef de projet RH, Formateur IA |
+| PwC | `https://www.pwc.fr/fr/carrieres/offres-d-emploi.html` | Consultant SAP HR, AMOA SIRH, transformation RH |
+| EY | `https://careers.ey.com/ey/search/?q=SIRH+SAP&locationsearch=France` | Consultant SAP SuccessFactors, SAP HCM, AMOA |
+| KPMG | `https://kpmg.com/fr/fr/home/carrieres/offres-d-emploi.html` | Consultant SIRH, SAP RH, transformation digitale RH |
+
+### Big 3 (stratégie)
+| Cabinet | URL carrière | Ce qu'on cherche |
+|---------|-------------|-----------------|
+| McKinsey | `https://www.mckinsey.com/fr/careers` | Expert RH / People Analytics / transformation digitale |
+| BCG | `https://careers.bcg.com/search-jobs?country=FR` | Consultant transformation RH, digital HR |
+| Bain | `https://www.bain.com/careers/find-a-role/?office=Paris` | Consultant transformation RH, expertise SAP |
+
+### IT Services & Conseil global
+| Cabinet | URL carrière | Ce qu'on cherche |
+|---------|-------------|-----------------|
+| Accenture | `https://www.accenture.com/fr-fr/careers/jobsearch?jk=SAP+HCM+SIRH` | SAP HCM, SuccessFactors, Consultant SIRH, CSM |
+| Capgemini | `https://www.capgemini.com/fr-fr/carrieres/offres-d-emploi/` | SAP HR, SIRH, Chef de projet SIRH, AMOA |
+| IBM Consulting | `https://www.ibm.com/fr-fr/employment/` | SAP SuccessFactors, HRIS Consultant, AI Transformation |
+| Sopra Steria | `https://www.soprasteria.com/fr/carrieres/nos-offres` | Consultant SAP HR/HCM/SF, Chef de projet SIRH |
+| CGI | `https://cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001` | SAP HCM, SIRH (ATS propriétaire, déjà référencé) |
+| Atos / Eviden | `https://jobs.eviden.com/?search=SAP+HR` | SAP HR, SuccessFactors, AMOA SIRH |
+| Wavestone | `https://www.wavestone.com/fr/rejoindre-wavestone/nos-offres/` | Consultant transformation RH, SIRH, IA RH |
+| TCS | `https://www.tcs.com/careers/global/search-apply` | SAP HCM, SuccessFactors, HRIS Consultant (WebSearch "TCS SAP HCM France careers") |
+| Infosys | `https://career.infosys.com/jobdesc?jobReferenceCode=INFSRNJP00199` | SAP SuccessFactors, HCM (WebSearch "Infosys SAP HR France") |
+| Wipro | `https://careers.wipro.com/careers-home/jobs?search=SAP+HCM` | SAP HCM, SIRH |
+| HCL Technologies | `https://www.hcltech.com/careers` | SAP HR, HCM, SF (WebSearch "HCL SAP SuccessFactors France") |
+| Tech Mahindra | `https://careers.techmahindra.com/Search?q=SAP+HR` | SAP HR, HCM |
+
+### Cabinets RH / HR Tech spécialisés
+| Cabinet | URL carrière | Ce qu'on cherche |
+|---------|-------------|-----------------|
+| HR Path | `https://jobs.hr-path.com/jobs` | Consultant SAP HCM, SuccessFactors, AMOA SIRH — très ciblé |
+| Mercer | `https://careers.mercer.com/en/search-jobs?q=SIRH+SAP&country=FR` | Consultant SIRH, transformation RH, SAP |
+| Aon | `https://jobs.aon.com/jobs?q=SAP+HR&location=France` | HR Consulting, SIRH, données RH |
+| Willis Towers Watson (WTW) | `https://careers.wtwco.com/en/jobs?q=SAP+HR&location=France` | Consultant RH, transformation SIRH |
+| Korn Ferry | `https://jobs.kornferry.com/?search=SAP+HR+France` | Consultant RH, SIRH, talent management |
+| Sia Partners | `https://www.sia-partners.com/fr/carriere/nos-offres` | Consultant IA, transformation RH, AMOA SIRH |
+| Forvis Mazars | `https://www.mazars.fr/Home/Carrieres/Nos-offres-d-emploi` | Consultant SIRH, transformation RH |
+| Oliver Wyman | `https://careers.oliverwyman.com/search/?q=HR+SAP&locationsearch=France` | Conseil RH, transformation digitale |
+| Roland Berger | `https://www.rolandberger.com/fr/Careers/Open-positions/` | Conseil stratégique RH, transformation IA |
+| Colombus Consulting | `https://www.colombus-consulting.com/rejoignez-nous/nos-offres/` | AMOA SIRH, SAP, transformation RH |
+| Eleven (ex-Eurogroup) | `https://eleven-advisory.com/rejoindre-eleven/offres/` | Conseil RH, SIRH, transformation |
+| Ayming | `https://www.ayming.fr/carrieres/` | Conseil RH, SIRH, performance |
+
+> **Note WebSearch :** Pour les sites qui bloquent le fetch direct (TCS, Infosys, Wipro, HCL), utiliser WebSearch avec `"[cabinet] SAP HCM OR SuccessFactors consultant France 2026"`.
+
+---
+
 ## Catégories free-work.com à fetcher systématiquement
 
 **Problème identifié (2026-07-08) :** les WebSearch `site:free-work.com` ne remontent pas les pages de catégories `/job-mission/`. Il faut les fetcher directement, URL par URL, à chaque relance.
