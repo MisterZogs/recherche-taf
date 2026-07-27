@@ -287,21 +287,26 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 
 **Problème identifié (2026-07-08) :** les WebSearch `site:free-work.com` ne remontent pas les pages de catégories `/job-mission/`. Il faut les fetcher directement, URL par URL, à chaque relance.
 
-### Catégories SIRH / SAP (onglet "Offres SIRH")
-| URL à fetcher | Ce qu'on y trouve |
-|---|---|
-| `https://www.free-work.com/fr/tech-it/job-mission/administrateur-applicatif-erp-crm-sirh/` | SIRH, SAP HR, Responsable SIRH, PMO SIRH, Chef de projet SIRH |
-| `https://www.free-work.com/fr/tech-it/job-mission/consultant-erp-ms-dynamics-oracle-sage-sap/` | Missions SAP SuccessFactors, SAP HCM, SAP HR |
-| `https://www.free-work.com/fr/tech-it/job-mission/consultant-moa-amoa/` | AMOA SIRH, AMOA IA/Data, Business Analyst RH |
+**Mise à jour (2026-07-27) :** les 5 URLs `/job-mission/` SIRH retournent toutes 404 — la structure du site a changé. Utiliser à la place les WebSearch suivantes pour SIRH/SAP :
+- `site:free-work.com SAP HCM OR SAP HR OR SuccessFactors OR SIRH mission freelance France`
+- `site:free-work.com AMOA SIRH OR "chef de projet SIRH" mission France`
+
+Les URLs `/jobs/ia` et `/jobs/ia-generative` fonctionnent encore (fetch direct).
 
 ### Catégories IA / Chef de projet (onglets "Offres IA" + "Offres SIRH")
 | URL à fetcher | Ce qu'on y trouve |
 |---|---|
-| `https://www.free-work.com/fr/tech-it/job-mission/assistant-chef-de-projet/` | Chef de projet IA, Chef de projet SIRH, Chef de projet Formation IA |
-| `https://www.free-work.com/fr/tech-it/job-mission/consultant/` | Consultant IA agentique, Formateur IA, Consultant transformation |
-| `https://www.free-work.com/fr/tech-it/job-mission/consultant-decisionnel-bi-powerbi-sas-tableau/` | PMO programme IA, PMO SIRH |
-| `https://www.free-work.com/fr/tech-it/jobs/ia` | Missions IA (recherche transversale) |
-| `https://www.free-work.com/fr/tech-it/jobs/ia-generative` | Missions IA générative spécifiquement |
+| `https://www.free-work.com/fr/tech-it/jobs/ia` | Missions IA (recherche transversale) — ✅ fonctionne |
+| `https://www.free-work.com/fr/tech-it/jobs/ia-generative` | Missions IA générative spécifiquement — ✅ fonctionne |
+
+### Catégories SIRH / SAP — URLs cassées (404 depuis 2026-07-27), remplacer par WebSearch
+| Ancienne URL | Alternative |
+|---|---|
+| `/job-mission/administrateur-applicatif-erp-crm-sirh/` | WebSearch `site:free-work.com SIRH SAP HR chef projet` |
+| `/job-mission/consultant-erp-ms-dynamics-oracle-sage-sap/` | WebSearch `site:free-work.com SAP HCM SuccessFactors mission` |
+| `/job-mission/consultant-moa-amoa/` | WebSearch `site:free-work.com AMOA SIRH mission France` |
+| `/job-mission/assistant-chef-de-projet/` | WebSearch `site:free-work.com "chef de projet" IA SIRH mission` |
+| `/job-mission/consultant/` | WebSearch `site:free-work.com consultant IA générative formateur` |
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
