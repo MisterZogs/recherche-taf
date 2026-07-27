@@ -184,13 +184,16 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Greenhouse | boards.greenhouse.io — WebSearch `site:boards.greenhouse.io "customer success" remote France` | Typeform, autres |
 
 ### Boards VC (portfolio startups bien financées)
-| VC | URL | Ce qu'on cherche |
+
+> **Note (27/07/2026) :** jobs.indexventures.com (erreur TLS), careers.balderton.com, jobs.a16z.com, jobs.sequoiacap.com — tous en pages JS sans contenu scrappable. Utiliser WebSearch : `site:jobs.indexventures.com "customer success"`, etc.
+
+| VC | URL / méthode | Ce qu'on cherche |
 |----|-----|-----------------|
-| Index Ventures | jobs.indexventures.com | CSM, HRIS, remote startups portfolio |
-| Balderton | careers.balderton.com/jobs | CSM, consultant, remote EU |
+| Index Ventures | WebSearch `site:jobs.indexventures.com "customer success" OR HRIS remote` | CSM, HRIS, remote startups portfolio |
+| Balderton | WebSearch `site:careers.balderton.com "customer success" OR consultant remote EU` | CSM, consultant, remote EU |
 | Atomico | atomico.com/careers-at-portfolio | CSM, HRIS, remote EU |
-| a16z | jobs.a16z.com | CSM senior, remote world |
-| Sequoia | jobs.sequoiacap.com | CSM, HRIS, startups |
+| a16z | WebSearch `site:jobs.a16z.com "customer success" remote` | CSM senior, remote world |
+| Sequoia | WebSearch `site:jobs.sequoiacap.com "customer success" OR HRIS` | CSM, HRIS, startups |
 | Ribbit (fintech) | ribbitcap.com/companies | CSM fintech/HRIS |
 
 ---
