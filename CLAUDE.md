@@ -257,7 +257,7 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 ### Partenaires SAP HR / Intégrateurs spécialisés
 | Entreprise | URL carrière | Ce qu'on cherche |
 |-----------|-------------|-----------------|
-| Alight (ex-NGA Human Resources) | WebSearch `"Alight Solutions" consultant SAP HCM OR SuccessFactors France 2026` | CSM, SAP HCM Consultant, Implementation Consultant, Project Manager HRIS — 1er partenaire mondial SAP HR managed services (site JS, URL directe en 404) |
+| Strada (ex-Alight / ex-NGA Human Resources) | `https://careers.alight.com/strada` — WebSearch `"Strada" OR "Alight" consultant SAP HCM France 2026` | CSM, SAP HCM Consultant, Implementation Consultant — 1er partenaire mondial SAP HR. **Rebrand 2024 : la division SAP HCM s'appelle désormais Strada.** Postes France à Colombes, fetch direct fonctionne sur careers.alight.com/strada |
 | Zalaris | `https://www.zalaris.com/careers/` | SAP HR/HCM Consultant, Project Manager, Payroll Consultant — spécialiste SAP HR Europe nordique + DACH + France |
 | Rizing (groupe Verizon) | WebSearch `"Rizing" SAP HCM SuccessFactors consultant France emploi 2026` | SAP HCM / SuccessFactors Consultant, Senior Consultant — pure player SAP HCM/SF (URL directe en 404) |
 | Inetum (ex-GFI) | WebSearch `"Inetum" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR, Chef de projet SIRH, AMOA SIRH — acteur majeur SAP France (site ECONNREFUSED) |
