@@ -247,7 +247,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Roland Berger | `https://www.rolandberger.com/fr/Careers/Open-positions/` | Conseil stratégique RH, transformation IA |
 | Colombus Consulting | WebSearch `"Colombus Consulting" SIRH SAP AMOA emploi France 2026` | AMOA SIRH, SAP, transformation RH (URL directe retournait 404) |
 | Eleven (ex-Eurogroup) | WebSearch `"Eleven Advisory" OR "Eurogroup Consulting" consultant RH SIRH France CDI 2026` | Conseil RH, SIRH, transformation (site ECONNREFUSED) |
-| Ayming | `https://www.ayming.fr/carrieres/` | Conseil RH, SIRH, performance |
+| Ayming | WebSearch `"Ayming" consultant RH SIRH emploi France 2026` — URL directe en 404 (27/07/2026) | Conseil RH, SIRH, performance |
 
 > **Note WebSearch :** Pour les sites qui bloquent le fetch direct (TCS, Infosys, Wipro, HCL), utiliser WebSearch avec `"[cabinet] SAP HCM OR SuccessFactors consultant France 2026"`.
 
