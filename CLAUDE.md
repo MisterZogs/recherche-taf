@@ -163,7 +163,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | ergalis.com / up-skills.fr | Groupe Actual — Ergalis (recrutement IT/RH) + Up Skills (cadres & experts) — CDI Chef/Directeur de Projet SIRH, postes publiés sur welcometothejungle.com/fr/companies/ergalis/jobs |
 | njoyn.com | ATS propriétaire CGI — offres SIRH/SAP non indexées ailleurs, chercher directement sur cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001 |
 | glassdoor.fr | Board généraliste FR + avis salariés — données salariales réelles utiles pour cibler les prétentions ; offres CSM, Account Manager, SAP (bloquer scraping direct, passer par WebSearch "glassdoor.fr actuaire CSM" ou glassdoor.com/Job/france-...) |
-| hellowork.com | Grand board généraliste FR (ex-RegionsJob/Cadreo) — bonne couverture CDI IT/SIRH cadres France ; complémentaire à APEC ; URL directe fetchable : https://www.hellowork.com/fr-fr/emplois/[métier].html |
+| hellowork.com | Grand board généraliste FR (ex-RegionsJob/Cadreo) — bonne couverture CDI IT/SIRH cadres France ; complémentaire à APEC ; URLs `/fr-fr/emplois/[métier].html` retournaient 404 le 27/07/2026 — utiliser WebSearch `site:hellowork.com consultant SIRH OR "customer success"` |
 | welcometothejungle.com | N°1 FR + EU, meilleur board pour remote/senior — filtres remote, contrat, niveau — URL : app.welcometothejungle.com/jobs?remoteOnly=true — rechercher "customer success manager", "consultant SIRH", "formateur IA" |
 | collective.work | Plateforme freelance senior tech FR — missions SIRH, data, consulting — profil à activer |
 | cremedelacreme.io | Freelance senior tech FR — TJM affiché, missions curated — missions SIRH, consulting |
