@@ -214,8 +214,8 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Cabinet | URL carrière | Ce qu'on cherche |
 |---------|-------------|-----------------|
 | McKinsey | `https://www.mckinsey.com/fr/careers` | Expert RH / People Analytics / transformation digitale |
-| BCG | `https://careers.bcg.com/search-jobs?country=FR` | Consultant transformation RH, digital HR |
-| Bain | `https://www.bain.com/careers/find-a-role/?office=Paris` | Consultant transformation RH, expertise SAP |
+| BCG | WebSearch `"BCG" consultant transformation RH digital HR France emploi 2026` — URL directe en 404 (27/07/2026) | Consultant transformation RH, digital HR |
+| Bain | WebSearch `"Bain" consultant transformation RH expertise SAP France emploi 2026` — URL directe en 404 (27/07/2026) | Consultant transformation RH, expertise SAP |
 
 ### IT Services & Conseil global
 | Cabinet | URL carrière | Ce qu'on cherche |
