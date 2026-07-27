@@ -225,7 +225,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | IBM Consulting | `https://www.ibm.com/fr-fr/employment/` | SAP SuccessFactors, HRIS Consultant, AI Transformation |
 | Sopra Steria | `https://careers.soprasteria.fr/` | Consultant SAP HR/HCM/SF, Chef de projet SIRH |
 | CGI | `https://cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001` | SAP HCM, SIRH (ATS propriétaire, déjà référencé) |
-| Atos / Eviden | `https://jobs.eviden.com/?search=SAP+HR` | SAP HR, SuccessFactors, AMOA SIRH |
+| Atos / Eviden | WebSearch `"Eviden" OR "Atos" consultant SAP HR SuccessFactors France 2026` — jobs.eviden.com ECONNREFUSED (27/07/2026) | SAP HR, SuccessFactors, AMOA SIRH |
 | Wavestone | `https://www.wavestone.com/fr/rejoindre-wavestone/nos-offres/` | Consultant transformation RH, SIRH, IA RH |
 | TCS | `https://www.tcs.com/careers/global/search-apply` | SAP HCM, SuccessFactors, HRIS Consultant (WebSearch "TCS SAP HCM France careers") |
 | Infosys | `https://career.infosys.com/jobdesc?jobReferenceCode=INFSRNJP00199` | SAP SuccessFactors, HCM (WebSearch "Infosys SAP HR France") |
