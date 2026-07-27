@@ -273,7 +273,7 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 |-----------|-------------|-----------------|
 | ADP | WebSearch `ADP "customer success" OR "implementation consultant" OR "solution advisor" France emploi 2026` | CSM Senior, Implementation Consultant HRIS, Solution Advisor — HRIS global (URL directe en 404, passer par welcometothejungle.com/fr/companies/adp/jobs) |
 | SD Worx | WebSearch `"SD Worx" implementation consultant OR CSM France emploi 2026` | Implementation Consultant, Customer Success, SAP HR — paie/RH Europe (URL directe en 404) |
-| Ceridian / Dayforce | `https://www.dayforce.com/about/careers` | CSM Senior, Implementation Consultant, Solution Consultant HRIS (redirige depuis ceridian.com) |
+| Ceridian / Dayforce | WebSearch `"Dayforce" OR "Ceridian" CSM OR "implementation consultant" France 2026` — URL directe en 404 (27/07/2026) | CSM Senior, Implementation Consultant, Solution Consultant HRIS |
 | Workday | `https://workday.wd5.myworkdayjobs.com/Workday` | CSM Enterprise, Implementation Consultant, Pre-sales HCM — profil senior (URL redirigée) |
 | Cornerstone OnDemand | `https://www.cornerstoneondemand.com/company/careers/` | CSM Senior, Account Manager — talent management SaaS |
 | ServiceNow | `https://careers.servicenow.com/jobs/` | CSM Senior, Solution Consultant HR Service Delivery |
