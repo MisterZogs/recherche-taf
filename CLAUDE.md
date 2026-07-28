@@ -206,7 +206,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | Cabinet | URL carrière | Ce qu'on cherche |
 |---------|-------------|-----------------|
 | Deloitte | `https://apply.deloitte.com/careers/SearchJobs/?3_56_3=300060` | Consultant SIRH, SAP HCM, Chef de projet RH, Formateur IA |
-| PwC | WebSearch `"PwC" consultant SAP HR OR SIRH OR AMOA France emploi 2026` — URL directe en 403 (27/07/2026) | Consultant SAP HR, AMOA SIRH, transformation RH |
+| PwC | WebSearch `"PwC" consultant SAP HR OR SIRH OR AMOA France emploi 2026` — URL 403, aucun poste France identifié (27-28/07/2026) — relancer ponctuellement | Consultant SAP HR, AMOA SIRH, transformation RH |
 | EY | `https://careers.ey.com/ey/search/?q=SIRH+SAP&locationsearch=France` | Consultant SAP SuccessFactors, SAP HCM, AMOA |
 | KPMG | `https://kpmg.com/fr/fr/home/carrieres/offres-d-emploi.html` | Consultant SIRH, SAP RH, transformation digitale RH |
 
