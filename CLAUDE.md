@@ -169,10 +169,10 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | cremedelacreme.io | Freelance senior tech FR — TJM affiché, missions curated — missions SIRH, consulting |
 | wellfound.com | Startups monde, filtres remote + salaire — ex-AngelList ; rechercher "customer success" remote |
 | workatastartup.com | Y Combinator — énorme volume startups, filtres remote + data — rechercher "customer success" ou "HRIS" |
-| ai-jobs.net | Board spécialisé IA/ML — postes formateur IA, consultant IA, AI adoption, Change Manager IA |
-| remoteok.com | Board remote monde — URL directe en 403 (27/07/2026) — utiliser WebSearch `site:remoteok.com "customer success" OR "HRIS"` |
+| ai-jobs.net | ~~Board spécialisé IA/ML~~ — **peu utile pour ce profil** : contenu dev/data pur (MLOps, RAG, Python), aucun poste formateur IA non-technique trouvé (27-28/07/2026) — ne pas inclure dans les relances |
+| remoteok.com | Board remote monde — **US-centré, résultats France rares** (28/07/2026) — ne pas inclure dans les relances sauf besoin spécifique |
 | weworkremotely.com | Board remote monde — rechercher "customer success" — URL : weworkremotely.com/categories/remote-customer-success-jobs |
-| remotive.com | Board remote monde — ECONNREFUSED (27/07/2026) — utiliser WebSearch `site:remotive.com "customer success" OR "HRIS" remote France` |
+| remotive.com | Board remote monde — **US-centré, résultats France rares** (28/07/2026) — ne pas inclure dans les relances sauf besoin spécifique |
 | euremotejobs.com | Board remote EU — rechercher "customer success" ou "HRIS" |
 | himalayas.app | Remote world — salaire souvent affiché — rechercher "customer success manager" ou "HRIS" |
 
