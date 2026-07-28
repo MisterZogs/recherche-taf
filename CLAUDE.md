@@ -275,9 +275,9 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 | SD Worx | WebSearch `"SD Worx" implementation consultant OR CSM France emploi 2026` | Implementation Consultant, Customer Success, SAP HR — paie/RH Europe (URL directe en 404) |
 | Ceridian / Dayforce | WebSearch `"Dayforce" OR "Ceridian" CSM OR "implementation consultant" France 2026` — URL directe en 404 (27/07/2026) | CSM Senior, Implementation Consultant, Solution Consultant HRIS |
 | Workday | `https://workday.wd5.myworkdayjobs.com/Workday` | CSM Enterprise, Implementation Consultant, Pre-sales HCM — profil senior (URL redirigée) |
-| Cornerstone OnDemand | `https://www.cornerstoneondemand.com/company/careers/` | CSM Senior, Account Manager — talent management SaaS |
+| Cornerstone OnDemand | WebSearch `"Cornerstone OnDemand" CSM OR "customer success" France 2026` — aucun poste France (28/07/2026) — relancer ponctuellement | CSM Senior, Account Manager — talent management SaaS |
 | ServiceNow | `https://careers.servicenow.com/jobs/` | CSM Senior, Solution Consultant HR Service Delivery |
-| UKG (Ultimate Kronos) | `https://www.ukg.com/about-us/careers` | Implementation Consultant, CSM, HCM consultant |
+| UKG (Ultimate Kronos) | WebSearch `"UKG" CSM OR "implementation consultant" France 2026` — aucun poste France (28/07/2026) — relancer ponctuellement | Implementation Consultant, CSM, HCM consultant |
 | Cegid | WebSearch `"Cegid" consultant SIRH OR CSM OR chef projet emploi France 2026` | CSM, Chef de projet SIRH, Implementation Consultant — éditeur SIRH FR (URL directe en 404) |
 | Talentia Software | WebSearch `"Talentia Software" consultant SIRH emploi France 2026` | Consultant SIRH, Implementation, CSM — éditeur RH/Finance FR |
 | Lucca | WebSearch `"Lucca" CSM OR "customer success" OR implémentation emploi France 2026` | CSM, Account Manager, Implementation — SIRH SaaS France (URL directe en 404) |
