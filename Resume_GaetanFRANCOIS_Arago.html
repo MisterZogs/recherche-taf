@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume - Gaëtan FRANÇOIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 10px;
+    }
+
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 28px 26px 28px 24px;
+      background: #fff;
+    }
+
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 14px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 10px;
+    }
+
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+      text-align: justify;
+    }
+
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 2px;
+    }
+
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════
+       SIDEBAR
+  ══════════════════════════════ -->
+  <div class="sidebar">
+
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email:</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location:</div>
+        <div class="contact-value">Anglet, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Availability:</div>
+        <div class="contact-value">Immediate - open to travel</div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="sb-section">
+      <div class="sb-title">Skills</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>SAP HR/HCM & SuccessFactors EC</li>
+        <li>Solution scoping & functional specs</li>
+        <li>Client workshops & demos</li>
+        <li>Tenders & proposals</li>
+        <li>Key-user training</li>
+        <li>Data migration & AMS</li>
+        <li>Generative AI (daily use)</li>
+        <li>Python & Machine Learning</li>
+        <li>Salesforce, Jira, Confluence</li>
+      </ul>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Languages</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">French</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Spanish</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">German</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Interests</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Running</li>
+        <li>Surfing</li>
+        <li>Tennis</li>
+        <li>Gym</li>
+        <li>Chess</li>
+        <li>Travel</li>
+        <li>Daily reading</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════
+       MAIN
+  ══════════════════════════════ -->
+  <div class="main">
+
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Senior HRIS Consultant - SAP SuccessFactors, client-facing & AI</div>
+
+    <!-- PROFILE -->
+    <h2>Profile</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Senior HRIS consultant with 15 years spent designing, migrating and running SAP HR solutions for large multi-country organisations, including 10 years on the L'Oréal worldwide account (40+ countries). Used to sitting in front of HR sponsors and local teams: running design workshops, turning HR needs into functional specifications, showing what a system can and cannot do, and defending the option that stays maintainable three years later. Led and won an outsourcing tender for SAP HR application maintenance. Co-founder of WallOfTraders.com, a B2C SaaS platform sold and supported directly to users. Trained in Machine Learning and Deep Learning with Python (Coursera), and a daily user of generative AI tools in my own work.
+    </p>
+
+    <!-- EXPERIENCE -->
+    <h2>Professional Experience</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">HRIS Consultant - Global SuccessFactors programme</div>
+        <ul>
+          <li>Global SAP HR to SuccessFactors Employee Central migration (<strong>OneProfile</strong>): functional specifications, data migration, UAT and go-live across 40+ countries</li>
+          <li>Ran design workshops with corporate HR, local HR teams and the integrator; arbitrated between the global core model and country-specific requests, and explained to sponsors what each option would cost to maintain</li>
+          <li>Global payroll centralisation (<strong>OnePayroll</strong>): cross-functional coordination, data migration, go-live</li>
+          <li>Tamigo deployment (time management) in retail stores worldwide: UAT, go-live, post-launch support</li>
+          <li>SAP HR ongoing support and maintenance, reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-founder - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Co-founder & CEO - B2C SaaS startup</div>
+        <ul>
+          <li>Crypto trading platform: product management, feature acceptance testing, user support, community management (Telegram, newsletter)</li>
+          <li>Acquisition side: SEO strategy, Facebook advertising, apprentice management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Personal Projects</div>
+        <div class="exp-location">R&D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">AI, Machine Learning & Robotics</div>
+        <ul>
+          <li><strong>Machine Learning</strong> (May 2017 - Apr. 2018): Coursera training in Python, machine learning, deep learning and scraping, applied to crypto price prediction</li>
+          <li><strong>Autonomous drone</strong> (Nov. 2016 - Apr. 2017): waterproof GoPro drone, Pixhawk / Mission Planner controller, electronics and robotics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">HRIS Functional & Technical Consultant</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016): SAP HR application maintenance across 40 countries (L1/L2/L3, FR & EN); led and won the outsourcing tender for the account, then handled knowledge transfer and steered the India team; change management, HR/dev liaison, testing and deployment; redesign of the time management application (specifications, regression testing, Jira)</li>
+          <li><strong>FMC Technologies</strong> (Jul-Dec 2013): SAP HR deployment across 8 European countries, personnel and organisational structure, data migration, business blueprint</li>
+          <li><strong>Air France, Generali, Degremont, Canal+, Sanofi, Cofely-Ineo</strong>: SAP HR configuration, support, testing, data migration, reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront & Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Software Support & Configuration</div>
+        <ul>
+          <li>Support, maintenance and configuration of finance and quality management software solutions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">Mar - Sep 2010</div>
+        <div class="exp-company">Diagnostica - Stago</div>
+        <div class="exp-location">Internship</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">C++ / OpenGL Developer</div>
+        <ul>
+          <li>C++ development of a 3D factory simulation using OpenGL libraries</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <h2>Education</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">M.Sc. in Applied Mathematics, 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci - Paris La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Exchange Semester - scientific courses in English, 2008<br>
+      <span style="color:#777; font-size:8pt;">Seoul, South Korea</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Preparatory Classes - Mathematics, Physics & Engineering Sciences<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
