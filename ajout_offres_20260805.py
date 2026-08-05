@@ -769,7 +769,7 @@ offres = [
         'Remote': 'À vérifier',
         'Salaire / TJM': '',
         'Durée mission': '',
-        'Fit / Notes': "Poste de consultant SAP RH publié il y a une semaine, au cœur exact des quatorze ans d'expertise SAP HR. La structure est une ESN de taille modeste, ce qui plafonne souvent la rémunération. Point d'entrée simple : le fit technique se démontre en quelques lignes.",
+        'Fit / Notes': "Poste de consultant SAP RH publié il y a une semaine, au cœur exact des quatorze ans d'expertise SAP HR. La structure est une ESN de taille modeste, ce qui plafonne souvent la rémunération. La candidature demande peu d'effort puisque le fit technique se démontre en quelques lignes.",
         'Lien': 'https://fr.linkedin.com/jobs/sap-hcm-emplois',
         'CV à envoyer': 'Resume_GaetanFRANCOIS_SIRH.html',
         'Prétention': '70-85K€',
