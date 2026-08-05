@@ -826,7 +826,7 @@ offres = [
         'Remote': 'À vérifier',
         'Salaire / TJM': '',
         'Durée mission': '',
-        'Fit / Notes': "Poste senior HRIS chez une marque internationale de grande consommation, publié il y a quatre jours. Le contexte retail mondial rappelle L'Oréal et le niveau senior correspond ; l'environnement Workday reste le point faible. Bon candidat pour le CV visuel HRIS en anglais.",
+        'Fit / Notes': "Poste senior HRIS chez une marque internationale de grande consommation, publié il y a quatre jours. Le contexte retail mondial rappelle L'Oréal et le niveau senior correspond ; l'environnement Workday reste le point faible. Le CV visuel HRIS en anglais convient bien à cette annonce.",
         'Lien': 'https://fr.linkedin.com/jobs/hris-emplois',
         'CV à envoyer': 'Resume_GaetanFRANCOIS_SIRH_EN.html',
         'Prétention': '75-90K€',
