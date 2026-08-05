@@ -850,8 +850,6 @@ offres = [
         'CV à envoyer': 'Resume_GaetanFRANCOIS_SIRH_EN.html',
         'Prétention': '95-110K€',
     },
-
-    # JELD-WEN — Remote HRIS IT Project Manager Europe (déjà présent, variante ignorée)
 ]
 
 ajouter_offres(offres)
