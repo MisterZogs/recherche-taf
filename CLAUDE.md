@@ -125,7 +125,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 - **Loisirs** : Course à pied, Surf, Tennis, Salle de sport, Échecs, Voyages, Lecture quotidienne
 - **Tirets** : utiliser `-` uniquement, jamais `–`
 - **WallOfTraders.com** : toujours avec `.com`
-- **Orthographe anglaise** : britannique (organisations, centralisation), sauf `program` / `programs` sans `me`
+- **Orthographe anglaise** : britannique partout (organisations, centralisation, programme, programmes)
 
 ### Règle importante : un CV ciblé ne doit pas coller à l'offre
 
