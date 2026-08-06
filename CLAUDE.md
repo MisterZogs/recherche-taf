@@ -125,6 +125,25 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 - **Loisirs** : Course à pied, Surf, Tennis, Salle de sport, Échecs, Voyages, Lecture quotidienne
 - **Tirets** : utiliser `-` uniquement, jamais `–`
 - **WallOfTraders.com** : toujours avec `.com`
+- **Orthographe anglaise** : britannique (organisations, centralisation), sauf `program` / `programs` sans `me`
+
+### Règle importante : un CV ciblé ne doit pas coller à l'offre
+
+Quand Gaëtan demande un CV pour une offre précise, **le CV ne doit pas se lire comme une réponse point par point à l'annonce**. Un recruteur qui sent le CV écrit pour son offre le décrédibilise.
+
+Concrètement, à ne pas faire :
+- Reprendre les intitulés de la fiche de poste dans le bloc compétences de la sidebar (ex : une offre qui demande « HR Operating Model, governance, stakeholder management » ne doit pas produire des compétences « HR governance & decision routing », « Global core model vs local arbitration »)
+- Réordonner les bullets pour qu'ils suivent l'ordre des responsabilités de l'annonce
+- Formuler un bullet de façon à répondre visiblement à un prérequis (ex : ajouter « reviewing their output until quality held » parce que l'annonce demande de superviser un junior)
+- Aligner le sous-titre sur le titre du poste visé
+
+Ce qu'il faut faire à la place :
+- Garder une **boîte à outils naturelle de consultant** dans les compétences, et un sous-titre descriptif du parcours réel
+- Conserver un ordre de bullets naturel : livraison de programme d'abord, puis les autres facettes du poste
+- **Faire remonter la matière pertinente sans la surjouer** : si l'offre parle d'ateliers et d'encadrement, ces éléments doivent être présents dans le CV parce qu'ils font partie du parcours, formulés de façon neutre
+- Le travail de mise en correspondance avec l'annonce se fait dans **la lettre de motivation**, pas dans le CV
+
+Rappel lié : voir aussi la règle « ne jamais recopier le langage d'une offre dans un CV ; chaque bullet décrit l'expérience réelle avec ses propres mots ».
 
 ---
 
