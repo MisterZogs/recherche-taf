@@ -178,7 +178,9 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 
 ### Boards remote évalués le 06/08/2026 — liste des 27 plateformes
 
-Liste soumise par Gaëtan. Verdict après test de chacune : **aucune offre nouvelle exploitable pour ce profil**. Presque toutes sont des agrégateurs qui republient WeWorkRemotely, RemoteOK ou Greenhouse, déjà couverts en amont. Ne pas les repasser en revue à chaque relance ; se limiter aux 3 marquées « à retenter » ci-dessous.
+Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des agrégateurs qui republient WeWorkRemotely, RemoteOK ou Greenhouse, déjà couverts en amont. Ne pas toutes les repasser en revue à chaque relance ; se limiter à celles marquées « à inclure » ou « à retenter » ci-dessous.
+
+> **Rappel de critère (06/08/2026) :** le **TJM n'est pas un critère de filtrage**. Gaëtan prend n'importe quel TJM. Ne jamais écarter une plateforme, une mission ou une offre au motif que la rémunération est basse ou inférieure aux fourchettes cibles. Les fourchettes de la section « Attentes salariales » servent à préparer la négociation, pas à trier les offres.
 
 | Site | Verdict 06/08/2026 |
 |------|-------------------|
