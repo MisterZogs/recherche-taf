@@ -197,7 +197,9 @@ Liste soumise par Gaëtan. Verdict après test de chacune : **aucune offre nouve
 | remoteok.io/europe, remoteok.io/asia | Alias de remoteok.com, déjà classé US-centré |
 | flexjobs.com | **Abonnement payant**, contenu inaccessible |
 | toptal.com | Réseau de talents sur cooptation, pas un board ; process d'admission long |
-| upwork.com, freelancer.com, outsourcely.com | Marketplaces de gigs à bas TJM — **hors cible** pour un profil senior à 650-750€/j |
+| upwork.com | **À inclure dans les relances** — missions SAP SuccessFactors et formation IA réellement présentes ; fetch direct en 403, passer par WebSearch `upwork.com "SAP SuccessFactors" OR "AI trainer" consultant project 2026` |
+| freelancer.com | **À inclure dans les relances** — volume SAP faible mais des gigs de formation SuccessFactors apparaissent ; fetch direct fonctionne sur `/jobs/sap/` |
+| outsourcely.com | Domaine injoignable (ENOTFOUND) le 06/08/2026 |
 | simplyhired.com, virtualvocations.com | **US uniquement** |
 | angel.co | Ancien domaine d'AngelList, redirige vers wellfound.com (déjà couvert) |
 | linkedin.com | Déjà couvert ; voir la méthode LinkedIn plus bas |
