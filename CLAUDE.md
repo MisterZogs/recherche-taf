@@ -174,7 +174,41 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 | weworkremotely.com | Board remote monde — rechercher "customer success" — URL : weworkremotely.com/categories/remote-customer-success-jobs |
 | remotive.com | Board remote monde — **US-centré, résultats France rares** (28/07/2026) — ne pas inclure dans les relances sauf besoin spécifique |
 | euremotejobs.com | Board remote EU — rechercher "customer success" ou "HRIS" |
-| himalayas.app | Remote world — salaire souvent affiché — rechercher "customer success manager" ou "HRIS" |
+| himalayas.app | Remote world — salaire souvent affiché — rechercher "customer success manager" ou "HRIS" — **403 en fetch direct le 05-06/08/2026**, passer par WebSearch |
+
+### Boards remote évalués le 06/08/2026 — liste des 27 plateformes
+
+Liste soumise par Gaëtan. Verdict après test de chacune : **aucune offre nouvelle exploitable pour ce profil**. Presque toutes sont des agrégateurs qui republient WeWorkRemotely, RemoteOK ou Greenhouse, déjà couverts en amont. Ne pas les repasser en revue à chaque relance ; se limiter aux 3 marquées « à retenter » ci-dessous.
+
+| Site | Verdict 06/08/2026 |
+|------|-------------------|
+| remotees.com | **Redirige (301) vers weworkremotely.com** — pur alias, aucun contenu propre |
+| europeremotely.com | HTTP 439, fetch bloqué |
+| nodesk.co | HTTP 403 |
+| justremote.co | Pages catégories JS sans offres ; « Power Search » derrière paywall |
+| jobspresso.co | 404 sur les URLs catégories |
+| remote4me.com | 404 |
+| pangian.com | 404 sur la page emplois ; offres indexées datant de 2019-2023 |
+| remotehabits.com | Offres indexées **obsolètes (2019-2023)**, niveaux junior, salaires en GBP 22-25k |
+| remotecrew.io | Aucun résultat indexé |
+| skipthedrive.com | 404 (attention : la liste indiquait `skipthechive.com`, domaine erroné) |
+| remote.co | Timeout en fetch |
+| workingnomads.com | **À retenter** — pages Europe existent (`/remote-customer-success-jobs-europe`) mais rendues en JS ; passer par WebSearch |
+| remoteok.io/europe, remoteok.io/asia | Alias de remoteok.com, déjà classé US-centré |
+| flexjobs.com | **Abonnement payant**, contenu inaccessible |
+| toptal.com | Réseau de talents sur cooptation, pas un board ; process d'admission long |
+| upwork.com, freelancer.com, outsourcely.com | Marketplaces de gigs à bas TJM — **hors cible** pour un profil senior à 650-750€/j |
+| simplyhired.com, virtualvocations.com | **US uniquement** |
+| angel.co | Ancien domaine d'AngelList, redirige vers wellfound.com (déjà couvert) |
+| linkedin.com | Déjà couvert ; voir la méthode LinkedIn plus bas |
+| remotive.com, weworkremotely.com, remoteok.com | Déjà présents dans le tableau ci-dessus |
+
+**Sous-produit utile de cette évaluation** — deux boards Europe non listés par Gaëtan sont remontés plusieurs fois et méritent un test ciblé :
+
+| Site | Note |
+|------|------|
+| remoterocketship.com | **À retenter** — pages Europe filtrées par métier et séniorité (`/country/europe/jobs/senior-customer-success/`) ; 403 en fetch direct, passer par WebSearch |
+| remotifyeurope.com | **À retenter** — board remote EU par catégorie ; 403 en fetch direct, passer par WebSearch |
 
 ### ATS directs (à interroger via WebSearch ou fetch direct)
 | ATS | URL / méthode | Ce qu'on cherche |
