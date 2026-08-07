@@ -130,7 +130,8 @@ def _fusionner_doublon_ia(ws):
             print(f"{ws.title} ligne {row[0].row} : doublon de la ligne {cible[0].row}, fusionnee")
             ws.delete_rows(row[0].row)
             return 1
-    raise SystemExit('doublon IA introuvable')
+    print(f"{ws.title} : doublon deja fusionne, ignore")
+    return 0
 
 
 def main():
