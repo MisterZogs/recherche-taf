@@ -20,9 +20,10 @@ COLS = [
     'Fit / Notes', 'Lien', 'CV à envoyer', 'Prétention'
 ]
 
-CSM_KEYWORDS = ['Customer Success', 'CSM']
+CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM']
 IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 'IA x RH',
-                 'Intelligence Artificielle', 'AI Trainer', 'GenAI', 'LLM', 'Prompt']
+                 'Intelligence Artificielle', 'AI Trainer', 'GenAI', 'LLM', 'Prompt',
+                 'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA']
 
 COLORS = {
     '⭐⭐⭐⭐⭐': '00FF0000',
