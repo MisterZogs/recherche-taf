@@ -99,7 +99,9 @@ DOUBLON_IA_LIEN_NEUF = 'https://www.mission-freelances.fr/missions/consultant-ia
 
 
 def _reparer(ws, corrections):
+    """Idempotent : une ligne deja reparee (titre en colonne Poste) est ignoree."""
     restantes = dict(corrections)
+    n = 0
     for row in ws.iter_rows(min_row=2):
         cle = str(row[1].value)
         if cle not in restantes:
@@ -109,9 +111,14 @@ def _reparer(ws, corrections):
             cell.value = val
         row[0].fill = PatternFill(fill_type='solid', fgColor=FILLS[valeurs[0]])
         print(f"{ws.title} ligne {row[0].row} reparee : {valeurs[3]}")
-    if restantes:
-        raise SystemExit(f"lignes introuvables dans {ws.title} : {list(restantes)}")
-    return len(corrections)
+        n += 1
+
+    postes = {str(r[3].value) for r in ws.iter_rows(min_row=2)}
+    for cle, valeurs in restantes.items():
+        if valeurs[3] not in postes:
+            raise SystemExit(f"{ws.title} : ligne introuvable et non deja reparee -> {cle}")
+        print(f"{ws.title} : deja reparee, ignoree -> {valeurs[3]}")
+    return n
 
 
 def _fusionner_doublon_ia(ws):
