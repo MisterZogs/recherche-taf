@@ -359,14 +359,19 @@ Les URLs `/jobs/ia` et `/jobs/ia-generative` fonctionnent encore (fetch direct).
 | `https://www.free-work.com/fr/tech-it/jobs/ia` | Missions IA (recherche transversale) — ✅ fonctionne |
 | `https://www.free-work.com/fr/tech-it/jobs/ia-generative` | Missions IA générative spécifiquement — ✅ fonctionne |
 
-### Catégories SIRH / SAP — URLs cassées (404 depuis 2026-07-27), remplacer par WebSearch
-| Ancienne URL | Alternative |
+### Catégories SIRH / SAP — nouvelles URLs qui fonctionnent (vérifié 2026-08-07)
+
+Les anciennes URLs `/job-mission/<catégorie>/` sont bien mortes, mais free-work expose les mêmes listings sous `/fr/tech-it/jobs/<mot-clé>`. **Ces deux pages sont les plus rentables de toute la relance** : elles rendent titre, entreprise, lieu, TJM, durée, date de publication et URL de chaque mission d'un seul fetch.
+
+| URL à fetcher | Ce qu'on y trouve |
 |---|---|
-| `/job-mission/administrateur-applicatif-erp-crm-sirh/` | WebSearch `site:free-work.com SIRH SAP HR chef projet` |
-| `/job-mission/consultant-erp-ms-dynamics-oracle-sage-sap/` | WebSearch `site:free-work.com SAP HCM SuccessFactors mission` |
-| `/job-mission/consultant-moa-amoa/` | WebSearch `site:free-work.com AMOA SIRH mission France` |
-| `/job-mission/assistant-chef-de-projet/` | WebSearch `site:free-work.com "chef de projet" IA SIRH mission` |
-| `/job-mission/consultant/` | WebSearch `site:free-work.com consultant IA générative formateur` |
+| `https://www.free-work.com/fr/tech-it/jobs/sirh` | Missions et CDI SIRH — AMOA, chef de projet, transformation RH, Product Manager SIRH — ✅ fonctionne |
+| `https://www.free-work.com/fr/tech-it/jobs/sap-hcm` | Missions SAP HCM / SuccessFactors / paie / GTA — ✅ fonctionne |
+| `https://www.free-work.com/fr/tech-it/jobs/sirh/paris` | Même liste filtrée sur Paris |
+
+Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-generative`, `/jobs/transformation-digitale`, `/jobs/mistral`) ; tenter d'autres mots-clés au besoin. En complément, les WebSearch restent utiles pour attraper les annonces indexées hors catégorie :
+- `site:free-work.com AMOA SIRH OR "chef de projet SIRH" mission France 2026`
+- `site:free-work.com SAP HCM OR SuccessFactors OR SIRH mission freelance 2026`
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
