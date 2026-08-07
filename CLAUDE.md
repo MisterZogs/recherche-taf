@@ -375,6 +375,31 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
+### État des sources — relance du 2026-08-07
+
+Ce qui a réellement produit des offres exploitables, par ordre de rendement :
+
+| Source | Verdict 07/08/2026 |
+|---|---|
+| free-work.com `/jobs/sirh` et `/jobs/sap-hcm` | **Meilleur rendement de la relance** ; listings complets avec dates et URLs |
+| LinkedIn pages catégories (SuccessFactors Paris, SAP HCM, consultant SIRH, CSM France) | Toujours le meilleur moyen d'identifier **qui recrute** ; pas d'URLs d'annonce, il faut ensuite chercher le site carrière de l'entreprise |
+| eursap.eu `/jobs` | ✅ fetch direct, donne titres + réfs + URLs complètes |
+| jobs.lever.co et jobs.ashbyhq.com via WebSearch | ✅ postes remote EMEA réels avec URLs directes |
+| welcometothejungle.com via WebSearch | ✅ efficace (`welcometothejungle "consultant SIRH" ... 2026`) ; le fetch direct d'une fiche reste en 403 |
+| mission-freelances.fr `/missions/` | ✅ liste les missions IA et formateur ; TJM et durée derrière login |
+| careers.alight.com/strada + careers.stradaglobal.com | Postes trouvés via WebSearch ; le fetch direct de la page carrière ne rend aucune offre |
+| jobs.sephora.com, jobs.cmacgm-group.com, emplois.kpmg.fr, sia-partners.com | ✅ URLs d'annonce directement exploitables |
+| eursap.eu, hansonregan.com | hansonregan répond mais n'affichait **aucun poste HR/HCM** ce jour-là |
+| opusresourcing.com | Répond, mais **une seule annonce au total** (hors profil) — rendement quasi nul |
+| whitehallresources.com | Répond, mais les annonces affichées **datent de janvier 2025** — contenu périmé |
+| apply.deloitte.com | « 0 job » avec les filtres SIRH ; passer par LinkedIn (Deloitte publie bien des postes SuccessFactors à La Défense, Lille, Strasbourg) |
+| jobs.hr-path.com, jobs.eramet.com, careers.qima.com, careers.soprasteria.fr | Pages **rendues en JS** ou 404 ; passer par WebSearch ou LinkedIn |
+| weworkremotely.com, euremotejobs.com, remoterocketship.com | **403 en fetch direct** ; passer par WebSearch |
+| himalayas.app | 403 en fetch, mais **bien indexé par WebSearch** — utiliser `himalayas "customer success" Europe remote` |
+| boards.greenhouse.io via WebSearch | Remonte des annonces mais souvent **anciennes** ; vérifier chaque lien avant de candidater |
+| apec.fr, malt.fr, upwork.com, freelancer.com, jobs.indexventures.com, careers.balderton.com | Aucune offre exploitable extraite ce jour ; contenu derrière login ou pages génériques |
+| act-on-group.com | **Domaine injoignable (ENOTFOUND)** — ACT-ON HRIS publie sur LinkedIn, passer par là |
+
 ---
 
 ## Sites de recherche IA (onglet "Offres IA")
