@@ -504,5 +504,22 @@ OFFRES = [
     },
 ]
 
+def _liens_existants():
+    import openpyxl
+    wb = openpyxl.load_workbook(add_offre.FICHIER)
+    lien_idx = add_offre._col_index(wb['Offres SIRH'], 'Lien')
+    liens = set()
+    for ws in (wb['Offres SIRH'], wb['Offres CSM'], wb['Offres IA'], wb['Fait']):
+        for row in ws.iter_rows(min_row=2):
+            v = row[lien_idx].value
+            if v:
+                liens.add(str(v).strip())
+    return liens
+
+
 if __name__ == '__main__':
-    add_offre.ajouter_offres(OFFRES)
+    connus = _liens_existants()
+    nouvelles = [o for o in OFFRES if o['Lien'] not in connus]
+    doublons = len(OFFRES) - len(nouvelles)
+    print(f"{len(OFFRES)} offres collectees, {doublons} deja presentes, {len(nouvelles)} a ajouter\n")
+    add_offre.ajouter_offres(nouvelles)
