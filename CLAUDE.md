@@ -375,6 +375,24 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
+### État des sources — relance du 2026-08-13
+
+Écarts constatés par rapport au tableau du 07/08 :
+
+| Source | Verdict 13/08/2026 |
+|---|---|
+| free-work.com `/jobs/sirh` (pages 1 à 3) et `/jobs/sap-hcm` | Confirmé meilleur rendement ; la pagination `?page=2` et `?page=3` fonctionne et rend 16 offres complètes par page |
+| `fr.linkedin.com/jobs/hris-emplois` | **La page la plus riche de toute la relance** : ~60 offres avec entreprise, ville et date ; sert de radar pour identifier qui recrute, puis fetcher le site carrière |
+| jobs.hr-path.com | La racine `/jobs` ne rend aucune annonce ; passer par `/go/View-all-jobs/5288301/` ou par les missions HR Path listées sur free-work |
+| freelance-informatique.fr | `/missions-sirh` et `/missions/sirh` renvoient 404 ; les annonces restent accessibles par WebSearch sur une URL de mission précise |
+| actongroup.com | **Le domaine répond à nouveau** (il était ENOTFOUND le 07/08) ; les URLs `/offre/...` sont exploitables |
+| careers.alight.com/strada | Postes France (Colombes) accessibles par WebSearch, URLs directes valides |
+| jobs.smartrecruiters.com/Arago + careers.flatchr.io | Deux canaux distincts pour les mêmes postes Arago ; les deux fetchables |
+| collective.work | **À inclure désormais** : les URLs `/job/<slug>` sont indexées et exploitables (missions SIRH full remote et PMO IA) |
+| hansonregan.com | Répond, mais une seule annonce SAP HR ce jour-là (SF LMS, Portugal) |
+| eursap.eu/jobs | Deux postes HR seulement, dont un Global SAP HRIS Manager à 145 K€ en Allemagne |
+| upwork.com, apec.fr, jobs.sap.com | Aucune offre France exploitable extraite ce jour ; contenu derrière login ou pages de recherche génériques |
+
 ### État des sources — relance du 2026-08-07
 
 Ce qui a réellement produit des offres exploitables, par ordre de rendement :
