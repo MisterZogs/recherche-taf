@@ -10,6 +10,8 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   sont déplacées vers l'onglet "Fait".
 """
 
+import re
+
 import openpyxl
 from openpyxl.styles import PatternFill
 from copy import copy
