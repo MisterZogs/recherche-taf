@@ -530,8 +530,6 @@ Gaëtan **était Product Manager** chez WallOfTraders.com : il possédait la roa
 
 `Resume_GaetanFRANCOIS_PM_FR.pdf` en est la version française. **Choisir la langue sur celle de l'annonce, pas sur le pays** : un éditeur français qui publie en français (360Learning, Side, Inqom, RISE, Follow) attend un CV français, alors que Camunda, Constructor, Pennylane et les republications Jobgether se traitent en anglais.
 
-> **Ne jamais envoyer un CV dont le nom de fichier porte le nom d'une autre entreprise.** Le fichier s'appelait `Resume_GaetanFRANCOIS_Constructor_PM_EN.pdf` ; l'envoyer à 360Learning aurait montré dans le nom du fichier qu'il avait été fabriqué pour un concurrent. Les CV réutilisables portent un nom neutre décrivant le métier visé.
-
 ### Lacune à connaître
 Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tracking, attribution, outillage dev), Gaëtan n'a pas d'expérience ; c'est la seule concession honnête à faire en lettre de motivation. Ne jamais écrire qu'il n'a pas d'expérience produit, ce serait faux.
 
