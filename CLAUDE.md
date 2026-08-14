@@ -457,6 +457,38 @@ Ce qui a réellement produit des offres exploitables, par ordre de rendement :
 
 ---
 
+## Recherche Product Manager (onglet "Offres PM")
+
+**À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM et IA.
+
+Gaëtan **était Product Manager** chez WallOfTraders.com : il possédait la roadmap, décidait de ce qui partait, rédigeait les spécifications et validait chaque fonctionnalité contre l'usage réel. C'est une expérience produit à part entière, à faire valoir comme telle. Voir la règle sur le rôle WallOfTraders.com plus bas.
+
+**Critère numéro un : le remote.** Prioriser les postes 100% remote, puis remote EMEA ou remote depuis la France. Un poste produit sur site à Paris descend d'au moins deux étoiles par rapport au même poste en full remote.
+
+### Postes ciblés
+- Product Manager / Senior Product Manager chez un éditeur SaaS B2B ou B2C
+- Product Owner (hors SIRH, qui reste dans l'onglet "Offres SIRH")
+- Product Manager sur des sujets **onboarding, adoption, intégration, customer experience** ; c'est l'intersection la plus crédible avec le parcours
+- Head of Product / Product Lead dans une structure de petite taille
+- Product Manager sur un produit IA ; croisement à double intérêt avec l'onglet IA
+
+### Où chercher
+| Source | Méthode |
+|---|---|
+| **API Ashby** | `curl -s "https://api.ashbyhq.com/posting-api/job-board/<entreprise>"` ; la méthode la plus fiable, voir l'astuce plus haut |
+| jobs.ashbyhq.com | WebSearch `site:jobs.ashbyhq.com "product manager" remote EMEA` |
+| jobs.lever.co | WebSearch `site:jobs.lever.co "product manager" remote France OR EMEA` |
+| boards.greenhouse.io | WebSearch `site:boards.greenhouse.io "product manager" remote Europe` |
+| welcometothejungle.com | WebSearch `welcometothejungle "product manager" CDI télétravail total 2026` |
+| free-work.com | `https://www.free-work.com/fr/tech-it/jobs/product-owner` et `/jobs/product-manager` |
+| wellfound.com, workatastartup.com | Startups, filtres remote |
+| Boards VC (Index, Balderton, a16z, Sequoia) | WebSearch `site:jobs.indexventures.com "product manager" remote` |
+
+### Lacune à connaître
+Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tracking, attribution, outillage dev), Gaëtan n'a pas d'expérience ; c'est la seule concession honnête à faire en lettre de motivation. Ne jamais écrire qu'il n'a pas d'expérience produit, ce serait faux.
+
+---
+
 ## Règles de gestion du tableur offres_emploi.xlsx
 
 - **Ne jamais supprimer une ligne** du tableau, même si une offre semble expirée ou hors profil — changer le statut à la place.
