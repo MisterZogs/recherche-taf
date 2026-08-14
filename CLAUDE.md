@@ -393,6 +393,12 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 | eursap.eu/jobs | Deux postes HR seulement, dont un Global SAP HRIS Manager à 145 K€ en Allemagne |
 | upwork.com, apec.fr, jobs.sap.com | Aucune offre France exploitable extraite ce jour ; contenu derrière login ou pages de recherche génériques |
 
+> **⚠️ himalayas.app — ne jamais utiliser une URL d'annonce comme lien du tableur (constaté le 14/08/2026).**
+> Quand une annonce est fermée, `himalayas.app/companies/<entreprise>/jobs/<slug>` **redirige silencieusement vers le listing général** au lieu de renvoyer une 404. La page paraît valide au fetch, donc un lien mort passe inaperçu à la collecte et ne se révèle qu'au clic. Vérification du 14/08 : **8 des 9 liens Himalayas du tableur étaient morts**, dont un déjà marqué « À postuler ».
+> Les pages entreprise `himalayas.app/companies/<entreprise>` restent valides, elles.
+> **Méthode à appliquer :** se servir de Himalayas uniquement comme radar pour repérer qui recrute, puis remonter à l'ATS de l'entreprise (Greenhouse, Lever, Ashby) et mettre **cette** URL dans le tableur. Même précaution pour les agrégateurs du même type (startup.jobs, ziprecruiter, jobsora, yubhub) : ils republient des annonces fermées longtemps après.
+> Contre-exemple utile : Remote.com publie sur `job-boards.greenhouse.io/remotecom` ; un ID Greenhouse qui redirige vers le board signifie que le poste est fermé.
+
 ### État des sources — relance du 2026-08-07
 
 Ce qui a réellement produit des offres exploitables, par ordre de rendement :
