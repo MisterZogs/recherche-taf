@@ -76,7 +76,8 @@ _REMOTE_OUI = re.compile(
 # Marqueurs qui disqualifient, même si "remote" ou "oui" apparaît ailleurs
 # (ex. "Hybride (3j remote + 2j sur site)").
 _REMOTE_NON = re.compile(
-    r'(hybrid|partiel|pr[ée]sentiel|sur site|on\s*-?\s*site|\d\s*j\b|\d\s*jours)', re.I)
+    r'(hybrid|partiel|pr[ée]sentiel|sur site|on\s*-?\s*site|\d\s*j\b|\d\s*jours'
+    r'|^non\s+confirm)', re.I)
 # Valeurs qui signalent une information manquante.
 _REMOTE_INCONNU = re.compile(
     r'^(n\.?\s*p\.?|n\.?\s*c\.?|nc|non pr[ée]cis[ée]e?|à v[ée]rifier|à clarifier|'
