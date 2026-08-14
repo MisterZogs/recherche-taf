@@ -66,8 +66,20 @@ STATUS_ORDER = {
 }
 
 
+def _hors_sirh(poste: str) -> bool:
+    """Vrai si l'intitulé ne porte aucun marqueur SIRH/SAP."""
+    p = poste.lower()
+    return not any(kw.lower() in p for kw in SIRH_OVERRIDE)
+
+
 def _is_csm(poste: str) -> bool:
-    return any(kw in poste for kw in CSM_KEYWORDS)
+    if any(kw in poste for kw in CSM_KEYWORDS):
+        return True
+    # Avant-vente et TAM : rattachés au CSM, sauf s'il s'agit d'un poste SIRH/SAP,
+    # qui reste dans "Offres SIRH".
+    if any(kw.lower() in poste.lower() for kw in PRESALES_KEYWORDS):
+        return _hors_sirh(poste)
+    return False
 
 
 def _is_ia(poste: str) -> bool:
