@@ -66,6 +66,31 @@ STATUS_ORDER = {
 }
 
 
+# ── Filtre télétravail ──────────────────────────────────────────────────────
+# Seules les offres dont la colonne Remote confirme un télétravail total vont
+# dans les onglets métier ; tout le reste (hybride, partiel, présentiel, et les
+# valeurs non renseignées) va dans l'onglet "NoRemote".
+_REMOTE_OUI = re.compile(
+    r'(\boui\b|\byes\b|\bremote\b|100\s*%|t[ée]l[ée]travail\s+(total|possible)|\ben ligne\b)',
+    re.I)
+# Marqueurs qui disqualifient, même si "remote" ou "oui" apparaît ailleurs
+# (ex. "Hybride (3j remote + 2j sur site)").
+_REMOTE_NON = re.compile(
+    r'(hybrid|partiel|pr[ée]sentiel|sur site|on\s*-?\s*site|\d\s*j\b|\d\s*jours)', re.I)
+# Valeurs qui signalent une information manquante.
+_REMOTE_INCONNU = re.compile(
+    r'^(n\.?\s*p\.?|n\.?\s*c\.?|nc|non pr[ée]cis[ée]e?|à v[ée]rifier|à clarifier|'
+    r'à confirmer|inconnu|\?+)$', re.I)
+
+
+def accepte_remote(valeur) -> bool:
+    """Vrai si la valeur de la colonne Remote confirme un télétravail total."""
+    s = str(valeur).strip() if valeur is not None else ''
+    if not s or _REMOTE_INCONNU.match(s) or _REMOTE_NON.search(s):
+        return False
+    return bool(_REMOTE_OUI.search(s))
+
+
 def _hors_sirh(poste: str) -> bool:
     """Vrai si l'intitulé ne porte aucun marqueur SIRH/SAP."""
     p = poste.lower()
