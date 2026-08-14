@@ -492,6 +492,9 @@ Gaëtan **était Product Manager** chez WallOfTraders.com : il possédait la roa
 | wellfound.com, workatastartup.com | Startups, filtres remote |
 | Boards VC (Index, Balderton, a16z, Sequoia) | WebSearch `site:jobs.indexventures.com "product manager" remote` |
 
+### CV à envoyer
+`Resume_GaetanFRANCOIS_Constructor_PM_EN.pdf` est le **CV Product Manager de référence**, réutilisable pour tout poste produit : WallOfTraders.com placé en premier, sidebar orientée produit (Product Ownership, Functional Specifications, Business / Engineering Liaison), sous-titre descriptif du parcours.
+
 ### Lacune à connaître
 Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tracking, attribution, outillage dev), Gaëtan n'a pas d'expérience ; c'est la seule concession honnête à faire en lettre de motivation. Ne jamais écrire qu'il n'a pas d'expérience produit, ce serait faux.
 
