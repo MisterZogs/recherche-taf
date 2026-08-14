@@ -53,6 +53,7 @@ Autres postes ciblés :
 | `Resume_GaetanFRANCOIS_SIRH.html/.pdf` | CV visuel ciblé SIRH/SAP FR — pour missions freelance et postes FR |
 | `Resume_GaetanFRANCOIS_PM_EN.html/.pdf` | **CV Product Manager EN de référence** ; WallOfTraders.com en tête, sidebar produit, sous-titre descriptif du parcours - pour tout poste produit en anglais |
 | `Resume_GaetanFRANCOIS_PM_FR.html/.pdf` | Version française du CV Product Manager - pour les éditeurs français dont l'annonce est rédigée en français |
+| `Resume_GaetanFRANCOIS_PM_Platform_EN.html/.pdf` | CV Product Manager EN orienté **plateforme B2B technique** ; sidebar avec intégration système, migration de données, analyse de cause racine, Python/SQL/C++ - pour Camunda, Constructor, et les postes Core Platform / Data Orchestration |
 | `Resume_GaetanFRANCOIS_Constructor_EN.html/.pdf` | CV visuel CSM EN orienté **encadrement d'équipe** ; sous-titre neutre, sidebar sans jargon SAP - à réutiliser pour tout poste de Manager / Head of Customer Success chez un éditeur SaaS non-RH |
 | `Resume_GaetanFRANCOIS_Cominty.html/.pdf` | CV visuel Cominty EN |
 | `Resume_GaetanFRANCOIS_Cominty_FR.html/.pdf` | CV visuel Cominty FR |
