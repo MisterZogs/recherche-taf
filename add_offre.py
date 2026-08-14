@@ -6,6 +6,8 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 - Les offres Product Manager / Product Owner vont dans "Offres PM",
   sauf si l'intitulé porte aussi un marqueur SIRH/SAP (elles restent alors en SIRH).
 - Les offres SIRH/SAP vont dans l'onglet "Offres SIRH".
+- FILTRE PRIORITAIRE : une offre sans télétravail confirmé (hybride, partiel,
+  présentiel, ou information manquante) va dans "NoRemote", quel que soit le métier.
 - Avant chaque ajout, les lignes marquées "x" dans la colonne Fait
   sont déplacées vers l'onglet "Fait".
 """
@@ -200,14 +202,15 @@ def _ecrire_onglet(ws, rows, verbose):
 
     rows.sort(key=sort_key)
 
-    old_max = ws.max_row
+    # Suppression physique des anciennes lignes plutôt qu'un simple vidage des
+    # valeurs : vider les cellules laissait des lignes fantômes (une cellule
+    # isolée survivait et réapparaissait comme une offre sans intitulé).
+    if ws.max_row > 1:
+        ws.delete_rows(2, ws.max_row)
+
     for i, row_data in enumerate(rows):
         for j, cell_data in enumerate(row_data):
             _restore_cell(ws.cell(row=i + 2, column=j + 1), cell_data)
-
-    for r in range(len(rows) + 2, old_max + 1):
-        for cell in ws[r]:
-            _clear_cell(cell)
 
     if verbose:
         print(f"  {ws.title} : {len(rows)} offres")
@@ -239,6 +242,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     ws_csm  = wb['Offres CSM']
     ws_ia   = wb['Offres IA']
     ws_pm   = wb['Offres PM']
+    ws_nore = wb['NoRemote']
     ws_fait = wb['Fait']
 
     fait_idx = _col_index(ws_sirh, 'Fait')
@@ -250,6 +254,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     rows_csm  = _archiver_faits(ws_csm,  ws_fait, fait_idx, verbose)
     rows_ia   = _archiver_faits(ws_ia,   ws_fait, fait_idx, verbose)
     rows_pm   = _archiver_faits(ws_pm,   ws_fait, fait_idx, verbose)
+    rows_nore = _archiver_faits(ws_nore, ws_fait, fait_idx, verbose)
 
     if verbose:
         print("── Ajout ──")
@@ -257,6 +262,12 @@ def ajouter_offres(offres: list[dict], verbose=True):
     for offre in offres:
         poste = offre.get('Poste', '')
         ligne = _nouvelle_ligne(offre)
+        # Sans télétravail confirmé, l'offre va dans NoRemote quel que soit le métier.
+        if not accepte_remote(offre.get('Remote')):
+            rows_nore.append(ligne)
+            if verbose:
+                print(f"+ [NoRemote] {offre.get('Priorité')} | {poste} | {offre.get('Entreprise')}")
+            continue
         if _is_ia(poste):
             rows_ia.append(ligne)
             target = 'Offres IA'
@@ -279,5 +290,6 @@ def ajouter_offres(offres: list[dict], verbose=True):
     _ecrire_onglet(ws_csm,  rows_csm,  verbose)
     _ecrire_onglet(ws_ia,   rows_ia,   verbose)
     _ecrire_onglet(ws_pm,   rows_pm,   verbose)
+    _ecrire_onglet(ws_nore, rows_nore, verbose)
 
     wb.save(FICHIER)
