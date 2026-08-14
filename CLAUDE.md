@@ -529,7 +529,9 @@ Gaëtan **était Product Manager** chez WallOfTraders.com : il possédait la roa
 ### CV à envoyer
 `Resume_GaetanFRANCOIS_PM_EN.pdf` est le **CV Product Manager de référence** : WallOfTraders.com placé en premier, sidebar orientée produit (Product Ownership, spécifications fonctionnelles, interface métier/développement), sous-titre descriptif du parcours.
 
-`Resume_GaetanFRANCOIS_PM_FR.pdf` en est la version française. **Choisir la langue sur celle de l'annonce, pas sur le pays** : un éditeur français qui publie en français (360Learning, Side, Inqom, RISE, Follow) attend un CV français, alors que Camunda, Constructor, Pennylane et les republications Jobgether se traitent en anglais.
+`Resume_GaetanFRANCOIS_PM_Platform_EN.pdf` est la variante pour les **produits plateforme B2B techniques** (Camunda, Constructor, postes Core Platform, Data Activation, Data Orchestration) : même parcours, mais la sidebar et les bullets font remonter l'intégration système, la migration de données, l'analyse de cause racine et la pratique Python/SQL/C++, qui restent en arrière-plan dans le CV PM générique. Sur un produit métier vertical ou B2C, garder `PM_EN`.
+
+`Resume_GaetanFRANCOIS_PM_FR.pdf` est la version française du CV de référence. **Choisir la langue sur celle de l'annonce, pas sur le pays** : un éditeur français qui publie en français (360Learning, Side, Inqom, RISE, Follow) attend un CV français, alors que Camunda, Constructor, Pennylane et les republications Jobgether se traitent en anglais.
 
 ### Lacune à connaître
 Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tracking, attribution, outillage dev), Gaëtan n'a pas d'expérience ; c'est la seule concession honnête à faire en lettre de motivation. Ne jamais écrire qu'il n'a pas d'expérience produit, ce serait faux.
