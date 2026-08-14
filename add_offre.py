@@ -32,10 +32,16 @@ PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Pro
                  'Director of Product', 'VP Product', 'Chef de Produit', 'Responsable Produit',
                  'Product Marketing Manager', 'Product Builder', 'Proxy PO']
 
-# Une offre Product Manager dont l'intitulé porte aussi un marqueur SIRH/SAP reste
-# dans "Offres SIRH" : le métier SIRH prime sur le titre.
-PM_SIRH_OVERRIDE = ['SIRH', 'HRIS', 'SAP', 'SuccessFactors', 'Workday', 'HCM',
-                     'HR Access', 'Paie', 'Payroll', 'RH']
+# Métiers d'avant-vente et de gestion de compte technique : même famille que le CSM,
+# donc rangés dans "Offres CSM".
+PRESALES_KEYWORDS = ['Technical Account Manager', 'Solutions Engineer', 'Solution Engineer',
+                      'Sales Engineer', 'Solutions Consultant', 'Solution Consultant',
+                      'Pre-Sales', 'Presales', 'Pre-sales', 'Avant-vente']
+
+# Une offre Product Manager ou avant-vente dont l'intitulé porte aussi un marqueur
+# SIRH/SAP reste dans "Offres SIRH" : le métier SIRH prime sur le titre.
+SIRH_OVERRIDE = ['SIRH', 'HRIS', 'SAP', 'SuccessFactors', 'Workday', 'HCM',
+                  'HR Access', 'Paie', 'Payroll', 'RH', 'HXM', 'HR ']
 
 COLORS = {
     '⭐⭐⭐⭐⭐': '00FF0000',
