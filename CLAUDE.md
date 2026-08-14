@@ -237,6 +237,12 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 | ATS | URL / méthode | Ce qu'on cherche |
 |-----|--------------|-----------------|
 | AshbyHQ | jobs.ashbyhq.com — WebSearch `site:jobs.ashbyhq.com "customer success" remote` | Scale-ups modernes : Owkin, ElevenLabs, Plain, Vibe... |
+
+> **Astuce Ashby — API publique (trouvée le 14/08/2026).** Les pages `jobs.ashbyhq.com/<entreprise>/<uuid>` sont rendues en JS : un fetch ne rend que le titre. Passer par l'API publique, qui renvoie en JSON **tous les postes ouverts avec leur description complète, la localisation et l'URL** :
+> ```bash
+> curl -s "https://api.ashbyhq.com/posting-api/job-board/<entreprise>?includeCompensation=true"
+> ```
+> Le `<entreprise>` est le segment de l'URL du board (ex. `constructor`, `elevenlabs`, `n8n`). C'est le moyen le plus fiable de vérifier qu'un poste est **encore ouvert** et de lire les prérequis sans navigateur. Un poste absent du JSON est fermé.
 | Lever | jobs.lever.co — WebSearch `site:jobs.lever.co "customer success manager" remote France` | Qonto, Aircall, autres scale-ups FR |
 | Greenhouse | boards.greenhouse.io — WebSearch `site:boards.greenhouse.io "customer success" remote France` | Typeform, autres |
 
