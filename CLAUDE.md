@@ -491,6 +491,7 @@ Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tr
 
 ## Règles de gestion du tableur offres_emploi.xlsx
 
+- **Quatre onglets d'offres** : `Offres SIRH`, `Offres CSM`, `Offres IA`, `Offres PM`, plus `Fait` et `Légende`. Le routage est automatique dans `add_offre.py` : IA d'abord, puis CSM, puis PM, sinon SIRH. Une offre Product Manager dont l'intitulé porte aussi un marqueur SIRH ou SAP (« Product Owner HRIS », « Product Manager SIRH ») reste dans `Offres SIRH` ; le métier prime sur le titre.
 - **Ne jamais supprimer une ligne** du tableau, même si une offre semble expirée ou hors profil — changer le statut à la place.
 - **Toujours trier par priorité décroissante** (⭐⭐⭐⭐⭐ en premier) après chaque ajout de nouvelles offres. Préserver les styles de couleur des cellules lors du tri.
 - **Appliquer la couleur de fond** à la colonne Priorité pour chaque nouvelle ligne ajoutée : rouge (⭐⭐⭐⭐⭐), orange (⭐⭐⭐⭐), jaune/or (⭐⭐⭐), vert (⭐⭐), gris (⭐).
