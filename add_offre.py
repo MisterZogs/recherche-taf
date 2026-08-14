@@ -63,7 +63,12 @@ def _is_csm(poste: str) -> bool:
 
 
 def _is_ia(poste: str) -> bool:
-    return any(kw.lower() in poste.lower() for kw in IA_KEYWORDS)
+    if any(kw.lower() in poste.lower() for kw in IA_KEYWORDS):
+        return True
+    # Attrape les intitulés où "IA" / "AI" est un mot isolé : "Expert IA",
+    # "Solutions IA", "PMO - IA", "Méthode & IA". Sensible à la casse pour
+    # éviter de matcher "ai" dans "j'ai", "vrai", "media".
+    return bool(re.search(r'\b(IA|AI)\b', poste))
 
 
 def _is_pm(poste: str) -> bool:
