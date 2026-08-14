@@ -46,6 +46,7 @@ Autres postes ciblés :
 | `Resume_GaetanFRANCOIS.html/.pdf` | CV visuel générique EN |
 | `Resume_GaetanFRANCOIS_SIRH_EN.html/.pdf` | CV visuel ciblé HRIS/SAP EN — pour postes internationaux (Group HRIS Manager, SAP pre-sales, EMEA) |
 | `Resume_GaetanFRANCOIS_SIRH.html/.pdf` | CV visuel ciblé SIRH/SAP FR — pour missions freelance et postes FR |
+| `Resume_GaetanFRANCOIS_Constructor_EN.html/.pdf` | CV visuel CSM EN orienté **encadrement d'équipe** ; sous-titre neutre, sidebar sans jargon SAP - à réutiliser pour tout poste de Manager / Head of Customer Success chez un éditeur SaaS non-RH |
 | `Resume_GaetanFRANCOIS_Cominty.html/.pdf` | CV visuel Cominty EN |
 | `Resume_GaetanFRANCOIS_Cominty_FR.html/.pdf` | CV visuel Cominty FR |
 
