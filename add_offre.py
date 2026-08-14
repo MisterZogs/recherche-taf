@@ -64,6 +64,13 @@ def _is_ia(poste: str) -> bool:
     return any(kw.lower() in poste.lower() for kw in IA_KEYWORDS)
 
 
+def _is_pm(poste: str) -> bool:
+    p = poste.lower()
+    if not any(kw.lower() in p for kw in PM_KEYWORDS):
+        return False
+    return not any(kw.lower() in p for kw in PM_SIRH_OVERRIDE)
+
+
 def _capture_cell(cell):
     return {
         'value':         cell.value,
