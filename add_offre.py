@@ -30,7 +30,7 @@ IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 
                  'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA']
 PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Product',
                  'Director of Product', 'VP Product', 'Chef de Produit', 'Responsable Produit',
-                 'Product Marketing Manager']
+                 'Product Marketing Manager', 'Product Builder', 'Proxy PO']
 
 # Une offre Product Manager dont l'intitulé porte aussi un marqueur SIRH/SAP reste
 # dans "Offres SIRH" : le métier SIRH prime sur le titre.
