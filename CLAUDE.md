@@ -51,6 +51,8 @@ Autres postes ciblés :
 | `Resume_GaetanFRANCOIS.html/.pdf` | CV visuel générique EN |
 | `Resume_GaetanFRANCOIS_SIRH_EN.html/.pdf` | CV visuel ciblé HRIS/SAP EN — pour postes internationaux (Group HRIS Manager, SAP pre-sales, EMEA) |
 | `Resume_GaetanFRANCOIS_SIRH.html/.pdf` | CV visuel ciblé SIRH/SAP FR — pour missions freelance et postes FR |
+| `Resume_GaetanFRANCOIS_PM_EN.html/.pdf` | **CV Product Manager EN de référence** ; WallOfTraders.com en tête, sidebar produit, sous-titre descriptif du parcours - pour tout poste produit en anglais |
+| `Resume_GaetanFRANCOIS_PM_FR.html/.pdf` | Version française du CV Product Manager - pour les éditeurs français dont l'annonce est rédigée en français |
 | `Resume_GaetanFRANCOIS_Constructor_EN.html/.pdf` | CV visuel CSM EN orienté **encadrement d'équipe** ; sous-titre neutre, sidebar sans jargon SAP - à réutiliser pour tout poste de Manager / Head of Customer Success chez un éditeur SaaS non-RH |
 | `Resume_GaetanFRANCOIS_Cominty.html/.pdf` | CV visuel Cominty EN |
 | `Resume_GaetanFRANCOIS_Cominty_FR.html/.pdf` | CV visuel Cominty FR |
@@ -524,7 +526,11 @@ Gaëtan **était Product Manager** chez WallOfTraders.com : il possédait la roa
 | Boards VC (Index, Balderton, a16z, Sequoia) | WebSearch `site:jobs.indexventures.com "product manager" remote` |
 
 ### CV à envoyer
-`Resume_GaetanFRANCOIS_Constructor_PM_EN.pdf` est le **CV Product Manager de référence**, réutilisable pour tout poste produit : WallOfTraders.com placé en premier, sidebar orientée produit (Product Ownership, Functional Specifications, Business / Engineering Liaison), sous-titre descriptif du parcours.
+`Resume_GaetanFRANCOIS_PM_EN.pdf` est le **CV Product Manager de référence** : WallOfTraders.com placé en premier, sidebar orientée produit (Product Ownership, spécifications fonctionnelles, interface métier/développement), sous-titre descriptif du parcours.
+
+`Resume_GaetanFRANCOIS_PM_FR.pdf` en est la version française. **Choisir la langue sur celle de l'annonce, pas sur le pays** : un éditeur français qui publie en français (360Learning, Side, Inqom, RISE, Follow) attend un CV français, alors que Camunda, Constructor, Pennylane et les republications Jobgether se traitent en anglais.
+
+> **Ne jamais envoyer un CV dont le nom de fichier porte le nom d'une autre entreprise.** Le fichier s'appelait `Resume_GaetanFRANCOIS_Constructor_PM_EN.pdf` ; l'envoyer à 360Learning aurait montré dans le nom du fichier qu'il avait été fabriqué pour un concurrent. Les CV réutilisables portent un nom neutre décrivant le métier visé.
 
 ### Lacune à connaître
 Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tracking, attribution, outillage dev), Gaëtan n'a pas d'expérience ; c'est la seule concession honnête à faire en lettre de motivation. Ne jamais écrire qu'il n'a pas d'expérience produit, ce serait faux.
