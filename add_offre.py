@@ -186,6 +186,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     ws_sirh = wb['Offres SIRH']
     ws_csm  = wb['Offres CSM']
     ws_ia   = wb['Offres IA']
+    ws_pm   = wb['Offres PM']
     ws_fait = wb['Fait']
 
     fait_idx = _col_index(ws_sirh, 'Fait')
@@ -196,6 +197,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     rows_sirh = _archiver_faits(ws_sirh, ws_fait, fait_idx, verbose)
     rows_csm  = _archiver_faits(ws_csm,  ws_fait, fait_idx, verbose)
     rows_ia   = _archiver_faits(ws_ia,   ws_fait, fait_idx, verbose)
+    rows_pm   = _archiver_faits(ws_pm,   ws_fait, fait_idx, verbose)
 
     if verbose:
         print("── Ajout ──")
@@ -209,6 +211,9 @@ def ajouter_offres(offres: list[dict], verbose=True):
         elif _is_csm(poste):
             rows_csm.append(ligne)
             target = 'Offres CSM'
+        elif _is_pm(poste):
+            rows_pm.append(ligne)
+            target = 'Offres PM'
         else:
             rows_sirh.append(ligne)
             target = 'Offres SIRH'
@@ -221,5 +226,6 @@ def ajouter_offres(offres: list[dict], verbose=True):
     _ecrire_onglet(ws_sirh, rows_sirh, verbose)
     _ecrire_onglet(ws_csm,  rows_csm,  verbose)
     _ecrire_onglet(ws_ia,   rows_ia,   verbose)
+    _ecrire_onglet(ws_pm,   rows_pm,   verbose)
 
     wb.save(FICHIER)
