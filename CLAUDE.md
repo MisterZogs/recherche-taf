@@ -127,6 +127,7 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 - **Loisirs** : Course à pied, Surf, Tennis, Salle de sport, Échecs, Voyages, Lecture quotidienne
 - **Tirets** : utiliser `-` uniquement, jamais `–`
 - **WallOfTraders.com** : toujours avec `.com`
+- **Rôle chez WallOfTraders.com** : écrire **« Co-fondateur & Product Manager »** (EN : « Co-founder & Product Manager »). Ne jamais écrire CEO, Directeur Général, DG ni Associé. Gaëtan y était réellement Product Manager ; ce rôle est un atout à faire valoir sur toute candidature produit, jamais une lacune à concéder.
 - **Orthographe anglaise** : britannique partout (organisations, centralisation, programme, programmes)
 
 ### Règle importante : un CV ciblé ne doit pas coller à l'offre
