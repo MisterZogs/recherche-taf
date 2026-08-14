@@ -469,6 +469,33 @@ Ce qui a réellement produit des offres exploitables, par ordre de rendement :
 
 ---
 
+## Quatre recherches ajoutées le 14/08/2026
+
+Ces métiers correspondent à des compétences réelles du parcours qu'aucune recherche ne captait. **À inclure dans chaque relance**, au même titre que SIRH, CSM, IA et PM. Elles se rangent dans les onglets existants, sans onglet dédié.
+
+### Solutions Engineer / Sales Engineer / Solutions Consultant → onglet "Offres CSM"
+Le manque le plus net du dispositif précédent. Gaëtan a l'avant-vente (appel d'offres d'infogérance L'Oréal gagné chez ALTI-TCS), le bagage d'ingénieur, la posture face aux grands comptes et l'anglais courant. Jusqu'ici seuls les postes pre-sales estampillés SAP étaient captés, alors que ce métier existe chez tous les éditeurs SaaS.
+- WebSearch `site:jobs.ashbyhq.com "solutions engineer" remote EMEA`
+- WebSearch `site:jobs.lever.co "sales engineer" OR "solutions consultant" remote France`
+- API Ashby et Lever sur les éditeurs déjà repérés
+
+### Technical Account Manager → onglet "Offres CSM"
+Croisement compte enterprise et technicité ; le profil y répond mieux qu'au CSM pur. Plusieurs annonces CSM acceptent d'ailleurs le TAM comme expérience équivalente.
+- WebSearch `"technical account manager" remote EMEA OR France 2026`
+
+### Implementation Consultant / Onboarding Manager / Professional Services → onglet "Offres SIRH"
+Quinze ans passés à faire exactement cela. Ces intitulés passaient à travers les filtres quand ils ne portaient ni « HRIS » ni « Customer Success ».
+- WebSearch `"implementation consultant" OR "onboarding manager" remote Europe SaaS 2026`
+- WebSearch `"professional services consultant" remote France OR EMEA`
+
+### Data Migration Lead → onglet "Offres SIRH"
+OnePayroll et la migration FMC sur huit pays valent au-delà de SAP. Chercher la compétence sur tout ERP ou SIRH, pas seulement SAP HR vers SuccessFactors.
+- WebSearch `"data migration" lead OR consultant ERP OR HRIS remote France 2026`
+
+> **Routage automatique** (`add_offre.py`) : les intitulés Solutions Engineer, Sales Engineer, Solutions Consultant, Pre-Sales et Technical Account Manager partent en `Offres CSM`, **sauf** s'ils portent un marqueur SIRH ou SAP ; « Principal Solution Advisor SuccessFactors » et « Pre-Sales Consultant SAP HCM » restent donc dans `Offres SIRH`. Implementation Consultant, Onboarding Manager et Data Migration Lead tombent dans `Offres SIRH` par défaut.
+
+---
+
 ## Recherche Product Manager (onglet "Offres PM")
 
 **À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM et IA.
