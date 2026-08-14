@@ -247,6 +247,13 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 > ```
 > Le `<entreprise>` est le segment de l'URL du board (ex. `constructor`, `elevenlabs`, `n8n`). C'est le moyen le plus fiable de vérifier qu'un poste est **encore ouvert** et de lire les prérequis sans navigateur. Un poste absent du JSON est fermé.
 | Lever | jobs.lever.co — WebSearch `site:jobs.lever.co "customer success manager" remote France` | Qonto, Aircall, autres scale-ups FR |
+
+> **Astuce Lever — API publique (trouvée le 14/08/2026).** Même logique que l'API Ashby :
+> ```bash
+> curl -s "https://api.lever.co/v0/postings/<entreprise>?mode=json"
+> ```
+> Renvoie tous les postes ouverts en JSON avec `text` (titre), `categories.location`, `workplaceType` (`remote` / `hybrid` / `onsite`) et `hostedUrl`. Un slug inconnu renvoie `{"ok":false,"error":"Document not found"}`, ce qui permet aussi de tester rapidement le bon nom de board.
+> **Attention Jobgether** : ce board republie la même offre dupliquée par pays (jusqu'à neuf lignes pour un seul poste). Filtrer sur la variante France avant d'ajouter au tableur, sinon le tableur se remplit de doublons.
 | Greenhouse | boards.greenhouse.io — WebSearch `site:boards.greenhouse.io "customer success" remote France` | Typeform, autres |
 
 ### Boards VC (portfolio startups bien financées)
