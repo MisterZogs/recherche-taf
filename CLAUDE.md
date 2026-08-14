@@ -21,6 +21,7 @@ Autres postes ciblés :
 - **Pre-sales / Solution Consultant HR Tech** - expertise technique SAP + face client grands comptes
 - **Product Owner SIRH** - expérience startup + lien métier/dev + spécifications fonctionnelles
 - **Account Manager / KAM HR Tech** - pour éditeurs SIRH, profil technique + grands comptes
+- **Product Manager / Product Owner** - postes produit chez les éditeurs SaaS, **priorité absolue au 100% remote** — onglet dédié "Offres PM" dans le tableur
 - **Formateur IA / Consultant IA générative** - former entreprises à l'IA générative, conduite du changement IA, acculturation IA (sans data science pur) — onglet dédié "Offres IA" dans le tableur
 - **IA × SIRH / IA × RH** - consultant ou chef de projet à l'intersection IA et RH/SIRH (ex : déploiement IA dans SIRH, programme IA transformation RH)
 
