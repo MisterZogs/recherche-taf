@@ -92,10 +92,9 @@ def _is_ia(poste: str) -> bool:
 
 
 def _is_pm(poste: str) -> bool:
-    p = poste.lower()
-    if not any(kw.lower() in p for kw in PM_KEYWORDS):
+    if not any(kw.lower() in poste.lower() for kw in PM_KEYWORDS):
         return False
-    return not any(kw.lower() in p for kw in PM_SIRH_OVERRIDE)
+    return _hors_sirh(poste)
 
 
 def _capture_cell(cell):
