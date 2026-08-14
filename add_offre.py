@@ -24,6 +24,14 @@ CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM']
 IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 'IA x RH',
                  'Intelligence Artificielle', 'AI Trainer', 'GenAI', 'LLM', 'Prompt',
                  'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA']
+PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Product',
+                 'Director of Product', 'VP Product', 'Chef de Produit', 'Responsable Produit',
+                 'Product Marketing Manager']
+
+# Une offre Product Manager dont l'intitulé porte aussi un marqueur SIRH/SAP reste
+# dans "Offres SIRH" : le métier SIRH prime sur le titre.
+PM_SIRH_OVERRIDE = ['SIRH', 'HRIS', 'SAP', 'SuccessFactors', 'Workday', 'HCM',
+                     'HR Access', 'Paie', 'Payroll', 'RH']
 
 COLORS = {
     '⭐⭐⭐⭐⭐': '00FF0000',
