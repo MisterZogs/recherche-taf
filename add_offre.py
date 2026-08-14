@@ -3,6 +3,8 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 
 - Les offres CSM (Customer Success) vont dans l'onglet "Offres CSM".
 - Les offres IA (formateur IA, IA x SIRH, IA x RH) vont dans "Offres IA".
+- Les offres Product Manager / Product Owner vont dans "Offres PM",
+  sauf si l'intitulé porte aussi un marqueur SIRH/SAP (elles restent alors en SIRH).
 - Les offres SIRH/SAP vont dans l'onglet "Offres SIRH".
 - Avant chaque ajout, les lignes marquées "x" dans la colonne Fait
   sont déplacées vers l'onglet "Fait".
