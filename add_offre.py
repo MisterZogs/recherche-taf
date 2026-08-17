@@ -204,7 +204,8 @@ def _ecrire_onglet(ws, rows, verbose):
     def sort_key(r):
         status   = r[status_idx]['value'] or ''
         priority = r[prio_idx]['value']   or ''
-        return (STATUS_ORDER.get(status, 3), PRIORITY_ORDER.get(priority, 99))
+        return (STATUS_ORDER.get(status, STATUS_DEFAUT),
+                PRIORITY_ORDER.get(priority, 99))
 
     rows.sort(key=sort_key)
 
