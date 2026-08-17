@@ -1,4 +1,4 @@
-# Préparation entretien — Accor
+    # Préparation entretien — Accor
 ## Digital Process Owner Recruiting & Onboarding
 
 ---
@@ -41,7 +41,7 @@ Conduite du changement L'Oréal : tu formais les référents RH pays, tu produis
 
 ---
 
-**"Vous êtes basé à Biarritz. Comment ça se passe concrètement ?"**
+**"Vous êtes basé à Anglet. Comment ça se passe concrètement ?"**
 
 Sois direct : "Je travaille en remote depuis 7 ans sur des projets internationaux. Pour les moments clés — lancement de phase, ateliers de cadrage — je viens à Paris. Le reste se gère très bien à distance, j'en ai la preuve sur 10 ans L'Oréal." Prépare-toi à ce qu'ils demandent un rythme précis ; reste flexible mais ne t'engage pas sur "je viens toutes les semaines" si ce n'est pas le cas.
 
