@@ -262,6 +262,15 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 > Renvoie tous les postes ouverts en JSON avec `text` (titre), `categories.location`, `workplaceType` (`remote` / `hybrid` / `onsite`) et `hostedUrl`. Un slug inconnu renvoie `{"ok":false,"error":"Document not found"}`, ce qui permet aussi de tester rapidement le bon nom de board.
 > **Attention Jobgether** : ce board republie la même offre dupliquée par pays (jusqu'à neuf lignes pour un seul poste). Filtrer sur la variante France avant d'ajouter au tableur, sinon le tableur se remplit de doublons.
 | Greenhouse | boards.greenhouse.io — WebSearch `site:boards.greenhouse.io "customer success" remote France` | Typeform, autres |
+| Atlassian (iCIMS) | `curl -s "https://www.atlassian.com/endpoint/careers/listings"` | CSM Principal / Senior Principal France, Solutions Engineer, Customer Success Architect |
+
+> **Astuce Atlassian — API carrières publique (trouvée le 17/08/2026).** Atlassian publie sur iCIMS, donc rien de ce qu'il ouvre n'apparaît sur Ashby, Lever ou Greenhouse ; c'est ce qui a fait manquer ses postes lors de la relance du 17/08. Un seul appel rend les 271 postes ouverts en JSON :
+> ```bash
+> curl -s "https://www.atlassian.com/endpoint/careers/listings"
+> ```
+> Chaque entrée porte `title`, `locations` (liste, avec les zones remote autorisées du type `Remote - France`), `category`, `overview` et `portalJobPost.portalUrl` (le lien iCIMS à mettre dans le tableur). Filtrer sur `Remote - France` dans `locations` remonte directement les postes ouverts depuis la France. **À inclure dans chaque relance** : Atlassian tient en permanence des postes CSM Strategic France et Solutions Engineer EMEA.
+>
+> **Leçon plus générale :** les gros éditeurs sur ATS propriétaire (iCIMS, Workday, SmartRecruiters, SuccessFactors) échappent entièrement aux recherches `site:jobs.ashbyhq.com` / `site:jobs.lever.co` / `site:boards.greenhouse.io`. Chercher leur page carrière ou leur API dédiée, jamais s'en remettre aux seuls ATS de scale-ups.
 
 ### Boards VC (portfolio startups bien financées)
 
