@@ -594,6 +594,8 @@ Les recherches directes `site:linkedin.com/jobs "mot-clé"` retournent surtout d
 - `https://fr.linkedin.com/jobs/customer-success-manager-emplois` (sans `-france`)
 - `https://www.linkedin.com/jobs/search/?keywords=Customer+Success+Manager&f_WT=2&f_TPR=r604800` (remote, 7 derniers jours, monde entier)
 
+> **Seconde limite, constatée le 17/08/2026 :** même sans filtre géographique, une page catégorie LinkedIn n'affiche qu'une dizaine d'annonces sur les 600 et quelques que le compteur annonce. Elle sert donc à repérer **qui recrute**, jamais à balayer un marché. Ce jour-là, les deux postes Atlassian *Principal CSM Strategic France* en remote France n'apparaissaient sur aucune des pages catégories fetchées ; ils n'ont été trouvés qu'en interrogeant l'API carrières d'Atlassian. Quand une entreprise cible est connue, aller directement à son ATS plutôt que d'espérer que LinkedIn la remonte.
+
 ---
 
 ## Notes diverses
