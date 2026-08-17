@@ -61,11 +61,17 @@ PRIORITY_ORDER = {
     '⭐':         4,
 }
 
+# Ordre de tri par statut. Les offres traitées (postulé, refusé) remontent en
+# tête ; les offres mortes descendent tout en bas, sous les offres actives.
+# Tout le reste (cellule vide, "À postuler", "À vérifier"...) occupe le rang 2,
+# qui est aussi la valeur par défaut dans sort_key.
 STATUS_ORDER = {
-    'Postulé': 0,
-    'Refusé':  1,
-    'Expiré':  2,
+    'Postulé':  0,
+    'Refusé':   1,
+    'Expiré':   3,
+    'Expirée':  3,
 }
+STATUS_DEFAUT = 2
 
 
 # ── Filtre télétravail ──────────────────────────────────────────────────────
