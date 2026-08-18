@@ -38,7 +38,10 @@ PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Pro
 # donc rangés dans "Offres CSM".
 PRESALES_KEYWORDS = ['Technical Account Manager', 'Solutions Engineer', 'Solution Engineer',
                       'Sales Engineer', 'Solutions Consultant', 'Solution Consultant',
-                      'Pre-Sales', 'Presales', 'Pre-sales', 'Avant-vente']
+                      'Pre-Sales', 'Presales', 'Pre-sales', 'Présales', 'Avant-vente',
+                      'Account Manager', 'Solutions Advocate', 'Solution Advocate',
+                      'Solutions Architect', 'Solution Architect', 'Solution Advisor',
+                      'Solutions Sales Executive']
 
 # Une offre Product Manager ou avant-vente dont l'intitulé porte aussi un marqueur
 # SIRH/SAP reste dans "Offres SIRH" : le métier SIRH prime sur le titre.
