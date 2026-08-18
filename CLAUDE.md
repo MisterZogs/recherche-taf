@@ -580,20 +580,21 @@ Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tr
 
 ## Règles de gestion du tableur offres_emploi.xlsx
 
-### Filtre télétravail (règle prioritaire, posée le 14/08/2026)
+### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026)
 
-**Les onglets métier ne contiennent que des offres au télétravail confirmé.** Ce filtre s'applique **avant** le routage par métier : une offre sans télétravail confirmé va dans l'onglet `NoRemote`, quel que soit son métier.
-
-Valeurs qui **restent** dans les onglets métier : `Oui` et ses variantes entre parenthèses, `Full remote`, `Remote`, `Remote-first`, `Remote-friendly`, `Remote Europe`, `100%`, `100% remote`, `Télétravail total`, `Télétravail possible`, `yes`, `En ligne`.
+**`NoRemote` ne reçoit que les offres qui excluent explicitement le télétravail total.** Ce filtre s'applique **avant** le routage par métier.
 
 Valeurs qui partent dans `NoRemote` :
-- **Hybride et partiel** sous toutes leurs formes (`Hybride`, `Partiel`, `Hybride 2j/sem`, `Partiel (3j/sem)`...). Décision explicite de Gaëtan le 14/08/2026 : le télétravail partiel ne suffit pas.
-- **Présentiel** et `Non`.
-- **Information manquante** : cellule vide, `n.p.`, `nc`, `N/C`, `Non précisé`, `À vérifier`, `À clarifier`, `À confirmer`, `Non confirmé`.
+- **Hybride et partiel** sous toutes leurs formes (`Hybride`, `Partiel`, `Hybride 2j/sem`, `Partiel (3j/sem)`...). Décision explicite de Gaëtan le 14/08/2026 : le télétravail partiel ne suffit pas, et il l'a reconfirmée le 18/08.
+- **Présentiel**, `Sur site` et `Non`.
+
+Valeurs qui **restent** dans les onglets métier :
+- Le télétravail confirmé : `Oui` et ses variantes entre parenthèses, `Full remote`, `Remote`, `Remote-first`, `Remote Europe`, `100% remote`, `Télétravail total`, `yes`, `En ligne`.
+- **L'information manquante**, depuis la révision du 18/08/2026 : cellule vide, `n.p.`, `nc`, `N/C`, `Non précisé`, `À vérifier`, `À clarifier`, `À confirmer`, `Non confirmé`. Une offre dont le télétravail n'est pas renseigné n'est plus écartée ; elle reste dans son onglet métier, à charge de clarifier au moment de candidater.
 
 Un marqueur d'hybride l'emporte sur la présence du mot « remote » : `Hybride (3j remote + 2j sur site)` part dans `NoRemote`.
 
-La fonction `accepte_remote()` d'`add_offre.py` implémente cette règle et le routage est automatique. Effet de la bascule initiale : 719 offres sur 935 sont parties dans `NoRemote`, dont 456 des 471 offres SIRH ; le vivier SIRH français est massivement en hybride ou en présentiel.
+La fonction `accepte_remote()` d'`add_offre.py` implémente cette règle et le routage est automatique. Effet de la révision du 18/08 : 261 offres sont remontées de `NoRemote` vers les onglets métier (158 SIRH, 56 IA, 44 CSM, 3 PM), et `NoRemote` est passé de 747 à 486 lignes, désormais uniquement de l'hybride, du partiel et du présentiel.
 
 - **Cinq onglets d'offres** : `Offres SIRH`, `Offres CSM`, `Offres IA`, `Offres PM`, `NoRemote`, plus `Fait`. (L'onglet `Légende` a été supprimé le 14/08/2026 ; ne pas le recréer.) Le routage est automatique dans `add_offre.py` : IA d'abord, puis CSM, puis PM, sinon SIRH. Une offre Product Manager dont l'intitulé porte aussi un marqueur SIRH ou SAP (« Product Owner HRIS », « Product Manager SIRH ») reste dans `Offres SIRH` ; le métier prime sur le titre.
 - **Ne jamais supprimer une ligne** du tableau, même si une offre semble expirée ou hors profil — changer le statut à la place.
