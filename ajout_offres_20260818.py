@@ -492,7 +492,7 @@ OFFRES = [
       FW + '/fr/tech-it/job-mission/expert-seo-consultant-referencement/expert-ia-generative-et-plateforme-ia-h-f',
       CV_IA, '14/08/2026'),
 
-    o('⭐⭐', 'Chef de Projet IA agentique, gouvernance et архi Data'.replace('архи', 'archi'),
+    o('⭐⭐', 'Chef de Projet IA agentique, gouvernance et archi Data',
       'ARDEMIS PARTNERS', 'free-work.com', 'Freelance', 'Paris', 'n.p.',
       '400 - 500 €/j', '6 mois',
       'Pilotage de programme IA ; gouvernance et architecture data au '
