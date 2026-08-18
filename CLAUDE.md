@@ -408,6 +408,36 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
+### État des sources — relance du 2026-08-18
+
+Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul appel Greenhouse a rendu plus d'offres exploitables que l'ensemble des WebSearch de la journée, et les liens qui en sortent sont vifs par construction (un poste absent du JSON est fermé).
+
+> **API Greenhouse — à ajouter au dispositif permanent, au même titre qu'Ashby et Lever :**
+> ```bash
+> curl -s "https://boards-api.greenhouse.io/v1/boards/<entreprise>/jobs"
+> ```
+> Chaque entrée porte `title`, `location.name` et `absolute_url`. Slugs vérifiés qui répondent : `remotecom`, `gitlab`, `samsara`, `canonical`, `grafanalabs`, `cloudflare`, `figma`, `airtable`, `gusto`, `justworks`. Un slug inconnu renvoie une réponse sans clé `jobs`.
+>
+> **Attention `urllib` :** l'API Ashby renvoie 403 sur les requêtes `urllib.request` de Python ; passer par `curl` (en sous-processus si besoin). Même piège probable sur les autres ATS.
+
+| Source | Verdict 18/08/2026 |
+|---|---|
+| API Greenhouse `remotecom` | **Meilleur rendement de la relance** : Senior PM HRIS Integrations, Senior Workday Implementation Specialist, Senior PM Remote Build en remote France ; l'éditeur le mieux aligné du marché |
+| API Greenhouse `gitlab` | Customer Success Architect EMEA avec **la France explicitement listée** en remote, plus un Senior Professional Services PM EMEA |
+| API Greenhouse `grafanalabs` | Solutions Engineer France remote ; attention, la variante Senior du même poste exige l'arabe |
+| API Greenhouse `canonical` | Six postes produit ouverts en même temps, tous `Home based - EMEA` |
+| API Ashby | Ashby lui-même (Manager of Dedicated Implementations EMEA), Constructor (PM Customer Onboarding Experience), ElevenLabs (Enterprise Solutions Engineer France), Pennylane (CSM SAAS et Présales en remote France), Alan, RevenueCat, Supabase, Vapi |
+| API Lever `jobgether` | 4 484 annonces ; filtrer `categories.location == "France"` réduit à 17 postes pertinents et règle le problème des doublons par pays |
+| API carrières Atlassian | Trois postes France remote que ni LinkedIn ni les ATS de scale-ups ne remontaient : Account Manager Strategic France, Senior Services Solutions Advocate, Strategic Solutions Sales Executive |
+| free-work `/jobs/sirh` | Toujours productif, mais **le télétravail n'est jamais affiché en liste** ; sans ouverture fiche par fiche, tout part en `NoRemote` |
+| jobs.hr-path.com | La racine ne rend rien, mais `/job/<slug>/<id>/` se fetche bien et confirme le télétravail — un Consultant SAP SuccessFactors publié le 14/08 est ainsi remonté |
+| LinkedIn pages catégories | Utile comme radar uniquement (Nexans, mc2i, Back Market, Scaltify, nonplusultra) ; aucune mention de télétravail, aucune URL d'annonce |
+| eursap.eu, hansonregan.com | Une seule offre HR chacun ; rendement quasi nul deux relances de suite |
+| WebSearch en général | **Le maillon faible** : beaucoup de pages agrégateur et d'articles de blog, très peu d'URLs d'annonce directes. À réserver aux sources sans API |
+| welcometothejungle, upwork, collective.work, remoterocketship, weworkremotely | Rien d'exploitable ce jour ; 403 en fetch direct ou contenu déjà couvert en amont |
+
+> **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
+
 ### État des sources — relance du 2026-08-13
 
 Écarts constatés par rapport au tableau du 07/08 :
