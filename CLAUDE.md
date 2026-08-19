@@ -460,6 +460,26 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-19
+
+Relance menée en 4 recherches parallèles (boards francophones/freelance, cabinets de conseil, éditeurs HRIS/partenaires SAP, APIs ATS + boards remote/VC) : 40 offres nouvelles ajoutées sur ~1150 liens déjà en base.
+
+**Cabinets de conseil (Big4/Big3/IT services/HR-spécialisés) : vivier désormais saturé pour ce profil.** Passage en revue des 25 cabinets de la liste CLAUDE.md → 0 offre nouvelle exploitable ; toutes les annonces SIRH/SAP HR trouvées (HR Path, Sia Partners, EY) étaient déjà dans le tableur, et les pistes apparemment neuves (Infosys, Strada, IBM, Mercer, Sopra Steria, Colombus, Ayming) se sont révélées mortes ou hors France au clic. **Ne plus consacrer un cluster de recherche entier à cette catégorie à chaque relance ; un passage ponctuel toutes les 2-3 relances suffit.**
+
+Nouveaux slugs Ashby/Lever/Greenhouse qui répondent, à ajouter au dispositif permanent : `pencil` (Product Manager EMEA remote, excellent fit), `dash0`, `camunda` (Sales Engineer), `zip`, `tilla`, `cohere`, `vibe` (Ashby) ; `teramind`, `contentsquare`, `remofirst`, `qonto`, `aircall` (Lever). `deel` sur Ashby renvoie désormais 0 offre — Deel a changé d'ATS, ne plus s'y fier pour ce board.
+
+| Source | Verdict 19/08/2026 |
+|---|---|
+| `free-work.com/jobs/sap-successfactors` | Page non fetchée jusqu'ici, très productive (10 missions SuccessFactors LINKWAY/BI Solutions/Tenth Revolution en un seul appel) — ajoutée à la liste standard |
+| freelance-informatique.fr, décodage `data-obf` | Toujours fiable ; la page catégorie `mission-sap-hr-461` a donné 19 URLs individuelles dont 5 nouvelles |
+| hansonregan.com | Rendement faible en volume mais a produit la meilleure offre de la relance (SAP ECS Client Relationship Manager, remote "Anywhere", 750€/j) |
+| API Ashby `alan`, `pennylane` | Confirmés bons filons récurrents : Alan (assurtech FR remote-friendly) a des postes CSM/AM/PM à chaque relance ; Pennylane pareil côté CSM |
+| API Atlassian | 5 postes UK remote nouveaux (Senior Principal CSM Strategic, Principal CSM Strategic, Enterprise AM Southern Europe, CSM Mid-Market\|DX, Support AM), non captés le 18/08 malgré une relance déjà axée sur cette API — **repasser dessus vaut le coup même en relance rapprochée**, le board bouge vite |
+| API Personio | 429 Too Many Requests — pas de board Ashby/Lever/Greenhouse alternatif identifié |
+| SD Worx | careers.sdworx.com et sa page welcometothejungle en 403/410 systématique |
+| mission-freelances.fr/missions/ | **404 constaté le 19/08/2026** — la structure du site a changé depuis les relances précédentes qui la donnaient fonctionnelle ; à vérifier avant de la refetcher telle quelle |
+| weworkremotely.com | Confirmé bloqué même en `curl` direct avec User-Agent (0 octet retourné) — passer systématiquement par WebSearch |
+
 ### État des sources — relance du 2026-08-13
 
 Écarts constatés par rapport au tableau du 07/08 :
