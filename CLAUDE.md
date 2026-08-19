@@ -421,6 +421,7 @@ Les anciennes URLs `/job-mission/<catégorie>/` sont bien mortes, mais free-work
 |---|---|
 | `https://www.free-work.com/fr/tech-it/jobs/sirh` | Missions et CDI SIRH — AMOA, chef de projet, transformation RH, Product Manager SIRH — ✅ fonctionne |
 | `https://www.free-work.com/fr/tech-it/jobs/sap-hcm` | Missions SAP HCM / SuccessFactors / paie / GTA — ✅ fonctionne |
+| `https://www.free-work.com/fr/tech-it/jobs/sap-successfactors` | Missions SuccessFactors dédiées (ONB, SP, PMGM, RCM, LMS, ECP...) — pas encore dans la liste standard avant le 19/08/2026, a rendu 10 missions LINKWAY/BI Solutions/Tenth Revolution en un seul fetch — **à fetcher systématiquement désormais, au même titre que `/jobs/sirh` et `/jobs/sap-hcm`** |
 | `https://www.free-work.com/fr/tech-it/jobs/sirh/paris` | Même liste filtrée sur Paris |
 
 Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-generative`, `/jobs/transformation-digitale`, `/jobs/mistral`) ; tenter d'autres mots-clés au besoin. En complément, les WebSearch restent utiles pour attraper les annonces indexées hors catégorie :
