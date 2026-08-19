@@ -23,9 +23,9 @@ from copy import copy
 FICHIER = "offres_emploi.xlsx"
 
 COLS = [
-    'Priorité', 'Statut', 'Fait', 'Poste', 'Entreprise', 'Source', 'Contrat',
+    'Priorité', 'Statut', 'Fait', 'Poste', 'Entreprise', 'Source', 'Lien', 'Contrat',
     'Localisation', 'Remote', 'Salaire / TJM', 'Durée mission',
-    'Fit / Notes', 'Lien', 'CV à envoyer', 'Prétention'
+    'Fit / Notes', 'CV à envoyer', 'Prétention'
 ]
 
 CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM']
