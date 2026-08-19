@@ -427,7 +427,7 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 ### État des sources — relance du 2026-08-18
 
-Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul appel Greenhouse a rendu plus d'offres exploitables que l'ensemble des WebSearch de la journée, et les liens qui en sortent sont vifs par construction (un poste absent du JSON est fermé).
+Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul appel Greenhouse a rendu plus d'offres exploitables que l'ensemble des WebSearch de la journée, et les liens qui en sortent sont vifs par construction (un poste absent du JSON est fermé — **cette dernière affirmation reste vraie pour Greenhouse**, vérifiée le 19/08/2026 : un ID Greenhouse fermé redirige proprement vers `<board>?error=true`. Elle est **fausse pour Ashby** (postes "non listés" toujours candidatables) **et pour Lever/Jobgether** (listing volatil) — voir les correctifs du 19/08/2026 dans la section Ashby/Lever ci-dessus avant de marquer un lien existant comme expiré sur la seule base d'une absence dans l'API).
 
 > **API Greenhouse — à ajouter au dispositif permanent, au même titre qu'Ashby et Lever :**
 > ```bash
