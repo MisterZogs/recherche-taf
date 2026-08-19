@@ -262,7 +262,13 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 > ```bash
 > curl -s "https://api.ashbyhq.com/posting-api/job-board/<entreprise>?includeCompensation=true"
 > ```
-> Le `<entreprise>` est le segment de l'URL du board (ex. `constructor`, `elevenlabs`, `n8n`). C'est le moyen le plus fiable de vérifier qu'un poste est **encore ouvert** et de lire les prérequis sans navigateur. Un poste absent du JSON est fermé.
+> Le `<entreprise>` est le segment de l'URL du board (ex. `constructor`, `elevenlabs`, `n8n`). C'est le moyen le plus fiable de vérifier qu'un poste est **encore ouvert** et de lire les prérequis sans navigateur.
+>
+> **⚠️ Correctif du 19/08/2026 : un poste absent du JSON n'est PAS forcément fermé.** Ashby permet de rendre un poste "non listé" sur le board public (retiré du JSON de l'API) tout en le laissant parfaitement candidatable via son lien direct. Cas réel : `jobs.ashbyhq.com/owkin/a2332329-a5da-4bc3-a6eb-ea8bbc49e637` (Senior CSM, excellent fit) absent de l'API le 19/08 mais toujours vivant avec bouton "Apply" actif au fetch direct de la page. Repéré 4 fois par des relances précédentes puis marqué Expiré à tort lors d'un nettoyage automatique basé sur l'API seule. **Pour vérifier la fermeture réelle d'un lien Ashby déjà dans le tableur, ne jamais se fier à l'absence dans l'API : fetcher l'URL directement.** Deux signaux fiables au fetch direct (curl suffit, pas besoin de navigateur) :
+> - Balise `<title>` générique `"Jobs"` (pas de nom de poste) → réellement fermé.
+> - Balise `<title>` avec le nom du poste (ex. `"Senior Customer Success Manager @ Owkin"`) → poste vivant, même si absent du JSON de l'API.
+>
+> L'API Ashby reste fiable pour découvrir de **nouveaux** postes (elle ne peut évidemment lister que ce qu'elle contient) ; c'est seulement comme preuve de fermeture d'un lien existant qu'elle ne suffit pas.
 | Lever | jobs.lever.co — WebSearch `site:jobs.lever.co "customer success manager" remote France` | Qonto, Aircall, autres scale-ups FR |
 
 > **Astuce Lever — API publique (trouvée le 14/08/2026).** Même logique que l'API Ashby :
