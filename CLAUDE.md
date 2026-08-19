@@ -183,6 +183,15 @@ Rappel lié : voir aussi la règle « ne jamais recopier le langage d'une offre 
 | free-work.com | Missions freelance & CDI IT/SAP, France, board public accessible |
 | eursap.eu | N°1 SAP Europe, 21 pays dont France, CDI + contrats, board public, SAP HR/HCM/SF |
 | freelance-informatique.fr | Missions freelance SAP/SIRH France, portage salarial, board public |
+
+> **Astuce freelance-informatique.fr — décodage des liens `data-obf` (trouvée le 19/08/2026).** Les pages catégorie (ex. `mission-consultant-sap-hcm-n14525`, `mission-sap-hr-hcm-925`, `mission-consultant-sap-successfactors-n16465`, `chef-de-projet-sirh-freelance-n112`) affichent plusieurs missions dans un carrousel, mais les liens "Voir la mission" n'ont pas de `href` classique : `curl` et WebFetch ne remontent que le texte, jamais l'URL. L'URL réelle est encodée en base64 dans un attribut `data-obf` sur le `<span>`, décodé en JS au clic. Un simple `curl` suffit pour la récupérer, sans navigateur :
+> ```python
+> import re, base64
+> html = requests.get(url, headers={"User-Agent": "Mozilla/5.0 ..."}).text
+> for m in re.findall(r'data-obf="([^"]+)"[^>]*>Voir la mission', html):
+>     print("https://www.freelance-informatique.fr" + base64.b64decode(m).decode())
+> ```
+> Chaque page catégorie liste 9 à 20 missions avec doublons entre catégories proches (SAP HCM / SAP HR-HCM se recoupent beaucoup). Les pages missions individuelles (`mission-<titre>-<id>-de`) n'ont pas de JSON-LD `JobPosting` ; titre, ville et durée se lisent dans la balise `<meta name="description">`, et un `(Télétravail)` dans `twitter:title`/`og:title` est le seul signal fiable de télétravail confirmé (sinon "non précisé", reste dans l'onglet métier par défaut). Le client est presque toujours anonymisé ("N/C").
 | malt.fr | Plateforme freelance FR - profil actif : https://www.malt.fr/profile/gf1 |
 | whitehallresources.com | SAP recrutement UK/Europe (dont France), SAP SF + SAP HR, CDI + contrats, board public |
 | opusresourcing.com | Spécialiste HCM (SAP SF, SAP HCM, Workday), UK/Europe dont France/Espagne/Italie |
