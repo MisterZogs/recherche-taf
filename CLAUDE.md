@@ -277,6 +277,8 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 > ```
 > Renvoie tous les postes ouverts en JSON avec `text` (titre), `categories.location`, `workplaceType` (`remote` / `hybrid` / `onsite`) et `hostedUrl`. Un slug inconnu renvoie `{"ok":false,"error":"Document not found"}`, ce qui permet aussi de tester rapidement le bon nom de board.
 > **Attention Jobgether** : ce board republie la même offre dupliquée par pays (jusqu'à neuf lignes pour un seul poste). Filtrer sur la variante France avant d'ajouter au tableur, sinon le tableur se remplit de doublons.
+>
+> **⚠️ Correctif du 19/08/2026 : le listing Jobgether est volatil, son absence à un instant T ne prouve pas la fermeture.** Avec ~4500 postes et une pagination/rotation qui change d'un appel à l'autre, un poste peut disparaître d'un appel API puis réapparaître dans un appel ultérieur le même jour sans avoir jamais été fermé côté employeur. 14 offres Jobgether (+1 Vendavo) ont ainsi été marquées Expiré à tort le 19/08 avant d'être restaurées. Pour vérifier la fermeture réelle d'un lien Lever déjà dans le tableur, fetcher l'URL directement plutôt que de recroiser avec l'API : un lien mort renvoie une page dont le `<title>` est `"Not found – 404 error"` ; un lien vivant contient le texte "Apply for this job" et le titre réel du poste.
 | Greenhouse | boards.greenhouse.io — WebSearch `site:boards.greenhouse.io "customer success" remote France` | Typeform, autres |
 | Atlassian (iCIMS) | `curl -s "https://www.atlassian.com/endpoint/careers/listings"` | CSM Principal / Senior Principal France, Solutions Engineer, Customer Success Architect |
 
