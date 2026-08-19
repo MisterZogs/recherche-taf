@@ -4,6 +4,8 @@
 
 À chaque fois que Claude est lancé dans ce dossier, il doit systématiquement proposer en début de conversation : "Veux-tu que je relance une recherche d'offres sur tous les sites et que j'ajoute les nouvelles trouvées dans `offres_emploi.xlsx` ?"
 
+**Mémoire entre sessions : ce fichier est la seule mémoire qui survit.** Une nouvelle session ne se souvient de rien de ce qui a été dit ou fait dans une conversation précédente, seul ce que ce fichier contient est relu à chaque lancement. Toute leçon durable trouvée en session (une erreur méthodologique identifiée, une source qui se comporte différemment de ce qui était noté, une règle métier précisée ou corrigée par Gaëtan) doit être écrite ici avant la fin de la session, immédiatement quand elle est découverte plutôt que remise à plus tard. Ne pas se contenter de la dire dans le chat en pensant que « la prochaine fois » on y pensera : il n'y aura pas de prochaine fois qui s'en souvienne si ce n'est pas écrit ici.
+
 ---
 
 ## Contexte général
