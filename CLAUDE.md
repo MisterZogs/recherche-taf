@@ -196,6 +196,8 @@ Rappel lié : voir aussi la règle « ne jamais recopier le langage d'une offre 
 >     print("https://www.freelance-informatique.fr" + base64.b64decode(m).decode())
 > ```
 > Chaque page catégorie liste 9 à 20 missions avec doublons entre catégories proches (SAP HCM / SAP HR-HCM se recoupent beaucoup). Les pages missions individuelles (`mission-<titre>-<id>-de`) n'ont pas de JSON-LD `JobPosting` ; titre, ville et durée se lisent dans la balise `<meta name="description">`, et un `(Télétravail)` dans `twitter:title`/`og:title` est le seul signal fiable de télétravail confirmé (sinon "non précisé", reste dans l'onglet métier par défaut). Le client est presque toujours anonymisé ("N/C").
+>
+> **Vérification systématique à chaque relance (demandée par Gaëtan le 19/08/2026) :** décoder `https://www.freelance-informatique.fr/chef-de-projet-sirh-freelance-n112` avec la méthode `data-obf` ci-dessus et vérifier que chacune des missions individuelles qu'elle liste est bien présente dans `offres_emploi.xlsx` (n'importe quel onglet). Cette page catégorie est explicitement citée par Gaëtan comme référence à recontrôler à chaque fois, pas seulement lors d'une relance générale — donc même sur une demande ponctuelle qui ne mentionne pas freelance-informatique.fr. Ajouter les missions manquantes ; si les 20 sont déjà connues, le dire simplement sans rien ajouter.
 | malt.fr | Plateforme freelance FR - profil actif : https://www.malt.fr/profile/gf1 |
 | whitehallresources.com | SAP recrutement UK/Europe (dont France), SAP SF + SAP HR, CDI + contrats, board public |
 | opusresourcing.com | Spécialiste HCM (SAP SF, SAP HCM, Workday), UK/Europe dont France/Espagne/Italie |
