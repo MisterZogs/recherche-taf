@@ -469,6 +469,33 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-20
+
+Relance menée en 4 recherches parallèles (boards francophones/freelance, API ATS + éditeurs HRIS, boards remote/VC/LinkedIn, IA/PM/métiers de niche) : environ 212 offres candidates compilées, 110 déjà en base, **102 offres nouvelles ajoutées**.
+
+Nouveaux slugs ATS qui répondent, à ajouter au dispositif permanent : Ashby `vanta` (très productif, EMEA/France, GRC/Solutions Engineer francophone), `n8n`, `constructor`, `photoroom`, `fieldguide`, `docker`, `qdrant.tech`, `omni`, `swans`, `americanoperator`. Lever `scality` (Paris, hybride), `veeva`, `brevo`, `360learning`, `loftorbital`. Greenhouse `gitlab`, `canonical`, `grafanalabs`, `abnormalsecurity`, `cloudflare` (déjà connus, toujours productifs). **Lucca a migré d'ATS** : remplacer toute référence `jobs.lever.co/lucca` par `jobs.world.luccasoftware.com/lucca`.
+
+| Source | Verdict 20/08/2026 |
+|---|---|
+| API Ashby (vanta, n8n, elevenlabs, alan, pennylane, ashby, camunda, dash0, zip, tilla, cohere) | Le meilleur rendement de la relance, comme d'habitude ; `vanta` découvert ce jour est un filon fort (French Market Pre-Sales, Solutions Engineer francophone) |
+| API Lever `jobgether` (filtré France) | 14 postes pertinents remontés (PM, CSM, TAM, Data Migration) ; toujours nécessaire de filtrer `categories.location == "France"` pour éviter les doublons pays |
+| API Greenhouse `remotecom` | Toujours l'éditeur le mieux aligné : implémentation Workday, PM HRIS/payroll/billing, Solutions Consultant Payroll EMEA |
+| API carrières Atlassian | Le board a de nouveau bougé depuis le 19/08 (nouveaux job ID : 25256, 26057, 26241, 26249, 25170, 25552, 24899) — confirme qu'il faut le repasser à chaque relance |
+| freelance-informatique.fr, décodage `data-obf` | Toujours fiable ; les 3 pages catégorie de référence ont donné 30 URLs individuelles valides |
+| free-work.com `/jobs/sirh`, `/jobs/sap-hcm`, `/jobs/sap-successfactors`, `/jobs/ia` | Toujours très productif en fetch direct (pagination comprise) |
+| **free-work.com `/jobs/product-manager`** | **URL cassée** : renvoie un listing générique non filtré (~7500 offres IT hétéroclites) au lieu des offres Product Manager. Utiliser `/jobs/product-owner` à la place (fonctionne, mais dominé par du hors-profil hors SIRH/RH) |
+| **cremedelacreme.io** | **Ce n'est pas un board de listing** : le site fonctionne en matching inversé (le client soumet un besoin, reçoit 3 profils sous 48h), aucune page de missions à parcourir. À retirer de la liste des boards à fetcher à chaque relance ; le garder seulement comme profil freelance à tenir à jour |
+| **apec.fr** | Confirmé non-fetchable : mur de connexion systématique, même sur les URLs de résultats de recherche |
+| **opusresourcing.com** | Rendement nul confirmé une nouvelle fois (aucune offre SAP HCM/SF/Workday/SIRH, seulement du hors-profil) |
+| **freelancer.com** | Correctif : `/jobs/sap/` se fetche désormais directement sans blocage (contrairement au verdict du 06/08), simplement aucune offre HR/HCM n'y figurait ce jour |
+| mission-freelances.fr/missions/ | De nouveau fonctionnelle (le 404 du 19/08 était temporaire) mais les liens individuels ne se rendent pas via WebFetch (JS) — à retenter en curl brut si besoin |
+| **Index Ventures — URLs `indexventures.com/startup-jobs/...`** | Périmées (404), y compris pour des postes Remote.com encore ouverts. Préférer directement l'API Greenhouse `remotecom` |
+| collective.work | Le fetch direct de `/jobs` ne filtre plus sur mots-clés (flux générique non filtrable), contrairement à la note du 13/08 — à vérifier via WebSearch ciblé plutôt que fetch direct |
+| Owkin (Ashby) | Le poste Senior CSM signalé le 19/08 comme "délisté mais vivant" a définitivement disparu, y compris de la page directe — fermeture confirmée |
+| weworkremotely.com, remoterocketship.com | Fetch direct confirmé bloqué (403) une nouvelle fois ; WebSearch reste la seule voie fonctionnelle |
+| himalayas.app | Confirmé : usage radar uniquement, jamais d'URL Himalayas comme lien final (redirection silencieuse vers listing général si poste fermé) |
+| Decathlon Digital | Faux positif à connaître : un "Product Manager SAP HR" vu sur LinkedIn correspond en réalité à un PM SAP S/4 Supply Chain, pas RH |
+
 ### État des sources — relance du 2026-08-19
 
 Relance menée en 4 recherches parallèles (boards francophones/freelance, cabinets de conseil, éditeurs HRIS/partenaires SAP, APIs ATS + boards remote/VC) : 40 offres nouvelles ajoutées sur ~1150 liens déjà en base.
