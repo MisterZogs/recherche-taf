@@ -680,6 +680,18 @@ Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tr
 
 ## Règles de gestion du tableur offres_emploi.xlsx
 
+### ⚠️ RÈGLE ABSOLUE — un lien partagé par plusieurs offres différentes est presque toujours un lien générique, jamais une vraie coïncidence (posée le 21/08/2026)
+
+**Une vraie page d'offre individuelle ne peut jamais correspondre à deux postes différents.** Si la colonne Lien contient la même URL sur deux lignes dont le Poste et/ou l'Entreprise diffèrent réellement, ce lien est presque toujours une page de recherche/catégorie/listing qui a été collée par erreur à la place du lien individuel de chaque offre — exactement le même bug que celui déjà documenté pour freelance-informatique.fr, mais qui s'est avéré bien plus répandu à l'audit du 21/08/2026 : trouvé sur **43 URLs partagées touchant environ 140 lignes**, notamment :
+- Pages de recherche **Indeed** (`fr.indeed.com/q-<mots-clés>-emplois.html`)
+- Pages catégorie **LinkedIn** (`fr.linkedin.com/jobs/<mot-clé>-emplois...`) — déjà documentées plus bas comme sources de *radar* uniquement, mais utilisées à tort comme Lien final à de nombreuses reprises
+- Pages catégorie **free-work.com** de la forme `/fr/tech-it/jobs/<mot-clé>` (à ne pas confondre avec les pages individuelles `/fr/tech-it/job-mission/<catégorie>/<slug>`, qui sont légitimes)
+- La page listing **mission-freelances.fr/missions/** (sans slug individuel)
+
+**Avant chaque relance ou chaque nouvel ajout, vérifier qu'aucun lien n'est partagé par deux offres au Poste/Entreprise différents.** Méthode : regrouper toutes les lignes de tous les onglets par valeur de colonne Lien, et pour chaque lien partagé par plus d'une ligne, comparer Poste et Entreprise après normalisation des mentions d'anonymisation (« N/C », « n.c. », « client anonymisé »...). Si au moins deux lignes ont une Entreprise clairement différente pour le même Lien, c'est le bug : il faut retrouver l'URL individuelle réelle de chaque offre (nouvelle recherche ciblée sur le titre + l'entreprise), et si elle est introuvable (poste probablement pourvu depuis), **ne jamais réutiliser le lien générique** : vider la cellule Lien et documenter la raison dans Fit / Notes plutôt que de laisser un lien trompeur.
+
+Cas à part : un lien partagé par des lignes au Poste et à l'Entreprise quasi identiques (juste une reformulation du même intitulé) n'est pas ce bug-là mais un doublon de ligne classique (la même offre individuelle réellement ajoutée deux fois) — cas moins grave, à nettoyer en supprimant la ligne redondante plutôt qu'en cherchant un nouveau lien.
+
 ### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026)
 
 **`NoRemote` ne reçoit que les offres qui excluent explicitement le télétravail total.** Ce filtre s'applique **avant** le routage par métier.
