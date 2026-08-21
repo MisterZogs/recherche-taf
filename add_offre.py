@@ -12,6 +12,9 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   onglet métier.
 - Avant chaque ajout, les lignes marquées "x" dans la colonne Fait
   sont déplacées vers l'onglet "Fait".
+- Avant d'insérer une offre, son Lien est comparé à tous les liens déjà
+  présents dans les 6 onglets (y compris Fait) ; en cas de doublon,
+  l'offre est ignorée plutôt qu'ajoutée une seconde fois.
 """
 
 import re
