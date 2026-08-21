@@ -166,6 +166,21 @@ def _col_index(ws, name):
     raise ValueError(f"Colonne '{name}' introuvable dans {ws.title}")
 
 
+def _liens_existants(wb) -> set:
+    """Tous les liens déjà présents dans le classeur, tous onglets confondus (y compris Fait)."""
+    liens = set()
+    for ws in wb.worksheets:
+        try:
+            lien_idx = _col_index(ws, 'Lien')
+        except ValueError:
+            continue
+        for row in ws.iter_rows(min_row=2):
+            v = row[lien_idx].value
+            if v:
+                liens.add(str(v).strip())
+    return liens
+
+
 def _archiver_faits(ws_src, ws_fait, fait_idx, verbose):
     """Déplace les lignes 'x' de ws_src vers ws_fait. Retourne les lignes conservées."""
     kept = []
