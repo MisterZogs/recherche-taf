@@ -469,6 +469,28 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-21
+
+Relance menée en 4 recherches parallèles (boards FR/freelance, API ATS + éditeurs HRIS, boards remote/VC/LinkedIn, IA/PM/niche) : 129 offres candidates compilées, 71 doublons filtrés contre les ~1250 liens déjà en base (dont 1 lien SD Worx confirmé mort en HTTP 410), **58 offres nouvelles ajoutées**.
+
+En préalable à cette relance, 3 lignes marquées « x » en colonne Fait (statuts pourvu/refusé/Postulé) traînaient depuis une édition manuelle du tableur non committée ; elles ont été déplacées vers l'onglet Fait avant l'ajout, conformément à la règle habituelle.
+
+Nouveaux slugs ATS qui répondent, à ajouter au dispositif permanent : Ashby `pencil` (PM EMEA full remote, très bon fit), `dash0`, `zip`, `socket`, `mural`, `ironcladhq`. Greenhouse `degreed` (Senior Implementation Consultant UK Remote, éditeur LMS/HR-tech, excellent fit sectoriel). `teramind`, `contentsquare`, `qonto` confirmés productifs sur Lever (déjà notés le 19/08).
+
+> **Leçon méthodologique : ne jamais faire confiance à un UUID Ashby tronqué rapporté par un agent.** Un agent a renvoyé un identifiant partiel (« cfe36a59, 3bd8a6ab, e51e28e4, 4886fd85 ») pour 4 postes Photoroom au lieu de l'URL complète. Complèter soi-même l'UUID par pattern-matching serait fabriquer un lien invalide. Réflexe correct : requêter directement `curl -s "https://api.ashbyhq.com/posting-api/job-board/<entreprise>"` pour récupérer les `jobUrl` complets avant tout ajout au tableur, plutôt que de faire confiance à un extrait de texte d'agent qui a pu tronquer une liste.
+
+| Source | Verdict 21/08/2026 |
+|---|---|
+| API Ashby (`pencil`, `dash0`, `zip`, `socket`, `mural`, `ironcladhq`, `alan`, `pennylane`, `photoroom`, `constructor`, `vanta`, `docker`) | Toujours la source la plus productive ; plusieurs annonces très fraîches (publiées 20/08) captées le lendemain (Cohere CSM France, Constructor AM DACH, Docker Implementation Engineer EMEA) |
+| API Lever (`360learning`, `veeva`, `jobgether` filtré France) | 360Learning a donné 6 postes en un seul appel (Account Manager, 2x Solutions Engineer/Consultant, Solution Expert, Technical Consultant, Solution Deployment Manager) ; Jobgether reste volatil mais toujours rentable une fois filtré |
+| API Greenhouse (`customerio`, `chainguard`, `pandadoc`, `cloudbeds`, `canonical`, `gitlab`, `abnormalsecurity`, `degreed`) | Chainguard a donné un Enterprise Sales Engineer **France explicitement remote**, la meilleure offre CSM de la relance |
+| API Atlassian | Board de nouveau changé (nouveaux ID 25256, 26057, 26241, 26249, 25170, 25552, 24899, +3 nouveaux 25434/25775/26063) ; confirme qu'il faut le repasser à chaque relance sans exception |
+| free-work.com `/jobs/sirh` | Toujours le meilleur rendement côté FR/freelance : 17 offres SIRH nouvelles en un seul passage |
+| welcometothejungle.com (via WebSearch) | 6 offres PM/IA nouvelles trouvées (Side, Inqom, RISE, Follow, Mantra, Webmyday), toutes avec télétravail total confirmé dans le texte de l'annonce |
+| freelance-informatique.fr, décodage `data-obf` | Vivier confirmé saturé : les 3 pages catégorie de référence n'ont donné aucune URL nouvelle ce jour |
+| SD Worx | 1 des 3 liens trouvés (`careers.sdworx.com/jobs/7538308`) était mort (HTTP 410 direct) malgré son apparition en WebSearch ; les 2 autres (dont un via welcometothejungle) sont vivants |
+| Vanta (Ashby) | Conflit entre agents : l'un a rapporté 4 postes French Market/French Fluency comme vivants, l'autre les a vérifiés morts (titre générique "Jobs") sauf un DACH différent. Par prudence les 4 douteux n'ont pas été ajoutés, seul le DACH vérifié vivant l'a été. Illustre une fois de plus qu'un résultat WebSearch sur Ashby doit systématiquement être revérifié par fetch direct avant ajout, jamais pris tel quel |
+
 ### État des sources — relance du 2026-08-20
 
 Relance menée en 4 recherches parallèles (boards francophones/freelance, API ATS + éditeurs HRIS, boards remote/VC/LinkedIn, IA/PM/métiers de niche) : environ 212 offres candidates compilées, 110 déjà en base, **102 offres nouvelles ajoutées**.
