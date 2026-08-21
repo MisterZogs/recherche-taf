@@ -284,6 +284,13 @@ def ajouter_offres(offres: list[dict], verbose=True):
 
     for offre in offres:
         poste = offre.get('Poste', '')
+        lien = str(offre.get('Lien') or '').strip()
+        if lien and lien in liens_connus:
+            if verbose:
+                print(f"= [doublon ignoré] {poste} | {offre.get('Entreprise')} | {lien}")
+            continue
+        if lien:
+            liens_connus.add(lien)
         ligne = _nouvelle_ligne(offre)
         # Sans télétravail confirmé, l'offre va dans NoRemote quel que soit le métier.
         if not accepte_remote(offre.get('Remote')):
