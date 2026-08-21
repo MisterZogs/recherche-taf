@@ -268,6 +268,8 @@ def ajouter_offres(offres: list[dict], verbose=True):
 
     fait_idx = _col_index(ws_sirh, 'Fait')
 
+    liens_connus = _liens_existants(wb)
+
     if verbose:
         print("── Archivage ──")
 
