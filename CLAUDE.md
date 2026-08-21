@@ -692,6 +692,15 @@ Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tr
 
 Cas à part : un lien partagé par des lignes au Poste et à l'Entreprise quasi identiques (juste une reformulation du même intitulé) n'est pas ce bug-là mais un doublon de ligne classique (la même offre individuelle réellement ajoutée deux fois) — cas moins grave, à nettoyer en supprimant la ligne redondante plutôt qu'en cherchant un nouveau lien.
 
+**Audit du 21/08/2026 : correctif appliqué aux onglets actifs.** 43 liens génériques touchaient 172 lignes au total. Les 45 lignes des onglets actifs (Offres SIRH/CSM/IA/PM) ont été corrigées : 27 liens individuels retrouvés et vérifiés (200 + titre exact), 13 offres non retrouvables (probablement pourvues, lien vidé et documenté), 5 doublons de vraies offres fusionnés en une seule ligne. **Les 127 lignes restantes dans NoRemote et Fait n'ont pas été traitées** (offres déjà écartées ou déjà traitées, priorité plus faible) — à reprendre au fil de l'eau ou lors d'une prochaine session dédiée.
+
+Astuces trouvées pendant cet audit, à réutiliser :
+- Un lien LinkedIn qui redirige vers `...?trk=expired_jd_redirect` est une preuve fiable qu'une offre est fermée (`curl -s -o /dev/null -w "%{url_effective}" -L <url>` pour le détecter sans navigateur).
+- Le flux RSS carrière `career.<entreprise>.com/services/rss/job/?keywords=<mot-clé>` fonctionne très bien sur les sites SuccessFactors (Nexans, Eramet, Syensqo...) pour retrouver l'URL individuelle exacte sans passer par une recherche JS.
+- L'**API Workday CXS** (`<tenant>.wdX.myworkdayjobs.com/wday/cxs/<tenant>/<site>/job/<path>`) confirme fiablement titre et statut d'un poste (fonctionne pour Strada, L-Acoustics) ; certains tenants la bloquent systématiquement (403 sur toute combinaison, cas de Valeo) — dans ce cas se contenter d'un fetch HTML 200 + titre correspondant, sans garantie à 100 %.
+- Une redirection interne vers la page listing générique du site carrière (ex. `career.groupeetam.com` → 410 Gone, `talents.mc2i.fr` → redirection vers `/nos-offres`) est un signal de fermeture aussi fiable qu'un lien LinkedIn expiré.
+- **Correctif à une note antérieure** : `mission-freelances.fr/missions/` n'est **pas** trop JS pour être scrapée comme indiqué précédemment — un simple `curl` avec un User-Agent navigateur retourne tous les liens individuels en clair dans le HTML source. Idem pour `free-work.com/fr/companies/<slug>/jobs`, qui liste en clair toutes les missions ouvertes d'une entreprise donnée : c'est la méthode la plus fiable pour retrouver un lien individuel free-work quand on connaît le nom du client, à privilégier sur le décodage `data-obf` qui reste réservé à freelance-informatique.fr.
+
 ### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026)
 
 **`NoRemote` ne reçoit que les offres qui excluent explicitement le télétravail total.** Ce filtre s'applique **avant** le routage par métier.
