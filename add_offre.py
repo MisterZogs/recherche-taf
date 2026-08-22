@@ -6,6 +6,11 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 - Les offres Product Manager / Product Owner vont dans "Offres PM",
   sauf si l'intitulé porte aussi un marqueur SIRH/SAP (elles restent alors en SIRH).
 - Les offres SIRH/SAP vont dans l'onglet "Offres SIRH".
+- Les offres d'entreprises basées aux USA (repérées via `Onglet='Offres USA'`
+  dans le dict, ou par défaut via un marqueur USA dans la Localisation) vont
+  dans l'onglet "Offres USA", tous métiers confondus, à condition d'être
+  ouvertes au télétravail (le filtre remote prioritaire s'applique comme
+  pour les autres onglets).
 - FILTRE PRIORITAIRE : une offre qui exclut explicitement le télétravail total
   (hybride, partiel, présentiel) va dans "NoRemote", quel que soit le métier.
   Une information manquante ne disqualifie plus : l'offre reste dans son
