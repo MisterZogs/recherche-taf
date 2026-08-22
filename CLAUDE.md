@@ -678,6 +678,51 @@ Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tr
 
 ---
 
+## Recherche USA (onglet dédié "Offres USA") — ajoutée le 22/08/2026
+
+**À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA et PM. Demande de Gaëtan : les salaires US, notamment dans les startups, sont nettement supérieurs aux fourchettes FR/EU de la section « Attentes salariales ». Cet onglet capte les offres d'**entreprises basées aux USA**, tous métiers confondus (CSM, SIRH/HRIS, PM, IA/formation), du moment qu'elles sont ouvertes au télétravail depuis la France.
+
+### Critère de filtrage : le remote « worldwide », pas le remote « US only »
+
+**Le point le plus important de cette recherche.** Une offre marquée « Remote » aux USA n'est pas automatiquement candidatable : beaucoup de postes remote américains exigent d'être **basé aux États-Unis ou autorisé à y travailler** (raisons fiscales/légales, payroll US uniquement). Gaëtan est basé en France, sans autorisation de travail US ni projet de relocalisation.
+
+Ne retenir que les offres explicitement ouvertes à l'international : mentions **« Remote - Worldwide »**, **« Remote - Anywhere »**, **« Remote - Global »**, **« Remote - EMEA »**, **« Remote - Europe »**, **« Remote (International) »**, ou une entreprise déjà connue comme employeur international (souvent via une EOR type Deel/Remote.com/Oyster en arrière-plan). Écarter (ou envoyer vers `NoRemote` avec une note) toute offre marquée **« Remote - US only »**, **« Must be based in the US »**, **« US work authorization required »**, **« Remote (US) »** sans mention d'ouverture internationale.
+
+En cas de doute sur une offre par ailleurs excellente, la garder avec priorité réduite et une note explicite (« éligibilité internationale à confirmer ») plutôt que de la perdre.
+
+### Postes ciblés (mêmes familles que d'habitude, formulées à l'américaine)
+
+- **Customer Success Manager / Senior CSM / Enterprise CSM** — le marché US regorge de CSM senior remote-first, secteur le plus actif
+- **Technical Account Manager, Solutions Engineer, Sales Engineer, Solutions Consultant** — avant-vente technique, même logique que l'onglet CSM habituel
+- **Implementation Consultant, Onboarding Manager, Professional Services Consultant, Data Migration Lead** — déploiement client, tout éditeur SaaS/HRIS
+- **HRIS Manager, HRIS Consultant, People Systems Manager, Workday/SAP Consultant** — l'équivalent US du SIRH ; marché plus orienté Workday que SAP HCM
+- **Product Manager / Senior PM / Group PM**, en particulier onboarding/adoption/customer experience, ou produit IA
+- **AI Enablement Manager, AI Adoption Lead, GenAI Trainer, Applied AI Consultant, Customer Education (AI)** — équivalent US du « Formateur IA » ; le marché américain formule rarement ce rôle comme « trainer », plutôt comme « enablement » ou « adoption »
+
+### Où chercher
+
+| Source | Méthode |
+|---|---|
+| **API Ashby / Lever / Greenhouse** (dispositif habituel) | Mêmes commandes `curl` que d'habitude ; filtrer sur les entreprises basées aux USA et sur les mentions remote internationales dans `location`/`categories.location`/`workplaceType` |
+| **TopCSJobs** (topcsjobs.com/remote-customer-success-jobs) | Board dédié 100% Customer Success remote, mis à jour quotidiennement, CSM à CS Director |
+| **Built In** (builtin.com/jobs/remote/customer-success, /jobs/remote/product) | Board tech US par ville + filtre remote national ; bonne couverture CSM et PM |
+| **Product Manager Job Board** (productmanagerjobboard.com) | Board dédié Product Manager, filtrer sur remote |
+| **startup.jobs** (startup.jobs/product-manager-jobs, et recherche libre CSM/HRIS) | Agrégateur startups, filtres remote |
+| **Y Combinator Jobs** (ycombinator.com/jobs, filtrable par rôle : `/jobs/role/product-manager/remote`) | Alternative/complément à workatastartup.com pour le même vivier YC |
+| **Wellfound** (wellfound.com/role/r/product-manager, /role/r/customer-success-manager) | Déjà utilisé, filtrer explicitement sur remote worldwide |
+| **HN Who's Hiring via HNHIRING** (hnhiring.com/locations/remote) | Indexe le fil mensuel Hacker News "Who is Hiring", très riche en startups remote-first, filtre remote déjà appliqué |
+| **RemoteOK** (remoteok.com) | **Revirement de règle** : précédemment exclu des relances FR pour être « trop US-centré » — c'est exactement la cible de cette recherche USA, à inclure désormais |
+| **Remotive** (remotive.com) | Même revirement que RemoteOK : source US-centrée, désormais pertinente pour cet onglet |
+| **We Work Remotely** (weworkremotely.com) | Déjà utilisé en radar via WebSearch (403 en fetch direct) ; bon vivier US |
+| **Boards VC portfolio US** | a16z (jobs.a16z.com, déjà connu), Sequoia (jobs.sequoiacap.com, déjà connu), General Catalyst (jobs.generalcatalyst.com), Accel (jobs.accel.com), Bessemer (talent.bvp.com), NEA (jobs.nea.com), Lightspeed (jobs.lsvp.com), Greylock (jobs.greylock.com) — la plupart tournent sur la plateforme Getro, structure d'URL similaire ; à tester via WebSearch `site:<domaine> "customer success" OR "product manager" remote` si le fetch direct échoue |
+| **Indeed US, ZipRecruiter, Glassdoor US** | Volumes énormes, filtrer sur remote + mots-clés métier ; utiles pour le radar salarial (Glassdoor) en plus des offres |
+| **LinkedIn** (linkedin.com/jobs, sans filtre géographique France) | Même méthode radar que d'habitude ; filtrer sur `f_WT=2` (remote) sans `f_TPR` géographique pour capter les US |
+
+### CV et prétentions
+Utiliser les CV EN habituels selon le métier (CSM générique, SIRH EN, PM EN/Platform EN, Ashby EN pour implémentation). Une fois de premières offres USA trouvées, consulter Glassdoor/levels.fyi sur l'intitulé exact pour calibrer la colonne Prétention en USD ; ne pas extrapoler de chiffres avant d'avoir des données réelles sur des postes comparables.
+
+---
+
 ## Règles de gestion du tableur offres_emploi.xlsx
 
 ### ⚠️ RÈGLE ABSOLUE — un lien partagé par plusieurs offres différentes est presque toujours un lien générique, jamais une vraie coïncidence (posée le 21/08/2026)
