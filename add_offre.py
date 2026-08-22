@@ -36,7 +36,7 @@ COLS = [
     'Fit / Notes', 'CV à envoyer', 'Prétention'
 ]
 
-CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM']
+CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM', 'Chief of Staff']
 IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 'IA x RH',
                  'Intelligence Artificielle', 'AI Trainer', 'GenAI', 'LLM', 'Prompt',
                  'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA']
