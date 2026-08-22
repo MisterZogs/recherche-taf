@@ -321,7 +321,10 @@ def ajouter_offres(offres: list[dict], verbose=True):
             if verbose:
                 print(f"+ [NoRemote] {offre.get('Priorité')} | {poste} | {offre.get('Entreprise')}")
             continue
-        if _is_ia(poste):
+        if _is_usa(offre):
+            rows_usa.append(ligne)
+            target = 'Offres USA'
+        elif _is_ia(poste):
             rows_ia.append(ligne)
             target = 'Offres IA'
         elif _is_csm(poste):
