@@ -725,6 +725,27 @@ En cas de doute sur une offre par ailleurs excellente, la garder avec priorité 
 ### CV et prétentions
 Utiliser les CV EN habituels selon le métier (CSM générique, SIRH EN, PM EN/Platform EN, Ashby EN pour implémentation). Une fois de premières offres USA trouvées, consulter Glassdoor/levels.fyi sur l'intitulé exact pour calibrer la colonne Prétention en USD ; ne pas extrapoler de chiffres avant d'avoir des données réelles sur des postes comparables.
 
+### État des sources — première relance USA du 22/08/2026
+
+Leçon principale, valable pour toutes les sources US sans exception : **le champ `isRemote: true` des API Ashby/Greenhouse/Lever ne garantit jamais l'éligibilité internationale**, il indique seulement l'absence d'obligation de présence au bureau. Toujours lire le champ `location`/`categories.location` et, en cas de doute, le corps de la description (souvent une phrase explicite type « Candidates must reside in the United States »). Un `Remote (US)` ou une ville US dans `location` sans mention EMEA/Europe/Worldwide = à écarter.
+
+| Source | Verdict 22/08/2026 |
+|---|---|
+| **Éditeurs EOR/HRIS eux-mêmes** (Remote.com, Deel, Oyster) | **La source la plus fiable** : leur modèle économique les pousse à publier des bandes salariales et une éligibilité par pays très explicites. Remote.com (`remotecom` sur Greenhouse) reste l'éditeur le mieux aligné, y compris sur des postes Workday Implementation Specialist purement SIRH |
+| GitLab (`gitlab` sur Greenhouse) | Bon rendement : au moins un poste avec **la France listée nommément** (Customer Success Architect EMEA) |
+| Ashby (son propre board, `ashby`) et Hightouch (`hightouch`) | Bon rendement CSM/TAM/SE EMEA, France incluse dans "European Union"/"Europe" |
+| Dataiku (`dataiku` sur Greenhouse) | Éditeur IA authentique avec plusieurs postes **"France, Remote" explicite** — le meilleur niveau de garantie possible |
+| PostHog, Checkly (via HN Who's Hiring, confirmés sur Ashby) | Bon rendement, fuseaux horaires EMEA/UTC+1-2 compatibles France |
+| Deepgram (`deepgram` sur Ashby) | Un poste avant-vente EU-remote trouvé |
+| **API Ashby/Lever/Greenhouse des éditeurs HRIS US "classiques"** (Rippling, Gusto, Justworks, HiBob, Lattice, Culture Amp, Workday, UKG, Paycor, Paylocity, Namely, Zenefits, TriNet...) | Rendement quasi nul : soit pas de board public, soit postes verrouillés US-only/pays unique. Ne pas y consacrer trop de temps à chaque relance, un passage rapide suffit |
+| RemoteOK, Remotive | Rendement décevant sur cette première tentative (0 correspondance HRIS, 403 sur CSM) malgré le changement de règle qui les autorise désormais — à retenter, le contenu tourne vite sur ces boards |
+| Built In (`/jobs/remote/customer-success`, `/jobs/remote/product`) | **Quasiment 100% Remote-US strict** malgré le nom « remote » — rendement très faible pour ce critère spécifique, à garder en dernier recours |
+| Wellfound, workatastartup.com/Y Combinator, startup.jobs, Product Manager Job Board | Quasi exclusivement Remote-US ou pays unique (hors France) une fois vérifié fiche par fiche ; utiles comme radar mais peu d'ajouts concrets |
+| TopCSJobs | Bon board pour repérer des pistes, mais les liens directs vers les ATS d'origine ne sont pas exposés au fetch — passer ensuite par l'API du board d'origine plutôt que par TopCSJobs lui-même |
+| HNHIRING (fetch direct) | 403 systématique — passer par l'API Algolia du thread HN "Who is hiring" directement (id de thread à retrouver chaque mois) plutôt que par hnhiring.com |
+| Boards VC (a16z, General Catalyst, Accel, BVP, NEA, LSVP, Greylock) | Republient surtout les mêmes offres Remote.com/Deel déjà captées ailleurs ; BVP/NEA/LSVP/Greylock non scrapables in fine — rendement très faible, passage rapide suffit |
+| "AI Enablement Manager" et variantes littérales | Voir la note dans la section « Postes ciblés » ci-dessus : rendement faible, presque toujours US-only/onsite/trop technique |
+
 ---
 
 ## Règles de gestion du tableur offres_emploi.xlsx
