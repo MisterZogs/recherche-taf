@@ -144,6 +144,13 @@ def _is_pm(poste: str) -> bool:
     return _hors_sirh(poste)
 
 
+def _is_usa(offre: dict) -> bool:
+    if offre.get('Onglet') == 'Offres USA':
+        return True
+    loc = str(offre.get('Localisation') or '')
+    return bool(USA_MARKERS.search(loc))
+
+
 def _capture_cell(cell):
     return {
         'value':         cell.value,
