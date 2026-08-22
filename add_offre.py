@@ -58,6 +58,12 @@ PRESALES_KEYWORDS = ['Technical Account Manager', 'Solutions Engineer', 'Solutio
 SIRH_OVERRIDE = ['SIRH', 'HRIS', 'SAP', 'SuccessFactors', 'Workday', 'HCM',
                   'HR Access', 'Paie', 'Payroll', 'RH', 'HXM', 'HR ']
 
+# Marqueurs de localisation USA, pour le routage automatique vers "Offres USA"
+# quand l'appelant n'a pas explicitement mis Onglet='Offres USA' dans le dict.
+USA_MARKERS = re.compile(
+    r'\b(USA|U\.S\.A\.?|United States|U\.S\.|Etats-Unis|États-Unis)\b'
+    r'|Remote\s*-\s*US\b|Remote\s*\(US\b', re.I)
+
 COLORS = {
     '⭐⭐⭐⭐⭐': '00FF0000',
     '⭐⭐⭐⭐':   '00FF8C00',
