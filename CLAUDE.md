@@ -30,6 +30,8 @@ Autres postes ciblés :
 - **Data Migration Lead / Consultant migration de données** - tous ERP et SIRH, sans se limiter à SAP — va dans l'onglet "Offres SIRH"
 - **Formateur IA / Consultant IA générative** - former entreprises à l'IA générative, conduite du changement IA, acculturation IA (sans data science pur) — onglet dédié "Offres IA" dans le tableur
 - **IA × SIRH / IA × RH** - consultant ou chef de projet à l'intersection IA et RH/SIRH (ex : déploiement IA dans SIRH, programme IA transformation RH)
+- **Chief of Staff** (auprès d'un CEO/fondateur de startup) - valorise directement l'expérience de co-fondateur (WallOfTraders.com), combinée à la rigueur process/enterprise du parcours SAP — ajouté le 22/08/2026 ; va dans l'onglet "Offres CSM". Attention : ces postes se pourvoient surtout par réseau et sont souvent hybrides/sur site auprès du fondateur, à vérifier au cas par cas avant de retenir une offre non-remote
+- **Founding / Head of Customer Success (0→1)** - construction de la fonction CS dans une startup seed/Series A, capitalise sur l'expérience "a déjà construit un truc de zéro" chez WallOfTraders.com — ajouté le 22/08/2026 ; va dans l'onglet "Offres CSM" (déjà capté par les mots-clés "Customer Success"/"CSM")
 
 ---
 
