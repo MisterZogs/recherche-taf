@@ -346,6 +346,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     _ecrire_onglet(ws_csm,  rows_csm,  verbose)
     _ecrire_onglet(ws_ia,   rows_ia,   verbose)
     _ecrire_onglet(ws_pm,   rows_pm,   verbose)
+    _ecrire_onglet(ws_usa,  rows_usa,  verbose)
     _ecrire_onglet(ws_nore, rows_nore, verbose)
 
     wb.save(FICHIER)
