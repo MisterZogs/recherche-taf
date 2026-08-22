@@ -699,7 +699,9 @@ En cas de doute sur une offre par ailleurs excellente, la garder avec priorité 
 - **Implementation Consultant, Onboarding Manager, Professional Services Consultant, Data Migration Lead** — déploiement client, tout éditeur SaaS/HRIS
 - **HRIS Manager, HRIS Consultant, People Systems Manager, Workday/SAP Consultant** — l'équivalent US du SIRH ; marché plus orienté Workday que SAP HCM
 - **Product Manager / Senior PM / Group PM**, en particulier onboarding/adoption/customer experience, ou produit IA
-- **AI Enablement Manager, AI Adoption Lead, GenAI Trainer, Applied AI Consultant, Customer Education (AI)** — équivalent US du « Formateur IA » ; le marché américain formule rarement ce rôle comme « trainer », plutôt comme « enablement » ou « adoption »
+- **AI Enablement Manager, AI Adoption Lead, GenAI Trainer, Applied AI Consultant, Customer Education (AI)** — équivalent US du « Formateur IA » ; le marché américain formule rarement ce rôle comme « trainer », plutôt comme « enablement » ou « adoption ». **Correctif du 22/08/2026** : en pratique, ce titre littéral est presque toujours soit US-only, soit onsite, soit trop technique (LLMOps/RAG) une fois vérifié fiche par fiche — rendement faible confirmé sur la première relance. Ne pas y consacrer plus qu'un passage rapide ; préférer chercher PM/TAM/CSM chez des éditeurs authentiquement IA (Dataiku, Cresta, PostHog...), qui donnent de bien meilleurs résultats sur ce même besoin de croisement IA
+- **Chief of Staff** (auprès d'un CEO/fondateur de startup US) — ajouté le 22/08/2026, va dans "Offres USA" ; valorise le statut de co-fondateur WallOfTraders.com. Ces postes sont encore plus souvent sur site qu'en France (proximité du fondateur exigée) : vérifier le remote avec la même rigueur que les autres titres avant de retenir
+- **Founding / Head of Customer Success (0→1)** — ajouté le 22/08/2026, va dans "Offres USA" ; construction de la fonction CS dans une startup seed/Series A, capitalise sur l'expérience fondateur
 
 ### Où chercher
 
