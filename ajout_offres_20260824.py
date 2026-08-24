@@ -261,3 +261,56 @@ for o in _remote_vc:
     })
 
 print(f"Bloc 3 (remote/VC/LinkedIn) : {len([o for o in _remote_vc if o.get('Remote') != 'DROP'])} offres")
+
+# ============================================================
+# 4. Recherche IA / PM / niche (agent 4)
+#    Liens Ashby "Jobs" générique (délisté/fermé) et Lever/Greenhouse 404
+#    confirmés morts par fetch direct le 24/08 ont été retirés :
+#    everai/694c19b7, pragmatike, tous les jobgether (5x + Enterprise SE),
+#    360learning/4b9c2287 (Sales Engineer), brevo/f45e3f5d,
+#    fieldguide/1f8de65a, docker (2x), notion, qdrant.tech, omni/f29665fb,
+#    typeform (Greenhouse ?error=true), degreed/4144849004 (idem),
+#    remotecom (3x ancien domaine boards.greenhouse.io, idem),
+#    careers.datadoghq.com (404), remote.com/openings (injoignable).
+# ============================================================
+_ia_pm_niche = [
+    # -- IA --
+    dict(Poste='Formateur/Consultant IA (freelance)', Entreprise='Mantra (ex-GrowthMakers)', Lien='https://www.welcometothejungle.com/en/companies/growthmakers/jobs/formateur-ia-et-ia-generative_paris', Contrat='Freelance', Localisation='Paris', Remote='Télétravail total', Onglet='Offres IA', excellent=True),
+    dict(Poste="Formateur.ice IA génératives (référent.e IA)", Entreprise='Webmyday', Lien='https://www.welcometothejungle.com/fr/companies/web-my-day/jobs/formateur-ice-referent-e-ia_paris', Contrat='Freelance', Localisation='Paris', Remote='Télétravail total', Onglet='Offres IA', excellent=True),
+    dict(Poste='Consultant(e) Expérimenté(e) IA & Transformation', Entreprise='CGI', Lien='https://www.welcometothejungle.com/fr/companies/cgi/jobs/consultant-experimente-ia-transformation-f-h_toulouse', Contrat='CDI', Localisation='Toulouse', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste='Consultant(e), IA & Business Transformation', Entreprise='Okuden', Lien='https://www.welcometothejungle.com/fr/companies/okuden/jobs/consultant-ia-business-transformation_paris', Contrat='CDI', Localisation='Paris', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste='AI Trainer', Entreprise='Focus Cloud Group', Lien='https://www.free-work.com/fr/tech-it/job-mission/autre/ai-trainer', Contrat='Freelance', Localisation='Hauts-de-Seine', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste='Founding Customer Success Manager', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/founding-customer-success-manager-teletravail-c4e12456/', Contrat='Freelance', Localisation='Télétravail', Remote='Full remote', Onglet='Offres CSM', excellent=True),
+    dict(Poste='PMO / Chef de Projet Transformation Digitale', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/pmo-chef-de-projet-transformation-digitale-teletravail-58124e36/', Contrat='Freelance', Localisation='Télétravail', Remote='Full remote', Onglet='Offres SIRH', excellent=True),
+    dict(Poste='Product Manager SIRH (Oracle HCM)', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/product-manager-sirh-h-f-paris-d64b6274/', Contrat='Freelance', Localisation='Paris', Remote='Non précisé', Onglet='Offres SIRH'),
+    dict(Poste="Consultant(e) Senior Stratégie & Transformation IA", Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/consultant-e-senior-strategie-transformation-ia-paris-9830c4b1/', Contrat='Freelance', Localisation='Paris', Remote='Non précisé', Onglet='Offres IA', excellent=True),
+    dict(Poste="Expert·e IA / Consultant·e en transformation et automatisation", Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/expert-e-ia-consultant-e-en-transformation-et-automatisation-teletravail-f3910801/', Contrat='Freelance', Localisation='Télétravail', Remote='Full remote', Onglet='Offres IA'),
+    dict(Poste='Chef de Projet IA', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/chef-de-projet-ia-h-f-ile-de-france-3a70ca2f/', Contrat='Freelance', Localisation='Île-de-France', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste='Chef de projet IA (secteur assurance, IA agentique)', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/chef-de-projet-ia-paris-f3f95ce3/', Contrat='Freelance', Localisation='Paris', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste='Chef de projet Intelligence Artificielle ChatGPT', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/chef-de-projet-intelligence-artificielle-chatgpt-paris-0a468b00/', Contrat='Freelance', Localisation='Paris', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste="Consultant(e) Change Management / Accompagnement au changement", Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/consultant-e-change-management-accompagnement-au-changement-paris-52be4ee1/', Contrat='Freelance', Localisation='Paris', Remote='Non précisé', Onglet='Offres IA'),
+    dict(Poste='Formateur indépendant en intelligence artificielle', Entreprise='N/C', Lien='https://www.mission-freelances.fr/missions/formateur-independant-en-intelligence-artificielle-france-entiere-9ed682d6/', Contrat='Freelance', Localisation='France entière', Remote='Non précisé', Onglet='Offres IA'),
+    # -- PM (liens vérifiés vivants le 24/08) --
+    dict(Poste='Senior Product Manager - EMEA - Remote', Entreprise='Pencil', Lien='https://jobs.ashbyhq.com/pencil/e4bbf9ae-0be6-455f-8b24-f960be4c6f2c', Contrat='CDI', Localisation='EMEA', Remote='Full remote EMEA', Onglet='Offres PM', excellent=True),
+    dict(Poste='Senior Product Manager - Core Platform (Remote)', Entreprise='Camunda', Lien='https://jobs.ashbyhq.com/camunda/b771e145-a5cf-4867-ad13-b54830e3b744', Contrat='CDI', Localisation='Remote', Remote='Full remote (zone à confirmer)', Onglet='Offres PM'),
+    dict(Poste='Senior Product Manager (Full Remote - Europe)', Entreprise='EverAI', Lien='https://jobs.ashbyhq.com/everai/67415245-9710-4d32-a544-735d779e1d44', Contrat='CDI', Localisation='Remote Europe', Remote='Full remote Europe', Onglet='Offres PM', excellent=True),
+    dict(Poste='Solutions Engineer - EMEA', Entreprise='Vapi', Lien='https://jobs.ashbyhq.com/vapi/dce1928f-b432-4d6b-8c2f-b7c63c672310', Contrat='CDI', Localisation='Remote EMEA', Remote='Remote EMEA', Onglet='Offres CSM'),
+]
+for o in _ia_pm_niche:
+    excellent = o.pop('excellent', False)
+    fit = 'Excellent fit' if excellent else 'Bon fit'
+    onglet = o.pop('Onglet')
+    entry = {
+        'Priorité': prio(o['Remote'], fit),
+        'Statut': '', 'Fait': '',
+        'Poste': o['Poste'], 'Entreprise': o['Entreprise'], 'Source': 'Recherche IA/PM/niche',
+        'Lien': o['Lien'], 'Contrat': o['Contrat'], 'Localisation': o['Localisation'],
+        'Remote': o['Remote'], 'Salaire / TJM': 'Non précisé', 'Durée mission': '',
+        'Fit / Notes': fit + ' — relance 24/08/2026', 'CV à envoyer': '', 'Prétention': '',
+        'Date trouvée': D, 'Date publiée': '',
+    }
+    if onglet == 'Offres USA':
+        entry['Onglet'] = 'Offres USA'
+    OFFRES.append(entry)
+
+print(f"Bloc 4 (IA/PM/niche) : {len(_ia_pm_niche)} offres")
