@@ -202,3 +202,62 @@ for o in _usa:
     })
 
 print(f"Bloc 2 (USA) : {len(_usa)} offres")
+
+# ============================================================
+# 3. Recherche boards remote/VC/LinkedIn (agent 3) — 38 offres
+#    Lien Arago/flatchr retiré (404 confirmé par fetch direct le 24/08).
+# ============================================================
+_remote_vc = [
+    dict(Poste='Strategic Customer Success Manager - French Speaking', Entreprise='Synthesia', Lien='https://jobs.ashbyhq.com/synthesia/84342701-d3e1-4915-987a-cdec0cb1bee8', Localisation='Paris', Remote='Remote (isRemote=True)', CV=CSM_FR, excellent=True),
+    dict(Poste='Product Manager, Growth (Senior/Staff-level)', Entreprise='Synthesia', Lien='https://jobs.ashbyhq.com/synthesia/85e7b0df-f603-416b-a7bd-3331b6576186', Localisation='Europe', Remote='Remote (isRemote=True)', CV=PM_EN),
+    dict(Poste='Manager of Dedicated Implementations - EMEA', Entreprise='Ashby', Lien='https://jobs.ashbyhq.com/ashby/35a01a05-8efd-4bc3-a4bf-0a31d902102d', Localisation='Remote - European Union', Remote='Remote (isRemote=True)', CV=ASHBY_EN),
+    dict(Poste='Strategic Customer Success Manager - EMEA', Entreprise='Ashby', Lien='https://jobs.ashbyhq.com/ashby/1cf7c730-caba-4fc3-8b98-52a0735ef14b', Localisation='Remote - European Union', Remote='Remote (isRemote=True)', CV=CSM_EN),
+    dict(Poste='Mid-Market Customer Success Manager - EMEA', Entreprise='Ashby', Lien='https://jobs.ashbyhq.com/ashby/62d4f71e-f56c-447a-a965-a9c2ea8eac5e', Localisation='Remote - European Union', Remote='Remote (isRemote=True)', CV=CSM_EN),
+    dict(Poste='HRIS & AI Tech Pre-Sales Specialist', Entreprise='Arago Consulting', Lien='https://jobs.smartrecruiters.com/Arago/744000139094386-hris-ai-tech-pre-sales-specialist', Localisation='Paris ou Bordeaux', Remote='Non précisé (déplacements clients)', CV=SIRH_FR, excellent=True),
+    dict(Poste='SAP SuccessFactors Consultant', Entreprise='Arago Consulting', Lien='https://jobs.smartrecruiters.com/Arago/744000142063938-sap-successfactors-consultant-', Localisation='Paris', Remote='Non précisé', CV=SIRH_FR),
+    dict(Poste='Senior Product Owner - OpenCTI', Entreprise='Filigran', Lien='https://jobs.ashbyhq.com/filigran/cfc42b00-6e8a-4e27-a000-2c5541d1267f', Localisation='France', Remote='Remote (isRemote=True)', CV=PM_EN, excellent=True),
+    dict(Poste='Senior Product Owner - XTM Integrations', Entreprise='Filigran', Lien='https://jobs.ashbyhq.com/filigran/aec58dc2-79bf-48cc-8471-a085f43550b9', Localisation='France', Remote='Remote (isRemote=True)', CV=PM_EN, excellent=True),
+    dict(Poste='Senior Product Manager - OpenCRQ', Entreprise='Filigran', Lien='https://jobs.ashbyhq.com/filigran/cfb22372-3c19-4a79-82d8-06b0d4372232', Localisation='France', Remote='Remote (isRemote=True)', CV=PM_EN, excellent=True),
+    dict(Poste='Technical Programs Manager - Scaled Customer Success (Remote Europe)', Entreprise='n8n', Lien='https://jobs.ashbyhq.com/n8n/d550716c-8cb9-4efe-9a52-b4cd67e193e1', Localisation='Allemagne', Remote='Remote Europe (résidence à vérifier)', CV=CSM_EN),
+    dict(Poste='Senior Pre-Sales Solutions Engineer - Europe', Entreprise='Deepgram', Lien='https://jobs.ashbyhq.com/deepgram/7ac1a5bc-f305-4f2a-a547-394566a549b2', Localisation='EU Remote', Remote='Remote (isRemote=True, EU explicite)', CV=CSM_EN),
+    dict(Poste='Senior Payroll Customer Success Manager - EMEA', Entreprise='Remote.com', Lien='https://www.indexventures.com/startup-jobs/remote/senior-payroll-customer-success-manager-emea-2/', Localisation='Remote EMEA', Remote='Remote confirmé', CV=CSM_EN, excellent=True),
+    dict(Poste='Product Manager, Benefits - Remote', Entreprise='Remote.com', Lien='https://www.indexventures.com/startup-jobs/remote/product-manager-benefits-6/', Localisation='Remote', Remote='Remote confirmé', CV=PM_EN),
+    dict(Poste='Senior Product Manager (EMEA)', Entreprise='Canary Technologies Corp', Lien='https://jobs.lever.co/canarytechnologies/bddbef67-30e1-4222-8c1b-8d088bfa4ee3', Localisation='Londres ou Barcelone', Remote='Remote EMEA (résidence à vérifier)', CV=PM_EN),
+    dict(Poste='Senior Product Manager', Entreprise='Pennylane', Lien='https://jobs.lever.co/pennylane/e821e150-f513-4297-86a7-6d2ee25ac50c', Localisation='France', Remote='DROP', CV=PM_FR),  # lien mort confirmé 24/08, doublon de la version Ashby déjà ajoutée en bloc 1
+    dict(Poste='Product Manager', Entreprise='360Learning', Lien='https://jobs.lever.co/360learning/aac4031b-ef0e-4d2f-b85e-67ecb3b1814c', Localisation='France', Remote='Full remote France confirmé', CV=PM_FR, excellent=True),
+    dict(Poste='Product Manager', Entreprise='Side', Lien='https://www.welcometothejungle.com/fr/companies/side/jobs/product-manager_paris_SIDE_jRLO2Ar', Localisation='Paris / Remote', Remote='Télétravail total', CV=PM_FR),
+    dict(Poste='Product Manager', Entreprise='Follow (Follow Health)', Lien='https://www.welcometothejungle.com/fr/companies/follow-health/jobs/product-manager', Localisation='France', Remote='Télétravail total', CV=PM_FR),
+    dict(Poste='Product Manager', Entreprise='Inqom', Lien='https://www.welcometothejungle.com/fr/companies/inqom/jobs/product-manager', Localisation='France', Remote='Télétravail total', CV=PM_FR),
+    dict(Poste='Customer Success Manager - Remote', Entreprise='Namastay', Lien='https://www.welcometothejungle.com/fr/companies/namastay/jobs/customer-success-manager-remote_paris', Localisation='Paris / Remote', Remote='Télétravail total', CV=CSM_FR),
+    dict(Poste='Customer Success Manager', Entreprise='Haiku (Clerk)', Lien='https://www.welcometothejungle.com/fr/companies/clerk/jobs/customer-success-manager_begles', Localisation='Bègles', Remote='Télétravail total', CV=CSM_FR),
+    dict(Poste='Customer Success Manager', Entreprise='Reverse Contact (Visum)', Lien='https://www.welcometothejungle.com/fr/companies/visum/jobs/customer-success-manager_paris_RC_xDJ6YrA', Localisation='Paris', Remote='Télétravail total', CV=CSM_FR),
+    dict(Poste='Customer Success Manager', Entreprise='AssessFirst', Lien='https://www.welcometothejungle.com/fr/companies/assessfirst/jobs/customer-success-manager_paris_ASSES_M4x97o8', Localisation='Paris', Remote='Télétravail total', CV=CSM_FR),
+    dict(Poste='Customer Success Manager (CDI)', Entreprise='Filiz', Lien='https://www.welcometothejungle.com/fr/companies/filiz/jobs/customer-success-manager-cdi_paris', Localisation='Paris', Remote='Télétravail total', CV=CSM_FR),
+    dict(Poste='Customer Success Manager - 100% Télétravail', Entreprise='Boost', Lien='https://www.welcometothejungle.com/fr/companies/boost/jobs/customer-success-manager-100-teletravail-cdi_marseille_BOOST_eZ732bL', Localisation='Marseille / Remote', Remote='100% télétravail confirmé', CV=CSM_FR),
+    dict(Poste='Customer Success Manager', Entreprise='iRaiser', Lien='https://www.welcometothejungle.com/fr/companies/iraiser/jobs/customer-success-manager_paris', Localisation='Paris', Remote='Télétravail total', CV=CSM_FR),
+    dict(Poste='Consultant SAP HCM Paie senior', Entreprise='Strada (ex-Alight/NGA)', Lien='https://careers.alight.com/strada/us/en/job/ALIGUSR27911STRADAENUS/Consultant-SAP-HCM-Paie-senior', Localisation='Colombes, France', Remote='Non précisé', CV=SIRH_FR),
+    dict(Poste='Consultant SAP HCM Time senior', Entreprise='Strada (ex-Alight/NGA)', Lien='https://careers.alight.com/strada/us/en/job/ALIGUSR27913STRADAENUS/Consultant-SAP-HCM-Time-senior', Localisation='Colombes, France', Remote='Non précisé', CV=SIRH_FR),
+    dict(Poste='Entry-level SAP HCM Payroll Consultant (French speaker)', Entreprise='Strada (ex-Alight/NGA)', Lien='https://careers.alight.com/strada/us/en/job/ALIGUSR30484STRADAENUS/Entry-level-SAP-HCM-Payroll-Consultant-French-speaker', Localisation='Non précisé', Remote='Non précisé', CV=SIRH_FR, low=True),
+    dict(Poste='Customer Success Manager, Mid-Market, EMEA', Entreprise='Harvey', Lien='https://jobs.ashbyhq.com/harvey/e04146f6-f79a-4023-9523-fe691038b330', Localisation='Londres', Remote='Remote (isRemote=True)', CV=CSM_EN),
+    dict(Poste='Enterprise Customer Success Manager - EMEA', Entreprise='Harvey', Lien='https://jobs.ashbyhq.com/harvey/d911b15e-29e4-453e-b192-4201c7937e1f', Localisation='Londres', Remote='Remote (isRemote=True)', CV=CSM_EN),
+    dict(Poste='Developer Relations & Customer Success Manager - Maps Platform (Remote in Europe)', Entreprise='MapTiler', Lien='https://weworkremotely.com/remote-jobs/maptiler-developer-relations-customer-success-manager-maps-platform-remote-in-europe', Localisation='Remote Europe', Remote='Remote confirmé', CV=CSM_EN),
+    dict(Poste='Customer Success Manager, EMEA', Entreprise='Customer.io', Lien='https://weworkremotely.com/remote-jobs/customer-io-customer-success-manager-emea', Localisation='Remote EMEA', Remote='Remote confirmé', CV=CSM_EN),
+    dict(Poste='Customer Success Manager', Entreprise='Typeform', Lien='https://weworkremotely.com/remote-jobs/typeform-customer-success-manager', Localisation='Remote (zone à vérifier)', Remote='Remote annoncé', CV=CSM_EN),
+]
+for o in _remote_vc:
+    if o['Remote'] == 'DROP':
+        continue
+    low = o.pop('low', False)
+    excellent = o.pop('excellent', False)
+    fit = 'Excellent fit' if excellent else 'Bon fit'
+    OFFRES.append({
+        'Priorité': prio(o['Remote'], fit, 'low' if low else 'normal'),
+        'Statut': '', 'Fait': '',
+        'Poste': o['Poste'], 'Entreprise': o['Entreprise'], 'Source': 'Boards remote/VC/LinkedIn radar',
+        'Lien': o['Lien'], 'Contrat': 'CDI', 'Localisation': o['Localisation'],
+        'Remote': o['Remote'], 'Salaire / TJM': 'Non précisé', 'Durée mission': '',
+        'Fit / Notes': fit + ' — relance 24/08/2026', 'CV à envoyer': o['CV'], 'Prétention': '',
+        'Date trouvée': D, 'Date publiée': '',
+    })
+
+print(f"Bloc 3 (remote/VC/LinkedIn) : {len([o for o in _remote_vc if o.get('Remote') != 'DROP'])} offres")
