@@ -140,3 +140,65 @@ for o in _ats:
     })
 
 print(f"Bloc 1 (APIs ATS) : {len(_ats)} offres")
+
+# ============================================================
+# 2. Recherche USA remote-friendly (agent 5) — 37 offres, onglet USA
+# ============================================================
+_usa = [
+    dict(Poste='Senior Product Manager, Remote Build', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7331443003', Localisation='Remote-France', Remote='France explicite', CV=PM_EN, excellent=True),
+    dict(Poste='Senior Account Manager - EMEA', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7834363003', Localisation='Remote-EMEA', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Senior Workday Implementation Specialist', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7635556003', Localisation='Remote-EMEA', Remote='Full remote EMEA', CV=SIRH_EN, excellent=True),
+    dict(Poste='Product Manager, Billing Platform', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7885108003', Localisation='Remote-EMEA', Remote='Full remote EMEA', CV=PM_EN),
+    dict(Poste='Senior Product Manager, APIs', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7831380003', Localisation='Remote-EMEA', Remote='Full remote EMEA', CV=PM_PLATFORM_EN),
+    dict(Poste='Senior Product Manager, Fraud and Compliance', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7814948003', Localisation='Remote-EMEA', Remote='Full remote EMEA', CV=PM_EN),
+    dict(Poste='Senior Product Manager, Reporting & Insights', Entreprise='Remote.com', Lien='https://job-boards.greenhouse.io/remotecom/jobs/7885155003', Localisation='Remote-EMEA', Remote='Full remote EMEA', CV=PM_EN),
+    dict(Poste='Customer Success Architect, EMEA', Entreprise='GitLab', Lien='https://job-boards.greenhouse.io/gitlab/jobs/8561952002', Localisation='Remote, Autriche/France/Allemagne', Remote='France explicite', CV=CSM_EN, excellent=True),
+    dict(Poste='Senior Professional Services Project Manager (EMEA)', Entreprise='GitLab', Lien='https://job-boards.greenhouse.io/gitlab/jobs/8622433002', Localisation='Remote (EMEA)', Remote='Full remote EMEA', CV=ASHBY_EN),
+    dict(Poste='Manager, Customer Success Managers, EMEA', Entreprise='GitLab', Lien='https://job-boards.greenhouse.io/gitlab/jobs/8613199002', Localisation='Remote, Autriche/Allemagne', Remote='Full remote EMEA (France non nommée)', CV=CSM_EN),
+    dict(Poste='Product Manager - Business Applications', Entreprise='Dataiku', Lien='https://job-boards.greenhouse.io/dataiku/jobs/6122317004', Localisation='France, Remote', Remote='France explicite', CV=PM_EN, excellent=True),
+    dict(Poste='Sr Product Manager', Entreprise='Dataiku', Lien='https://job-boards.greenhouse.io/dataiku/jobs/5812604004', Localisation='France, Remote (+ EMEA)', Remote='France explicite', CV=PM_EN, excellent=True),
+    dict(Poste='Technical Account Manager - France', Entreprise='Dataiku', Lien='https://job-boards.greenhouse.io/dataiku/jobs/6148352004', Localisation='France, Paris; France, Remote', Remote='France explicite', CV=CSM_EN, excellent=True),
+    dict(Poste='Enterprise Customer Success Manager', Entreprise='Canonical', Lien='https://job-boards.greenhouse.io/canonical/jobs/6856788', Localisation='Home based - Worldwide', Remote='Worldwide explicite', CV=CSM_EN, excellent=True),
+    dict(Poste='Enterprise Customer Success Manager (French speaker)', Entreprise='Canonical', Lien='https://job-boards.greenhouse.io/canonical/jobs/7084000', Localisation='Home based - EMEA', Remote='Full remote EMEA (francophone)', CV=CSM_EN, excellent=True),
+    dict(Poste='Cloud Professional Services Manager', Entreprise='Canonical', Lien='https://job-boards.greenhouse.io/canonical/jobs/6283017', Localisation='Home based - Worldwide', Remote='Worldwide explicite', CV=ASHBY_EN, excellent=True),
+    dict(Poste='Product Manager - AI', Entreprise='Canonical', Lien='https://job-boards.greenhouse.io/canonical/jobs/6643476', Localisation='Home based - EMEA', Remote='Full remote EMEA', CV=PM_EN),
+    dict(Poste='Technical Product Manager', Entreprise='Canonical', Lien='https://job-boards.greenhouse.io/canonical/jobs/6980703', Localisation='Home based - EMEA', Remote='Full remote EMEA', CV=PM_PLATFORM_EN),
+    dict(Poste='Solutions Engineer | France', Entreprise='Grafana Labs', Lien='https://job-boards.greenhouse.io/grafanalabs/jobs/6121627004', Localisation='France (Remote)', Remote='France explicite', CV=CSM_EN, excellent=True),
+    dict(Poste='Manager of Dedicated Implementations - EMEA', Entreprise='Ashby', Lien='https://jobs.ashbyhq.com/ashby/35a01a05-8efd-4bc3-a4bf-0a31d902102d', Localisation='Remote - European Union', Remote='Full remote EU', CV=ASHBY_EN),
+    dict(Poste='Strategic Customer Success Manager - EMEA', Entreprise='Ashby', Lien='https://jobs.ashbyhq.com/ashby/1cf7c730-caba-4fc3-8b98-52a0735ef14b', Localisation='Remote - European Union', Remote='Full remote EU', CV=CSM_EN),
+    dict(Poste='Mid-Market Customer Success Manager - EMEA', Entreprise='Ashby', Lien='https://jobs.ashbyhq.com/ashby/62d4f71e-f56c-447a-a965-a9c2ea8eac5e', Localisation='Remote - European Union', Remote='Full remote EU', CV=CSM_EN),
+    dict(Poste='Customer Success Manager (EMEA)', Entreprise='Oyster', Lien='https://jobs.ashbyhq.com/oyster/e926bced-b09b-4f2b-a3da-37b2a634ac91', Localisation='EMEA', Remote='Full remote EMEA (éditeur EOR)', CV=CSM_EN, excellent=True),
+    dict(Poste='Lead Product Manager', Entreprise='Oyster', Lien='https://jobs.ashbyhq.com/oyster/20b0c812-255e-433b-99bb-2d1f399f0c7a', Localisation='EMEA', Remote='Full remote EMEA (éditeur EOR)', CV=PM_EN, excellent=True),
+    dict(Poste='Enterprise Sales Engineer - France', Entreprise='Chainguard', Lien='https://job-boards.greenhouse.io/chainguard/jobs/4702184006', Localisation='France - Remote', Remote='France explicite', CV=CSM_EN, excellent=True),
+    dict(Poste='Account Manager, EMEA', Entreprise='Customer.io', Lien='https://job-boards.greenhouse.io/customerio/jobs/7915379', Localisation='EMEA Remote', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Customer Success Manager, EMEA', Entreprise='Customer.io', Lien='https://job-boards.greenhouse.io/customerio/jobs/8089365', Localisation='EMEA Remote', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Sr Account Manager, EMEA', Entreprise='Customer.io', Lien='https://job-boards.greenhouse.io/customerio/jobs/8121617', Localisation='EMEA Remote', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Principal Product Manager, Document Domain', Entreprise='PandaDoc', Lien='https://job-boards.greenhouse.io/pandadoc/jobs/7661650', Localisation='Remote (Portugal/Allemagne/Espagne/Pologne/Ukraine)', Remote='Full remote Europe (France non listée, à confirmer)', CV=PM_EN),
+    dict(Poste='Forward Deployed Product Manager - AI Agent (EMEA)', Entreprise='Cresta', Lien='https://job-boards.greenhouse.io/cresta/jobs/5068157008', Localisation='United Kingdom (Remote), EMEA', Remote='Full remote EMEA', CV=PM_EN, excellent=True),
+    dict(Poste='Technical Programs Manager - Scaled Customer Success (Remote Europe)', Entreprise='n8n', Lien='https://jobs.ashbyhq.com/n8n/d550716c-8cb9-4efe-9a52-b4cd67e193e1', Localisation='Allemagne (Remote Europe)', Remote='Full remote Europe', CV=CSM_EN),
+    dict(Poste='Solutions Engineer (Upmarket, Pre-Sales) - EMEA', Entreprise='Vanta', Lien='https://jobs.ashbyhq.com/vanta/a2371f65-5777-47b7-9f4e-bcb260ce70a4', Localisation='London, UK', Remote='Full remote EMEA (à reconfirmer)', CV=CSM_EN),
+    dict(Poste='GRC Pre-Sales Consultant / Solutions Engineer - EMEA', Entreprise='Vanta', Lien='https://jobs.ashbyhq.com/vanta/d38e7474-2b44-415c-824a-3debb757c9af', Localisation='London, UK', Remote='Full remote EMEA (à reconfirmer)', CV=CSM_EN),
+    dict(Poste='Senior Pre-Sales Solutions Engineer - Europe', Entreprise='Deepgram', Lien='https://jobs.ashbyhq.com/deepgram/7ac1a5bc-f305-4f2a-a547-394566a549b2', Localisation='EU | Remote', Remote='Full remote EU', CV=CSM_EN),
+    dict(Poste='Senior Sales Engineer (remote, Europe)', Entreprise='Checkly', Lien='https://jobs.ashbyhq.com/checkly/0dea9c4c-cecd-48d2-803a-56e3cfa1a873', Localisation='Remote (UTC+1/+2)', Remote='Full remote Europe', CV=CSM_EN),
+    dict(Poste='Technical Account Executive - EMEA', Entreprise='PostHog', Lien='https://jobs.ashbyhq.com/posthog/f8af3807-3595-4580-a65c-dad2e268ace5', Localisation='Remote, EMEA', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Technical Customer Success Manager - EMEA', Entreprise='PostHog', Lien='https://jobs.ashbyhq.com/posthog/0be1b52c-2401-4ae2-b7fc-5d018c1ff96f', Localisation='Remote (EMEA)', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Technical Account Manager - EMEA', Entreprise='PostHog', Lien='https://jobs.ashbyhq.com/posthog/b42fd20b-b647-4f42-b725-b29ca472cba8', Localisation='Remote (EMEA)', Remote='Full remote EMEA', CV=CSM_EN),
+    dict(Poste='Professional Services Consultant (Self Service), EMEA', Entreprise='Abnormal Security', Lien='https://abnormal.ai/careers/jobs/7809392003?gh_jid=7809392003', Localisation='Remote - UK', Remote='Full remote EMEA', CV=ASHBY_EN),
+    dict(Poste='Senior Product Manager - Self service cloud', Entreprise='Elastic', Lien='https://jobs.elastic.co/jobs?gh_jid=8028261', Localisation='Espagne (+ variantes EU)', Remote='Full remote EU (France non nommée, à confirmer)', CV=PM_EN),
+]
+for o in _usa:
+    excellent = o.pop('excellent', False)
+    fit = 'Excellent fit USA/EOR' if excellent else 'Bon fit USA/EOR'
+    OFFRES.append({
+        'Priorité': prio(o['Remote'], fit),
+        'Statut': '', 'Fait': '',
+        'Poste': o['Poste'], 'Entreprise': o['Entreprise'], 'Source': 'API ATS (recherche USA)',
+        'Lien': o['Lien'], 'Contrat': 'CDI', 'Localisation': o['Localisation'],
+        'Remote': o['Remote'], 'Salaire / TJM': 'Non précisé', 'Durée mission': '',
+        'Fit / Notes': fit + ' — entreprise US, ouverture internationale vérifiée dans le champ location, relance 24/08/2026',
+        'CV à envoyer': o['CV'], 'Prétention': '',
+        'Date trouvée': D, 'Date publiée': '',
+        'Onglet': 'Offres USA',
+    })
+
+print(f"Bloc 2 (USA) : {len(_usa)} offres")
