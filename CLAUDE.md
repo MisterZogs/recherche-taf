@@ -471,6 +471,33 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-25
+
+Relance exhaustive menée en 4 recherches parallèles (FR/freelance, API ATS + éditeurs HRIS, boards remote/VC EU, USA + niches IA/PM) : 238 offres candidates compilées, 186 doublons filtrés automatiquement par `add_offre.py` (dédoublonnage inter-clusters compris), **52 offres nouvelles ajoutées**.
+
+En préalable, 18 lignes marquées Fait=x (dont Docker Senior Implementation Engineer et Loft Orbital Sales Systems Engineer, deux offres mal routées en Offres SIRH par simple correspondance de mot-clé sur "Implementation"/"Systems Engineer" alors que ces entreprises n'ont aucun rapport avec le SIRH) traînaient dans Offres SIRH et Offres USA depuis des relances précédentes ; déplacées vers Fait avant l'ajout.
+
+Nouveaux slugs ATS qui répondent, à ajouter au dispositif permanent : Ashby `gorgias` (CSM/AM Paris, statut remote non précisé) ; Lever `pigment` (CSM/TAM/PM hybride Paris), `insiderone` (PM Martech remote Europe multi-pays), `superside` (AM/PM remote **Global** explicite, éditeur creative-as-a-service) ; Greenhouse `fivetran` (SE senior EMEA), `processstreet` (CSM Jr remote confirmé ouvert hors USA).
+
+| Source | Verdict 25/08/2026 |
+|---|---|
+| API Greenhouse `remotecom` | Toujours l'éditeur le mieux aligné, désormais avec un poste France explicitement nommé (`Remote-France`) en plus des habituels `Remote-EMEA` |
+| API Lever `jobgether` (filtré France) | 9 postes pertinents dont un excellent croisement PM+HRIS interne et un Data Migration Lead ; toujours nécessaire de filtrer sur `categories.location == "France"` |
+| freelance-informatique.fr, décodage `data-obf` | Toujours très productif : les 3 pages catégorie de référence ont donné une trentaine d'URLs individuelles, dont plusieurs neuves |
+| hansonregan.com | Bon jour exceptionnel : 4 offres SAP/CSM full remote "Anywhere" chez un même client final anonymisé, dont un TJM à 750€/j |
+| welcometothejungle.com (WebSearch) | Bon rendement CSM full remote (AssessFirst, Namastay, Boost...), mais **plusieurs liens à revérifier au clic** : le fetch direct d'une fiche WTTJ reste bloqué, les résultats WebSearch n'ont pu être confirmés qu'au niveau titre/snippet |
+| mission-freelances.fr | Toujours très productif côté Formateur IA et CSM full remote, y compris un "Founding Customer Success Manager" qui valorise directement le statut de co-fondateur |
+| LinkedIn radar (HRIS/CSM France) | A remonté un HR Tech Run Lead **chez L'Oréal** (ancien compte de Gaëtan 10 ans côté SAP HR) et un croisement HRIS x IA x pre-sales chez Arago ; reste un radar, jamais de mention de télétravail fiable |
+| SD Worx | Confirmé une nouvelle fois : les 3 liens trouvés par WebSearch étaient tous morts (404/410) au fetch direct malgré leur bonne indexation |
+| Cegid | `jobs.cegid.com` répond en HTTP 200 mais affiche "offre non en ligne" — un 200 ne suffit pas à garantir qu'une offre Cegid est vivante, vérifier le texte de la page |
+| Lucca | Confirmé migré vers `jobs.world.luccasoftware.com/lucca` ; toute URL `jobs.lever.co/lucca` est désormais mort (404), y compris certains résultats WebSearch encore indexés sous l'ancien ATS |
+| weworkremotely.com | Fetch direct désormais fiable pour trancher vivant/mort : une annonce vivante rend un 200 avec le bon titre, une annonce fermée redirige silencieusement vers la homepage (403 Cloudflare) — méthode utilisée pour écarter Vidalytics et Nearcut sans ambiguïté |
+| Boards VC EU (Balderton, Atomico, a16z, Sequoia, Ribbit) | Rendement nul confirmé une nouvelle fois |
+| Cabinets de conseil (passage rapide) | Conforme à la note du 19/08 : vivier saturé, seul Sia Partners a donné 2 postes non encore en base |
+| ADP, Talentia Software | Rendement nul confirmé : ADP ne propose que Bucarest/US, Talentia n'a toujours pas de board public exploitable |
+| Volet USA : critère remote worldwide vs US-only | Appliqué strictement ; a exclu des dizaines de postes par ailleurs excellents (Vanta, Merge, Hex, Notion, Planhat, Intercom, Persona, Gainsight, quasi tous Remote-US ou ville US précise sans ouverture internationale) |
+| RemoteOK, Remotive, Built In, TopCSJobs, Product Manager Job Board | Rendement toujours très faible pour la recherche USA (API dégradée ou quasi 100% Remote-US strict), conforme au verdict du 22/08 |
+
 ### État des sources — relance du 2026-08-21
 
 Relance menée en 4 recherches parallèles (boards FR/freelance, API ATS + éditeurs HRIS, boards remote/VC/LinkedIn, IA/PM/niche) : 129 offres candidates compilées, 71 doublons filtrés contre les ~1250 liens déjà en base (dont 1 lien SD Worx confirmé mort en HTTP 410), **58 offres nouvelles ajoutées**.
