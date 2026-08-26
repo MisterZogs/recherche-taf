@@ -471,6 +471,29 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-26
+
+Relance exhaustive menée en 4 recherches parallèles (boards FR/freelance, API ATS + éditeurs HRIS, boards remote/VC EU + niches, USA remote worldwide/EMEA) : 185 offres candidates compilées, 163 doublons filtrés automatiquement par `add_offre.py` (essentiellement des reprises d'une même annonce entre 2 ou 3 clusters, plus un fort recouvrement avec la relance de la veille), **22 offres nouvelles ajoutées**. En préalable, 16 lignes marquées Fait=x dans Offres SIRH ont été archivées vers Fait.
+
+Rendement plus faible qu'à l'accoutumée côté FR/freelance (0 offre nouvelle sur 79 candidates du cluster boards FR/freelance : free-work, freelance-informatique.fr et mission-freelances.fr avaient déjà été entièrement captés par la relance du 25/08, la veille) — signe que ces boards se rafraîchissent vite mais que deux relances à moins de 24h d'écart se recoupent presque totalement sur ce cluster. Le rendement est resté correct côté API ATS/USA (22 offres sur 96 candidates de ces deux clusters), notamment parce que de nouveaux slugs Greenhouse non testés avant ce jour (`canonical`, `dataiku`, `elastic`, `sourcegraph91`) et l'API carrières Atlassian (qui rebouge à chaque relance) ont produit des postes non encore vus.
+
+Ordre d'insertion utilisé pour gérer le chevauchement entre le cluster USA et les clusters EMEA classiques : le cluster USA a été inséré en premier dans `add_offre.py`, afin qu'une offre trouvée à la fois avec et sans le marqueur `Onglet='Offres USA'` (GitLab, Dataiku, Remote.com, Ashby, Chainguard, tous basés aux USA) soit routée vers Offres USA plutôt que vers l'onglet métier classique.
+
+Nouveaux slugs ATS qui répondent, à ajouter au dispositif permanent : Greenhouse `canonical` (attention, Canonical/Ubuntu est basé à Londres, **pas** une entreprise USA malgré son volume de postes remote worldwide — ne jamais router vers Offres USA), `dataiku` (dual HQ Paris/New York, traité comme USA), `elastic`, `sourcegraph91` (slug inhabituel, trouvé via HN Who's Hiring), `chainguard`, `customerio` ; Ashby `hackerone`, `mural`, `pylon-labs`, `siena` (rendement faible mais confirmés vivants).
+
+| Source | Verdict 26/08/2026 |
+|---|---|
+| Détection remote sur Greenhouse | Certains éditeurs (Canonical) encodent le remote en `"Home based - EMEA"` / `"Home based - Worldwide"` plutôt qu'avec le mot "remote" — la détection automatique doit chercher ces deux formulations, pas seulement "remote" |
+| Ashby, fiabilité du JSON embarqué | Le JSON brut d'une page Ashby (`workplaceType`, `locationName`) est plus fiable que le titre du poste : plusieurs intitulés "EMEA" (Vapi, Omni, Docker x2) se sont révélés Hybrid sur une ville précise (Amsterdam, Dublin, Angleterre) une fois le JSON vérifié |
+| Strada / Alight | Migration confirmée vers deux tenants Workday CXS distincts : `alight.wd5.myworkdayjobs.com` (Alight) et `strada.wd12.myworkdayjobs.com` (Strada) ; toute URL `careers.alight.com/strada/.../job/...` est désormais morte |
+| weworkremotely.com | De nouveau bloqué (403/redirection Cloudflare) sur toutes les pages testées, y compris les fiches individuelles — contredit la note du 25/08 qui le donnait fiable en fetch direct ; à revérifier à chaque relance plutôt que de supposer un état stable |
+| Remotive (API) | Le paramètre `category` de son API ne filtre plus rien : les 4 catégories testées renvoient exactement le même flux générique bruité |
+| Y Combinator Jobs (ycombinator.com/jobs/role/...) | Le filtre de rôle est cassé pour `customer-success-manager` (renvoie des postes d'ingénieur logiciel) ; fonctionne correctement pour `product-manager` |
+| HN "Who is Hiring" via l'API Algolia | Bonne source pour la recherche USA remote worldwide : a permis de retrouver Chainguard, Sourcegraph, Checkly et PostHog. Passer par l'API Algolia du thread mensuel plutôt que par hnhiring.com (403 systématique) |
+| hellowork.com | Un lien individuel trouvé par WebSearch confirmé mort (HTTP 410) — rendement quasi nul confirmé une nouvelle fois |
+| opusresourcing.com, apec.fr, collective.work, malt.fr, freelancer.com/jobs/sap/ | Rendement nul confirmé une nouvelle fois sur les 5 (mur de connexion pour apec, flux non filtrable pour collective.work, malt.fr est un annuaire de profils pas un board de missions) |
+| HR Path (jobs.hr-path.com) | Le poste "Consultant SAP SuccessFactors" a le télétravail confirmé par fetch direct de la fiche ; le poste générique "Consultant SIRH (Workday/Oracle HCM/SF)" ne mentionne que des "possibilités de télétravail", donc laissé en Remote ambigu plutôt que confirmé |
+
 ### État des sources — relance du 2026-08-25
 
 Relance exhaustive menée en 4 recherches parallèles (FR/freelance, API ATS + éditeurs HRIS, boards remote/VC EU, USA + niches IA/PM) : 238 offres candidates compilées, 186 doublons filtrés automatiquement par `add_offre.py` (dédoublonnage inter-clusters compris), **52 offres nouvelles ajoutées**.
