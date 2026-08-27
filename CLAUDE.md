@@ -817,6 +817,57 @@ Leçon principale, valable pour toutes les sources US sans exception : **le cham
 
 ---
 
+## Recherche grosses entreprises du Sud-Ouest (onglet dédié "Pays Basque") — ajoutée le 27/08/2026
+
+**À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA, PM et USA. Demande de Gaëtan le 27/08/2026 : cibler les grosses entreprises du Sud-Ouest situées à **1h15 de route maximum de Biarritz** (donc jusqu'au bassin de Pau/Lacq et Mont-de-Marsan), tous métiers confondus parmi ceux ciblés par son profil (CSM, SIRH/SAP, PM, Formateur IA, gestion de compte, avant-vente technique...).
+
+### Règle de routage : cet onglet échappe volontairement au filtre télétravail
+
+**Point le plus important de cette recherche, à ne jamais oublier.** Le reste du dispositif (`add_offre.py`) envoie systématiquement dans `NoRemote` toute offre qui exclut le télétravail total (hybride, partiel, présentiel). **Cette règle ne s'applique pas à l'onglet "Pays Basque"** : ces offres sont pertinentes précisément parce qu'elles sont locales et à distance de trajet raisonnable, pas malgré leur caractère présentiel. Une offre chez TotalEnergies à Pau en présentiel reste dans "Pays Basque", elle ne part jamais dans NoRemote.
+
+Techniquement : marquer `'Onglet': 'Pays Basque'` dans le dict passé à `ajouter_offres()`. Ce marqueur est vérifié en priorité absolue, avant même le filtre télétravail (voir `add_offre.py`, section "Ajout" de `ajouter_offres()`). L'onglet a été créé manuellement par Gaëtan dans le tableur le 27/08/2026 avec les mêmes colonnes que les autres onglets métier.
+
+### Entreprises ciblées (liste fournie par Gaëtan le 27/08/2026)
+
+**Énergie / chimie — bassin de Lacq / Pau**
+- TotalEnergies – Pau (centre scientifique et technique R&D)
+- Arkema – Lacq (production de produits chimiques)
+- Teréga (ex-TIGF) – Pau (transport et stockage de gaz naturel)
+- Toray Carbon Fibers Europe – Lacq (fabrication de fibres de carbone)
+- Sanofi, Yara, Veolia, Sobegi, Abengoa, Rexam – bassin de Lacq (environ 150 entreprises industrielles, ~8 000 emplois sur le bassin)
+
+**Aéronautique / spatial**
+- Safran Helicopter Engines (siège, ex-Turbomeca) – Bordes, près de Pau (2 500+ salariés, leader mondial turbomoteurs hélicoptères)
+- Safran Helicopter Engines – Tarnos (1 500 salariés, site basque)
+- Dassault Aviation – Anglet/Biarritz (900 salariés)
+- Groupe Lauak – Hasparren (1 100 salariés Europe)
+- Daher – Territoire d'Industrie Lacq-Pau-Tarbes
+
+**Agroalimentaire**
+- Euralis – Lescar (Pau) (~5 300 collaborateurs, coopérative agricole/agroalimentaire)
+- Maïsadour – Haut-Mauco (Mont-de-Marsan) (~4 300 salariés, CA >1,4 Md€ en 2023)
+- Lindt & Sprüngli – Oloron-Sainte-Marie (850 salariés)
+
+**Santé / medtech (Pays Basque)**
+- B.Braun – Saint-Jean-de-Luz (2 000 salariés France)
+- DJO Global / Enovis France – Mouguerre
+- Technoflex – Bidart
+
+**Industrie / textile / production (Pays Basque)**
+- Epta France – Hendaye (560 salariés)
+- Quiksilver (Boardriders) – Saint-Jean-de-Luz (600 salariés)
+- Tribord (Decathlon) – Hendaye
+- Celsa France – Bayonne (201 salariés, 496 M€)
+- BMS Circuits – Mouguerre
+
+### Postes ciblés dans cet onglet
+Mêmes familles que le reste du dispositif : Customer Success / Account Manager, Chef de projet SIRH / SAP HR / SAP HCM / SuccessFactors, Product Manager / Product Owner, Formateur IA / Consultant IA générative, Solutions Engineer / Technical Account Manager, Implementation Consultant, mais aussi plus largement tout poste de gestion de projet, gestion de compte, transformation digitale ou IT compatible avec le profil, vu qu'il s'agit d'un vivier local restreint (pas la peine d'être aussi strict sur l'intitulé que pour le reste du tableur).
+
+### Où chercher
+Ces entreprises sont pour la plupart de grands groupes avec un site carrière propre (souvent Workday, SuccessFactors Recruiting, ou un ATS maison) : privilégier le fetch direct de leur page carrière filtrée par ville (Pau, Lacq, Tarnos, Bordes, Bayonne, Anglet, Hendaye, Mouguerre, Saint-Jean-de-Luz, Bidart, Mont-de-Marsan, Oloron-Sainte-Marie, Lescar), et WebSearch `"<entreprise>" carrières OR emploi <ville> 2026` en repli. Pour les groupes internationaux (TotalEnergies, Safran, Sanofi, Veolia, Dassault Aviation, Lindt & Sprüngli), utiliser leur portail carrière global avec un filtre de localisation plutôt qu'une page dédiée au site local, qui n'existe généralement pas.
+
+---
+
 ## Règles de gestion du tableur offres_emploi.xlsx
 
 ### ⚠️ RÈGLE ABSOLUE — un lien partagé par plusieurs offres différentes est presque toujours un lien générique, jamais une vraie coïncidence (posée le 21/08/2026)
