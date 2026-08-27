@@ -471,6 +471,25 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-27
+
+Relance exhaustive menée en 4 recherches parallèles (boards FR/freelance, API ATS + éditeurs HRIS, boards remote/VC EU, USA remote worldwide). Environ 250 offres candidates compilées entre les 4 rapports, avec un très fort recouvrement croisé cette fois : les clusters « API ATS + éditeurs HRIS » et « USA remote worldwide » interrogent en grande partie les mêmes API (Ashby, Lever, Greenhouse) et se recoupaient sur des dizaines de postes identiques (Chainguard, Dataiku, GitLab, Remote.com, Canonical, Pennylane, Camunda, Jobgether...). Après dédoublonnage automatique par `add_offre.py` (qui compare aussi contre les ~1750 liens déjà en base), **62 offres nouvelles ajoutées**, 12 lignes archivées vers Fait.
+
+**Leçon d'organisation pour les prochaines relances :** vu ce recouvrement, les deux clusters « ATS/HRIS » et « USA worldwide » gagneraient à être fusionnés en un seul cluster de recherche (avec juste une note de vigilance supplémentaire sur l'éligibilité internationale pour les entreprises US), plutôt que lancés séparément — cela réduirait le travail de dédoublonnage manuel post-recherche sans perte de couverture.
+
+| Source | Verdict 27/08/2026 |
+|---|---|
+| free-work.com `/jobs/sirh` | 36 offres au total sur le site, mais seule la page 1 (16 offres) a été fetchée par l'agent faute de temps — pages 2 et 3 restent un gisement pour une prochaine relance |
+| eursap.eu/jobs | Le fetch direct ne rend qu'un titre + une référence interne, jamais d'URL individuelle cliquable — impossible de construire le lien sans deviner, donc ces offres n'ont pas pu être ajoutées cette fois ; à creuser (peut-être un pattern d'URL fixe à découvrir) |
+| Veeva (Lever) | Expose une centaine de postes Product Manager/Solution Consultant en Europe avec `workplaceType: remote`, mais ce remote est presque toujours lié à une résidence dans un pays précis (UK/DE/ES/IE) et non ouvert depuis la France malgré l'étiquette « remote » — seul le poste Paris explicite a été retenu ; bon exemple à garder en tête du piège `isRemote: true` qui ne garantit rien |
+| Atlassian (iCIMS) | Board de nouveau changé (nouveaux ID 25256/26057/26241/26063/25503/26380) — confirme qu'il faut toujours le repasser intégralement à chaque relance, jamais réutiliser d'anciens ID |
+| Alan (Ashby) | Bascule constatée : tous les postes actuels sont tagués Hybrid, y compris ceux titrés « Anywhere in France » — contrairement aux relances précédentes qui y trouvaient du full remote ; à revérifier plutôt que de supposer un fond permanent |
+| 3 liens free-work.com sourcés par WebSearch | Confirmés morts au fetch direct (page « offre supprimée ou expirée ») — rappel que les résultats WebSearch sur free-work doivent systématiquement être vérifiés par fetch direct avant ajout, jamais pris tels quels |
+| mission-freelances.fr | Toujours très productif (35 offres exploitables), mais 1 lien mort identifié (`formateur-ia-et-no-code-paris-0c1654e1`) |
+| HR Path (jobs.hr-path.com) | Une nouvelle fiche « Consultant SIRH (H/F) Workday • Oracle HCM • SAP SuccessFactors » publiée le 25/08/2026 a été captée dès le lendemain via `/job/<slug>/<id>/` — confirme que cette URL de recherche vaut le coup à chaque relance malgré un rendement habituellement faible |
+| HN Algolia (thread mensuel « Who is hiring ») | Tentative infructueuse : l'agent n'a pas réussi à localiser l'ID du thread d'août 2026 via l'API Algolia (résultats retournés dataient de 2025) — méthode à fiabiliser avant la prochaine tentative, sinon repasser par une recherche manuelle de l'ID de thread |
+| Nouveaux slugs ATS confirmés vivants | Ashby : `pencil`, `dash0`, `deepgram`, `fieldguide`, `mural`, `socket`, `tilla`, `zip`, `n8n`. Lever : `superside` (Global remote explicite), `veeva`, `teramind`. Greenhouse : `customerio`, `samsara`, `degreed`, `fivetran`, `abnormalsecurity`/`abnormal.ai`, `canonical`, `dataiku`, `chainguard`, `gitlab`, `grafanalabs`, `remotecom` — tous à garder au dispositif permanent |
+
 ### État des sources — relance du 2026-08-26
 
 Relance exhaustive menée en 4 recherches parallèles (boards FR/freelance, API ATS + éditeurs HRIS, boards remote/VC EU + niches, USA remote worldwide/EMEA) : 185 offres candidates compilées, 163 doublons filtrés automatiquement par `add_offre.py` (essentiellement des reprises d'une même annonce entre 2 ou 3 clusters, plus un fort recouvrement avec la relance de la veille), **22 offres nouvelles ajoutées**. En préalable, 16 lignes marquées Fait=x dans Offres SIRH ont été archivées vers Fait.
