@@ -285,6 +285,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     ws_ia   = wb['Offres IA']
     ws_pm   = wb['Offres PM']
     ws_usa  = wb['Offres USA']
+    ws_pb   = wb['Pays Basque']
     ws_nore = wb['NoRemote']
     ws_fait = wb['Fait']
 
@@ -300,6 +301,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     rows_ia   = _archiver_faits(ws_ia,   ws_fait, fait_idx, verbose)
     rows_pm   = _archiver_faits(ws_pm,   ws_fait, fait_idx, verbose)
     rows_usa  = _archiver_faits(ws_usa,  ws_fait, fait_idx, verbose)
+    rows_pb   = _archiver_faits(ws_pb,   ws_fait, fait_idx, verbose)
     rows_nore = _archiver_faits(ws_nore, ws_fait, fait_idx, verbose)
 
     if verbose:
