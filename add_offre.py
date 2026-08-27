@@ -317,6 +317,14 @@ def ajouter_offres(offres: list[dict], verbose=True):
         if lien:
             liens_connus.add(lien)
         ligne = _nouvelle_ligne(offre)
+        # Pays Basque échappe au filtre télétravail : ces offres sont pertinentes
+        # justement parce qu'elles sont locales (grosses entreprises à moins de
+        # 1h15 de route de Biarritz), pas malgré leur caractère présentiel/hybride.
+        if offre.get('Onglet') == 'Pays Basque':
+            rows_pb.append(ligne)
+            if verbose:
+                print(f"+ [Pays Basque] {offre.get('Priorité')} | {poste} | {offre.get('Entreprise')}")
+            continue
         # Sans télétravail confirmé, l'offre va dans NoRemote quel que soit le métier.
         if not accepte_remote(offre.get('Remote')):
             rows_nore.append(ligne)
