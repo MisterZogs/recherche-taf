@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mv /Users/gaetan/Documents/IA/recherche-taf/prompt_agent_actuariat.md /Users/gaetan/Documents/IA/recherche-taf/prompt_agent_SIRH.md)"
+      "Bash(mv /Users/gaetan/Documents/IA/recherche-taf/prompt_agent_actuariat.md /Users/gaetan/Documents/IA/recherche-taf/prompt_agent_SIRH.md)",
+      "Bash(curl -s -c wd_cookies.txt --max-time 20 \"https://workday.wd5.myworkdayjobs.com/Workday\" -o /dev/null -w \"GET HTTP %{http_code}\\\\n\")",
+      "Bash(curl -s -b wd_cookies.txt --max-time 20 -X POST \"https://workday.wd5.myworkdayjobs.com/wday/cxs/workday/Workday/jobs\" -H \"Content-Type: application/json\" -d '{\"limit\":23,\"offset\":0,\"searchText\":\"France\"}' -o wd3.json -w \"POST HTTP %{http_code}\\\\n\")"
     ]
   }
 }
