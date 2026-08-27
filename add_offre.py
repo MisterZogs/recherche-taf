@@ -11,14 +11,19 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   dans l'onglet "Offres USA", tous métiers confondus, à condition d'être
   ouvertes au télétravail (le filtre remote prioritaire s'applique comme
   pour les autres onglets).
-- FILTRE PRIORITAIRE : une offre qui exclut explicitement le télétravail total
-  (hybride, partiel, présentiel) va dans "NoRemote", quel que soit le métier.
-  Une information manquante ne disqualifie plus : l'offre reste dans son
-  onglet métier.
+- Les offres marquées `Onglet='Pays Basque'` vont dans l'onglet "Pays Basque"
+  (grosses entreprises du Sud-Ouest à moins de 1h15 de route de Biarritz),
+  AVANT tout filtre télétravail : cet onglet échappe volontairement à la
+  règle remote, ces offres étant pertinentes précisément parce qu'elles sont
+  locales, pas malgré leur caractère présentiel/hybride.
+- FILTRE PRIORITAIRE (sauf pour "Pays Basque" ci-dessus) : une offre qui
+  exclut explicitement le télétravail total (hybride, partiel, présentiel)
+  va dans "NoRemote", quel que soit le métier. Une information manquante ne
+  disqualifie plus : l'offre reste dans son onglet métier.
 - Avant chaque ajout, les lignes marquées "x" dans la colonne Fait
   sont déplacées vers l'onglet "Fait".
 - Avant d'insérer une offre, son Lien est comparé à tous les liens déjà
-  présents dans les 6 onglets (y compris Fait) ; en cas de doublon,
+  présents dans tous les onglets (y compris Fait) ; en cas de doublon,
   l'offre est ignorée plutôt qu'ajoutée une seconde fois.
 """
 
