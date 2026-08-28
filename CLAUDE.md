@@ -471,7 +471,20 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
-### État des sources — relance du 2026-08-27 (2e passage, clusters ATS+HRIS et USA fusionnés)
+### État des sources — relance du 2026-08-28
+
+Relance exhaustive en 4 clusters parallèles (FR/freelance, API ATS+HRIS+USA fusionné, remote/VC EU + niches IA/PM/TAM, Pays Basque) : 222 offres candidates compilées (107 + 94 + 17 + 4). **Dédoublonnage automatique via `add_offre.ajouter_offres()` : 199 doublons ignorés, seulement 23 offres réellement nouvelles ajoutées.** Ce taux de doublon très supérieur à l'habitude s'explique par un état du tableur déjà à jour d'une session précédente non commitée au moment de cette relance (le fichier portait des modifications non poussées avant même le lancement des 4 clusters) : la plupart des offres retrouvées par les agents étaient donc déjà en base. Le garde-fou automatique a fonctionné exactement comme prévu, sans aucune intervention manuelle de dédoublonnage. 15 lignes archivées vers Fait au passage (3 SIRH, 1 CSM, 6 PM, 5 Pays Basque).
+
+**Nouveaux slugs ATS confirmés vivants, à ajouter au dispositif permanent** : Ashby `checkly` (Senior Sales Engineer Europe, trouvé via HN Who's Hiring), `swans`, `pencil` (toujours excellent, PM EMEA). Lever `distru` (PM remote Americas & Europe, via HN), `veeva` (Implementation Consultant Paris confirmé). Greenhouse `cribl` (Partner Solutions Engineer France explicite), `abnormal.ai`/`abnormalsecurity`, `cloudbeds`, `processstreet`, `sourcegraph91` (URL de careers propre plutôt que job-boards.greenhouse.io pour Cribl et Fivetran, ex. `cribl.io/job-detail/?gh_jid=...`, `fivetran.com/careers/job?gh_jid=...`).
+
+**Confirmations utiles** :
+- API Atlassian a de nouveau bougé (nouveaux ID 25524, 26840) et a produit 2 postes jamais captés (Enterprise Solutions Engineer French, EMEA Solutions Engineering Manager) — confirme qu'il faut le repasser intégralement à chaque relance.
+- Le piège Ashby "délisté mais vivant" (posts absents de l'API publique mais candidatables via lien direct) s'est reproduit une 3e fois avec Synthesia (Strategic CSM French Speaking, trouvé via WebSearch puis vérifié vivant au fetch direct) — après Owkin (19/08) et un cas similaire courant. À traiter comme un pattern récurrent, pas une exception.
+- Safran-group.com est protégé par Cloudflare (403 systématique en curl et WebFetch, y compris avec User-Agent navigateur) — seule option pour ce site : WebSearch pour l'URL, sans vérification de vivacité possible par fetch direct.
+- Wipro Lauak (`nous-recrutons.fr`) confirmé comme le meilleur gisement du Pays Basque pour ce profil (aéronautique), à repasser systématiquement ; l'agroalimentaire et la chimie/énergie du bassin restent quasi stériles pour des postes hors technique/production.
+- Canonical reste UK-basé (Londres), jamais à router vers Offres USA malgré son volume de postes Home based - Worldwide/EMEA ; Dataiku (dual Paris/New York) et PostHog (US, YC) confirmés comme Offres USA.
+
+
 
 Deuxième relance exhaustive le même jour, appliquant la fusion recommandée ci-dessous entre les clusters « API ATS + éditeurs HRIS » et « USA remote worldwide » (un seul agent pour les deux). 4 clusters au total (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU + niches IA/PM, Pays Basque 2e passage) : 39 + 34 + 5 + 7 = 85 offres candidates, **toutes confirmées nouvelles** par les agents (dédoublonnage contre les ~1750 liens déjà en base fait en amont par chaque agent via openpyxl, puis re-vérifié par `add_offre.py` à l'insertion : 0 doublon rejeté). 1 ligne archivée vers Fait.
 
