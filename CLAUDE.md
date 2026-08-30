@@ -471,6 +471,18 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-08-30
+
+Relance en 4 clusters parallèles (FR/freelance, API ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). 19 offres nouvelles ajoutées sur un peu plus de 400 offres candidates compilées, très fort recouvrement inter-clusters confirmé une nouvelle fois (la plupart des postes trouvés via Ashby/Lever/Greenhouse et le radar LinkedIn/WTTJ étaient déjà en base avant même de lancer les recherches).
+
+**Nouveau slug Greenhouse très productif : `automatticcareers` (Automattic, WordPress/WooCommerce/Tumblr/Beeper/Newspack).** Entreprise US totalement distribuée "regardless of location", bande salariale globale payée en devise locale ; a donné 6 offres exploitables d'un coup (CSM, TAM x2, PM x2, Account Director), toutes routées vers Offres USA. À garder au dispositif permanent au même titre que `remotecom` et `gitlab`.
+
+**euremotejobs.com sort du statut "403, à écarter" : voir la note mise à jour dans le tableau des boards remote plus haut** — un `curl` avec User-Agent navigateur passe alors que WebFetch reste bloqué, et expose les liens ATS d'origine en clair dans le HTML. A produit Tenable (Channel Account Manager, France-Remote confirmé) et Upsun/ex-Platform.sh (Customer Retention Manager, France listée nommément) en un seul passage.
+
+**Autre confirmation** : Yassir (jobs.lever.co/Yassir) reste un bon fit HRIS Implementation Project Manager Paris/remote, déjà capté par une relance antérieure (doublon ignoré cette fois-ci) — slug Lever à garder en tête si le poste se libère à nouveau ailleurs.
+
+**Rendement nul confirmé une nouvelle fois** : Index Ventures (certificat TLS invalide), Balderton (portail JS "Powered by Consider"), Atomico (429 puis lien mort), Ribbit Capital (404), collective.work (flux non filtrable), upwork.com/freelancer.com (marketplaces sans URL de poste stable, pas des boards), workingnomads.com et remoterocketship.com (pages catégorie JS, WebSearch ne remonte que des agrégateurs génériques). Cabinets de conseil et éditeurs HRIS classiques (ADP, SD Worx, Cegid, Talentia, Personio) toujours saturés, passage rapide suffisant.
+
 ### État des sources — relance du 2026-08-28
 
 Relance exhaustive en 4 clusters parallèles (FR/freelance, API ATS+HRIS+USA fusionné, remote/VC EU + niches IA/PM/TAM, Pays Basque) : 222 offres candidates compilées (107 + 94 + 17 + 4). **Dédoublonnage automatique via `add_offre.ajouter_offres()` : 199 doublons ignorés, seulement 23 offres réellement nouvelles ajoutées.** Ce taux de doublon très supérieur à l'habitude s'explique par un état du tableur déjà à jour d'une session précédente non commitée au moment de cette relance (le fichier portait des modifications non poussées avant même le lancement des 4 clusters) : la plupart des offres retrouvées par les agents étaient donc déjà en base. Le garde-fou automatique a fonctionné exactement comme prévu, sans aucune intervention manuelle de dédoublonnage. 15 lignes archivées vers Fait au passage (3 SIRH, 1 CSM, 6 PM, 5 Pays Basque).
