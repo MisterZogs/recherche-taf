@@ -227,7 +227,7 @@ Rappel lié : voir aussi la règle « ne jamais recopier le langage d'une offre 
 | remoteok.com | Board remote monde — US-centré (28/07/2026) — peu utile pour les relances FR/SIRH, mais **à inclure pour la recherche USA** (voir section « Recherche USA »), en filtrant sur le remote ouvert à l'international |
 | weworkremotely.com | Board remote monde — rechercher "customer success" — URL : weworkremotely.com/categories/remote-customer-success-jobs |
 | remotive.com | Board remote monde — US-centré (28/07/2026) — peu utile pour les relances FR/SIRH, mais **à inclure pour la recherche USA** (voir section « Recherche USA »), en filtrant sur le remote ouvert à l'international |
-| euremotejobs.com | Board remote EU — rechercher "customer success" ou "HRIS" |
+| euremotejobs.com | Board remote EU — rechercher "customer success" ou "HRIS" — **403 en WebFetch, mais un `curl` avec User-Agent navigateur passe et rend le HTML complet avec les liens ATS d'origine (Lever/Greenhouse/SmartRecruiters)** (trouvé le 30/08/2026) ; a produit Tenable et Upsun (France remote confirmés) en un seul passage — désormais à fetcher en curl direct à chaque relance plutôt qu'à écarter |
 | himalayas.app | Remote world — salaire souvent affiché — rechercher "customer success manager" ou "HRIS" — **403 en fetch direct le 05-06/08/2026**, passer par WebSearch |
 
 ### Boards remote évalués le 06/08/2026 — liste des 27 plateformes
