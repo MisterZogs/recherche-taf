@@ -1,0 +1,807 @@
+<title>Power Query pour le SIRH</title>
+<style>
+  :root {
+    --ground:    #fbfcfd;
+    --surface:   #f1f5f8;
+    --surface-2: #e7edf2;
+    --ink:       #16212c;
+    --ink-soft:  #54636f;
+    --ink-faint: #7d8b96;
+    --line:      #d9e2ea;
+    --navy:      #1c2b3a;
+    --gold:      #e8c040;
+    --gold-text: #8a6708;
+    --warn:      #a8442e;
+    --warn-bg:   #fbf1ee;
+    --ok:        #2f6b4f;
+    --ok-bg:     #eef5f1;
+
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono:  ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:    #121a22;
+      --surface:   #1a2531;
+      --surface-2: #22303e;
+      --ink:       #e6edf3;
+      --ink-soft:  #a2b1bd;
+      --ink-faint: #7d8d9a;
+      --line:      #2b3b4b;
+      --navy:      #0d151d;
+      --gold:      #e8c040;
+      --gold-text: #e8c040;
+      --warn:      #e5917a;
+      --warn-bg:   #2a1d19;
+      --ok:        #82c3a3;
+      --ok-bg:     #172520;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:    #121a22;
+    --surface:   #1a2531;
+    --surface-2: #22303e;
+    --ink:       #e6edf3;
+    --ink-soft:  #a2b1bd;
+    --ink-faint: #7d8d9a;
+    --line:      #2b3b4b;
+    --navy:      #0d151d;
+    --gold:      #e8c040;
+    --gold-text: #e8c040;
+    --warn:      #e5917a;
+    --warn-bg:   #2a1d19;
+    --ok:        #82c3a3;
+    --ok-bg:     #172520;
+  }
+
+  :root[data-theme="light"] {
+    --ground:    #fbfcfd;
+    --surface:   #f1f5f8;
+    --surface-2: #e7edf2;
+    --ink:       #16212c;
+    --ink-soft:  #54636f;
+    --ink-faint: #7d8b96;
+    --line:      #d9e2ea;
+    --navy:      #1c2b3a;
+    --gold:      #e8c040;
+    --gold-text: #8a6708;
+    --warn:      #a8442e;
+    --warn-bg:   #fbf1ee;
+    --ok:        #2f6b4f;
+    --ok-bg:     #eef5f1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  /* ── En-tête ── */
+  .masthead {
+    background: var(--navy);
+    color: #eef3f7;
+    margin-bottom: 3rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  .masthead-inner {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: normal;
+    font-size: clamp(2rem, 5.5vw, 2.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0;
+  }
+  .standfirst {
+    margin: 0;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: #b9c8d4;
+    max-width: 38rem;
+  }
+
+  /* ── Sommaire ── */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1.15rem 1.3rem;
+    margin-bottom: 3rem;
+  }
+  .toc-title {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.7rem;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.28rem;
+    font-size: 0.94rem;
+  }
+  .toc a { color: var(--ink); text-decoration-color: var(--line); text-underline-offset: 3px; }
+  .toc a:hover { text-decoration-color: var(--gold); }
+
+  /* ── Sections ── */
+  section { margin-bottom: 3.4rem; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: normal;
+    font-size: 1.62rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 0.4rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 2rem 0 0.6rem;
+  }
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  .lede { font-size: 1.05rem; color: var(--ink-soft); margin-top: 0.9rem; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.855em;
+    background: var(--surface-2);
+    padding: 0.12em 0.36em;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+  strong { font-weight: 650; }
+
+  /* ── Pipeline numéroté ── */
+  .steps { display: grid; gap: 1.5rem; margin-top: 1.6rem; }
+  .step {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold-text);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    text-align: center;
+    padding: 0.25rem 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .step-body h4 {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 650;
+    line-height: 1.35;
+  }
+  .step-body p { margin: 0 0 0.5rem; font-size: 0.95rem; }
+  .step-body p:last-child { margin-bottom: 0; }
+  .ui-path {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    display: block;
+    margin-top: 0.35rem;
+  }
+
+  /* ── Blocs de code ── */
+  .code-block {
+    overflow-x: auto;
+    background: var(--navy);
+    border-radius: 3px;
+    margin: 1.2rem 0;
+    border: 1px solid var(--line);
+  }
+  .code-block pre {
+    margin: 0;
+    padding: 1.1rem 1.2rem;
+    font-family: var(--mono);
+    font-size: 0.79rem;
+    line-height: 1.65;
+    color: #dce6ee;
+    white-space: pre;
+  }
+  .code-block .cm { color: #8fa3b3; }
+  .code-block .kw { color: var(--gold); }
+  .code-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 1.4rem 0 -0.5rem;
+  }
+
+  /* ── Pièges ── */
+  .trap {
+    border-left: 3px solid var(--warn);
+    background: var(--warn-bg);
+    padding: 0.95rem 1.1rem;
+    margin: 1rem 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .trap h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 650;
+    color: var(--warn);
+  }
+  .trap p { margin: 0 0 0.5rem; font-size: 0.93rem; }
+  .trap p:last-child { margin-bottom: 0; }
+  .fix {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    display: block;
+    margin-top: 0.45rem;
+    color: var(--ink-soft);
+  }
+
+  .callout {
+    border-left: 3px solid var(--ok);
+    background: var(--ok-bg);
+    padding: 0.95rem 1.1rem;
+    margin: 1.3rem 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .callout h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 650;
+    color: var(--ok);
+  }
+  .callout p { margin: 0; font-size: 0.95rem; }
+  .quote {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── Tableau ── */
+  .table-scroll { overflow-x: auto; margin: 1.3rem 0; border: 1px solid var(--line); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.62rem 0.85rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th {
+    background: var(--surface);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td:first-child { font-family: var(--mono); font-size: 0.83rem; white-space: nowrap; }
+
+  ul.plain { margin: 0.8rem 0; padding-left: 1.15rem; }
+  ul.plain li { margin-bottom: 0.42rem; }
+
+  a { color: var(--gold-text); }
+  a:focus-visible, .toc a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  footer.note {
+    margin-top: 3.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.87rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 34rem) {
+    .step { grid-template-columns: 1fr; gap: 0.4rem; }
+    .step-num { width: 2.4rem; }
+  }
+</style>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Mémo de préparation</p>
+    <h1>Power Query pour un reporting SIRH</h1>
+    <p class="standfirst">
+      Consolider les exports SAP HR de quarante pays, contrôler la qualité des données et produire un
+      tableau de bord mensuel qui se régénère d'un clic. Ce que tu fais déjà, mais rejouable.
+    </p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc" aria-label="Sommaire">
+    <p class="toc-title">Sommaire</p>
+    <ol>
+      <li><a href="#quoi">Ce que c'est, et ce que ça remplace</a></li>
+      <li><a href="#cas">Le cas concret</a></li>
+      <li><a href="#pipeline">Le pipeline, étape par étape</a></li>
+      <li><a href="#code">Le code M correspondant</a></li>
+      <li><a href="#pieges">Six pièges propres aux données SAP HR</a></li>
+      <li><a href="#vocabulaire">Le vocabulaire à maîtriser</a></li>
+      <li><a href="#powerbi">Le pont vers Power BI</a></li>
+      <li><a href="#entretien">Comment en parler en entretien</a></li>
+    </ol>
+  </nav>
+
+  <section id="quoi">
+    <h2>Ce que c'est, et ce que ça remplace</h2>
+    <p class="lede">
+      Power Query est le moteur de préparation de données intégré à Excel. Il se trouve dans
+      l'onglet <code>Données</code>, bouton <code>Récupérer des données</code>, et il est livré en
+      standard depuis Excel 2016.
+    </p>
+    <p>
+      Il fait trois choses : il va chercher des données dans une source extérieure, il les transforme,
+      puis il dépose le résultat propre dans ta feuille. Les transformations sont celles que tu
+      connais déjà : supprimer des colonnes, filtrer des lignes, remplacer des valeurs, fusionner deux
+      extractions sur le matricule, remettre à plat un tableau croisé, empiler d'un coup les quarante
+      fichiers pays d'un dossier.
+    </p>
+    <p>
+      La différence tient en un seul point, et c'est tout l'intérêt : <strong>chaque étape est
+      enregistrée dans l'ordre et rejouable</strong>. Tu construis le traitement une fois. Le mois
+      suivant, tu déposes les nouveaux exports et tu cliques sur <code>Actualiser</code> ; les trente
+      manipulations se refont seules, à l'identique. Une chaîne de RECHERCHEV et de copier-coller doit
+      être refaite intégralement à chaque extraction, avec le risque d'erreur que ça implique ; une
+      requête Power Query se rejoue en quelques secondes.
+    </p>
+    <p>
+      Sous le capot, l'outil écrit du code dans un langage appelé M. L'interface est entièrement
+      graphique, donc tu peux travailler des mois sans jamais lire une ligne de M ; savoir le lire
+      reste utile pour reprendre le travail d'un collègue ou corriger une étape à la main.
+    </p>
+  </section>
+
+  <section id="cas">
+    <h2>Le cas concret</h2>
+    <p>
+      Prenons la situation la plus banale d'un SIRH groupe, et celle qui parle le mieux de ton
+      parcours chez L'Oréal.
+    </p>
+    <p>
+      Chaque mois, quarante pays déposent un export SAP HR dans un dossier partagé : un classeur par
+      pays, même structure théorique, matricule, nom, société, centre de coût, dates de validité et
+      statut. Il faut en tirer l'effectif groupe par pays et par société, vérifier que les données se
+      tiennent, et livrer le tout aux équipes RH et paie avant le cinquième jour ouvré.
+    </p>
+    <p>
+      Trois contrôles intéressent vraiment le client : les salariés présents dans SAP mais absents du
+      fichier de paie, les matricules sans centre de coût renseigné, et les doublons de matricule
+      entre entités après une fusion. Ce sont eux qui font la valeur du travail ; la consolidation
+      n'en est que le support.
+    </p>
+  </section>
+
+  <section id="pipeline">
+    <h2>Le pipeline, étape par étape</h2>
+    <p>
+      Les étapes ci-dessous se suivent dans cet ordre parce que chacune dépend de la précédente : on
+      ne peut pas contrôler des données qu'on n'a pas encore normalisées, ni normaliser un fichier
+      qu'on n'a pas encore ouvert.
+    </p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Pointer le dossier, pas les fichiers</h4>
+          <p>
+            Tu connectes la requête au dossier entier plutôt qu'à chaque classeur. Les quarante pays
+            arrivent ensemble, et un quarante-et-unième pays ajouté l'an prochain sera pris
+            automatiquement sans toucher à la requête.
+          </p>
+          <span class="ui-path">Données › Récupérer des données › À partir d'un fichier › À partir d'un dossier</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Combiner et transformer</h4>
+          <p>
+            Power Query ouvre un classeur témoin, te demande quel onglet lire, puis applique le même
+            traitement aux trente-neuf autres. Il crée au passage une fonction et une requête
+            d'exemple ; laisse-les tranquilles, elles font le travail.
+          </p>
+          <span class="ui-path">Bouton « Combiner et transformer les données »</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Normaliser avant toute autre chose</h4>
+          <p>
+            Tu forces le matricule en texte sur une longueur fixe, tu convertis les dates avec la
+            bonne locale et tu supprimes les espaces parasites. C'est l'étape que tout le monde
+            saute et qui fait échouer toutes les jointures ensuite ; le détail est dans la section
+            des pièges.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h4>Réduire au périmètre utile</h4>
+          <p>
+            Tu ne gardes que les colonnes dont tu as besoin et tu filtres sur la photo voulue : les
+            enregistrements en vigueur à la date d'arrêté, statut actif. Sur des infotypes SAP
+            découpés en tranches de validité, ce filtre est ce qui sépare un effectif juste d'un
+            effectif gonflé par l'historique.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h4>Enrichir par jointure</h4>
+          <p>
+            Tu rapproches l'effectif d'un référentiel : correspondance société vers pays et zone,
+            libellés de centre de coût, table des emplois. C'est l'équivalent d'une RECHERCHEV, sauf
+            qu'elle se rejoue seule et qu'elle ne casse pas quand une colonne se décale.
+          </p>
+          <span class="ui-path">Accueil › Fusionner des requêtes (Merge)</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <h4>Produire les contrôles qualité</h4>
+          <p>
+            C'est le cœur de la valeur, et le type de jointure à connaître s'appelle
+            <strong>anti-jointure gauche</strong> : elle ne renvoie que les lignes de la table de
+            gauche qui n'ont aucune correspondance à droite. Autrement dit, tout ce qui manque.
+            Une requête pour les salariés SAP absents de la paie, une pour les matricules sans centre
+            de coût, une pour les doublons après regroupement.
+          </p>
+          <span class="ui-path">Fusionner des requêtes › Type de jointure : Anti-jointure externe gauche</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">07</div>
+        <div class="step-body">
+          <h4>Agréger pour le tableau de bord</h4>
+          <p>
+            Un regroupement par pays et par société donne les effectifs, et un second niveau donne la
+            répartition par statut ou par tranche d'ancienneté. Le résultat sort en table plate,
+            directement exploitable en tableau croisé dynamique.
+          </p>
+          <span class="ui-path">Transformer › Regrouper par (Group By)</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">08</div>
+        <div class="step-body">
+          <h4>Charger, puis actualiser</h4>
+          <p>
+            Tu charges l'effectif consolidé et chaque requête de contrôle dans des onglets distincts.
+            Les requêtes intermédiaires restent en « connexion seule » pour ne pas encombrer le
+            classeur. Le mois suivant, tu remplaces les fichiers du dossier et tu actualises ; le
+            classeur se reconstruit entièrement.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="code">
+    <h2>Le code M correspondant</h2>
+    <p>
+      Voici ce que l'interface graphique écrit pour toi sur les étapes 1 à 4. Savoir le lire suffit ;
+      personne ne te demandera de l'écrire de mémoire en entretien, mais reconnaître la structure
+      <code>let … in</code> et nommer deux ou trois fonctions te place immédiatement au-dessus du
+      candidat qui a seulement cliqué.
+    </p>
+
+    <p class="code-label">Requête « Effectif consolidé »</p>
+    <div class="code-block">
+<pre><span class="kw">let</span>
+    <span class="cm">// 1. Tous les exports du mois, dans un seul dossier</span>
+    Source = Folder.Files("D:\SIRH\Exports\2026-09"),
+    Xlsx   = Table.SelectRows(Source, <span class="kw">each</span> [Extension] = ".xlsx"),
+
+    <span class="cm">// 2. Ouvrir chaque classeur et prendre l'onglet "Export"</span>
+    Ouvre  = Table.AddColumn(Xlsx, "Feuille", <span class="kw">each</span>
+                Excel.Workbook([Content], <span class="kw">true</span>){[Item = "Export", Kind = "Sheet"]}[Data]),
+
+    <span class="cm">// 3. Empiler les 40 pays en une seule table</span>
+    Empile = Table.Combine(Ouvre[Feuille]),
+
+    <span class="cm">// 4. Colonnes utiles ; UseNull evite le plantage si un pays en oublie une</span>
+    Colonnes = Table.SelectColumns(Empile,
+                {"PERNR", "NACHN", "BUKRS", "KOSTL", "BEGDA", "ENDDA", "STAT2"},
+                MissingField.UseNull),
+
+    <span class="cm">// 5. Matricule en texte sur 8 caracteres, zeros conserves</span>
+    Matricule = Table.TransformColumns(Colonnes,
+                {{"PERNR", <span class="kw">each</span> Text.PadStart(Text.From(_), 8, "0"), <span class="kw">type</span> text}}),
+
+    <span class="cm">// 6. Dates lues en jj.mm.aaaa quelle que soit la locale du poste</span>
+    Dates = Table.TransformColumnTypes(Matricule,
+                {{"BEGDA", <span class="kw">type</span> date}, {"ENDDA", <span class="kw">type</span> date}}, "fr-FR"),
+
+    <span class="cm">// 7. Photo au 30/09 : enregistrement en vigueur ce jour-la</span>
+    ADate = Table.SelectRows(Dates, <span class="kw">each</span> [BEGDA] &lt;= #date(2026, 9, 30)
+                                    <span class="kw">and</span> [ENDDA] &gt;= #date(2026, 9, 30)),
+
+    <span class="cm">// 8. Statut 3 = actif dans SAP HR</span>
+    Actifs = Table.SelectRows(ADate, <span class="kw">each</span> [STAT2] = "3")
+<span class="kw">in</span>
+    Actifs</pre>
+    </div>
+
+    <p class="code-label">Contrôle : salariés SAP absents de la paie</p>
+    <div class="code-block">
+<pre><span class="kw">let</span>
+    Source = Table.NestedJoin(
+                EffectifConsolide, {"PERNR"},
+                FichierPaie,       {"PERNR"},
+                "Paie", JoinKind.LeftAnti)
+<span class="kw">in</span>
+    Source</pre>
+    </div>
+
+    <p class="code-label">Agrégation : effectif par société</p>
+    <div class="code-block">
+<pre><span class="kw">let</span>
+    Source = Table.Group(EffectifConsolide, {"BUKRS"},
+                {{"Effectif", <span class="kw">each</span> Table.RowCount(_), Int64.Type}})
+<span class="kw">in</span>
+    Source</pre>
+    </div>
+  </section>
+
+  <section id="pieges">
+    <h2>Six pièges propres aux données SAP HR</h2>
+    <p>
+      Ce sont eux qu'il faut citer en entretien : ils prouvent que tu as manipulé de vraies
+      extractions RH, pas un jeu de données d'exercice.
+    </p>
+
+    <div class="trap">
+      <h4>Le matricule qui perd ses zéros</h4>
+      <p>
+        SAP sort <code>00012345</code>, Excel comprend un nombre et affiche <code>12345</code>. La
+        jointure avec le fichier de paie, qui a gardé le format texte, ne trouve alors plus rien et
+        renvoie des milliers de faux écarts.
+      </p>
+      <span class="fix">Correctif : forcer le type texte à l'import, puis Text.PadStart sur la longueur SAP</span>
+    </div>
+
+    <div class="trap">
+      <h4>La date 31.12.9999</h4>
+      <p>
+        Dans les infotypes SAP HR, cette date de fin signifie « enregistrement en cours, sans terme
+        prévu ». Traitée comme une vraie date, elle fait exploser les calculs d'ancienneté et les
+        graphiques d'échéance.
+      </p>
+      <span class="fix">Correctif : la garder pour filtrer la validité, mais l'exclure de tout calcul de durée</span>
+    </div>
+
+    <div class="trap">
+      <h4>Les tranches de validité</h4>
+      <p>
+        Un salarié qui a changé trois fois de poste possède trois enregistrements avec des couples
+        <code>BEGDA</code> et <code>ENDDA</code> différents. Compter les lignes sans filtrer sur une
+        date d'arrêté donne un effectif surévalué, parfois de trente pour cent.
+      </p>
+      <span class="fix">Correctif : filtrer BEGDA ≤ date d'arrêté ≤ ENDDA avant tout comptage</span>
+    </div>
+
+    <div class="trap">
+      <h4>Les formats de date par pays</h4>
+      <p>
+        Le même export lu sur un poste en anglais interprète <code>03.04.2026</code> comme le 4 mars
+        au lieu du 3 avril. L'erreur passe totalement inaperçue puisque les deux dates existent.
+      </p>
+      <span class="fix">Correctif : « Modifier le type » puis « Utiliser les paramètres régionaux », locale figée dans la requête</span>
+    </div>
+
+    <div class="trap">
+      <h4>La colonne qui change de nom</h4>
+      <p>
+        Un pays renomme une colonne ou en supprime une, et toute la requête casse pour les
+        trente-neuf autres. C'est la panne la plus fréquente en production, généralement le matin de
+        la livraison.
+      </p>
+      <span class="fix">Correctif : Table.SelectColumns avec MissingField.UseNull, plus une requête de contrôle sur les colonnes attendues</span>
+    </div>
+
+    <div class="trap">
+      <h4>Les espaces invisibles et l'encodage</h4>
+      <p>
+        Un espace de fin dans un code société, ou un CSV en Windows-1252 lu en UTF-8, et les accents
+        deviennent illisibles pendant que les jointures échouent sans message d'erreur.
+      </p>
+      <span class="fix">Correctif : Text.Trim et Text.Clean sur les colonnes de jointure, encodage déclaré à l'import</span>
+    </div>
+  </section>
+
+  <section id="vocabulaire">
+    <h2>Le vocabulaire à maîtriser</h2>
+    <p>
+      Huit termes suffisent à tenir une conversation technique crédible sur le sujet.
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Terme</th><th>Ce que ça désigne</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Requête</td>
+            <td>Une source de données et la suite de transformations qui lui est appliquée. Un classeur en contient généralement plusieurs, chaînées entre elles.</td>
+          </tr>
+          <tr>
+            <td>Étapes appliquées</td>
+            <td>Le volet de droite qui liste les transformations dans l'ordre. On peut en insérer une au milieu, la renommer ou revenir en arrière à tout moment.</td>
+          </tr>
+          <tr>
+            <td>Fusionner</td>
+            <td>Joindre deux tables sur une clé commune, comme une RECHERCHEV. Les types de jointure disponibles vont de l'externe gauche à l'anti-jointure.</td>
+          </tr>
+          <tr>
+            <td>Ajouter</td>
+            <td>Empiler deux tables de même structure l'une sous l'autre. C'est ce que fait la consolidation des quarante pays.</td>
+          </tr>
+          <tr>
+            <td>Dépivoter</td>
+            <td>Remettre à plat un tableau croisé : douze colonnes de mois deviennent deux colonnes, mois et valeur. Indispensable avant toute agrégation.</td>
+          </tr>
+          <tr>
+            <td>Regrouper par</td>
+            <td>Agréger selon une ou plusieurs clés, avec comptage, somme ou moyenne. L'équivalent d'un GROUP BY en SQL.</td>
+          </tr>
+          <tr>
+            <td>Connexion seule</td>
+            <td>Une requête intermédiaire qui alimente les autres sans jamais s'afficher dans une feuille. Elle garde le classeur lisible.</td>
+          </tr>
+          <tr>
+            <td>Langage M</td>
+            <td>Le langage dans lequel les étapes sont écrites. Il s'édite dans l'éditeur avancé quand l'interface graphique ne suffit plus.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Un neuvième terme fait la différence en entreprise : les <strong>niveaux de confidentialité</strong>
+      des sources. Quand une source est déclarée privée et l'autre organisationnelle, Power Query
+      refuse de les fusionner pour éviter une fuite de données vers un service externe. C'est une
+      cause de blocage classique en environnement RH, et savoir la nommer montre que tu as travaillé
+      sur des données réelles.
+    </p>
+  </section>
+
+  <section id="powerbi">
+    <h2>Le pont vers Power BI</h2>
+    <p>
+      C'est le point qui compte pour les annonces qui exigent les deux, comme celle de Lynxeo.
+    </p>
+    <p>
+      <strong>Power BI utilise exactement le même Power Query.</strong> L'écran de récupération et de
+      transformation des données y est identique, bouton pour bouton. Toute l'étape de nettoyage et
+      de consolidation décrite plus haut se transpose telle quelle, sans rien réapprendre.
+    </p>
+    <p>
+      Ce que Power BI ajoute par-dessus tient en trois briques. D'abord un modèle de données, où l'on
+      relie une table de faits à ses tables de référence plutôt que de tout aplatir dans une seule
+      feuille. Ensuite le langage DAX, qui sert à écrire les mesures calculées comme un effectif
+      moyen sur douze mois glissants. Enfin les visuels interactifs et la publication en ligne, avec
+      actualisation planifiée.
+    </p>
+    <p>
+      Concrètement, une annonce qui demande « Excel avancé avec Power Query et Power BI » demande une
+      compétence de fond que tu possèdes déjà pour l'essentiel, plus une couche de modélisation et de
+      restitution à acquérir. Compte quelques jours pour être à l'aise en Power Query vu ton niveau
+      Excel, et deux à trois semaines de pratique régulière pour présenter un rapport Power BI
+      honnête.
+    </p>
+  </section>
+
+  <section id="entretien">
+    <h2>Comment en parler en entretien</h2>
+    <p>
+      La bonne posture consiste à parler du problème avant de parler de l'outil. Tu as passé quinze
+      ans sur la matière que Power Query manipule : des extractions SAP HR, des reprises de données,
+      des consolidations multi-pays et des contrôles de cohérence. L'outil se rattrape en quelques
+      jours ; la connaissance des données, non.
+    </p>
+
+    <div class="callout">
+      <h4>Une formulation honnête et solide</h4>
+      <p class="quote">
+        « Chez L'Oréal, je produisais les reportings à partir d'extractions SAP que je retravaillais
+        sous Excel, avec les contrôles de cohérence après reprise sur quarante pays. Je n'avais pas
+        industrialisé ces traitements sous Power Query ; en revanche je connais très bien les pièges
+        de ces données, les tranches de validité, les matricules qui perdent leurs zéros, les
+        réconciliations avec la paie. La prise en main de l'outil va vite de mon côté. »
+      </p>
+    </div>
+
+    <p>
+      Cette réponse tient parce qu'elle concède la lacune réelle sans se dévaloriser, et parce qu'elle
+      déplace la conversation vers un terrain où tu es plus fort que l'intervieweur. Enchaîne ensuite
+      sur un piège concret de la liste plus haut : c'est ce qui distingue un candidat qui a lu une
+      fiche produit d'un consultant qui a livré du reporting RH en production.
+    </p>
+
+    <h3>Ce qu'il ne faut pas dire</h3>
+    <ul class="plain">
+      <li>Te présenter comme expert Power Query si tu ne l'as pas pratiqué ; la première question technique le révélera.</li>
+      <li>Confondre Power Query et Power BI, ou laisser croire que Power BI se limite à des graphiques.</li>
+      <li>Passer sous silence Power BI quand l'annonce le donne comme indispensable ; mieux vaut annoncer un délai de montée en compétence.</li>
+    </ul>
+
+    <h3>Le meilleur usage de ce mémo</h3>
+    <p>
+      Installe le cas des quarante pays sur ton propre poste avec trois faux fichiers, et fais tourner
+      le pipeline une fois de bout en bout. Une heure suffit, et tu passeras d'un discours théorique à
+      une démonstration vécue, avec le vocabulaire juste et les écrans en tête.
+    </p>
+  </section>
+
+  <footer class="note">
+    Mémo rédigé le 1er septembre 2026, à l'occasion de l'offre Group HRIS Specialist chez Lynxeo,
+    qui exige Excel avancé avec Power Query et Power BI. Les noms de champs employés
+    (PERNR, BUKRS, KOSTL, BEGDA, ENDDA, STAT2) sont ceux des infotypes SAP HR standard.
+  </footer>
+
+</div>
