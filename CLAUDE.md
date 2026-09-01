@@ -959,6 +959,8 @@ Mêmes familles que le reste du dispositif : Customer Success / Account Manager,
 ### Où chercher
 Ces entreprises sont pour la plupart de grands groupes avec un site carrière propre (souvent Workday, SuccessFactors Recruiting, ou un ATS maison) : privilégier le fetch direct de leur page carrière filtrée par ville (Pau, Lacq, Tarnos, Bordes, Bayonne, Anglet, Hendaye, Mouguerre, Saint-Jean-de-Luz, Bidart, Mont-de-Marsan, Oloron-Sainte-Marie, Lescar), et WebSearch `"<entreprise>" carrières OR emploi <ville> 2026` en repli. Pour les groupes internationaux (TotalEnergies, Safran, Sanofi, Veolia, Dassault Aviation, Lindt & Sprüngli), utiliser leur portail carrière global avec un filtre de localisation plutôt qu'une page dédiée au site local, qui n'existe généralement pas.
 
+En complément des grands groupes industriels, passer aussi par **La French Tech Pays Basque** (frenchtechpaysbasque.fr, ou WebSearch `"French Tech Pays Basque" startup recrute 2026`) comme radar des startups locales (Bayonne/Anglet/Biarritz/Bidart) — ajouté le 01/09/2026, jamais testé.
+
 ---
 
 ## Règles de gestion du tableur offres_emploi.xlsx
