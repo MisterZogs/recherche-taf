@@ -234,6 +234,13 @@ Rappel lié : voir aussi la règle « ne jamais recopier le langage d'une offre 
 | remotive.com | Board remote monde — US-centré (28/07/2026) — peu utile pour les relances FR/SIRH, mais **à inclure pour la recherche USA** (voir section « Recherche USA »), en filtrant sur le remote ouvert à l'international |
 | euremotejobs.com | Board remote EU — rechercher "customer success" ou "HRIS" — **403 en WebFetch, mais un `curl` avec User-Agent navigateur passe et rend le HTML complet avec les liens ATS d'origine (Lever/Greenhouse/SmartRecruiters)** (trouvé le 30/08/2026) ; a produit Tenable et Upsun (France remote confirmés) en un seul passage — désormais à fetcher en curl direct à chaque relance plutôt qu'à écarter |
 | himalayas.app | Remote world — salaire souvent affiché — rechercher "customer success manager" ou "HRIS" — **403 en fetch direct le 05-06/08/2026**, passer par WebSearch |
+| redglobal.com | RED Global — une des plus grosses agences de staffing SAP au monde, contrats + CDI Europe — ajouté le 01/09/2026, jamais testé |
+| ignitesap.com | IgniteSAP — recrutement SAP Europe, CDI + freelance — ajouté le 01/09/2026, jamais testé |
+| amoriabond.com / computerfutures.com / emagine.org | Agences staffing SAP/IT Europe (Amoria Bond, Computer Futures/SThree, Emagine) — même famille que hansonregan/whitehall — ajoutés le 01/09/2026, jamais testés |
+| cadremploi.fr | CDI cadres France — complément d'APEC et Hellowork, absent de la liste jusqu'au 01/09/2026 — tenter fetch direct, sinon WebSearch `site:cadremploi.fr` |
+| jobs.sap.com | SAP lui-même — Customer Success Partner, Solution Advisor HCM France — fetch direct `jobs.sap.com/go/SAP-Jobs-in-France/850401/` à inclure dans chaque relance (n'était fetché que ponctuellement avant le 01/09/2026) |
+| api.adzuna.com | API gratuite agrégeant les boards FR — nécessite une clé (app_id + app_key à créer sur developer.adzuna.com) ; `GET /v1/api/jobs/fr/search/1?what=<mots-clés>` — ajouté le 01/09/2026, clé à créer avant premier usage |
+| jobs.stationf.co | Board startups Station F — radar PM/CSM startups françaises — ajouté le 01/09/2026, jamais testé |
 
 ### Boards remote évalués le 06/08/2026 — liste des 27 plateformes
 
