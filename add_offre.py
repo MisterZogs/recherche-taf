@@ -57,7 +57,10 @@ PRESALES_KEYWORDS = ['Technical Account Manager', 'Solutions Engineer', 'Solutio
                       'Account Manager', 'Account Director', 'Account Executive',
                       'Solutions Advocate', 'Solution Advocate',
                       'Solutions Architect', 'Solution Architect', 'Solution Advisor',
-                      'Solutions Sales Executive', 'Sales Enablement', 'Customer Enablement']
+                      'Solutions Sales Executive', 'Sales Enablement', 'Customer Enablement',
+                      'Partner Manager', 'Alliances Manager', 'Alliance Manager',
+                      'Renewals Manager', 'Renewal Manager', 'Retention Manager',
+                      'Customer Retention', 'Customer Education', 'Customer Training']
 
 # Une offre Product Manager ou avant-vente dont l'intitulé porte aussi un marqueur
 # SIRH/SAP reste dans "Offres SIRH" : le métier SIRH prime sur le titre.
