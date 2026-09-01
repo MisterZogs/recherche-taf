@@ -402,9 +402,9 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 | Expleo | `https://www.expleo.com/fr/carrieres/nos-offres/` | Consultant SAP HR, Chef de projet SIRH — consulting technique France |
 | Randstad Digital (ex-Ausy) | WebSearch `"Randstad Digital" SAP HCM SuccessFactors consultant France 2026` | SAP HCM, SuccessFactors, AMOA SIRH |
 | Alten | WebSearch `"Alten" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR/HCM, Chef de projet SIRH — SSII France (site en 403) |
-| delaware | `careers.delaware.pro/fr` ou WebSearch `"delaware" consultant SAP HR SuccessFactors France 2026` | Gros intégrateur SAP présent en France — absent de la liste jusqu'au 01/09/2026, jamais testé |
-| NTT Data Business Solutions (ex-itelligence) | WebSearch `"NTT Data Business Solutions" SAP HCM OR SuccessFactors consultant France 2026` | Intégrateur SAP mondial — ajouté le 01/09/2026, jamais testé |
-| LeverX | WebSearch `"LeverX" SAP HCM OR SuccessFactors consultant remote 2026` | Partenaire SAP international, souvent remote — ajouté le 01/09/2026, jamais testé |
+| delaware | **La vraie URL France est `carriere.delaware.pro/jobs`** (`careers.delaware.pro` est en ENOTFOUND) — 12 postes le 01/09/2026, tous SAP FICO/SD/MM/S4, **aucun HCM/SF** ; les postes SuccessFactors indexés sont en Belgique (fr-be) |
+| NTT Data Business Solutions (ex-itelligence) | **Flux RSS exploitable** : `careers.nttdata-solutions.com/services/rss/job/?keywords=successfactors` — mais tous les postes SF sont Inde/Allemagne/UK/Malaisie le 01/09/2026, 0 France et 0 remote worldwide |
+| ~~LeverX~~ | `career.leverx.com` existe mais **toutes les fiches SF indexées renvoient 404** (annonces périmées) — rendement nul le 01/09/2026 |
 
 ### Éditeurs HRIS (postes CSM / Pre-sales / Implémentation)
 | Entreprise | URL carrière | Ce qu'on cherche |
