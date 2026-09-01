@@ -32,6 +32,11 @@ Autres postes ciblés :
 - **IA × SIRH / IA × RH** - consultant ou chef de projet à l'intersection IA et RH/SIRH (ex : déploiement IA dans SIRH, programme IA transformation RH)
 - **Chief of Staff** (auprès d'un CEO/fondateur de startup) - valorise directement l'expérience de co-fondateur (WallOfTraders.com), combinée à la rigueur process/enterprise du parcours SAP — ajouté le 22/08/2026 ; va dans l'onglet "Offres CSM". Attention : ces postes se pourvoient surtout par réseau et sont souvent hybrides/sur site auprès du fondateur, à vérifier au cas par cas avant de retenir une offre non-remote
 - **Founding / Head of Customer Success (0→1)** - construction de la fonction CS dans une startup seed/Series A, capitalise sur l'expérience "a déjà construit un truc de zéro" chez WallOfTraders.com — ajouté le 22/08/2026 ; va dans l'onglet "Offres CSM" (déjà capté par les mots-clés "Customer Success"/"CSM")
+- **Engagement Manager / Delivery Manager** (professional services chez un éditeur SaaS ou intégrateur) - livraison de programme + relation client, le cœur du rôle tenu sur le compte L'Oréal — ajouté le 01/09/2026 ; va dans l'onglet "Offres SIRH" (routage par défaut, même famille qu'Implementation Consultant)
+- **Partner Manager / Alliances Manager** (écosystème SAP ou HR Tech) - 14 ans SAP + gestion de grands comptes — ajouté le 01/09/2026 ; va dans "Offres CSM" (routé via PRESALES_KEYWORDS)
+- **Renewals Manager / Customer Retention Manager** - famille adjacente au CSM (l'offre Upsun du 30/08 portait ce titre) — ajouté le 01/09/2026 ; va dans "Offres CSM"
+- **Customer Education / Customer Training Manager** chez un éditeur SaaS, y compris hors SIRH - l'expérience de formation utilisateurs-clés vaut chez n'importe quel éditeur — ajouté le 01/09/2026 ; va dans "Offres CSM"
+- **Chef de projet / Project Manager généraliste** (IT, transformation digitale, déploiement, PMO) - demande de Gaëtan du 01/09/2026 : ne plus se limiter au chef de projet SIRH, tout poste de chef de projet ou project manager compatible avec le profil est à retenir — va dans "Offres SIRH" (routage par défaut). Tester `free-work.com/fr/tech-it/jobs/chef-de-projet` (le schéma `/jobs/<mot-clé>` se généralise) et ajouter les WebSearch `"chef de projet" mission freelance remote France 2026` / `"project manager" SaaS remote EMEA 2026` aux relances
 
 ---
 
