@@ -540,7 +540,7 @@ La fusion ATS+HRIS/USA a bien fonctionné : un seul agent a couvert les deux à 
 
 **Confirmations négatives (déjà notées, revérifiées ce jour)** : Himalayas.app toujours inutilisable en fetch direct (chaque URL `/companies/.../jobs/...` a rendu une page listing générique sans rapport avec le poste demandé) ; Index Ventures toujours mort (404 sur `/startup-jobs/...`) ; Atlassian (iCIMS) exceptionnellement stable cette fois (8/9 ID déjà connus, un seul nouveau poste) — contredit la note du 26/08 qui donnait le board comme changeant systématiquement, à revérifier sans présumer d'un sens fixe la prochaine fois ; Remotive API toujours dégradée (paramètre de recherche ne filtre plus rien) ; RemoteOK toujours quasi nul pour ce profil ; Jobgether (Lever, filtré France) toujours aussi volumineux (176 offres) mais désormais saturé (3 non-connues seulement, aucune pertinente) deux jours de suite.
 
-**Un gap de routage repéré dans `add_offre.py`** (non corrigé, à garder en tête) : les intitulés « Account Director » (Superside), « Sales Enablement Manager » (Canonical) et « Customer Enablement Manager » (Figma) ne matchent aucun des mots-clés CSM/PRESALES_KEYWORDS actuels et sont retombés par défaut dans « Offres SIRH », alors qu'il s'agit clairement de postes commerciaux/CSM. Si ce type d'intitulé revient souvent, envisager d'élargir `PRESALES_KEYWORDS` avec « Account Director », « Sales Enablement », « Customer Enablement ».
+**Gap de routage `add_offre.py` — corrigé depuis** : les intitulés « Account Director », « Sales Enablement », « Customer Enablement », « Account Executive » figurent désormais dans `PRESALES_KEYWORDS` et sont routés vers « Offres CSM » (vérifié le 01/09/2026).
 
 ### État des sources — relance du 2026-08-27
 
