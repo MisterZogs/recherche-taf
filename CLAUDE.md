@@ -417,6 +417,13 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 | Lucca | WebSearch `"Lucca" CSM OR "customer success" OR implémentation emploi France 2026` | CSM, Account Manager, Implementation — SIRH SaaS France (URL directe en 404) |
 | Payfit | WebSearch `"Payfit" CSM OR "customer success" OR "account manager" emploi France 2026` | CSM, Account Manager — paie/SIRH SaaS France (URL directe ECONNREFUSED) |
 | Personio | WebSearch `"Personio" CSM OR "customer success" France emploi 2026` | CSM Senior, Account Executive, Implementation — SIRH PME Europe (URL directe en 404) |
+| Oyster | `oysterhr.com/careers` ou chercher son ATS (Ashby/Greenhouse/Lever) | EOR remote worldwide, même famille que Deel/Remote.com (les filons les mieux alignés du dispositif) — ajouté le 01/09/2026 |
+| Omnipresent / Multiplier / Papaya Global / Atlas HXM | WebSearch `"<entreprise>" customer success OR implementation remote 2026` puis remonter à l'ATS | Secteur EOR au complet : mêmes postes CSM/Implementation remote worldwide que Deel/Remote.com — ajoutés le 01/09/2026 |
+| 365Talents | `365talents.com/fr/carrieres` ou WebSearch | Éditeur IA×RH français (skills management par IA, Lyon) — exactement le croisement "IA × SIRH" ciblé — ajouté le 01/09/2026 |
+| Neobrain | WebSearch `"Neobrain" CSM OR consultant OR "customer success" emploi 2026` | Éditeur IA×RH français (talent marketplace IA) — ajouté le 01/09/2026 |
+| PeopleSpheres | WebSearch `"PeopleSpheres" emploi CSM OR implementation 2026` | SIRH SaaS français (agrégateur de briques RH) — ajouté le 01/09/2026 |
+| Eurécia | WebSearch `"Eurecia" emploi CSM OR "customer success" 2026` | SIRH SaaS Toulouse — ajouté le 01/09/2026 |
+| Silae | WebSearch `"Silae" formateur OR consultant OR CSM emploi 2026` | Éditeur paie français — des missions "Formateur/Expert Silae" déjà croisées via freelance-informatique.fr — ajouté le 01/09/2026 |
 
 ---
 
