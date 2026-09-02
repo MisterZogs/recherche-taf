@@ -19,7 +19,7 @@ from difflib import SequenceMatcher
 
 import openpyxl
 
-from add_offre import _capture_cell, _col_index, _ecrire_onglet
+from add_offre import _capture_cell, _col_index, _ecrire_onglet, _restore_cell
 
 FICHIER = 'offres_emploi.xlsx'
 
@@ -74,6 +74,14 @@ ANONYME = re.compile(
     r'^\s*$|n\.?/?c\b|anonym|non\s+(communiqu|divulgu|pr[ée]cis|sp[ée]cifi)|'
     r'confidentiel|^client\b', re.I)
 
+# Noms de plateformes : la colonne Entreprise porte souvent le site d'où vient
+# l'annonce plutôt que l'employeur. Deux lignes qui diffèrent seulement sur ce
+# point décrivent la même offre.
+PLATEFORMES = re.compile(
+    r'\b(via|freelance[- ]informatique|mission[- ]freelances?|free[- ]work|'
+    r'workdispo|eursap|movement group|michael page|welcome to the jungle|'
+    r'linkedin|indeed|jobgether|wizbii|whitehall|hays)\b', re.I)
+
 
 def norm(s):
     if s is None:
@@ -84,6 +92,26 @@ def norm(s):
 
 def anonyme(v):
     return bool(ANONYME.search(str(v or '')))
+
+
+def nom_employeur(v):
+    """Nom d'employeur exploitable, ou '' si la cellule ne porte qu'une source."""
+    if anonyme(v):
+        return ''
+    s = re.sub(r'\([^)]*\)', ' ', str(v or ''))      # « (via Michael Page) »
+    s = PLATEFORMES.sub(' ', s)
+    return norm(s)
+
+
+def memes_employeurs(noms):
+    """Variantes d'un même employeur ? « Deloitte » vs « Deloitte France »."""
+    ref = max(noms, key=len)
+    for n in noms:
+        court, long_ = sorted([n, ref], key=len)
+        if court in long_ or SequenceMatcher(None, n, ref).ratio() >= 0.8:
+            continue
+        return False
+    return True
 
 
 def est_generique(lien):
