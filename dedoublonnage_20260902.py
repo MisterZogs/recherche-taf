@@ -163,11 +163,20 @@ def main():
         if len(cles) < 2:
             continue
 
-        entreprises = {norm(champ(c, 'Entreprise')) for c in cles
-                       if not anonyme(champ(c, 'Entreprise'))}
+        employeurs = {n for n in (nom_employeur(champ(c, 'Entreprise'))
+                                  for c in cles) if n}
         titres = [norm(champ(c, 'Poste')) for c in cles]
 
-        if est_generique(lien) or len(entreprises) > 1 or not titres_compatibles(titres):
+        # Un employeur nommé identique suffit à conclure au doublon : les
+        # intitulés varient souvent d'une capture à l'autre (FR/EN, mentions de
+        # durée). Quand tout est anonymisé, on retombe sur la comparaison des
+        # intitulés.
+        if employeurs:
+            meme_offre = memes_employeurs(employeurs)
+        else:
+            meme_offre = titres_compatibles(titres)
+
+        if est_generique(lien) or not meme_offre:
             signales.append((lien, cles))
             continue
 
