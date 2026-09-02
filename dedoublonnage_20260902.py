@@ -58,6 +58,19 @@ GARDER_EXPLICITE = {
     'formateur---intelligence-artificielle-generative-3cde70': 'Offres IA',
 }
 
+# Doublons vérifiés à la main que l'heuristique ne peut pas trancher : le
+# client est anonymisé, et décrit différemment d'une capture à l'autre
+# (« Cabinet conseil » / « PME cabinet de formation BtoB »), ou l'intitulé a été
+# saisi tantôt en français tantôt en anglais.
+FUSION_FORCEE = {
+    'https://www.michaelpage.fr/job-detail/consultant-formateur-ia-management-hf/'
+    'ref/jn-032026-6962869',
+    'https://www.mission-freelances.fr/missions/'
+    'formateur-formatrice-en-intelligence-artificielle-generative-ile-de-france-a5471a52',
+    'https://www.freelance-informatique.fr/'
+    'mission-consultant-senior-sap-sf-employee-central-101668-de',
+}
+
 # Lien vérifié trompeur : l'API WTTJ renvoie pour ce slug une offre
 # d'alternance « Bras droit Responsable BU AI for Finance », sans rapport avec
 # le poste enregistré. Lien vidé et raison documentée, conformément à la règle
