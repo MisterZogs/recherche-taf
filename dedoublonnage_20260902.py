@@ -201,7 +201,16 @@ def main():
     for sn in ONGLETS:
         rows = [row for (s, r), row in sorted(lignes.items())
                 if s == sn and (s, r) not in a_supprimer]
-        _ecrire_onglet(wb[sn], rows, verbose=True)
+        if sn == 'Fait':
+            # Archive : on préserve l'ordre historique, comme ajouter_offres().
+            ws = wb[sn]
+            ws.delete_rows(2, ws.max_row)
+            for i, row_data in enumerate(rows):
+                for j, cell_data in enumerate(row_data):
+                    _restore_cell(ws.cell(row=i + 2, column=j + 1), cell_data)
+            print(f"  {sn} : {len(rows)} offres")
+        else:
+            _ecrire_onglet(wb[sn], rows, verbose=True)
 
     wb.save(FICHIER)
 
