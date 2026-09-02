@@ -69,6 +69,10 @@ FUSION_FORCEE = {
     'formateur-formatrice-en-intelligence-artificielle-generative-ile-de-france-a5471a52',
     'https://www.freelance-informatique.fr/'
     'mission-consultant-senior-sap-sf-employee-central-101668-de',
+    # Fiche vérifiée le 02/09/2026 : une seule mission (Consultant SAP
+    # SuccessFactors, 24 mois, Paris 8e), enregistrée sous trois angles
+    # différents (« Data Migration », « + MuleSoft », intitulé nu).
+    'https://www.freelance-informatique.fr/mission-consultant-sap-successfactors-92787-de',
 }
 
 # Lien vérifié trompeur : l'API WTTJ renvoie pour ce slug une offre
@@ -184,7 +188,9 @@ def main():
         # intitulés varient souvent d'une capture à l'autre (FR/EN, mentions de
         # durée). Quand tout est anonymisé, on retombe sur la comparaison des
         # intitulés.
-        if employeurs:
+        if lien in FUSION_FORCEE:
+            meme_offre = True
+        elif employeurs:
             meme_offre = memes_employeurs(employeurs)
         else:
             meme_offre = titres_compatibles(titres)
