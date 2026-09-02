@@ -1068,6 +1068,25 @@ Astuces trouvées pendant cet audit, à réutiliser :
 
 **Correctif définitif** : `_liens_existants(wb)` scanne désormais les 6 onglets (y compris Fait) au début de `ajouter_offres()`, et toute offre dont le Lien existe déjà nulle part dans le classeur est ignorée silencieusement (message `= [doublon ignoré]` en mode verbose) plutôt qu'ajoutée une seconde fois. **Ce garde-fou est désormais automatique et ne dépend plus de la rigueur manuelle d'une session** : tant que l'insertion passe par `add_offre.ajouter_offres()`, un lien déjà connu — actif, NoRemote ou déjà classé Fait — ne peut plus être réinséré. Continuer à utiliser cette fonction (plutôt que d'écrire des scripts ponctuels qui manipulent le classeur directement) pour bénéficier de ce contrôle.
 
+### Grand nettoyage des doublons antérieurs au garde-fou (02/09/2026) — `dedoublonnage_20260902.py`
+
+Gaëtan a repéré que les lignes 6 et 8 de l'onglet SIRH portaient la même offre (Solution Consultant HCM chez Workday, même lien Workday CXS). Le balayage complet du classeur a montré que le cas était très loin d'être isolé : **154 lignes en double sur 2280, soit près d'une ligne sur quinze**, réparties sur tous les onglets (SIRH -16, CSM -8, IA -31, NoRemote -58, Fait -41).
+
+**Pourquoi ces doublons existaient encore alors que le garde-fou du 21/08 fonctionne :** `_liens_existants()` empêche toute *nouvelle* insertion d'un lien déjà connu, mais il n'a jamais nettoyé rétroactivement ce que les relances antérieures avaient accumulé. L'audit du 21/08, lui, ne cherchait que les **liens génériques** (une même page catégorie collée sur plusieurs offres différentes) ; il ne cherchait pas le cas symétrique, **un même lien individuel dupliqué sur plusieurs lignes décrivant la même offre**. C'est ce second cas qui représentait l'essentiel du volume. Leçon : ces deux bugs sont distincts et un audit qui ne cherche que l'un passe complètement à côté de l'autre.
+
+**Le script `dedoublonnage_20260902.py` est réutilisable tel quel** (idempotent, il rescanne à chaque exécution) et vaut la peine d'être relancé après toute session qui aurait inséré des offres sans passer par `add_offre.ajouter_offres()`. Il réutilise `_capture_cell` / `_ecrire_onglet` d'`add_offre.py`, donc les couleurs de la colonne Priorité et le tri statut+priorité sont préservés, et l'onglet Fait garde son ordre historique. Règle de conservation : **Fait > NoRemote > onglet métier** ; les champs manquants de la ligne conservée sont complétés depuis les lignes supprimées (entreprise nommée qui remplace un « N/C », notes les plus longues, priorité la plus haute).
+
+**Deux pièges de comparaison rencontrés, à réutiliser dans tout futur dédoublonnage :**
+- La colonne Entreprise porte tantôt l'employeur, tantôt la **plateforme** d'où vient l'annonce (« WorkDispo » vs « Celad », « n.c. (via Michael Page) » vs « Cabinet conseil »). Comparer les noms bruts fait rater le doublon : il faut retirer les mentions entre parenthèses et les noms de plateformes avant de comparer.
+- Le même poste est saisi tantôt en français tantôt en anglais (« Consultant sénior - SAP SF (Employee Central) » vs « Senior SAP SuccessFactors Consultant Employee Central (6 mois) »), ce qui casse toute comparaison d'intitulés. Quand l'employeur nommé concorde, il fait foi ; la comparaison d'intitulés ne sert qu'en dernier recours, sur les offres à client anonymisé.
+
+**Quatre cas tranchés en vérifiant la source, à ne pas re-litiger :**
+- **Modjo** (CSM Mid-Market) et **DataBird** (Formateur IA Agentique) : l'API WTTJ les donne `archived` **et** `partial`. Les lignes des onglets métier étaient fausses sur le télétravail ; seules les lignes NoRemote ont été conservées.
+- **Walter Learning** (Formateur IA générative) : la fiche werecruit dit « Le poste est assuré à distance sauf pour le tournage » (tournage à Marseille). C'est bien du télétravail ; la ligne conservée est celle d'`Offres IA`, contre la règle de rang habituelle.
+- **Mister IA** (Chef de projet BU Conseil) : le slug WTTJ `chef-de-projet-bu-conseil-h-f-cdi-paris-8e-asap_paris` renvoie en réalité une **alternance « Bras droit Responsable BU AI for Finance »**, sans rapport. Nouvelle occurrence du piège déjà documenté (« le titre d'un résultat WebSearch peut pointer vers un slug sans aucun rapport »). Lien vidé et raison écrite dans Fit / Notes.
+
+**Reliquat assumé :** 13 liens génériques restent partagés (pages catégorie LinkedIn, Indeed, `free-work.com/fr/tech-it/jobs/<mot-clé>`, EY search, ConvictionsRH, Sqorus, Whitehall, `mission-sirh-2293`), **tous dans NoRemote et Fait, aucun en onglet actif** — c'est la suite du backlog du 21/08, à reprendre au fil de l'eau. Cas normal à ne pas « corriger » : le lien Arago HRIS Project Manager est présent à la fois dans `En process` et dans `Fait`, ce qui est cohérent avec le statut de zone de travail manuelle d'`En process`.
+
 ### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026)
 
 **`NoRemote` ne reçoit que les offres qui excluent explicitement le télétravail total.** Ce filtre s'applique **avant** le routage par métier.
