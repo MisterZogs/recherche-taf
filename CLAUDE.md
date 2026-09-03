@@ -1210,6 +1210,12 @@ Les recherches directes `site:linkedin.com/jobs "mot-clé"` retournent surtout d
 
 ## Notes diverses
 
+> **Grand contrôle de vivacité des liens WTTJ, fait le 03/09/2026 : ~85% des liens welcometothejungle.com du classeur étaient morts.** Sur 162 liens WTTJ répartis dans tous les onglets, la vérification systématique via `api.welcometothejungle.com/api/v1/organizations/<org>/jobs/<slug>` (champ `job.archived_at`) a trouvé 138 liens archivés ou 404, et seulement ~20 encore vivants. Détail par onglet actionnable (Statut mis à `Expiré`, note ajoutée, onglet retrié) : Offres CSM 34/37, Offres SIRH 11/12, Offres IA 8/10, Offres PM 1/2, Pays Basque 1/3, NoRemote 60/73. Dans Fait, 23/25 étaient aussi archivés mais aucune modification n'y a été faite (le Statut de Fait reflète une action déjà prise par Gaëtan — postulé/pourvu/refusé — indépendante de la vivacité ultérieure de l'annonce). **Leçon : WTTJ décroît beaucoup plus vite que les autres sources, une offre ajoutée il y a plusieurs semaines a de bonnes chances d'être fermée.** Un contrôle de ce type vaut la peine d'être repassé périodiquement (pas à chaque relance, mais par exemple tous les mois) sur les onglets actifs, pas seulement au moment de l'ajout.
+>
+> **Piège de slug confirmé une nouvelle fois pendant ce contrôle** : le lien Ecair "Customer Success Manager Freelance" dans Offres CSM est vivant mais pointe en réalité vers "Ops Analyst - Financement particulier", une offre sans rapport. Marqué `À vérifier` plutôt que `Expiré`. Toujours comparer le `name` renvoyé par l'API au `Poste` du tableur avant de faire confiance à un lien "LIVE".
+>
+> **Correctif Safran, même occasion** : le lien `chef-fe-projet-moa-sap4hana-fh-152431` (Chef de Projet MOA SAP S/4HANA, Bordes) donnait un vrai 404 en navigateur (pas le blocage Cloudflare habituel de safran-group.com, qui lui donne un 403). L'offre a été retirée du site. Une contrepartie technique **MOE SAP S/4HANA** (id 183421) a été republiée le jour même sur le même projet ; ajoutée en priorité réduite (⭐⭐⭐) car nettement plus orientée ABAP/technique que le profil fonctionnel de Gaëtan. Pour distinguer un vrai 404 d'un blocage anti-bot sur un site Cloudflare, le seul moyen fiable reste de charger la page dans un vrai navigateur (Claude in Chrome), pas juste curl/WebFetch avec un User-Agent différent.
+
 - Photo CV : `PHOTO-2023-12-09-21-52-05 4.jpg` (portrait fond blanc, déc. 2023)
 - L'Oréal est classé 370e au Fortune Global 500 (2023)
 - Cominty : poste hybride Paris mais Gaëtan veut full remote — à négocier en entretien
