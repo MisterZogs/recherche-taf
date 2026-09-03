@@ -185,11 +185,14 @@ def main():
         return lignes[cle][i]['value'] if i is not None else None
 
     # 2. Regroupement par lien.
-    groupes = {}
+    groupes, bruts = {}, {}
     for cle in lignes:
         lien = champ(cle, 'Lien')
         if lien and str(lien).strip():
-            groupes.setdefault(str(lien).strip().rstrip('/'), []).append(cle)
+            brut = str(lien).strip().rstrip('/')
+            k = cle_lien(brut)
+            groupes.setdefault(k, []).append(cle)
+            bruts.setdefault(k, []).append(brut)
 
     a_supprimer = set()
     fusions, signales = [], []
@@ -197,6 +200,16 @@ def main():
     for lien, cles in sorted(groupes.items()):
         if len(cles) < 2:
             continue
+
+        # Les tables de cas particuliers sont indexées sur le lien tel qu'écrit
+        # dans le tableur : les interroger sur chaque variante du groupe.
+        variantes = bruts[lien]
+
+        def special(table):
+            for b in variantes:
+                if b in table:
+                    return table[b]
+            return None
 
         employeurs = {n for n in (nom_employeur(champ(c, 'Entreprise'))
                                   for c in cles) if n}
