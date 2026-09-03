@@ -38,7 +38,7 @@ FICHIER = "offres_emploi.xlsx"
 COLS = [
     'Priorité', 'Statut', 'Fait', 'Poste', 'Entreprise', 'Source', 'Lien', 'Contrat',
     'Localisation', 'Remote', 'Salaire / TJM', 'Durée mission',
-    'Fit / Notes', 'CV à envoyer', 'Prétention'
+    'Fit / Notes', 'CV à envoyer', 'Prétention', 'Date trouvée', 'Date publiée'
 ]
 
 CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM', 'Chief of Staff']
