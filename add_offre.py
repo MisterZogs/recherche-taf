@@ -211,8 +211,16 @@ def _liens_existants(wb) -> set:
     return liens
 
 
-def _archiver_faits(ws_src, ws_fait, fait_idx, verbose):
-    """Déplace les lignes 'x' de ws_src vers ws_fait. Retourne les lignes conservées."""
+# Statuts qui déclenchent un déplacement automatique vers Fait, au même titre
+# qu'un "x" en colonne Fait. Règle posée par Gaëtan le 03/09/2026 : une offre
+# dont le lien est vérifié mort (Statut mis à jour en "Expiré" lors d'un
+# contrôle de vivacité) n'a plus sa place dans un onglet actif, elle doit
+# rejoindre Fait comme n'importe quelle offre traitée.
+EXPIRE_STATUSES = {'expiré', 'expirée'}
+
+
+def _archiver_faits(ws_src, ws_fait, fait_idx, statut_idx, verbose):
+    """Déplace vers ws_fait les lignes 'x' (colonne Fait) ou au Statut Expiré/Expirée."""
     kept = []
     archived = []
     for row in ws_src.iter_rows(min_row=2, max_row=ws_src.max_row):
@@ -220,7 +228,9 @@ def _archiver_faits(ws_src, ws_fait, fait_idx, verbose):
         # Ignorer les lignes entièrement vides
         if all(d['value'] is None for d in row_data):
             continue
-        if str(row_data[fait_idx]['value'] or '').strip().lower() == 'x':
+        fait_val = str(row_data[fait_idx]['value'] or '').strip().lower()
+        statut_val = str(row_data[statut_idx]['value'] or '').strip().lower()
+        if fait_val == 'x' or statut_val in EXPIRE_STATUSES:
             archived.append(row_data)
         else:
             kept.append(row_data)
