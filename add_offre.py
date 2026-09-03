@@ -20,8 +20,9 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   exclut explicitement le télétravail total (hybride, partiel, présentiel)
   va dans "NoRemote", quel que soit le métier. Une information manquante ne
   disqualifie plus : l'offre reste dans son onglet métier.
-- Avant chaque ajout, les lignes marquées "x" dans la colonne Fait
-  sont déplacées vers l'onglet "Fait".
+- Avant chaque ajout, les lignes marquées "x" dans la colonne Fait, ou dont
+  le Statut vaut "Expiré"/"Expirée" (lien vérifié mort), sont déplacées vers
+  l'onglet "Fait".
 - Avant d'insérer une offre, son Lien est comparé à tous les liens déjà
   présents dans tous les onglets (y compris Fait) ; en cas de doublon,
   l'offre est ignorée plutôt qu'ajoutée une seconde fois.
