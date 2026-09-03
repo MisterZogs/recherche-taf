@@ -1158,6 +1158,16 @@ Gaëtan a repéré que les lignes 6 et 8 de l'onglet SIRH portaient la même off
 
 **Reliquat assumé :** 13 liens génériques restent partagés (pages catégorie LinkedIn, Indeed, `free-work.com/fr/tech-it/jobs/<mot-clé>`, EY search, ConvictionsRH, Sqorus, Whitehall, `mission-sirh-2293`), **tous dans NoRemote et Fait, aucun en onglet actif** — c'est la suite du backlog du 21/08, à reprendre au fil de l'eau. Cas normal à ne pas « corriger » : le lien Arago HRIS Project Manager est présent à la fois dans `En process` et dans `Fait`, ce qui est cohérent avec le statut de zone de travail manuelle d'`En process`.
 
+### Statut "Expiré" = déplacement automatique vers Fait (règle posée le 03/09/2026)
+
+**Dès qu'une offre a le Statut mis à `Expiré` ou `Expirée` (lien vérifié mort lors d'un contrôle de vivacité), elle doit rejoindre l'onglet `Fait`, exactement comme une ligne marquée `x` en colonne Fait.** Avant cette date, la convention était de laisser l'offre dans son onglet métier avec Statut=`Expiré`, simplement triée en bas (rang `STATUS_ORDER` le plus bas) — Gaëtan a demandé le 03/09/2026 de changer cette convention : un lien mort n'a plus sa place dans un onglet actif, il doit être archivé comme une offre traitée.
+
+**Implémenté directement dans `add_offre.py`** : `_archiver_faits()` archive désormais vers Fait toute ligne dont `Fait=='x'` **OU** dont `Statut` (normalisé en minuscules) est dans `EXPIRE_STATUSES = {'expiré', 'expirée'}`. C'est automatique à chaque appel de `ajouter_offres()`, y compris avec une liste d'offres vide (`ajouter_offres([], verbose=True)` sert de commande de purge à la demande). Migration rétroactive faite le 03/09/2026 : 157 lignes déplacées vers Fait (37 SIRH, 33 CSM, 8 IA, 1 PM, 6 Pays Basque, 72 NoRemote).
+
+**Procédure pour un contrôle de vivacité de liens (WTTJ, HelloWork, freelance-informatique.fr ou autre) :** marquer Statut=`Expiré` sur les lignes mortes avec une note dans Fit/Notes expliquant comment la mort a été constatée (utile pour Fait, qui garde l'historique), puis appeler `add_offre.ajouter_offres([], verbose=True)` une fois toutes les lignes marquées : l'archivage vers Fait et le retri des onglets sources se font en un seul passage. Ne jamais faire ce déplacement à la main avec `openpyxl` directement, la fonction gère déjà la préservation des styles/couleurs et l'ordre.
+
+**Fait n'est pas concerné par cette règle** : un Statut `Expiré` déjà présent dans Fait (l'offre y est déjà) ne déclenche rien de plus, et un contrôle de vivacité qui confirme la mort d'un lien déjà dans Fait ne doit **pas** changer son Statut existant (Postulé/Refusé/Pourvu...), qui reflète une action déjà prise par Gaëtan indépendamment de la vivacité ultérieure de l'annonce — voir la note du 03/09/2026 dans « Notes diverses ».
+
 ### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026)
 
 **`NoRemote` ne reçoit que les offres qui excluent explicitement le télétravail total.** Ce filtre s'applique **avant** le routage par métier.
