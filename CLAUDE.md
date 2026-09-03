@@ -499,7 +499,37 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
-### État des sources — relance du 2026-09-02
+### État des sources — relance du 2026-09-03
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **197 offres candidates compilées, 194 ajoutées** (1 doublon rejeté par le garde-fou `add_offre.py`, 2 doublons inter-clusters retirés en amont via `cle_lien()`), 22 lignes `Fait=x` archivées (12 SIRH, 10 USA). `dedoublonnage_20260902.py` relancé après coup a trouvé et fusionné **13 doublons cross-forme supplémentaires** (WTTJ fr/en, Station F, mission-freelances.fr) contre les lignes déjà existantes du classeur — utile de le relancer systématiquement après chaque insertion, pas seulement lors d'un grand nettoyage ponctuel. Le tableur passe de 2280 à 2307 lignes. Répartition des ajouts nets : SIRH +51, CSM +21 (dont -8 fusionnés ensuite), IA +10 (dont -1 fusionné), PM +17, USA +3, Pays Basque +9, NoRemote +83.
+
+Rendement à nouveau très déséquilibré en faveur du cluster FR/freelance (148 offres sur 197, dont 95 par HelloWork seul) ; les 3 autres clusters (19 ATS/USA, 21 remote/VC/niches, 9 Pays Basque) confirment un vivier ATS/Ashby/Lever/Greenhouse de plus en plus saturé sur les intitulés cibles, avec surtout des offres déjà connues ou hors-fit géographique remontées.
+
+| Source | Verdict 03/09/2026 |
+|---|---|
+| **hellowork.com** | Toujours la meilleure source, confirmé une 4e relance de suite : 95 offres retenues sur 171 fiches non-connues. **Zéro offre full remote confirmée par le texte sur ce lot** ; le télétravail total reste rare sur ce board, l'essentiel part en Partiel/Non précisé |
+| **free-work.com, endpoint `?query=<mots-clés>&page=N`** | Toujours très productif (42 offres retenues sur 188 liens), dominé par du Product Manager/Owner générique parisien hybride. **Nouveau piège de slug** : `/jobs/successfactors` redirige (301 meta-refresh) vers `/jobs`, contrairement à `/jobs/sap-successfactors` qui fonctionne bien — ne pas confondre les deux formes |
+| **Doublon interne free-work, nouveau pattern** | La même mission (Nexus Jobs Limited, HRIS Workday Technical Consultant Analyst, Londres) postée sous deux catégories différentes avec des slugs `-28`/`-29` quasi identiques (`administrateur-applicatif-erp-crm-sirh` et `business-analyst`) — 4e forme de doublon free-work documentée, distincte de WTTJ fr/en, Station F et Workday locale |
+| **redglobal.com** | Un seul poste mais excellent : Senior AI Business Analyst fully remote EU, 6 mois + extensions — contredit le verdict à sec du 01/09 (3e passage), à repasser malgré un rendement historiquement irrégulier |
+| **intescia.recruitee.com/api/offers/** | Continue de produire au coup par coup (1 nouveau poste Customer Onboarding Specialist full remote sur 19 dans le flux) — confirmé filon permanent à faible débit |
+| **recrutement.cegos.com** | Piège de republication confirmé une **3e fois** : deux nouveaux ID (`7756416`, `7823110`) sont les mêmes offres déjà en base sous `7672957` et via LinkedIn. Dédoublonner sur titre + entreprise, jamais sur l'ID, reste indispensable |
+| **welcometothejungle.com (vérification API)** | Entièrement saturé sur CSM/SIRH ce jour : toutes les pistes WebSearch étaient déjà en base une fois vérifiées par `api.welcometothejungle.com`. Piège du slug sans rapport reconfirmé sur MISTER IA |
+| **freelance-informatique.fr, hansonregan, eursap, whitehallresources, opusresourcing, jobs.sap.com, carriere.delaware.pro, malt.fr** | Tous à sec ce jour, cohérent avec les relances précédentes |
+| **Remote.com (`remotecom` sur Greenhouse)** | Meilleure prise du cluster ATS : Global Payroll Implementation Specialist, Remote-EMEA explicite, France nommée dans la fiche, 43-64K€ |
+| **Nouveau piège de duplication inter-ATS** | Le poste Remote.com GPIS ci-dessus est aussi republié sur Jobgether (Lever) avec un texte reformulé ("listed on behalf of a partner company") — un même poste peut apparaître sur le board direct de l'entreprise ET sur Jobgether sous une forme différente, à surveiller comme les autres pièges de republication déjà connus |
+| **Ashby, piège « secondaryLocations Europe qui résout à un seul pays »** | Se confirme sur `coder` (Europe affiché → Pologne en réalité) après Oyster ; pattern récurrent, toujours lire le détail du pays avant de retenir une offre "Europe" |
+| **Lever `swile` et `ledger`** | **Revenus en ligne** après avoir été donnés `Document not found` le 01/09 — ne jamais présumer un slug définitivement mort, retester périodiquement |
+| **RemoteOK, Remotive** | Toujours à sec / paramètre de recherche cassé, confirmé une nouvelle fois |
+| **euremotejobs.com** | Comportement stable cette fois (curl + UA + Referer Google), 10 offres neuves sur 36 candidats bruts. Le nettoyage `utm_*` + suffixe `/application`/`/apply` avant comparaison reste indispensable (12 des 36 candidats étaient déjà en base sous ces formes) ; la fonction `cle_lien()` de `dedoublonnage_20260902.py` gère déjà ce cas correctement, pas besoin de la retoucher |
+| **remoterocketship.com** | Toujours 403 en fetch direct ; **les pistes qu'il remonte via WebSearch se sont révélées fausses une fois vérifiées sur l'ATS d'origine** (Ventrata, Sprinklr) — ne jamais ajouter un résultat remoterocketship sans revérification sur l'ATS natif |
+| **jobs.stationf.co (Algolia)** | Toujours fonctionnel mais très saturé : seulement 4 fiches neuves sur 532 offres, toutes Paris hybride → NoRemote |
+| **Sweep des métiers de croisement (PM/TAM sur Ashby/Lever/Greenhouse par WebSearch)** | Confirmé à sec, comme le 02/09 : le vivier est saturé sur ces intitulés |
+| **Pays Basque — Safran Helicopter Engines (Bordes)** | Un Chef de Projet MOA SAP S/4HANA ⭐⭐⭐⭐⭐ (migration ECC6→S/4HANA, 3 sites France + 7 filiales), trouvé via WebSearch uniquement (`safran-group.com` toujours bloqué Cloudflare, comme documenté) |
+| **Pays Basque — Daher (Workday `daher.wd3`)** | En panne 502 pendant toute la relance (plusieurs tentatives espacées), alors que Teréga/Enovis sur la même infra Workday répondaient normalement — panne ponctuelle du tenant à retenter, pas une fermeture |
+| **Pays Basque — jobs.arkema.com** | Nouveau portail testé, fonctionne en curl simple, 0 poste IT/PM/SIRH ce jour (Lacq/Mourenx = technicien/alternance) — à garder au dispositif permanent |
+| **Pays Basque — Maïsadour, Enovis, Intescia, 360Learning, Dassault Aviation Biarritz, CAPB, French Tech Pays Basque** | Tous confirmés à sec, cohérent avec les relances précédentes |
+
+
 
 4 clusters parallèles au format habituel. **292 offres candidates, 286 ajoutées** (6 doublons inter-clusters seulement), 22 lignes `Fait=x` archivées (12 SIRH, 10 USA), 16 lignes supprimées au dédoublonnage. Le tableur passe de 2126 à 2396 lignes. Répartition des ajouts : SIRH +98, NoRemote +97, CSM +30, IA +29, Pays Basque +21, PM +8, USA +3. Priorités : 37×⭐⭐⭐⭐⭐, 103×⭐⭐⭐⭐.
 
