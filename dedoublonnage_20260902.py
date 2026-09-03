@@ -135,6 +135,24 @@ def est_generique(lien):
     return any(p.search(lien) for p in GENERIQUES)
 
 
+def cle_lien(u):
+    """Clé de regroupement : deux écritures d'une même annonce la partagent.
+
+    Comparer les liens bruts laissait passer trois cas rencontrés le 02/09/2026 :
+    Welcome to the Jungle publie la même annonce sous /fr/ et sous /en/, Station F
+    la remiroite sous le même couple organisation + slug, et Workday intercale un
+    segment de locale (/en-US/, /fr-FR/) que la base ne stocke pas toujours.
+    """
+    u = re.split(r'[?#]', str(u).strip())[0]
+    m = re.search(r'(?:welcometothejungle\.com/[a-z]{2}|jobs\.stationf\.co)'
+                  r'/companies/([^/]+)/jobs/([^/]+)', u)
+    if m:
+        return f'wttj:{m.group(1)}/{m.group(2)}'
+    u = re.sub(r'(myworkdayjobs\.com)/[a-z]{2}-[A-Z]{2}/', r'\1/', u)
+    u = re.sub(r'/(application|apply)/?$', '', u)
+    return u.rstrip('/')
+
+
 def titres_compatibles(titres):
     """Deux intitulés décrivent-ils le même poste ?"""
     ref = max(titres, key=len)
