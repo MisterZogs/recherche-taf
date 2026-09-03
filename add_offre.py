@@ -308,20 +308,21 @@ def ajouter_offres(offres: list[dict], verbose=True):
     ws_nore = wb['NoRemote']
     ws_fait = wb['Fait']
 
-    fait_idx = _col_index(ws_sirh, 'Fait')
+    fait_idx   = _col_index(ws_sirh, 'Fait')
+    statut_idx = _col_index(ws_sirh, 'Statut')
 
     liens_connus = _liens_existants(wb)
 
     if verbose:
         print("── Archivage ──")
 
-    rows_sirh = _archiver_faits(ws_sirh, ws_fait, fait_idx, verbose)
-    rows_csm  = _archiver_faits(ws_csm,  ws_fait, fait_idx, verbose)
-    rows_ia   = _archiver_faits(ws_ia,   ws_fait, fait_idx, verbose)
-    rows_pm   = _archiver_faits(ws_pm,   ws_fait, fait_idx, verbose)
-    rows_usa  = _archiver_faits(ws_usa,  ws_fait, fait_idx, verbose)
-    rows_pb   = _archiver_faits(ws_pb,   ws_fait, fait_idx, verbose)
-    rows_nore = _archiver_faits(ws_nore, ws_fait, fait_idx, verbose)
+    rows_sirh = _archiver_faits(ws_sirh, ws_fait, fait_idx, statut_idx, verbose)
+    rows_csm  = _archiver_faits(ws_csm,  ws_fait, fait_idx, statut_idx, verbose)
+    rows_ia   = _archiver_faits(ws_ia,   ws_fait, fait_idx, statut_idx, verbose)
+    rows_pm   = _archiver_faits(ws_pm,   ws_fait, fait_idx, statut_idx, verbose)
+    rows_usa  = _archiver_faits(ws_usa,  ws_fait, fait_idx, statut_idx, verbose)
+    rows_pb   = _archiver_faits(ws_pb,   ws_fait, fait_idx, statut_idx, verbose)
+    rows_nore = _archiver_faits(ws_nore, ws_fait, fait_idx, statut_idx, verbose)
 
     if verbose:
         print("── Ajout ──")
