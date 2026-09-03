@@ -143,11 +143,16 @@ def cle_lien(u):
     la remiroite sous le même couple organisation + slug, et Workday intercale un
     segment de locale (/en-US/, /fr-FR/) que la base ne stocke pas toujours.
     """
-    u = re.split(r'[?#]', str(u).strip())[0]
+    u = str(u).strip()
     m = re.search(r'(?:welcometothejungle\.com/[a-z]{2}|jobs\.stationf\.co)'
-                  r'/companies/([^/]+)/jobs/([^/]+)', u)
+                  r'/companies/([^/]+)/jobs/([^/?#]+)', u)
     if m:
         return f'wttj:{m.group(1)}/{m.group(2)}'
+    # Ne JAMAIS retirer la query string en général : beaucoup de sites carrière
+    # portent l'identifiant de l'offre en paramètre (mongodb.com/careers/job?id=,
+    # stripe.com/jobs/search?gh_jid=, fivetran.com/careers/job?gh_jid=). La
+    # tronquer fusionnerait des offres réellement distinctes.
+    u = re.sub(r'[?&]utm_[^&]*', '', u)
     u = re.sub(r'(myworkdayjobs\.com)/[a-z]{2}-[A-Z]{2}/', r'\1/', u)
     u = re.sub(r'/(application|apply)/?$', '', u)
     return u.rstrip('/')
@@ -219,19 +224,19 @@ def main():
         # intitulés varient souvent d'une capture à l'autre (FR/EN, mentions de
         # durée). Quand tout est anonymisé, on retombe sur la comparaison des
         # intitulés.
-        if lien in FUSION_FORCEE:
+        if special(FUSION_FORCEE) is not None:
             meme_offre = True
         elif employeurs:
             meme_offre = memes_employeurs(employeurs)
         else:
             meme_offre = titres_compatibles(titres)
 
-        if est_generique(lien) or not meme_offre:
+        if any(est_generique(b) for b in variantes) or not meme_offre:
             signales.append((lien, cles))
             continue
 
         # 3. Choix de la ligne conservée.
-        onglet_force = GARDER_EXPLICITE.get(lien)
+        onglet_force = special(GARDER_EXPLICITE)
 
         def cle_tri(c):
             return (0 if c[0] == onglet_force else 1,
@@ -267,12 +272,13 @@ def main():
                 elif mien in (None, ''):
                     lignes[gardee][i]['value'] = sien
 
-        if lien in LIEN_TROMPEUR:
+        raison_trompeur = special(LIEN_TROMPEUR)
+        if raison_trompeur:
             lignes[gardee][idx['Lien']]['value'] = None
             lignes[gardee][idx['Lien']]['hyperlink'] = None
             note = lignes[gardee][idx['Fit / Notes']]['value'] or ''
             lignes[gardee][idx['Fit / Notes']]['value'] = (
-                f"{note} {LIEN_TROMPEUR[lien]}".strip())
+                f"{note} {raison_trompeur}".strip())
 
         a_supprimer.update(autres)
         fusions.append((lien, gardee, autres))
