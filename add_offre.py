@@ -60,13 +60,21 @@ PRESALES_KEYWORDS = ['Technical Account Manager', 'Solutions Engineer', 'Solutio
                       'Solutions Architect', 'Solution Architect', 'Solution Advisor',
                       'Solutions Sales Executive', 'Sales Enablement', 'Customer Enablement',
                       'Partner Manager', 'Alliances Manager', 'Alliance Manager',
+                      'Alliances', 'Alliance', 'Partnership', 'Partnerships',
                       'Renewals Manager', 'Renewal Manager', 'Retention Manager',
                       'Customer Retention', 'Customer Education', 'Customer Training']
 
 # Une offre Product Manager ou avant-vente dont l'intitulé porte aussi un marqueur
 # SIRH/SAP reste dans "Offres SIRH" : le métier SIRH prime sur le titre.
+# Correctif du 04/09/2026 : ces marqueurs sont testés avec des frontières de mot
+# (\b), jamais en simple sous-chaîne. 'RH' en sous-chaîne nue matchait à tort des
+# mots comme "Rhône" (Auvergne-Rhône-Alpes), gardant en SIRH des offres qui
+# n'avaient aucun rapport avec le SIRH (ex. "Digital Product Manager
+# Auvergne-Rhône-Alpes" restait en SIRH au lieu de partir en PM).
 SIRH_OVERRIDE = ['SIRH', 'HRIS', 'SAP', 'SuccessFactors', 'Workday', 'HCM',
-                  'HR Access', 'Paie', 'Payroll', 'RH', 'HXM', 'HR ']
+                  'HR Access', 'Paie', 'Payroll', 'RH', 'HXM', 'HR']
+_SIRH_OVERRIDE_RE = re.compile(
+    r'\b(?:' + '|'.join(re.escape(kw) for kw in SIRH_OVERRIDE) + r')\b', re.I)
 
 # Marqueurs de localisation USA, pour le routage automatique vers "Offres USA"
 # quand l'appelant n'a pas explicitement mis Onglet='Offres USA' dans le dict.
