@@ -132,9 +132,8 @@ def accepte_remote(valeur) -> bool:
 
 
 def _hors_sirh(poste: str) -> bool:
-    """Vrai si l'intitulé ne porte aucun marqueur SIRH/SAP."""
-    p = poste.lower()
-    return not any(kw.lower() in p for kw in SIRH_OVERRIDE)
+    """Vrai si l'intitulé ne porte aucun marqueur SIRH/SAP (en mot entier)."""
+    return not _SIRH_OVERRIDE_RE.search(poste)
 
 
 def _is_csm(poste: str) -> bool:
