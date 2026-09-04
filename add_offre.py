@@ -45,7 +45,7 @@ COLS = [
 CSM_KEYWORDS = ['Customer Success', 'Client Success', 'CSM', 'Chief of Staff']
 IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 'IA x RH',
                  'Intelligence Artificielle', 'AI Trainer', 'GenAI', 'LLM', 'Prompt',
-                 'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA']
+                 'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA', 'OpenAI']
 PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Product',
                  'Director of Product', 'VP Product', 'Chef de Produit', 'Responsable Produit',
                  'Product Marketing Manager', 'Product Builder', 'Proxy PO']
