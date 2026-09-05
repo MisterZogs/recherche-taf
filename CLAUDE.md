@@ -499,6 +499,33 @@ Leçon principale : **les API publiques d'ATS battent tout le reste.** Un seul a
 
 > **Correctif apporté à `add_offre.py` le 18/08/2026 :** `PRESALES_KEYWORDS` ne captait ni « Account Manager » seul, ni « Solutions Advocate », « Solution Architect », « Solution Advisor », « Solutions Sales Executive », ni « Présales » accentué. Ces intitulés tombaient tous dans `Offres SIRH` par défaut. Ils sont désormais routés vers `Offres CSM`, sauf marqueur SIRH/SAP dans le titre.
 
+### État des sources — relance du 2026-09-05
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **118 offres candidates compilées, 118 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par le garde-fou `add_offre.py` : les 4 agents avaient déjà dédoublonné en amont contre les 2291 liens fournis dans un fichier de référence commun). 2 lignes archivées vers Fait (SIRH). Répartition des ajouts : SIRH +41 (dont 2 tout de suite réarchivées), CSM +9, IA +2, PM +7, Pays Basque +2, NoRemote +57.
+
+Rendement très déséquilibré, comme d'habitude, mais cette fois le cluster ATS+HRIS+USA est retombé au plus bas jamais observé (7 offres sur ~120 slugs interrogés) : le vivier Ashby/Lever/Greenhouse est désormais quasi entièrement saturé sur les intitulés cibles, la quasi-totalité des postes "EMEA" trouvés s'étant révélés ancrés sur un seul pays hors France une fois le champ location vérifié en détail (Databricks, Chainguard, Decagon, ElevenLabs, Docker, Vanta, Coder, Deepgram). Le cluster FR/freelance reste de très loin le plus productif (98 offres sur 118, dont 49 HelloWork et 47 free-work).
+
+> **Nouveauté méthodologique adoptée ce jour, à reconduire** : avant de lancer les 4 agents, un export à plat de tous les liens déjà en base (`_liens_existants` équivalent en Python) a été généré une seule fois dans un fichier texte partagé, que chaque agent a reçu pour dédoublonner localement avant de renvoyer ses résultats en JSON structuré (un fichier par cluster). Aucun agent n'a touché à `offres_emploi.xlsx` directement ; l'insertion a été centralisée en une seule passe via `add_offre.ajouter_offres()` après fusion et dédoublonnage cross-cluster des 4 JSON. Ça évite les conflits d'écriture entre agents parallèles et donne un point de contrôle unique avant sauvegarde.
+
+| Source | Verdict 05/09/2026 |
+|---|---|
+| **hellowork.com** | Toujours la source la plus productive (49 offres) sur les mots-clés consultant SIRH / CSM / SAP HCM / SAP SuccessFactors / chef de projet SIRH / formateur IA / product manager / AMOA SIRH / consultant SAP HR |
+| **free-work.com** | 47 offres sur 12 catégories + l'endpoint de recherche `?query=<mots-clés>&page=N` ; toujours très productif |
+| **mission-freelances.fr** | Confirme sa quasi-saturation déjà notée le 02/09 : seulement 2 offres nouvelles sur 244 titres candidats |
+| **freelance-informatique.fr** | 0 nouvelle : les 5 pages catégorie de référence (data-obf) sont entièrement saturées |
+| **eursap.eu** | 0 nouvelle, le seul poste pertinent déjà en base |
+| **whitehallresources.com / opusresourcing.com** | 2 pistes trouvées mais disqualifiées à la vérification : l'une exige résidence UK + statut IR35/FCSA, l'autre une autorisation de travail US et est hybride NYC malgré l'étiquette apparente |
+| **API Ashby/Lever/Greenhouse (~120 slugs)** | Rendement le plus faible observé à ce jour (7 offres) ; confirme la saturation progressive documentée depuis fin août. Nouveauté : **Ashby lui-même** publie un Senior Strategic Implementation Specialist EMEA avec la France en `secondaryLocations` |
+| **Constructor (Ashby)** | Sr. Customer Success Manager French Speaking, Remote-France explicite, la meilleure offre CSM de la relance |
+| **euremotejobs.com** | curl de nouveau bloqué (403 sur les 4 régions), mais **WebFetch est passé sans problème** — encore une inversion de comportement, toujours tenter les deux méthodes. A produit Pennylane (Consultant Intégrateurs, full remote) et ElevenLabs (Revenue Partnerships France) après vérification que le reste était déjà en base |
+| **jobs.stationf.co (Algolia)** | Très saturé, seulement 4 nouveautés (toutes hybrides/ponctuelles → NoRemote) |
+| **intescia.recruitee.com/api/offers/** | 4 nouvelles offres sur 20 dans le flux, confirme le filon à faible débit permanent |
+| **recrutement.cegos.com** | Le piège de republication se confirme une 4e fois (nouveaux ID = doublons déjà connus) ; une seule vraie nouveauté |
+| **redglobal.com** | 0 SAP HCM/HR/CSM ce jour, confirme le rendement irrégulier déjà documenté |
+| **Pays Basque, ensemble des sources habituelles** | Quasi totalement à sec (2 offres seulement sur 117 candidats HelloWork triés un par un) : EPSYL Bayonne (Chef de Projet IT) et ELI Saint-Pierre-d'Irube (Chargé de Comptes, télétravail confirmé). Safran, Teréga, Enovis, Maïsadour, Wipro Lauak, TotalEnergies Pau, 360Learning, Boardriders, B.Braun, Celsa, Technoflex, Daher, French Tech Pays Basque : tous confirmés à sec ou hors profil |
+| **Boards VC (Index/Balderton/a16z/Sequoia)** | Rendement nul confirmé une nouvelle fois |
+| **apec.fr** | Toujours inaccessible |
+
 ### État des sources — relance du 2026-09-03
 
 4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **197 offres candidates compilées, 194 ajoutées** (1 doublon rejeté par le garde-fou `add_offre.py`, 2 doublons inter-clusters retirés en amont via `cle_lien()`), 22 lignes `Fait=x` archivées (12 SIRH, 10 USA). `dedoublonnage_20260902.py` relancé après coup a trouvé et fusionné **13 doublons cross-forme supplémentaires** (WTTJ fr/en, Station F, mission-freelances.fr) contre les lignes déjà existantes du classeur — utile de le relancer systématiquement après chaque insertion, pas seulement lors d'un grand nettoyage ponctuel. Le tableur passe de 2280 à 2307 lignes. Répartition des ajouts nets : SIRH +51, CSM +21 (dont -8 fusionnés ensuite), IA +10 (dont -1 fusionné), PM +17, USA +3, Pays Basque +9, NoRemote +83.
