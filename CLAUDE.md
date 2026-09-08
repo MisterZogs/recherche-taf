@@ -159,7 +159,9 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 - Plus narratif que le français sur les réponses longues (questions comportementales d'entretien) : souvent construites en 2-3 paragraphes, le fait/contexte, le mécanisme concret, la leçon ou le résultat chiffré.
 - Clôture de lettre type : « Kind regards, » puis « Gaëtan FRANÇOIS » (nom de famille en majuscules).
 
-**Modèles de lettres de motivation** : voir le dossier `CoverLetterTemplates/` (créé le 08/09/2026) — 6 modèles construits uniquement à partir du contenu réel de `NotesCoverLetter` (SIRH/PO/CSM × FR/EN) et 6 modèles enrichis de texte généré dans le même style pour les compléter. Point faible connu : `NotesCoverLetter` ne contient presque aucun contenu français directement orienté CSM ; le modèle `CSM_FR` a donc été reconstruit en traduisant les faits anglais équivalents (spécification métier, formation des key users) plutôt que copié mot pour mot, contrairement aux autres modèles.
+**Modèles de lettres de motivation** : voir le dossier `CoverLetterTemplates/` (créé le 08/09/2026, révisé le 08/09/2026 après précision de Gaëtan) — 6 modèles Set A construits à partir du contenu réel de `NotesCoverLetter` (SIRH/PO/CSM × FR/EN) et 6 modèles Set B qui ajoutent un vrai paragraphe original en plus.
+
+**Règle de traduction croisée (précisée par Gaëtan le 08/09/2026) : tout le contenu de `NotesCoverLetter`, quelle que soit sa langue d'origine, est réutilisable dans l'autre langue par traduction, y compris dans les modèles Set A.** Ce n'est pas une solution de repli pour combler un manque, c'est la méthode normale : un fait qui n'existe qu'en anglais dans les notes (ex. le détail du projet de migration SAP HR vers SuccessFactors, l'encadrement de l'équipe ALTI/TCS) est traduit et inséré tel quel dans les lettres françaises, et réciproquement. Grâce à cette règle, les 6 modèles Set A sont désormais tous construits en piochant dans l'intégralité des deux corpus, pas seulement dans la langue cible.
 
 ---
 
