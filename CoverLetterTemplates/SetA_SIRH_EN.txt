@@ -1,12 +1,14 @@
 Dear Hiring Team,
 
-I am an engineer by training and I have worked fifteen years as a HRIS consultant, including ten years at L'Oréal, sitting between the business teams and the developers. I wrote the specifications, decided what went into scope, and followed each release into production in more than forty countries.
+I am an engineer by training and I have worked fifteen years on international HRIS transformation projects on SAP HCM and SuccessFactors, including ten years for L'Oréal. I sit naturally between the business teams and the developers: I pick up complex topics fast, and I am a good teacher who explains things simply. I use standard project management methods such as Gantt charts and the Scrum methodology.
 
-Next to that enterprise experience, I owned a consumer product for seven years at WallOfTraders.com, a crypto trading platform I co-founded. I decided what we shipped, wrote the specs, tested it, and judged every feature by what people did with it. Our users acted on the product with their own money, so we found out quickly when something was wrong.
+At L'Oréal, I worked directly with the HRIS Director for Europe, alongside about fifty HR people across Europe and sometimes the rest of the world; Teams, Outlook, and Excel were part of my daily routine. My goal was to have the best possible data quality in the HR systems. My main project was a data migration from SAP HR to SuccessFactors, a more modern system, and helping HR through that transition.
 
-I am an engineer and I use AI agents every day. With AI, I have built lifaia.com and archikk.com.
+At ALTI (TCS), I managed a team of five HRIS support consultants in India for two years, running SAP HR managed services for L'Oréal across forty countries. I had built and won the outsourcing tender that created the team, so I owned the transition: the knowledge transfer from the incumbent provider, the documentation, the routing rules, and the escalations that came back from country HR teams.
 
-I live in Anglet, in France, and I speak French and English fluently. I'd genuinely enjoy a conversation about the role.
+I don't have hands-on experience with the PMGM module, but I can complete a course before the mission starts if that gets me there. I am adaptable and I pick up new topics quickly.
+
+I am based in Anglet, in France, available for full remote work, and open to occasional travel if the mission requires it; I am available immediately. I'd genuinely enjoy a conversation about the role.
 
 Kind regards,
 Gaëtan FRANÇOIS
