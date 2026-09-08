@@ -136,6 +136,31 @@ HTML(filename='fichier.html').write_pdf('fichier.pdf', stylesheets=[page])
 - **WallOfTraders.com** (toujours avec `.com`)
 - **Longueur** : 4-5 paragraphes max
 
+### Style d'écriture personnel de Gaëtan (source : `NotesCoverLetter`, ajouté le 08/09/2026)
+
+**Portée : ces règles s'appliquent à tout texte généré au nom de Gaëtan pour répondre à un recruteur, pas seulement aux lettres de motivation formelles : réponses à des formulaires de candidature, questions comportementales d'entretien écrites, messages email/LinkedIn à un recruteur.** Le fichier `NotesCoverLetter` à la racine du projet contient ses réponses réelles à des questions de recruteurs, en français et en anglais ; ne jamais le réécrire, le relire pour se recalibrer avant de générer un texte important.
+
+**Traits communs aux deux langues :**
+- **Ouverture par un fait concret et vérifiable** (nombre d'années, poste, produit), jamais par une déclaration d'intention. Ex. FR : « Ingénieur de formation, j'ai 15 ans d'expérience... ». Ex. EN : « The most workflow-intensive platform I've built is WallOfTraders.com... ».
+- **Langage de propriété directe** sur ses réalisations : « I owned X end to end » / « je portais la feuille de route de bout en bout », souvent suivi de deux-points et d'une liste en une phrase (jamais de puces) qui déroule concrètement ce que « owned » veut dire.
+- **Preuve par les chiffres et les faits, jamais par l'adjectif** : « 10 000 utilisateurs », « 40 pays », « 15 ans », « cinq consultants » plutôt que « une solide expérience » ou « un grand nombre ». Bannir les qualificatifs creux (« passionné », « dynamique », « motivé ») sans un fait derrière pour les justifier.
+- **Preuve par l'anecdote et le mécanisme, jamais par l'affirmation abstraite** : plutôt que d'affirmer qu'il sait cadrer un besoin, il raconte le mécanisme concret (le métier et le développeur qui comprennent une spécification différemment ; comment fonctionnait le copy trading via connexion API). Reproduire ce réflexe : une anecdote factuelle vaut mieux qu'une compétence citée dans l'abstrait.
+- **Concession honnête sur une lacune**, formulée sans détour puis immédiatement suivie d'une solution pratique. Ex. : « Je n'ai pas d'expérience sur le module PMGM mais je peux suivre une formation avant la mission si cela me permet de l'obtenir. »
+- **Phrases courtes et déclaratives.** De temps en temps, une phrase quasi aphoristique qui résume une leçon : « You don't have to like your product, you need to make sure your customers like it. »
+- **Logistique mentionnée brièvement en fin de texte, sans développement** : localisation, disponibilité, mobilité, préférence remote.
+- **Aucun jargon marketing/corporate** (« synergie », « leverage », enthousiasme générique de type « fast-paced dynamic environment »). L'intérêt pour un poste ou un produit se justifie par un détail précis (ex. le paragraphe sur Juno, l'assistant IA de Joko, qui explique pourquoi ce cas d'usage précis l'intéresse), jamais par de l'enthousiasme générique sans objet.
+
+**Spécificités françaises** (missions freelance SIRH dans `NotesCoverLetter`) :
+- Registre très direct et transactionnel, encore plus court qu'en anglais : « Bonjour, » puis directement le fait, puis la disponibilité/mobilité, puis « Bien cordialement » ou « Cordialement » et la signature.
+- Formule de clôture type : « Je reste à votre disposition pour un échange téléphonique si cela peut aider à clarifier mon profil. » ou « J'aurais plaisir à en discuter avec vous. »
+- Corriger silencieusement les fautes de frappe des notes brutes (ex. « technicol-fonctionnel » → « technico-fonctionnel », « pédagoque » → « pédagogue ») : le fond du style est à conserver, pas les coquilles.
+
+**Spécificités anglaises** :
+- Plus narratif que le français sur les réponses longues (questions comportementales d'entretien) : souvent construites en 2-3 paragraphes, le fait/contexte, le mécanisme concret, la leçon ou le résultat chiffré.
+- Clôture de lettre type : « Kind regards, » puis « Gaëtan FRANÇOIS » (nom de famille en majuscules).
+
+**Modèles de lettres de motivation** : voir le dossier `CoverLetterTemplates/` (créé le 08/09/2026) — 6 modèles construits uniquement à partir du contenu réel de `NotesCoverLetter` (SIRH/PO/CSM × FR/EN) et 6 modèles enrichis de texte généré dans le même style pour les compléter. Point faible connu : `NotesCoverLetter` ne contient presque aucun contenu français directement orienté CSM ; le modèle `CSM_FR` a donc été reconstruit en traduisant les faits anglais équivalents (spécification métier, formation des key users) plutôt que copié mot pour mot, contrairement aux autres modèles.
+
 ---
 
 ## Choix stylistiques CV
