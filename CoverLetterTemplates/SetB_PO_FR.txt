@@ -2,7 +2,11 @@ Bonjour,
 
 Ingénieur de formation, j'ai 15 ans d'expérience professionnelle, dont dix ans chez L'Oréal. Lors de mes trois dernières années sur le programme de migration de données, j'ai basculé sur des tâches de gestion de projet à part entière : accompagnement du client dans le choix de la roadmap, pilotage des déploiements pays par pays, gestion de projet au sens propre.
 
-J'ai aussi été cofondateur et Product Manager de WallOfTraders.com, où je portais la feuille de route produit de bout en bout : je décidais de ce qui partait en priorité, je rédigeais les spécifications fonctionnelles que l'équipe technique développait ensuite, et je validais chaque fonctionnalité demandée par notre communauté.
+J'ai aussi été cofondateur et Product Manager de WallOfTraders.com, une plateforme de trading crypto pour particuliers, où je portais la feuille de route produit de bout en bout : je décidais de ce qui partait en priorité, je rédigeais les spécifications fonctionnelles que l'équipe technique développait ensuite, je validais chaque fonctionnalité demandée par la communauté, et je faisais les tests de non-régression avec Postman. La plateforme a dépassé 10 000 utilisateurs, portée par une communauté Telegram active et une newsletter qui transformait directement les frictions récurrentes en évolutions produit ; je gérais aussi l'acquisition via le SEO et la publicité payante, et j'ai fait grandir l'équipe avec des stagiaires et des alternants.
+
+Je ne code pas ; c'était la partie de mon cofondateur. Mais écrire des spécifications assez précises pour que l'équipe technique n'ait jamais à deviner, c'est mon métier depuis quinze ans, des deux côtés de la table.
+
+J'ai appris que le produit bouge en permanence, et qu'il ne doit pas bouger selon mes propres attentes : il faut changer une fonctionnalité si le client ne l'aime pas, même après y avoir passé des semaines, même si on l'aime soi-même. On n'a pas besoin d'aimer son produit, on doit s'assurer que ses clients l'aiment.
 
 Je pilote d'ailleurs ma propre recherche d'emploi comme un produit : mon propre agent, construit avec Claude Code, interroge les API publiques de plusieurs moteurs de recherche d'emploi, récupère les postes ouverts et les trie dans un tableau selon mes propres critères. Il ne me reste plus qu'à postuler.
 
