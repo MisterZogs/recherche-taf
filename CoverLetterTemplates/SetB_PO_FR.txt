@@ -1,0 +1,14 @@
+Bonjour,
+
+Ingénieur de formation, j'ai 15 ans d'expérience professionnelle, dont dix ans chez L'Oréal. Lors de mes trois dernières années sur le programme de migration de données, j'ai basculé sur des tâches de gestion de projet à part entière : accompagnement du client dans le choix de la roadmap, pilotage des déploiements pays par pays, gestion de projet au sens propre.
+
+J'ai aussi été cofondateur et Product Manager de WallOfTraders.com, où je portais la feuille de route produit de bout en bout : je décidais de ce qui partait en priorité, je rédigeais les spécifications fonctionnelles que l'équipe technique développait ensuite, et je validais chaque fonctionnalité demandée par notre communauté.
+
+Je pilote d'ailleurs ma propre recherche d'emploi comme un produit : mon propre agent, construit avec Claude Code, interroge les API publiques de plusieurs moteurs de recherche d'emploi, récupère les postes ouverts et les trie dans un tableau selon mes propres critères. Il ne me reste plus qu'à postuler.
+
+[Une phrase sur un détail précis du produit ou de la roadmap de l'entreprise ciblée qui m'intéresse spécifiquement, sur le modèle : « Je suis fan de l'IA agentique et de ses applications ; je m'intéresse particulièrement à [fonctionnalité] parce que [raison précise]. »]
+
+Je suis disponible immédiatement. J'aurais plaisir à en discuter avec vous.
+
+Bien cordialement,
+Gaëtan FRANÇOIS
