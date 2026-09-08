@@ -1,0 +1,14 @@
+Bonjour,
+
+Ingénieur de formation, j'ai passé dix ans chez L'Oréal à faire le lien entre les équipes métier RH et les équipes techniques. Comprendre le besoin métier assez précisément pour écrire une spécification qui ne laisse rien à l'interprétation, c'est le cœur du métier ; la plupart des implémentations qui se passent mal partent d'une exigence que chaque partie a comprise différemment.
+
+Chez ALTI (TCS), j'ai encadré pendant deux ans une équipe de cinq consultants support basée en Inde, sur le périmètre SAP HR de L'Oréal dans quarante pays. J'avais moi-même construit et remporté l'appel d'offres qui a créé cette équipe, donc j'ai porté la transition complète : transfert de connaissances, documentation, règles de routage, et escalades remontées par les RH pays.
+
+La partie la plus difficile pour un client, c'est le travail que le projet lui demande : nettoyer ses données, répondre aux questions que lui seul peut trancher, prendre des décisions. Ce qui a fonctionné, c'est de nommer un key user par pays dès le départ et de le former pendant que le système était encore en cours de paramétrage plutôt qu'à la fin, puis de garder une trace écrite de chaque décision pour ne jamais la rouvrir trois mois plus tard.
+
+[Une phrase honnête sur un outil, un module ou une compétence demandée par l'annonce que je ne maîtrise pas encore, suivie de la façon dont je comblerais cet écart.]
+
+Basé à Anglet et disponible en télétravail total, j'aurais plaisir à en discuter avec vous.
+
+Bien cordialement,
+Gaëtan FRANÇOIS
