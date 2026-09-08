@@ -697,6 +697,36 @@ Leçon principale, valable pour toutes les sources US sans exception : **le cham
 
 ---
 
+## Recherche HRIS internationale hors USA (Canada, UK, Australie, APAC) — ajoutée le 08/09/2026
+
+**À inclure systématiquement dans chaque relance**, en complément de l'onglet "Offres USA". Demande de Gaëtan le 08/09/2026 : le dispositif USA ne couvre qu'un pays ; il existe des éditeurs HRIS/HR Tech significatifs basés au Canada, au Royaume-Uni, en Australie et en zone APAC/Singapour qui ne sont pas systématiquement balayés par les recherches EMEA génériques.
+
+### Critère de filtrage, identique à celui de l'onglet USA
+
+**Même règle stricte que pour Offres USA : le remote doit être ouvert à la France, pas seulement au pays d'origine de l'entreprise.** Une offre "Remote across Canada", "Remote (Australia only)" ou "Remote - UK residents only" est à écarter (ou router en `NoRemote` avec une note), même si l'éditeur est par ailleurs un excellent fit métier. Ne retenir que "Remote - Worldwide/Anywhere/EMEA/Europe/International", ou une entreprise déjà connue comme employeur multi-pays via EOR.
+
+**Routage** : pas de nouvel onglet dédié. Ces offres suivent le routage standard d'`add_offre.py` (SIRH/CSM/IA/PM selon le titre, NoRemote si le remote n'est pas ouvert à la France) — la nationalité canadienne/britannique/australienne/APAC de l'entreprise n'est pas en soi un critère de routage, contrairement au marqueur USA qui, lui, a son propre onglet.
+
+### Éditeurs HRIS/HR Tech ciblés par zone
+
+| Zone | Éditeurs à tester (ATS à identifier : Ashby/Lever/Greenhouse/Workday/ATS propriétaire) |
+|---|---|
+| **Canada** | Ceridian/Dayforce (déjà testé côté USA, siège réellement à Toronto), Humi, PandaPay, Knit People, Wagepoint, Collage HR, Rise People, League (benefits), Clearco (pas HR mais HQ Toronto à titre de radar ATS) |
+| **UK** (indépendamment de la recherche EMEA générique) | HiBob (siège Londres/Tel Aviv, déjà testé mais à repasser), Zellis, MHR (Midland HR), CIPHR, Access PeopleHR, Personio (DE mais forte présence UK), Breathe HR, Sage HR (UK), IRIS Software Group / Cascade HR |
+| **Australie** | Employment Hero, Deputy, ELMO Software (ELMO Cloud HR & Payroll), Ento, KeyPay/YouPay, HROnboard |
+| **APAC / Singapour** | Darwinbox (Inde, gros concurrent SAP SuccessFactors/Workday en Asie), PeopleStrong (Inde), Sleekr/Mekari (Indonésie), Talenox (Singapour), HReasily (Singapour), Deel/Multiplier (déjà couverts côté USA mais à repasser sous cet angle) |
+
+### Méthode de recherche
+- WebSearch `site:jobs.ashbyhq.com "HRIS" OR "customer success" remote Europe -location:US` puis vérifier l'éligibilité France sur chaque fiche
+- WebSearch `"<éditeur>" careers remote Europe OR "remote worldwide" 2026` pour chaque éditeur ci-dessus dont l'ATS n'est pas encore identifié
+- Une fois l'ATS trouvé (souvent Greenhouse ou Lever pour les scale-ups canadiennes/australiennes), l'ajouter au balayage systématique de slugs au même titre que les slugs déjà connus (voir sections API Ashby/Lever/Greenhouse plus haut)
+- Portails carrière directs quand ils existent (ex. `careers.dayforce.com`, `employmenthero.com/careers`)
+
+### Postes ciblés
+Mêmes familles que le reste du dispositif : HRIS Manager/Consultant, CSM/Senior CSM, Implementation Consultant, Solutions Engineer/TAM, Product Manager HRIS, Data Migration Lead.
+
+---
+
 ## Recherche grosses entreprises du Sud-Ouest (onglet dédié "Pays Basque") — ajoutée le 27/08/2026
 
 **À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA, PM et USA. Demande de Gaëtan le 27/08/2026 : cibler les grosses entreprises du Sud-Ouest situées à **1h15 de route maximum de Biarritz** (donc jusqu'au bassin de Pau/Lacq et Mont-de-Marsan), tous métiers confondus parmi ceux ciblés par son profil (CSM, SIRH/SAP, PM, Formateur IA, gestion de compte, avant-vente technique...).
