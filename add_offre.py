@@ -299,7 +299,7 @@ def _nouvelle_ligne(offre: dict) -> list:
         cell_data = {
             'value': val, 'data_type': None, 'font': None,
             'border': None, 'fill': None, 'number_format': None,
-            'protection': None, 'alignment': None, 'hyperlink': None,
+            'protection': None, 'alignment': WRAP, 'hyperlink': None,
         }
         if col == 'Priorité' and val in COLORS:
             cell_data['fill'] = PatternFill(fill_type='solid', fgColor=COLORS[val])
