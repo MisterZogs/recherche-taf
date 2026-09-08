@@ -1,0 +1,14 @@
+Dear Hiring Team,
+
+The product I'm most proud of is WallOfTraders.com, a crypto trading platform I co-founded and owned as Product Manager end to end: I decided what shipped, wrote the specs, and validated every feature.
+
+It reached over 10,000 users, driven by an active Telegram community and newsletter that turned recurring friction directly into product changes. I also owned acquisition through SEO and paid social, and grew the team with interns and apprentices along the way. Smart trading let people enter the market without learning technical analysis first, which removed the main reason beginners stayed away; copy trading is the feature I am proudest of, since it linked a user's exchange account through an API key so their portfolio mirrored an experienced trader's moves automatically, even while they slept.
+
+I actually run my own job search like a product: my own agent, built with Claude Code, hits the public APIs of several job search engines, pulls the open roles, and sorts them into a spreadsheet against my own criteria. I just have to apply.
+
+[One sentence on a specific product detail or roadmap item at the target company that genuinely interests me, in the same register as: "I'm specifically interested in Juno, the Joko AI shopping assistant, because understanding a customer well enough to make them feel a recommendation was made just for them is a hard, interesting problem."]
+
+I am based in Anglet, in France, and I speak French and English fluently. I'd genuinely enjoy a conversation about the role.
+
+Kind regards,
+Gaëtan FRANÇOIS
