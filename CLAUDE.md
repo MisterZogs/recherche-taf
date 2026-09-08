@@ -697,9 +697,17 @@ Leçon principale, valable pour toutes les sources US sans exception : **le cham
 
 ---
 
-## Recherche HRIS internationale hors USA (Canada, UK, Australie, APAC) — ajoutée le 08/09/2026
+## Recherche HRIS internationale hors USA (Canada, UK, Australie, APAC) — ajoutée le 08/09/2026, révisée le 08/09/2026 après premier test
 
-**À inclure systématiquement dans chaque relance**, en complément de l'onglet "Offres USA". Demande de Gaëtan le 08/09/2026 : le dispositif USA ne couvre qu'un pays ; il existe des éditeurs HRIS/HR Tech significatifs basés au Canada, au Royaume-Uni, en Australie et en zone APAC/Singapour qui ne sont pas systématiquement balayés par les recherches EMEA génériques.
+**Verdict du premier test (08/09/2026) : rendement nul, 0 offre retenue sur ~15 éditeurs testés avec un board exploitable.** Ne pas en faire un cluster systématique à chaque relance ; un passage ponctuel (une fois par mois environ) suffit, en se concentrant sur les deux sources ci-dessous qui bougent. Le reste de cette section documente la méthode pour ce passage ponctuel.
+
+**Piège structurel confirmé, distinct de celui des offres USA** : contrairement aux éditeurs SaaS US qui utilisent souvent des tags "Remote-Worldwide/Anywhere/EMEA", les éditeurs HRIS canadiens/britanniques/australiens/APAC testés recrutent presque tous **par entité légale locale, pays par pays** (UK, Canada, Australie, Roumanie, Malaisie, Philippines, Vietnam comme centres de coûts distincts, jamais "n'importe où"). Le mot "Remote" dans un titre signifie ici presque toujours "remote au sein du pays d'ancrage", jamais un remote international. Sur ce premier passage, c'est systématique plutôt qu'occasionnel (contrairement aux offres USA où on trouve régulièrement des exceptions).
+
+**Deux sources à repasser ponctuellement (bougent dans le temps), le reste n'a rien donné :**
+- **API Employment Hero** (a racheté Humi/Canada et KeyPay-YouPay/Australie, gère les 3 marques sur un ATS unique) : `https://services.employmenthero.com/ats/api/v1/career_page/organisations/employmenthero/jobs?page_index=N` (pagination par `page_index`, pas `page`). 62 postes le 08/09, tous ancrés pays unique (GB/AU/CA/NZ/MY/PH/VN/RO), mais le volume justifie un contrôle périodique.
+- **Access Group (UK)** sur Workday CXS : `theaccessgroup.wd103.myworkdayjobs.com/Access_Group_External_Careers`, 150 postes actifs le 08/09, tous UK-résident de fait (déplacements réguliers Londres/Loughborough exigés même sur les fiches "Remote").
+
+Sources testées et confirmées sans board exploitable ou sans remote international, à ne pas retester avant plusieurs mois : Wagepoint (Teamtailor, Canada-only strict), League Inc (Greenhouse `leagueinc`, Canada/US/UK ancrés), Dayforce/Ceridian (aucune mention France), IRIS Software Group (Ashby `irissoftwaregroup`, 59 postes UK/Ireland/US/Romania), Zellis, Breathe HR, Personio (office-first confirmé, 3j/semaine), Sage HR, Deputy (Lever `deputy`, UK/US/AU ancrés), Darwinbox/PeopleStrong/Mekari/Talenox/HReasily (recrutement local uniquement), Humi/PandaPay/Knit People/Collage HR/Rise People (pas de board ou aucune offre), ELMO Software/Ento/HROnboard/CIPHR/MHR (pas de board exploitable trouvé).
 
 ### Critère de filtrage, identique à celui de l'onglet USA
 
