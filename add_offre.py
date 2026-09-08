@@ -31,8 +31,15 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 import re
 
 import openpyxl
-from openpyxl.styles import PatternFill
+from openpyxl.styles import PatternFill, Alignment
 from copy import copy
+
+# Retour à la ligne automatique appliqué à toute nouvelle cellule : sans ça,
+# un texte long dans une colonne (Remote, Localisation, Fit / Notes...) déborde
+# visuellement par-dessus les colonnes vides à droite (ex. Salaire / TJM), ce
+# qui ressemble à un décalage de colonnes alors que les données sont correctes
+# à la lecture (bug constaté par Gaëtan le 08/09/2026).
+WRAP = Alignment(wrap_text=True, vertical='top')
 
 FICHIER = "offres_emploi.xlsx"
 
