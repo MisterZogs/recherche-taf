@@ -8,7 +8,7 @@ I don't code; that side was my cofounder's. But writing specifications precise e
 
 I've also learnt that the product is constantly moving, and it should not move to follow your own expectations: you have to change a feature if customers do not like it, even after weeks of work, even if you love it yourself. You don't have to like your product; you need to make sure your customers like it.
 
-I actually run my own job search like a product: my own agent, built with Claude Code, hits the public APIs of several job search engines, pulls the open roles, and sorts them into a spreadsheet against my own criteria. I just have to apply.
+I actually run my own job search like a product: my own agent, built with Claude Code, hits the public APIs of several job search engines, pulls the open roles, and sorts them into a spreadsheet against my own criteria. I just have to apply. Passionate about AI, I've also built several projects with Claude Code, including lifaia.com and archikk.com.
 
 [One sentence on a specific product detail or roadmap item at the target company that genuinely interests me, in the same register as: "I'm specifically interested in Juno, the Joko AI shopping assistant, because understanding a customer well enough to make them feel a recommendation was made just for them is a hard, interesting problem."]
 
