@@ -1,3 +1,6 @@
 
 # Fichiers verrous Excel
 ~$*.xlsx
+
+# Secrets API (ne jamais committer)
+.env
