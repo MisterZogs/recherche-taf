@@ -895,9 +895,13 @@ La fonction `accepte_remote()` d'`add_offre.py` implémente cette règle et le r
 - **Toujours trier par priorité décroissante** (⭐⭐⭐⭐⭐ en premier) après chaque ajout de nouvelles offres. Préserver les styles de couleur des cellules lors du tri.
 - **Appliquer la couleur de fond** à la colonne Priorité pour chaque nouvelle ligne ajoutée : rouge (⭐⭐⭐⭐⭐), orange (⭐⭐⭐⭐), jaune/or (⭐⭐⭐), vert (⭐⭐), gris (⭐).
 
-### Colonne Statut à la création d'une offre (règle posée le 09/09/2026)
+### Colonne Statut à la création d'une offre (règle posée le 09/09/2026, révisée le même jour)
 
-**Toute nouvelle offre ajoutée porte "À postuler" dans la colonne Statut, jamais une cellule vide.** Avant cette règle, les deux coexistaient sans distinction voulue (1292 lignes vides contre 536 "À postuler" au 09/09/2026) parce que l'instruction donnée aux agents de recherche était ambiguë ("laisser vide ou 'À postuler'"). Les deux valeurs sont traitées de façon strictement identique par `_ecrire_onglet()` dans `add_offre.py` (même rang de tri par défaut, `STATUS_DEFAUT`), donc rien ne les distinguait fonctionnellement ; autant utiliser la valeur la plus explicite. Ne pas corriger rétroactivement les 1292 lignes déjà vides (volume trop important, et une partie peut refléter un choix délibéré de Gaëtan) ; la règle s'applique seulement aux ajouts futurs.
+**Une offre pas encore traitée ne porte ni "Nouveau" ni "À postuler" dans la colonne Statut : elle porte une date, au format ISO `YYYY-MM-DD`.** Priorité à la date de publication de l'annonce (`Date publiée`) quand elle est connue ; à défaut, la date à laquelle l'offre a été ajoutée au tableur (`Date trouvée`). Ce n'est qu'une fois l'offre traitée (candidature envoyée, refus, poste pourvu, lien mort...) que le Statut redevient un mot-clé classique (`Postulé`, `Refusé`, `Expiré`...).
+
+Cette règle a remplacé le même jour une première version qui demandait de mettre systématiquement "À postuler" : Gaëtan a précisé vouloir une date à la place, plus informative qu'un simple mot-clé. Migration rétroactive faite le 09/09/2026 : sur 555 lignes portant "Nouveau" ou "À postuler", 256 ont pu être converties (dont `Date publiée` en priorité, `Date trouvée` sinon) ; **299 lignes plus anciennes n'ont ni l'une ni l'autre renseignée et ont été laissées inchangées** plutôt que de leur inventer une date. Ce reliquat est à reprendre au fil de l'eau si une de ces offres redevient pertinente (candidature, vérification de lien...), pas à corriger en masse avec une date arbitraire.
+
+Techniquement, cette convention ne casse rien dans `add_offre.py` : `STATUS_ORDER` ne reconnaît que `Postulé`/`Refusé`/`Expiré`/`Expirée`, tout le reste (dates y compris) tombe dans le rang par défaut `STATUS_DEFAUT`, donc le tri se comporte exactement comme avant.
 
 ---
 
