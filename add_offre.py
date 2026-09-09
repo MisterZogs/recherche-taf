@@ -54,8 +54,8 @@ IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 
                  'Intelligence Artificielle', 'AI Trainer', 'GenAI', 'LLM', 'Prompt',
                  'Plateforme IA', 'AI Platform', 'Projet IA', 'PMO IA', 'OpenAI']
 PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Product',
-                 'Director of Product', 'VP Product', 'Chef de Produit', 'Responsable Produit',
-                 'Product Marketing Manager', 'Product Builder', 'Proxy PO']
+                 'Director of Product', 'Product Director', 'VP Product', 'Chef de Produit',
+                 'Responsable Produit', 'Product Marketing Manager', 'Product Builder', 'Proxy PO']
 
 # Métiers d'avant-vente et de gestion de compte technique : même famille que le CSM,
 # donc rangés dans "Offres CSM".
