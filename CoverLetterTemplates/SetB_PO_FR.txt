@@ -8,7 +8,7 @@ Je ne code pas ; c'était la partie de mon cofondateur. Mais écrire des spécif
 
 J'ai appris que le produit bouge en permanence, et qu'il ne doit pas bouger selon mes propres attentes : il faut changer une fonctionnalité si le client ne l'aime pas, même après y avoir passé des semaines, même si on l'aime soi-même. On n'a pas besoin d'aimer son produit, on doit s'assurer que ses clients l'aiment.
 
-Je pilote d'ailleurs ma propre recherche d'emploi comme un produit : mon propre agent, construit avec Claude Code, interroge les API publiques de plusieurs moteurs de recherche d'emploi, récupère les postes ouverts et les trie dans un tableau selon mes propres critères. Il ne me reste plus qu'à postuler.
+Je pilote d'ailleurs ma propre recherche d'emploi comme un produit : mon propre agent, construit avec Claude Code, interroge les API publiques de plusieurs moteurs de recherche d'emploi, récupère les postes ouverts et les trie dans un tableau selon mes propres critères. Il ne me reste plus qu'à postuler. Passionné par l'IA, j'ai aussi développé plusieurs projets avec Claude Code, dont lifaia.com et archikk.com.
 
 [Une phrase sur un détail précis du produit ou de la roadmap de l'entreprise ciblée qui m'intéresse spécifiquement, sur le modèle : « Je suis fan de l'IA agentique et de ses applications ; je m'intéresse particulièrement à [fonctionnalité] parce que [raison précise]. »]
 
