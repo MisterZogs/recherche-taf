@@ -6,6 +6,8 @@ Chez ALTI (TCS), j'ai encadré pendant deux ans une équipe de cinq consultants 
 
 La partie la plus difficile pour un client, c'est le travail que le projet lui demande : nettoyer ses données, répondre aux questions que lui seul peut trancher, prendre des décisions. Ce qui a fonctionné, c'est de nommer un key user par pays dès le départ et de le former pendant que le système était encore en cours de paramétrage plutôt qu'à la fin, puis de garder une trace écrite de chaque décision pour ne jamais la rouvrir trois mois plus tard.
 
+Passionné par l'IA, j'ai développé plusieurs projets avec Claude Code, dont lifaia.com et archikk.com.
+
 Basé à Anglet et disponible en télétravail total, j'aurais plaisir à en discuter avec vous.
 
 Bien cordialement,
