@@ -611,6 +611,18 @@ Rendement très déséquilibré, comme d'habitude : le cluster FR/freelance a pr
 
 ---
 
+## Outils annexes de recherche d'emploi (notés le 09/09/2026, pas des sources d'offres)
+
+Ces trois sites ne sont pas des boards à interroger pour trouver des offres ; ce sont des outils que Gaëtan veut garder sous la main pour le processus de candidature lui-même.
+
+| Outil | Description |
+|---|---|
+| **tealhq.com** | Plateforme de recherche d'emploi tout-en-un (Teal) : CRM de candidatures (suivi statut/relances/salaire), extension Chrome qui sauvegarde automatiquement les offres depuis LinkedIn/Indeed, générateur de CV IA avec matching de mots-clés contre une offre, accès à des offres sourcées directement depuis les ATS des entreprises (plus fraîches qu'un agrégateur classique). Freemium. |
+| **interview.talently.ai/mock-interview** | Talently AI : simulateur d'entretien d'embauche par IA, entretiens virtuels avec questions adaptées à une fiche de poste (prédéfinie ou collée par l'utilisateur), feedback détaillé instantané sur les réponses. Version gratuite pour démarrer, fonctionnalités avancées payantes. |
+| **jobscan.co** | Jobscan : optimisation de CV pour les filtres ATS. Le "Resume Scanner" compare un CV à une offre précise et donne un score de compatibilité + les compétences/mots-clés manquants. Propose aussi un générateur de CV/LM IA, l'optimisation de profil LinkedIn, un "Auto Apply" et un suivi de candidatures. Outils de base gratuits, abonnement payant pour la suite complète. |
+
+---
+
 ## Quatre recherches ajoutées le 14/08/2026
 
 Ces métiers correspondent à des compétences réelles du parcours qu'aucune recherche ne captait. **À inclure dans chaque relance**, au même titre que SIRH, CSM, IA et PM. Elles se rangent dans les onglets existants, sans onglet dédié.
