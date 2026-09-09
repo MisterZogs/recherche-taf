@@ -6,7 +6,7 @@ J'ai aussi été cofondateur et Product Manager de WallOfTraders.com, une platef
 
 J'ai appris que le produit bouge en permanence, et qu'il ne doit pas bouger selon mes propres attentes : il faut changer une fonctionnalité si le client ne l'aime pas, même après y avoir passé des semaines, même si on l'aime soi-même. On n'a pas besoin d'aimer son produit, on doit s'assurer que ses clients l'aiment.
 
-Je pilote d'ailleurs ma propre recherche d'emploi comme un produit : mon propre agent, construit avec Claude Code, interroge les API publiques de plusieurs moteurs de recherche d'emploi, récupère les postes ouverts et les trie dans un tableau selon mes propres critères. Il ne me reste plus qu'à postuler.
+Je pilote d'ailleurs ma propre recherche d'emploi comme un produit : mon propre agent, construit avec Claude Code, interroge les API publiques de plusieurs moteurs de recherche d'emploi, récupère les postes ouverts et les trie dans un tableau selon mes propres critères. Il ne me reste plus qu'à postuler. Passionné par l'IA, j'ai aussi développé plusieurs projets avec Claude Code, dont lifaia.com et archikk.com.
 
 Je suis disponible immédiatement. J'aurais plaisir à en discuter avec vous.
 
