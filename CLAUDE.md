@@ -834,6 +834,16 @@ Ces entreprises sont pour la plupart de grands groupes avec un site carrière pr
 
 En complément des grands groupes industriels, passer aussi par **La French Tech Pays Basque** (frenchtechpaysbasque.fr, ou WebSearch `"French Tech Pays Basque" startup recrute 2026`) comme radar des startups locales (Bayonne/Anglet/Biarritz/Bidart) — ajouté le 01/09/2026, jamais testé.
 
+### Technopole Izarbel (Bidart) — testé le 09/09/2026
+
+**Annuaire officiel exploitable** : `https://www.technopolepaysbasque.fr/fr/4-sites-technopolitains/izarbel/entreprises.html` liste ~79 entreprises réellement présentes sur le site (à distinguer des 3 autres sites technopolitains du même groupe : Technocité, Arkinova, ID Ocean, qui ne sont pas à Bidart). Bon complément à la liste de grands groupes ci-dessus, qui ne couvrait pas les ESN/éditeurs/PME numériques du bassin.
+
+Sur les 28 entreprises passées en revue lors du premier test (fit fort + secondaire), seules 3 offres ont été trouvées : **SD Worx** (Analyste Fonctionnel Paie & DSN, `careers.sdworx.com`, poste publié sous Bayonne mais même bassin), et **Exakis Nelite** (2 postes, Consultant Microsoft BI + Consultant SharePoint) dont les liens n'ont pas pu être vérifiés en direct (`exakis.com` en `ECONNREFUSED` systématique, curl et WebFetch) — trouvés via Google avec des slugs individuels a priori légitimes, à revérifier avant candidature. **WANAO/Intescia** (déjà bien couvert par ailleurs, voir `intescia.recruitee.com/api/offers/`) avait 2 postes Bidart mais déjà en base.
+
+**Rendement faible confirmé sur ce premier passage**, cohérent avec le reste du dispositif Pays Basque : Novaldi, Axiome Solution, Dev 1.0, EC Conseil, Meta-IT, NextiraOne, Call Door, Badjoto, Basik, Lekooa, Setavoo, Bluelogic, Tips sans page carrière exploitable ou postes hors profil ; Apave Sud Europe, Siemens Building Technologies, Telespazio, Egis International avec des postes techniques terrain uniquement, aucun à Bidart pour Telespazio/Egis. **SEI - Groupe LKS** et **IS Decisions** acceptent les candidatures spontanées (0 poste ouvert au moment du test, à retenter). **Sophia Genetics** (Bidart, R&D, hors annuaire officiel mais repéré en bonus via API Workable) n'a que des postes techniques (Software Engineer) ou lab, aucun fit.
+
+À retester périodiquement (le vivier tourne), en particulier SD Worx, WANAO, Exakis Nelite et SEI - Groupe LKS.
+
 ---
 
 ## Règles de gestion du tableur offres_emploi.xlsx
