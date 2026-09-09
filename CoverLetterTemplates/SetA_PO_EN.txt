@@ -6,7 +6,7 @@ It reached over 10,000 users, driven by an active Telegram community and newslet
 
 Next to the startup, I spent fifteen years in enterprise software, ten of them at L'Oréal as a HRIS freelance consultant, sitting between the business teams and the developers. I've also learnt that the product is constantly moving, and it should not move to follow your own expectations: you have to change a feature if customers do not like it, even after weeks of work, even if you love it yourself. You don't have to like your product; you need to make sure your customers like it.
 
-I actually run my own job search like a product: my own agent, built with Claude Code, hits the public APIs of several job search engines, pulls the open roles, and sorts them into a spreadsheet against my own criteria. I just have to apply.
+I actually run my own job search like a product: my own agent, built with Claude Code, hits the public APIs of several job search engines, pulls the open roles, and sorts them into a spreadsheet against my own criteria. I just have to apply. Passionate about AI, I've also built several projects with Claude Code, including lifaia.com and archikk.com.
 
 I live in Anglet, in France, and I speak French and English fluently. I'd genuinely enjoy a conversation about the role.
 
