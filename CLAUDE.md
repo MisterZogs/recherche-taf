@@ -690,6 +690,37 @@ Sur un poste produit **orienté développeurs** (SDK, API, instrumentation de tr
 
 ---
 
+## Recherche UX/UI (onglet dédié "Offres UX") — ajoutée le 10/09/2026
+
+**À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA, PM et USA.
+
+Gaëtan **était responsable UX** chez WallOfTraders.com en plus de Product Manager : il concevait les maquettes et les parcours utilisateur, animait une boucle de tests utilisateurs informels avec la communauté de traders, et veillait à la cohérence visuelle/ergonomique de la plateforme. Depuis 2025, il vibe-code aussi deux produits en solo avec Claude Code (Lifaia.com, assistant santé personnel ; ArchiKK.com, outils IA pour architectes), du wireframe au produit en ligne — un vrai différenciant sur les postes qui demandent de prototyper et shipper vite. Voir le CV dédié plus bas.
+
+**Critère numéro un : le remote**, même logique que pour PM. Prioriser les postes 100% remote, puis remote EMEA ou remote depuis la France.
+
+### Postes ciblés
+- UX Designer / UI Designer / Product Designer, confirmé ou lead
+- UX Lead / UX Manager / Responsable UX
+- UX Researcher
+- Postes qui demandent explicitement de structurer une démarche UX ou un Design System dans une équipe produit existante (correspond bien à l'expérience de mise en place solo chez WallOfTraders.com)
+
+### Où chercher
+Mêmes sources que pour PM (API Ashby/Lever/Greenhouse, welcometothejungle.com, free-work.com), avec ces catégories/mots-clés en plus :
+| Source | Méthode |
+|---|---|
+| free-work.com | `https://www.free-work.com/fr/tech-it/jobs/product-designer` et `/jobs/ux-ui` (à vérifier, schéma `/jobs/<mot-clé>` habituel) ; les missions UX/UI passent aussi parfois dans les catégories dev (`/job-mission/lead-developer/`, source de l'offre Linkup Partner du 10/09/2026), donc ne pas se limiter aux seules catégories produit |
+| jobs.ashbyhq.com, jobs.lever.co, boards.greenhouse.io | WebSearch `site:jobs.ashbyhq.com "product designer" OR "UX lead" remote EMEA`, idem Lever/Greenhouse |
+| welcometothejungle.com | WebSearch `welcometothejungle "product designer" OR "UX designer" CDI télétravail total 2026` |
+| dribbble.com/jobs, weworkremotely.com (catégorie design) | Boards spécialisés design, non encore testés pour ce profil — à évaluer lors d'une prochaine relance |
+
+### CV à envoyer
+`Resume_GaetanFRANCOIS_UXLead.pdf` : CV visuel FR dédié, dérivé du template PM. Sous-titre et profil (volontairement courts) mettent en avant le rôle réel de responsable UX chez WallOfTraders.com, sidebar Compétences avec la conception UX et **Claude Code (vibe coding)** en tête, et une entrée d'expérience 2025 sur Lifaia.com/ArchiKK.com. Voir le détail dans le tableau des fichiers du projet.
+
+### Lacune à connaître
+Gaëtan n'a pas de formation design formelle ni d'expérience en environnement produit d'équipe structurée avec des designers dédiés ; son expérience UX est celle d'un fondateur solo qui a dû tout faire, pas celle d'un praticien issu d'une école de design. C'est une concession honnête à faire en lettre de motivation sur les postes qui demandent explicitement une expertise design pure (motion, branding, recherche qualitative poussée), mais ne s'applique pas aux postes orientés produit/ergonomie où le profil est un vrai atout.
+
+---
+
 ## Recherche USA (onglet dédié "Offres USA") — ajoutée le 22/08/2026
 
 **À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA et PM. Demande de Gaëtan : les salaires US, notamment dans les startups, sont nettement supérieurs aux fourchettes FR/EU de la section « Attentes salariales ». Cet onglet capte les offres d'**entreprises basées aux USA**, tous métiers confondus (CSM, SIRH/HRIS, PM, IA/formation), du moment qu'elles sont ouvertes au télétravail depuis la France.
