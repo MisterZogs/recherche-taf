@@ -70,6 +70,7 @@ Autres postes ciblés :
 | `Resume_GaetanFRANCOIS_Kiween.html/.pdf` | CV visuel ciblé rôle de consultant digital indépendant (créé le 05/09/2026 pour KIWEEN) : sous-titre et profil mis en avant sur l'acquisition digitale/SEO et la relation grands comptes, sidebar Compétences réordonnée dans le même sens ; bullet SEO/acquisition de WallOfTraders.com remonté en tête de l'expérience. À réutiliser pour tout poste de conseil en stratégie digitale, growth ou acquisition où le profil PM générique ne suffit pas à faire ressortir ce volet |
 | `Resume_GaetanFRANCOIS_Cominty.html/.pdf` | CV visuel Cominty EN |
 | `Resume_GaetanFRANCOIS_Cominty_FR.html/.pdf` | CV visuel Cominty FR |
+| `Resume_GaetanFRANCOIS_UXLead.html/.pdf` | CV visuel FR pour les postes **Product Designer / UX Lead** (créé le 10/09/2026 pour une mission Linkup Partner via free-work.com) : sous-titre et profil mettent en avant le rôle réel de responsable UX chez WallOfTraders.com (conception des maquettes/parcours utilisateur, tests utilisateurs informels via la communauté de traders, cohérence visuelle/ergonomique), sidebar Compétences réordonnée avec la conception UX en tête. À réutiliser pour tout poste de design produit/UX où ce volet du rôle WallOfTraders.com doit être mis en avant plutôt que le seul volet Product Management |
 
 ### CV plats (format Areti/Taulia)
 | Fichier | Usage |
