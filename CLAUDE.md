@@ -856,6 +856,8 @@ Sur les 28 entreprises passées en revue lors du premier test (fit fort + second
 
 À retester périodiquement (le vivier tourne), en particulier SD Worx, WANAO, Exakis Nelite et SEI - Groupe LKS.
 
+**Confirmation du 10/09/2026 : `careers.sdworx.com` (flux RSS `jobs.rss`) est un filon fiable, à fetcher systématiquement à chaque relance Pays Basque.** 100 postes dans le flux ce jour-là, dont un Product Manager Integrations listant explicitement Bayonne parmi les bureaux éligibles. Contrairement à WANAO/Intescia (variable, parfois 0 poste Bidart) ou Exakis Nelite (lien mort ce jour), SD Worx a produit une offre exploitable deux fois de suite.
+
 ---
 
 ## Règles de gestion du tableur offres_emploi.xlsx
