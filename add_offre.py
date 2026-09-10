@@ -411,6 +411,9 @@ def ajouter_offres(offres: list[dict], verbose=True):
         elif _is_pm(poste):
             rows_pm.append(ligne)
             target = 'Offres PM'
+        elif _is_ux(poste):
+            rows_ux.append(ligne)
+            target = 'Offres UX'
         else:
             rows_sirh.append(ligne)
             target = 'Offres SIRH'
