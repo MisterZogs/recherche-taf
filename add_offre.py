@@ -183,6 +183,22 @@ def _is_pm(poste: str) -> bool:
     return _hors_sirh(poste)
 
 
+_UX_KEYWORDS_RE = re.compile(
+    r'\b(?:' + '|'.join(re.escape(kw) for kw in UX_KEYWORDS) + r')\b', re.I)
+
+
+def _is_ux(poste: str) -> bool:
+    # Même précaution que pour _is_ia() : frontières de mot systématiques,
+    # plus une détection de "UX"/"UI" en mot isolé ("Consultant UX", "Expert
+    # UI"), sensible à la casse pour éviter de matcher "ui" en minuscule dans
+    # un mot français ("qui", "lui"...).
+    if _UX_KEYWORDS_RE.search(poste):
+        return _hors_sirh(poste)
+    if re.search(r'\b(UX|UI)\b', poste):
+        return _hors_sirh(poste)
+    return False
+
+
 def _is_usa(offre: dict) -> bool:
     if offre.get('Onglet') == 'Offres USA':
         return True
