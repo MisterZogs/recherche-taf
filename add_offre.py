@@ -153,8 +153,17 @@ def _is_csm(poste: str) -> bool:
     return False
 
 
+_IA_KEYWORDS_RE = re.compile(
+    r'\b(?:' + '|'.join(re.escape(kw) for kw in IA_KEYWORDS) + r')\b', re.I)
+
+
 def _is_ia(poste: str) -> bool:
-    if any(kw.lower() in poste.lower() for kw in IA_KEYWORDS):
+    # Correctif du 10/09/2026 : un simple `in` sur IA_KEYWORDS faisait matcher
+    # "LLM" à tort dans "fuLfiLlMent" (substring sans frontière de mot), ce qui
+    # a routé "Product Manager - Fulfillment" vers Offres IA. Comme pour
+    # _SIRH_OVERRIDE_RE, on impose des frontières de mot (\b) sur chaque
+    # mot-clé.
+    if _IA_KEYWORDS_RE.search(poste):
         return True
     # Attrape les intitulés où "IA" / "AI" est un mot isolé : "Expert IA",
     # "Solutions IA", "PMO - IA", "Méthode & IA". Sensible à la casse pour
