@@ -5,6 +5,9 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 - Les offres IA (formateur IA, IA x SIRH, IA x RH) vont dans "Offres IA".
 - Les offres Product Manager / Product Owner vont dans "Offres PM",
   sauf si l'intitulé porte aussi un marqueur SIRH/SAP (elles restent alors en SIRH).
+- Les offres UX/UI (UX Designer, Product Designer, UX Lead...) vont dans
+  "Offres UX", sauf si l'intitulé porte aussi un marqueur SIRH/SAP (elles
+  restent alors en SIRH, même logique que pour PM).
 - Les offres SIRH/SAP vont dans l'onglet "Offres SIRH".
 - Les offres d'entreprises basées aux USA (repérées via `Onglet='Offres USA'`
   dans le dict, ou par défaut via un marqueur USA dans la Localisation) vont
