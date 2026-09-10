@@ -709,16 +709,34 @@ Gaëtan **était responsable UX** chez WallOfTraders.com en plus de Product Mana
 Mêmes sources que pour PM (API Ashby/Lever/Greenhouse, welcometothejungle.com, free-work.com), avec ces catégories/mots-clés en plus :
 | Source | Méthode |
 |---|---|
-| free-work.com | `https://www.free-work.com/fr/tech-it/jobs/product-designer` et `/jobs/ux-ui` (à vérifier, schéma `/jobs/<mot-clé>` habituel) ; les missions UX/UI passent aussi parfois dans les catégories dev (`/job-mission/lead-developer/`, source de l'offre Linkup Partner du 10/09/2026), donc ne pas se limiter aux seules catégories produit |
-| jobs.ashbyhq.com, jobs.lever.co, boards.greenhouse.io | WebSearch `site:jobs.ashbyhq.com "product designer" OR "UX lead" remote EMEA`, idem Lever/Greenhouse |
+| free-work.com | Les URLs `/jobs/product-designer`, `/jobs/ux-ui`, `/jobs/ux`, `/jobs/ui` redirigent toutes en 301 (n'existent pas) — utiliser l'endpoint de recherche `?query=UX designer` / `?query=product designer` / `?query=design system` à la place, confirmé productif le 10/09/2026. Les missions UX/UI passent aussi parfois dans les catégories dev (`/job-mission/lead-developer/`, source de l'offre Linkup Partner du 10/09/2026), donc ne pas se limiter aux seules catégories produit |
+| hellowork.com | Recherche par mots-clés "UX designer" ou "UI designer" (très productif) ; **éviter "product designer" seul**, presque entièrement pollué par les postes "Concepteur" (ingénierie mécanique/électrique) |
+| jobs.ashbyhq.com, jobs.lever.co, boards.greenhouse.io | WebSearch `site:jobs.ashbyhq.com "product designer" OR "UX lead" remote EMEA`, idem Lever/Greenhouse ; l'API Ashby directe fonctionne aussi bien sur les slugs déjà connus (voir verdicts ci-dessous) |
 | welcometothejungle.com | WebSearch `welcometothejungle "product designer" OR "UX designer" CDI télétravail total 2026` |
-| dribbble.com/jobs, weworkremotely.com (catégorie design) | Boards spécialisés design, non encore testés pour ce profil — à évaluer lors d'une prochaine relance |
+| dribbble.com/jobs | Fetch direct fonctionne (200, ~97 offres en clair), mais sans localisation/mention remote dans le listing — nécessite un fetch fiche par fiche pour qualifier chaque poste, à approfondir lors d'une prochaine relance |
+| weworkremotely.com (catégorie design) | **Bloqué** : 403 en fetch direct sur la page catégorie et sur les fiches individuelles ; passer par WebSearch en radar uniquement |
 
 ### CV à envoyer
 `Resume_GaetanFRANCOIS_UXLead.pdf` : CV visuel FR dédié, dérivé du template PM. Sous-titre et profil (volontairement courts) mettent en avant le rôle réel de responsable UX chez WallOfTraders.com, sidebar Compétences avec la conception UX et **Claude Code (vibe coding)** en tête, et une entrée d'expérience 2025 sur Lifaia.com/ArchiKK.com. Voir le détail dans le tableau des fichiers du projet.
 
 ### Lacune à connaître
 Gaëtan n'a pas de formation design formelle ni d'expérience en environnement produit d'équipe structurée avec des designers dédiés ; son expérience UX est celle d'un fondateur solo qui a dû tout faire, pas celle d'un praticien issu d'une école de design. C'est une concession honnête à faire en lettre de motivation sur les postes qui demandent explicitement une expertise design pure (motion, branding, recherche qualitative poussée), mais ne s'applique pas aux postes orientés produit/ergonomie où le profil est un vrai atout.
+
+### État des sources — première relance UX/UI du 10/09/2026
+
+20 offres ajoutées d'un coup (7 en 100% remote confirmé, 3 Jobgether remote France à employeur anonymisé, 10 en télétravail non précisé qui restent dans l'onglet métier selon la règle du 18/08) ; 10 offres apparentées routées vers NoRemote. Chevauchement de routage à connaître, non corrigé volontairement (comportement cohérent avec l'ordre de priorité IA > CSM > PM > UX déjà établi) : un titre "Head of Product Design" part en Offres PM (matché par le mot-clé PM "Head of Product") et un titre "... IA Générative / Agentique" part en Offres IA plutôt qu'en Offres UX — ces offres restent trouvables, juste dans un autre onglet que celui attendu au premier coup d'œil.
+
+**Bug de casse corrigé ce jour** : `_is_ux()` utilisait un regex standalone `\b(UX|UI)\b` sensible à la casse (même logique que `\b(IA|AI)\b`), mais contrairement à "ai" qui est un vrai fragment de mot français ("j'ai"), "ux"/"ui" ne le sont pas à une frontière de mot — la casse-sensibilité n'avait donc pas la même justification et faisait rater les titres HelloWork en casse mixte ("Designer Ux Expérimenté", "Ux & Digital Product Specialist"). Corrigé en `re.I`. Deux lignes mal routées vers Offres SIRH ont été déplacées manuellement vers Offres UX après coup.
+
+| Source | Verdict 10/09/2026 |
+|---|---|
+| **HelloWork** | Très productive sur "UX designer"/"UI designer" (26 offres pertinentes) ; "product designer" seul quasi inexploitable (pollution "Concepteur" mécanique/électrique) |
+| **free-work.com** | Catégories `/jobs/<mot-clé>` mortes pour ce vertical (301), mais l'endpoint `?query=` très productif |
+| **API Ashby** | Productive sur 3 nouveaux slugs (n8n, EverAI, Reedsy, tous avec France en remote secondaire ou explicite) ; nulle sur la plupart des slugs déjà connus du dispositif PM/CSM (Constructor, Attio, ClickUp, Owkin, Oyster, Worldly, Plain, ElevenLabs, Checkly, Deepgram, Remote.com, Linear, Notion, Camunda) |
+| **API Lever** | Nulle sur les slugs classiques (Qonto, Alan, Doctolib, Deel, Oyster, Collabora, Pennylane — ce dernier a un slug mort malgré une offre indexée Google) ; seul Jobgether a produit (avec son piège habituel de republication à employeur anonymisé, déjà documenté) |
+| **welcometothejungle.com** | Modeste : 2 pistes full remote FR identifiées, dont 360Learning confirmée archivée à la vérification API — seul Joko reste vivant mais hybride, donc classé NoRemote |
+| **dribbble.com/jobs** | Testé pour la première fois, fetch direct fonctionne mais sans qualification remote/localisation dans le listing — à approfondir fiche par fiche lors d'une prochaine relance |
+| **weworkremotely.com (catégorie design)** | Bloqué (403) en fetch direct ; via WebSearch, résultats presque tous ancrés Brésil/Colombie/Argentine/Mexique/USA, aucun confirmé éligible France |
 
 ---
 
