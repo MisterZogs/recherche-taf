@@ -190,11 +190,15 @@ _UX_KEYWORDS_RE = re.compile(
 def _is_ux(poste: str) -> bool:
     # Même précaution que pour _is_ia() : frontières de mot systématiques,
     # plus une détection de "UX"/"UI" en mot isolé ("Consultant UX", "Expert
-    # UI"), sensible à la casse pour éviter de matcher "ui" en minuscule dans
-    # un mot français ("qui", "lui"...).
+    # UI"). Correctif du 10/09/2026 : contrairement à \b(IA|AI)\b (sensible à
+    # la casse pour éviter "ai" dans "j'ai", "vrai"...), "ux"/"ui" ne sont pas
+    # des fragments de mots français plausibles à une frontière de mot ; le
+    # test est donc insensible à la casse, ce qui est nécessaire pour capter
+    # les titres HelloWork en casse mixte ("Designer Ux Expérimenté",
+    # "Ux & Digital Product Specialist"), ratés par un test sensible à la casse.
     if _UX_KEYWORDS_RE.search(poste):
         return _hors_sirh(poste)
-    if re.search(r'\b(UX|UI)\b', poste):
+    if re.search(r'\b(UX|UI)\b', poste, re.I):
         return _hors_sirh(poste)
     return False
 
