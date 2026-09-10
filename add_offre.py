@@ -59,6 +59,9 @@ IA_KEYWORDS  = ['Formateur IA', 'Formation IA', 'IA générative', 'IA x SIRH', 
 PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Product',
                  'Director of Product', 'Product Director', 'VP Product', 'Chef de Produit',
                  'Responsable Produit', 'Product Marketing Manager', 'Product Builder', 'Proxy PO']
+UX_KEYWORDS  = ['UX Designer', 'UI Designer', 'UX/UI', 'UI/UX', 'Product Designer',
+                 'UX Lead', 'Lead UX', 'UX Researcher', 'UX Manager', 'Responsable UX',
+                 'Design System', 'Design Produit', 'Ergonome']
 
 # Métiers d'avant-vente et de gestion de compte technique : même famille que le CSM,
 # donc rangés dans "Offres CSM".
