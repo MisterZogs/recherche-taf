@@ -270,6 +270,14 @@ offres = [
 
     # ───────────── NoRemote ─────────────
     {
+        'Priorité': '⭐⭐⭐', 'Statut': AUJOURDHUI, 'Poste': 'Founding Customer Success Manager',
+        'Entreprise': 'Gotam', 'Source': 'mission-freelances.fr',
+        'Lien': 'https://www.mission-freelances.fr/missions/founding-customer-success-manager-teletravail-c4e12456/',
+        'Contrat': 'Freelance', 'Localisation': 'Télétravail (mention ambiguë)', 'Remote': 'Hybride (la fiche mentionne un "environnement hybride" malgré le champ localité en télétravail)',
+        'Fit / Notes': "Lancement marché italien, correspond à la cible Founding CS 0→1 mais le remote est ambigu (marqueur hybride l'emporte sur la mention télétravail, à clarifier avant candidature).",
+        'CV à envoyer': 'CV_GaetanFRANCOIS_CSM.pdf', 'Date trouvée': AUJOURDHUI,
+    },
+    {
         'Priorité': '⭐⭐⭐', 'Statut': AUJOURDHUI, 'Poste': 'Responsable de la Satisfaction Clients',
         'Entreprise': 'Docaposte', 'Source': 'HelloWork',
         'Lien': 'https://www.hellowork.com/fr-fr/emplois/81110792.html',
