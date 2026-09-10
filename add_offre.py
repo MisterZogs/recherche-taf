@@ -349,6 +349,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     ws_csm  = wb['Offres CSM']
     ws_ia   = wb['Offres IA']
     ws_pm   = wb['Offres PM']
+    ws_ux   = wb['Offres UX']
     ws_usa  = wb['Offres USA']
     ws_pb   = wb['Pays Basque']
     ws_nore = wb['NoRemote']
