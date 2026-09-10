@@ -24,6 +24,7 @@ Autres postes ciblés :
 - **Product Owner SIRH** - expérience startup + lien métier/dev + spécifications fonctionnelles
 - **Account Manager / KAM HR Tech** - pour éditeurs SIRH, profil technique + grands comptes
 - **Product Manager / Product Owner** - postes produit chez les éditeurs SaaS, **priorité absolue au 100% remote** — onglet dédié "Offres PM" dans le tableur
+- **UX Designer / UI Designer / Product Designer / UX Lead** - ajouté le 10/09/2026, valorise le rôle réel de responsable UX chez WallOfTraders.com (maquettes, parcours utilisateur, tests utilisateurs) et la pratique du vibe coding (Claude Code) sur Lifaia.com/ArchiKK.com depuis 2025 — onglet dédié "Offres UX" dans le tableur, priorité au 100% remote comme pour PM
 - **Solutions Engineer / Sales Engineer / Solutions Consultant** - avant-vente technique chez les éditeurs SaaS, tous secteurs — va dans l'onglet "Offres CSM"
 - **Technical Account Manager** - gestion de compte enterprise à composante technique — va dans l'onglet "Offres CSM"
 - **Implementation Consultant / Onboarding Manager / Professional Services** - déploiement client chez un éditeur SaaS, y compris hors RH — va dans l'onglet "Offres SIRH"
