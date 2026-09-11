@@ -8,6 +8,8 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 - Les offres UX/UI (UX Designer, Product Designer, UX Lead...) vont dans
   "Offres UX", sauf si l'intitulé porte aussi un marqueur SIRH/SAP (elles
   restent alors en SIRH, même logique que pour PM).
+- Les offres SEO/GEO (Responsable SEO, SEO Manager, GEO Specialist,
+  Answer Engine Optimization...) vont dans "Offres SEO".
 - Les offres SIRH/SAP vont dans l'onglet "Offres SIRH".
 - Les offres d'entreprises basées aux USA (repérées via `Onglet='Offres USA'`
   dans le dict, ou par défaut via un marqueur USA dans la Localisation) vont
