@@ -67,7 +67,8 @@ UX_KEYWORDS  = ['UX Designer', 'UI Designer', 'UX/UI', 'UI/UX', 'Product Designe
 # donc rangés dans "Offres CSM".
 PRESALES_KEYWORDS = ['Technical Account Manager', 'Solutions Engineer', 'Solution Engineer',
                       'Sales Engineer', 'Solutions Consultant', 'Solution Consultant',
-                      'Pre-Sales', 'Presales', 'Pre-sales', 'Présales', 'Avant-vente',
+                      'Pre-Sales', 'Presales', 'Pre-sales', 'Pre Sales', 'Pré-Sales',
+                      'Présales', 'Avant-vente',
                       'Account Manager', 'Account Director', 'Account Executive',
                       'Solutions Advocate', 'Solution Advocate',
                       'Solutions Architect', 'Solution Architect', 'Solution Advisor',
