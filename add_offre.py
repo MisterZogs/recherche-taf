@@ -209,6 +209,17 @@ def _is_ux(poste: str) -> bool:
     return False
 
 
+_SEO_KEYWORDS_RE = re.compile(
+    r'\b(?:' + '|'.join(re.escape(kw) for kw in SEO_KEYWORDS) + r')\b', re.I)
+
+
+def _is_seo(poste: str) -> bool:
+    # Même logique de frontières de mot que _is_ia()/_is_ux() : "SEO"/"GEO"/"AEO"
+    # sont de vrais acronymes, mais matcher en sous-chaîne nue accrocherait par
+    # exemple "GEO" dans "Geography" ou "AEO" dans un sigle sans rapport.
+    return bool(_SEO_KEYWORDS_RE.search(poste))
+
+
 def _is_usa(offre: dict) -> bool:
     if offre.get('Onglet') == 'Offres USA':
         return True
