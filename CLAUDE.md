@@ -25,6 +25,7 @@ Autres postes ciblés :
 - **Account Manager / KAM HR Tech** - pour éditeurs SIRH, profil technique + grands comptes
 - **Product Manager / Product Owner** - postes produit chez les éditeurs SaaS, **priorité absolue au 100% remote** — onglet dédié "Offres PM" dans le tableur
 - **UX Designer / UI Designer / Product Designer / UX Lead** - ajouté le 10/09/2026, valorise le rôle réel de responsable UX chez WallOfTraders.com (maquettes, parcours utilisateur, tests utilisateurs) et la pratique du vibe coding (Claude Code) sur Lifaia.com/ArchiKK.com depuis 2025 — onglet dédié "Offres UX" dans le tableur, priorité au 100% remote comme pour PM
+- **SEO Manager / Responsable SEO / SEO Lead / GEO Specialist / AEO Specialist** - ajouté le 11/09/2026, valorise le pilotage SEO réel de WallOfTraders.com (cocons sémantiques, campagnes paid social, mesure de l'acquisition), avec extension aux postes hybrides SEO/GEO émergents (optimisation pour les moteurs de réponse IA) — onglet dédié "Offres SEO" dans le tableur, voir la section "Recherche SEO/GEO" plus bas pour le détail
 - **Solutions Engineer / Sales Engineer / Solutions Consultant** - avant-vente technique chez les éditeurs SaaS, tous secteurs — va dans l'onglet "Offres CSM"
 - **Technical Account Manager** - gestion de compte enterprise à composante technique — va dans l'onglet "Offres CSM"
 - **Implementation Consultant / Onboarding Manager / Professional Services** - déploiement client chez un éditeur SaaS, y compris hors RH — va dans l'onglet "Offres SIRH"
