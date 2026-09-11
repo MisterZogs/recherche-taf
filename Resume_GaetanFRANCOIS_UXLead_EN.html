@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Gaëtan FRANÇOIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.2pt;
+      color: #222;
+      background: #fff;
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    /* Photo */
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22pt;
+      font-weight: bold;
+      color: #e8c040;
+      letter-spacing: 1px;
+      overflow: hidden;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Sidebar sections */
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 10px;
+    }
+
+    /* Contact */
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    /* Expertise */
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    /* Languages */
+    .lang-item { margin-bottom: 9px; }
+    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
+    .lang-bar-track {
+      height: 5px;
+      background: #2e4560;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-bar-fill {
+      height: 100%;
+      background: #e8c040;
+      border-radius: 3px;
+    }
+
+    /* ── RIGHT MAIN CONTENT ── */
+    .main {
+      flex: 1;
+      padding: 20px 26px 14px 24px;
+      background: #fff;
+    }
+
+    /* Name + subtitle */
+    .name {
+      font-size: 24pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    /* Section headers */
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 10px 0 4px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 10px;
+    }
+
+    /* Profile */
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #333;
+      text-align: justify;
+    }
+
+    /* Experience entries */
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 5px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.2pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.32;
+      margin-bottom: 1px;
+    }
+
+    /* Education */
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.28;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════
+       LEFT SIDEBAR
+  ══════════════════════════════ -->
+  <div class="sidebar">
+
+    <!-- PHOTO -->
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email:</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location:</div>
+        <div class="contact-value">Anglet, France</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Availability:</div>
+        <div class="contact-value">Immediate - Remote</div>
+      </div>
+    </div>
+
+    <!-- EXPERTISE -->
+    <div class="sb-section">
+      <div class="sb-title">Skills</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>UX design &amp; wireframing</li>
+        <li>Claude Code (vibe coding)</li>
+        <li>Visual &amp; interface consistency</li>
+        <li>Product ownership &amp; roadmap</li>
+        <li>Functional specifications</li>
+        <li>User testing &amp; feedback loops</li>
+        <li>Business / engineering interface</li>
+        <li>Python &amp; machine learning</li>
+      </ul>
+    </div>
+
+    <!-- LANGUAGE -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Languages</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">French</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Spanish</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+      </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="sb-section" style="margin-top:6px;">
+      <div class="sb-title">Interests</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Running</li>
+        <li>Surfing</li>
+        <li>Tennis</li>
+        <li>Gym</li>
+        <li>Chess</li>
+        <li>Travel</li>
+        <li>Daily reading</li>
+      </ul>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- ══════════════════════════════
+       RIGHT MAIN CONTENT
+  ══════════════════════════════ -->
+  <div class="main">
+
+    <!-- NAME -->
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Product Manager &amp; UX Lead - B2C SaaS startup and enterprise software, 15 years' experience</div>
+
+    <!-- PROFILE -->
+    <h2>Profile</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      I co-founded WallOfTraders.com, a B2C crypto trading platform, where I was Product Manager and owned UX: roadmap, wireframes and specifications. Trained as an engineer, I also spent 15 years in enterprise software, including ten years bridging L'Oréal's HR teams and their developers, and I work with Python, machine learning and web technologies.
+    </p>
+
+    <!-- EXPERIENCE -->
+    <h2>Experience</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2025</div>
+        <div class="exp-company">Lifaia.com<br>ArchiKK.com</div>
+        <div class="exp-location">Personal projects - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Solo founder - Products vibe-coded with Claude Code</div>
+        <ul>
+          <li>Designed and built solo Lifaia.com (a personal health assistant) and ArchiKK.com (AI tools for architects), from wireframe to live product, using Claude Code to accelerate implementation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Co-founder - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Co-founder, Product Manager &amp; UX lead - B2C SaaS startup</div>
+        <ul>
+          <li>Owned product and UX end to end on a crypto trading platform: wireframes, user journeys, and functional specification of every feature</li>
+          <li>Ran a continuous feedback loop with an active community of traders (Telegram, newsletters): informal user testing and usability iterations driven by the friction they reported</li>
+          <li>Kept the platform's visual and interface consistency as it evolved, overseeing the interns who handled part of the execution</li>
+          <li>Also owned acquisition and its measurement (SEO, semantic content clusters, paid social campaigns)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Senior consultant - SaaS rollout &amp; adoption, global scope</div>
+        <ul>
+          <li>Owned the rollout of SAP SuccessFactors Employee Central (<strong>OneProfile</strong>) across 40+ countries: deployment planning, key-user training, milestone tracking and post-go-live support</li>
+          <li>Acted as the interface between HR business teams and developers: gathering requirements, writing functional specifications, arbitrating scope and following each change through to production</li>
+          <li>Rolled out a SaaS time-management solution (Tamigo) into store operations worldwide: testing, go-live and support</li>
+          <li>L1/L2/L3 support across 40+ countries in English and French; traced recurring issues to their root cause and handled escalations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Personal projects</div>
+        <div class="exp-location">R&amp;D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">AI, machine learning &amp; robotics</div>
+        <ul>
+          <li>Coursera training in Python, machine learning and deep learning; built scrapers and applied models to financial prediction</li>
+          <li>Designed an autonomous drone (Pixhawk, Mission Planner, electronics)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Functional &amp; technical consultant - Major accounts</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016): SAP HR application maintenance across 40 countries (L1/L2/L3, English and French); won a managed-services tender; wrote transition documentation and led the delivery team in India</li>
+          <li><strong>FMC Technologies</strong> (2013): SAP HR rollout across 8 European countries; business blueprint, administrative and organisational structures, data migration</li>
+          <li>Other clients: Air France, Generali, Sanofi, Canal+, Degremont, Cofely-Ineo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2010 - 2012</div>
+        <div class="exp-company">eFront, Enablon<br>Stago</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Support, configuration &amp; software development</div>
+        <ul>
+          <li>Support, maintenance and configuration of financial and quality management software; 3D factory simulation in C++ and OpenGL during an engineering internship at Diagnostica-Stago</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <h2>Education</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">Engineering degree - Applied Mathematics, 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci - Courbevoie La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Exchange semester - science courses in English, 2008<br>
+      <span style="color:#777; font-size:8pt;">Seoul, South Korea</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Preparatory classes (MPSI) - mathematics, physics, engineering sciences<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div><!-- /main -->
+
+</div><!-- /page -->
+</body>
+</html>
