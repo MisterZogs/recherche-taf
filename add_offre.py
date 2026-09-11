@@ -62,6 +62,11 @@ PM_KEYWORDS  = ['Product Manager', 'Product Owner', 'Product Lead', 'Head of Pro
 UX_KEYWORDS  = ['UX Designer', 'UI Designer', 'UX/UI', 'UI/UX', 'Product Designer',
                  'UX Lead', 'Lead UX', 'UX Researcher', 'UX Manager', 'Responsable UX',
                  'Design System', 'Design Produit', 'Ergonome']
+SEO_KEYWORDS = ['SEO', 'GEO', 'Search Engine Optimization', 'Generative Engine Optimization',
+                 'Référencement Naturel', 'Référencement SEO', 'Responsable SEO',
+                 'SEO Manager', 'SEO Lead', 'SEO Strategist', 'SEO Specialist',
+                 'Head of SEO', 'Growth SEO', 'SEO/GEO', 'GEO/SEO', 'AEO',
+                 'Answer Engine Optimization']
 
 # Métiers d'avant-vente et de gestion de compte technique : même famille que le CSM,
 # donc rangés dans "Offres CSM".
