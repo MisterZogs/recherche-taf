@@ -724,6 +724,45 @@ Gaëtan n'a pas de formation design formelle ni d'expérience en environnement p
 
 ---
 
+## Recherche SEO/GEO (onglet dédié "Offres SEO") — ajoutée le 11/09/2026
+
+**À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA, PM, UX et USA.
+
+Gaëtan a piloté le SEO de WallOfTraders.com (cocons sémantiques, campagnes paid social, mesure de l'acquisition) en plus de son rôle Product Manager/UX. C'est une compétence réelle et démontrable, pas une extrapolation gratuite : à faire valoir sur les postes de responsable acquisition organique chez tout éditeur SaaS ou toute entreprise avec un site à fort trafic.
+
+**Extension GEO/AEO (demande de Gaëtan du 11/09/2026) :** le GEO (Generative Engine Optimization) et l'AEO (Answer Engine Optimization) — l'optimisation de la visibilité d'un contenu dans les réponses des moteurs IA (ChatGPT, Perplexity, AI Overviews Google) plutôt que dans les résultats de recherche classiques — sont des extensions naturelles du SEO, en forte croissance depuis 2025-2026. Gaëtan n'a pas d'expérience GEO démontrable spécifiquement (discipline trop récente pour que quiconque en ait beaucoup), mais son expérience SEO plus sa pratique quotidienne de l'IA générative (vibe coding, usage des LLM) en font un profil crédible sur les postes hybrides SEO/GEO qui commencent à apparaître.
+
+### Postes ciblés (intitulés extrapolés à partir de l'expérience réelle SEO de WallOfTraders.com)
+
+- Responsable SEO / SEO Manager / SEO Lead / Head of SEO
+- SEO Strategist / SEO Specialist / Consultant SEO
+- GEO Manager / GEO Specialist / Generative Engine Optimization Manager
+- AEO Specialist / Answer Engine Optimization
+- Consultant SEO/GEO (positionnement hybride, le plus porteur actuellement)
+- Growth Manager à forte composante SEO (à ne pas confondre avec un Growth Manager pur paid/product qui n'a pas ce volet)
+
+### Où chercher
+
+Mêmes sources que pour PM/UX (API Ashby/Lever/Greenhouse, welcometothejungle.com, free-work.com, hellowork.com), avec ces mots-clés spécifiques :
+| Source | Méthode |
+|---|---|
+| hellowork.com | Recherche par mots-clés "SEO Manager", "Responsable SEO", "Consultant SEO" |
+| free-work.com | Endpoint `?query=SEO` / `?query=GEO` / `?query=référencement` (les catégories `/jobs/<mot-clé>` dédiées SEO n'existent probablement pas, suivre la même logique que pour UX qui a montré que ces catégories produit/design redirigent en 301) |
+| jobs.ashbyhq.com, jobs.lever.co, boards.greenhouse.io | WebSearch `site:jobs.ashbyhq.com "SEO Manager" OR "Head of SEO" remote EMEA`, idem Lever/Greenhouse |
+| welcometothejungle.com | WebSearch `welcometothejungle "SEO Manager" OR "Responsable SEO" CDI télétravail total 2026` |
+| WebSearch générique | `"GEO manager" OR "generative engine optimization" remote 2026`, `"AEO specialist" remote 2026` — discipline encore rare, à surveiller plutôt qu'à s'attendre à un fort volume |
+
+### Routage automatique
+Mots-clés testés dans `add_offre.py` (`SEO_KEYWORDS`, fonction `_is_seo()`, frontières de mot systématiques pour éviter les faux positifs type "Geography") : `SEO`, `GEO`, `Search Engine Optimization`, `Generative Engine Optimization`, `Référencement Naturel`, `Référencement SEO`, `Responsable SEO`, `SEO Manager`, `SEO Lead`, `SEO Strategist`, `SEO Specialist`, `Head of SEO`, `Growth SEO`, `SEO/GEO`, `GEO/SEO`, `AEO`, `Answer Engine Optimization`. Routage testé après UX et avant le repli SIRH dans l'ordre de priorité (USA > IA > CSM > PM > UX > SEO > SIRH par défaut) ; le filtre télétravail reste prioritaire sur tout, comme pour les autres onglets métier.
+
+### CV à envoyer
+Pas de CV dédié SEO/GEO à ce jour. À créer si les premières offres retenues le justifient : probablement une variante du CV Product Manager ou UX Lead qui fait remonter le bullet SEO de WallOfTraders.com en tête plutôt qu'en fin de description.
+
+### Lacune à connaître
+Gaëtan n'a pas d'expérience SEO en environnement agence ou en équipe SEO structurée avec des outils spécialisés poussés (Screaming Frog, SEMrush/Ahrefs en profondeur, netlinking à grande échelle) ; son expérience est celle d'un fondateur solo qui gérait le SEO parmi d'autres responsabilités produit. Sur le GEO/AEO spécifiquement, aucune expérience formelle à ce jour, discipline trop récente. Concession honnête à faire en lettre de motivation sur les postes qui demandent explicitement une expertise SEO technique poussée ou une expérience GEO déjà démontrée.
+
+---
+
 ## Recherche USA (onglet dédié "Offres USA") — ajoutée le 22/08/2026
 
 **À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA et PM. Demande de Gaëtan : les salaires US, notamment dans les startups, sont nettement supérieurs aux fourchettes FR/EU de la section « Attentes salariales ». Cet onglet capte les offres d'**entreprises basées aux USA**, tous métiers confondus (CSM, SIRH/HRIS, PM, IA/formation), du moment qu'elles sont ouvertes au télétravail depuis la France.
