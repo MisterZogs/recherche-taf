@@ -72,6 +72,7 @@ Autres postes ciblés :
 | `Resume_GaetanFRANCOIS_Cominty.html/.pdf` | CV visuel Cominty EN |
 | `Resume_GaetanFRANCOIS_Cominty_FR.html/.pdf` | CV visuel Cominty FR |
 | `Resume_GaetanFRANCOIS_UXLead.html/.pdf` | CV visuel FR pour les postes **Product Designer / UX Lead** (créé le 10/09/2026 pour une mission Linkup Partner via free-work.com) : sous-titre et profil (raccourci le même jour) mettent en avant le rôle réel de responsable UX chez WallOfTraders.com (conception des maquettes/parcours utilisateur, tests utilisateurs informels via la communauté de traders, cohérence visuelle/ergonomique), sidebar Compétences réordonnée avec la conception UX et **Claude Code (vibe coding)** en tête. Une entrée d'expérience 2025 met en avant **Lifaia.com** (assistant santé personnel) et **ArchiKK.com** (outils IA pour architectes), deux produits que Gaëtan a vibe-codés en solo avec Claude Code, du wireframe au produit en ligne. À réutiliser pour tout poste de design produit/UX où ce volet du rôle WallOfTraders.com et la capacité à shipper vite avec l'IA générative doivent être mis en avant |
+| `Resume_GaetanFRANCOIS_UXLead_EN.html/.pdf` | **Version anglaise du CV UX Lead** (créée le 11/09/2026), orthographe britannique, même structure et même contenu que la version FR. À utiliser sur les offres UX/Product Designer rédigées en anglais (Everai, WunderGraph, Pixie Services et autres offres remote EU/international captées dans les relances) |
 
 ### CV plats (format Areti/Taulia)
 | Fichier | Usage |
