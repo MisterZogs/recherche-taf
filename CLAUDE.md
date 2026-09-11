@@ -269,6 +269,7 @@ Rappel lié : voir aussi la règle « ne jamais recopier le langage d'une offre 
 >
 > **Pour découvrir d'autres pages catégorie du même type** (au cas où le site en ajoute), le sitemap `https://www.freelance-informatique.fr/sitemaps/sitemap_index_thematiques.xml` liste les pages `categorie-*` ; celles pertinentes se repèrent par leur `<title>` ("Freelances SAP HR", "Freelances SIRH"...), pas par leur slug seul. Les sitemaps `sitemap_index_metiers.xml` (pages `job-*`) et `sitemap_index_technologies_missions.xml` (pages `mission-<techno>-<id>` type `mission-sap-hr-461`, `mission-sirh-2293`) sont les deux autres sources de pages catégorie à connaître.
 | malt.fr | Plateforme freelance FR - profil actif : https://www.malt.fr/profile/gf1 |
+| geojobs.ai | Board dédié GEO/AI-search — ajouté le 11/09/2026, confirmé productif dès le premier test (1 mission GEO/AEO pure retenue sur 9 examinées, ELIA Atelier) ; le reste des postes indexés est Allemagne/UK on-site ou hybride pur — à repasser à chaque relance SEO/GEO |
 | whitehallresources.com | SAP recrutement UK/Europe (dont France), SAP SF + SAP HR, CDI + contrats, board public |
 | opusresourcing.com | Spécialiste HCM (SAP SF, SAP HCM, Workday), UK/Europe dont France/Espagne/Italie |
 | apec.fr | CDI cadres France, utile pour CSM et postes seniors |
