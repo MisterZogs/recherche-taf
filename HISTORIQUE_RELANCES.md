@@ -487,3 +487,49 @@ Rendement très déséquilibré, comme d'habitude : le cluster FR/freelance a pr
 | **AB Tasty** | Publie plusieurs rôles simultanément (Senior KAM Enterprise US, CSM Germany, Solutions Engineer UK) mais aucun n'a d'éligibilité France confirmée ce jour — à revérifier périodiquement plutôt qu'à écarter définitivement |
 | **Pays Basque, ensemble des sources habituelles** | **Confirmation d'une saturation quasi totale** : Teréga, Enovis, Intescia/WANAO, 360Learning (Urt), Maïsadour, Arkema, Safran, Dassault Aviation, TotalEnergies Pau, Daher, B.Braun, Euralis, Boardriders, Lindt Oloron, Sanofi Mourenx, Veolia, Toray, Wipro Lauak (structure du site à revérifier, plus de liens `/poste/` extraits en curl simple ce jour) : tous à sec ou déjà en base. Deux nouvelles pistes testées et négatives : `pays-basque-digital.fr` (offres listées toutes expirées) et `emploi-paysbasque.fr` (aucune offre pertinente sur 5611 annoncées) |
 | **Boards VC (a16z/Sequoia/Balderton/Atomico), upwork/freelancer, weworkremotely, workingnomads, Weavy** | Rendement nul confirmé une nouvelle fois |
+
+---
+
+### État des sources — relance du 2026-09-08
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **44 offres candidates compilées, 44 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par `add_offre.py` : chaque agent avait dédoublonné en amont contre un export à plat des 2456 liens déjà en base, généré une fois avant de lancer les 4 agents). 47 lignes archivées vers Fait (statuts `x`/`Expiré` en attente, dont 26 en Pays Basque). Un passage de `dedoublonnage_20260902.py` après coup a trouvé et fusionné 6 doublons cross-forme supplémentaires, sans rapport avec le lot du jour (mission-freelances.fr et WTTJ déjà présents en double dans le classeur). Répartition des ajouts : SIRH +14, CSM +9, PM +3, USA +2, Pays Basque +2, NoRemote +14, IA +0.
+
+Rendement très déséquilibré une nouvelle fois : le cluster FR/freelance a produit 28 des 44 offres (18 par hellowork.com, 8 par free-work.com), confirmant sa position de source la plus rentable. Les 3 autres clusters (9 ATS/USA, 5 remote/VC/niches, 2 Pays Basque) confirment une saturation quasi totale sur les intitulés cibles.
+
+| Source | Verdict 08/09/2026 |
+|---|---|
+| **hansonregan.com** | **Correctif d'URL** : `/jobs/` redirige désormais vers `/sap-jobs/` — à utiliser directement lors des prochaines relances |
+| **free-work.com, endpoint `?query=<mots-clés>&page=N`** | Rendement quasi nul ce jour (0-2 résultats), contredisant la note du 02/09 qui le donnait très productif — comportement à revérifier, peut-être un changement récent côté site |
+| **Jobgether (Lever), piège de republication** | Reconfirmé plusieurs fois : des offres françaises retrouvées via `api.lever.co/v0/postings/jobgether` filtré France se sont révélées être des republications d'offres déjà captées sous l'ATS d'origine (Remote.com GPIS, Canonical Open Source Alliances) — toujours vérifier le contenu avant d'insérer un résultat Jobgether |
+| **Ashby `attio`** | Revenu vivant, contrairement à la note du 01/09 qui le donnait mort — ne jamais présumer un slug définitivement fermé, retester périodiquement |
+| **Worldly (Ashby)** | Confirme un excellent fit : Account Manager Supply Chain ESG, Remote explicite US/UK/Europe avec la France nommée, la meilleure offre USA de la relance |
+| **redglobal.com** | 4 postes nouveaux mais tous disqualifiés à la vérification (ancrage pays unique Allemagne/Inde/Pologne-Suisse malgré le flag `TELECOMMUTE`) — confirme qu'il faut toujours lire le détail du pays, jamais se fier au seul flag |
+| **HelloWork, free-work, mission-freelances.fr, freelance-informatique.fr, eursap, intescia, silae, delaware, jobs.hr-path.com, recrutement.cegos.com (piège de republication reconfirmé une 6e fois), apec.fr, malt.fr** | Verdicts habituels reconfirmés (HelloWork et free-work productifs sur leurs catégories ciblées, le reste à sec ou déjà saturé) |
+| **Pays Basque, ensemble des sources habituelles** | Quasi totalement à sec (2 offres sur ~130 candidats HelloWork triés) : seule source productive une nouvelle fois. Teréga, Enovis, Intescia, Maïsadour, Wipro Lauak, Arkema, Safran, TotalEnergies Pau, Dassault Aviation, Daher, B.Braun, Euralis, Toray, Lindt, Technoflex, Celsa, Epta, Quiksilver/Boardriders, French Tech Pays Basque, 360Learning Urt : tous confirmés à sec |
+| **Boards remote EU (euremotejobs, remotifyeurope, remoterocketship, workingnomads, RemoteOK, Remotive), boards VC (a16z/Sequoia/Balderton/Index), jobs.stationf.co** | Rendement nul à quasi nul confirmé une nouvelle fois ; remoterocketship reste bloqué (403) en curl et WebFetch |
+
+## Relance du 2026-09-09
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **42 offres candidates compilées, 42 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par `add_offre.py` : chaque agent avait dédoublonné en amont contre un export à plat des 2496 liens déjà en base, généré une fois avant de lancer les 4 agents). 25 lignes archivées vers Fait (statuts `x`/`Expiré` en attente : 21 SIRH, 2 USA, 2 Pays Basque). Répartition des ajouts : SIRH +3, CSM +12, IA +5, PM +2, USA +3, Pays Basque +4, NoRemote +13.
+
+Rendement en net repli par rapport aux jours précédents (42 offres contre 44 le 08/09 et 47 le 07/09, mais avec un déséquilibre encore plus marqué) : le cluster FR/freelance a produit 32 des 42 offres (20 HelloWork, 7 free-work, 5 mission-freelances.fr), les 3 autres clusters confirmant une saturation quasi totale (4 ATS/HRIS/USA sur ~35 slugs interrogés, 2 remote/VC/niches, 4 Pays Basque). Signe notable : le cluster CSM a bien mordu ce jour grâce à une vague de postes "Solution/Solutions Engineer" chez des ESN et éditeurs de taille moyenne (AssessFirst, Shippeo, Almatech, Vusion, Arrow ECS, GALILEO RH, Darwin Partners), un gisement jusque-là peu exploité.
+
+| Source | Verdict 09/09/2026 |
+|---|---|
+| **hellowork.com** | Toujours la source la plus productive (20 offres) ; le gisement "Solutions Engineer"/"Solution Engineer" côté ESN françaises (hors éditeurs SaaS classiques) s'est révélé riche ce jour |
+| **free-work.com** | 7 offres, endpoint `?query=` toujours peu productif comme noté le 08/09, catégories `/jobs/sirh` et `/jobs/sap-hcm` restent la meilleure entrée |
+| **mission-freelances.fr** | 5 nouveautés, dont le filon formateur IA qui continue de produire alors que SIRH/CSM/PM sont saturés |
+| **freelance-informatique.fr, eursap.eu, freelance-day.eu** | Entièrement à sec, toutes les pages de référence saturées |
+| **hansonregan.com** | Correctif confirmé : `/jobs/` redirige en 301 vers `/sap-jobs/`, fonctionne en non-www ; postes déjà connus |
+| **whitehallresources.com / opusresourcing.com** | Nouveaux pièges UK/US reconfirmés (résidence UK sans mention remote, poste Workday pour cabinet d'avocats US hors profil FR) |
+| **redglobal.com** | 1 poste SuccessFactors trouvé mais ancré Pologne hybride, écarté |
+| **apec.fr** | Toujours inaccessible (200 mais page JS coquille vide) |
+| **API Ashby/Lever/Greenhouse (~35 slugs)** | Rendement quasi nul, vivier très saturé ; seul ClickUp (Ashby) a produit une nouveauté (Principal PM, éligibilité internationale à confirmer) |
+| **GitLab (Greenhouse)** | Director Customer Success EMEA avec la France explicite, la meilleure offre USA de la relance |
+| **Hightouch (Greenhouse)** | Solutions Engineer Enterprise EMEA, bon fit USA |
+| **Cabinets de conseil (Deloitte, KPMG, Capgemini, Sopra Steria, Wavestone)** | Deloitte en redirection morte, KPMG 404, Capgemini/Sopra Steria/Wavestone en JS non exploitables sans navigateur ; seul EY a produit une nouveauté (Consultant Gestion de projets Paie) |
+| **recrutement.cegos.com** | Piège de republication reconfirmé une nouvelle fois (nouvel ID = doublon déjà connu) |
+| **jobs.stationf.co (Algolia)** | Piège technique confirmé : la clé API doit être envoyée telle qu'affichée en base64 dans le header `X-Algolia-API-Key`, jamais décodée, sous peine de faux 403. A produit 2 postes Joko (Lead PM Business Lines + Lead PM AI Platform), full remote France/Espagne |
+| **remoterocketship.com** | N'est plus bloqué en 403, mais les mentions "worldwide remote" testées se sont révélées Allemagne-only une fois le détail vérifié ; piège de mention trompeuse reconfirmé |
+| **euremotejobs.com, workingnomads.com, weworkremotely.com, remotifyeurope.com, RemoteOK, Remotive, collective.work, cremedelacreme.io, boards VC (Index/Balderton/a16z/Sequoia), upwork/freelancer, wellfound/workatastartup** | Rendement nul confirmé, tout candidat déjà en base ou disqualifié |
+| **Pays Basque, ensemble des sources habituelles** | Quasi à sec de nouveau (4 offres via HelloWork/pays-basque-digital.fr) : Chef de Projet SI Bayonne (Crit, ⭐⭐⭐⭐), Business Analyst CSAT Tarnos (Randstad, probable Safran), Formateur Logiciel Lescar, Chargée de compte ELI. Intescia/WANAO, Safran Bordes/Tarnos, Wipro Lauak (43 postes balayés), Dassault Aviation, Arkema, Teréga, TotalEnergies Pau, Enovis, B.Braun, Boardriders, Daher, Euralis, Maïsadour, 360Learning Urt, French Tech Pays Basque : tous confirmés à sec ou hors profil. Nouveau piège noté : un même poste Wipro Lauak réapparaît sous un slug d'URL différent à chaque régénération du site, à traiter comme republication et non comme nouvelle offre |
