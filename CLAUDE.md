@@ -785,6 +785,12 @@ En cas de doute sur une offre par ailleurs excellente, la garder avec priorité 
 ### CV et prétentions
 Utiliser les CV EN habituels selon le métier (CSM générique, SIRH EN, PM EN/Platform EN, Ashby EN pour implémentation). Une fois de premières offres USA trouvées, consulter Glassdoor/levels.fyi sur l'intitulé exact pour calibrer la colonne Prétention en USD ; ne pas extrapoler de chiffres avant d'avoir des données réelles sur des postes comparables.
 
+### Priorité renforcée pour les offres HRIS/SIRH/SAP qui tombent hors de "Offres SIRH" (règle posée le 11/09/2026)
+
+**Une offre HRIS/SIRH/SAP HCM/SuccessFactors qui atterrit dans un onglet autre que "Offres SIRH" (typiquement "Offres USA", via le routage automatique qui teste USA avant le repli SIRH) est un signal fort et doit systématiquement recevoir la priorité ⭐⭐⭐⭐⭐**, en haut de l'onglet. Rappel du contexte : Gaëtan a 14 ans d'expertise SAP HR/SuccessFactors, un profil déjà rare sur le marché français ; le croisement de cette expertise avec une offre internationale (USA, remote worldwide/EMEA) est exactement le genre d'opportunité différenciante qu'il ne veut pas rater, même si elle finit dans un onglet différent de celui où on la chercherait naturellement (Offres SIRH). Appliquer cette priorité par défaut lors de l'ajout, indépendamment de l'évaluation habituelle par fit/salaire.
+
+À ce jour (11/09/2026), aucune offre HRIS n'est encore tombée dans "Offres USA" (0 sur 59 lignes) ; les offres HRIS actuellement en base sont toutes localisées en France, UK, Portugal ou Allemagne et restent donc dans "Offres SIRH". Cette règle s'appliquera dès qu'une telle offre apparaîtra.
+
 ### État des sources — première relance USA du 22/08/2026
 
 Leçon principale, valable pour toutes les sources US sans exception : **le champ `isRemote: true` des API Ashby/Greenhouse/Lever ne garantit jamais l'éligibilité internationale**, il indique seulement l'absence d'obligation de présence au bureau. Toujours lire le champ `location`/`categories.location` et, en cas de doute, le corps de la description (souvent une phrase explicite type « Candidates must reside in the United States »). Un `Remote (US)` ou une ville US dans `location` sans mention EMEA/Europe/Worldwide = à écarter.
