@@ -573,32 +573,6 @@ Rendement très déséquilibré une nouvelle fois : le cluster FR/freelance a pr
 | **SD Worx (careers.sdworx.com, flux RSS jobs.rss)** | **Nouvelle source Pays Basque confirmée productive** : 100 postes au flux RSS, Bayonne listée comme bureau éligible explicite sur un poste Product Manager Integrations — à ajouter au dispositif permanent Pays Basque, à repasser à chaque relance |
 | **Pays Basque, reste des sources habituelles** | Quasi à sec par ailleurs (2 offres HelloWork génériques + 1 SD Worx) : Intescia/WANAO (18 postes, aucun à Bidart ce jour), Exakis Nelite (lien mort), SEI-Groupe LKS (candidature spontanée seulement), pays-basque-digital.fr (3 offres, déjà connues ou hors profil), Safran (piège de republication de slug reconfirmé), TotalEnergies Pau (alternance uniquement), Dassault Aviation, French Tech Pays Basque/lespepitestech.com, Arkema, Maïsadour, Teréga, Toray, Technoflex, Epta, Celsa, BMS Circuits, B.Braun, Enovis, Boardriders, Daher, Lindt Oloron : tous confirmés à sec. Piste Euralis (Consultant Fonctionnel SAP, rôle confirmé exister par 2 recherches indépendantes) non aboutie : liens LinkedIn morts (404), portail carrière `euralis.nos-recrutements.fr` gated par API 401 — à revérifier lors d'une prochaine relance |
 
-### État des sources — relance du 2026-09-09
-
-4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **42 offres candidates compilées, 42 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par `add_offre.py` : chaque agent avait dédoublonné en amont contre un export à plat des 2496 liens déjà en base, généré une fois avant de lancer les 4 agents). 25 lignes archivées vers Fait (statuts `x`/`Expiré` en attente : 21 SIRH, 2 USA, 2 Pays Basque). Répartition des ajouts : SIRH +3, CSM +12, IA +5, PM +2, USA +3, Pays Basque +4, NoRemote +13.
-
-Rendement en net repli par rapport aux jours précédents (42 offres contre 44 le 08/09 et 47 le 07/09, mais avec un déséquilibre encore plus marqué) : le cluster FR/freelance a produit 32 des 42 offres (20 HelloWork, 7 free-work, 5 mission-freelances.fr), les 3 autres clusters confirmant une saturation quasi totale (4 ATS/HRIS/USA sur ~35 slugs interrogés, 2 remote/VC/niches, 4 Pays Basque). Signe notable : le cluster CSM a bien mordu ce jour grâce à une vague de postes "Solution/Solutions Engineer" chez des ESN et éditeurs de taille moyenne (AssessFirst, Shippeo, Almatech, Vusion, Arrow ECS, GALILEO RH, Darwin Partners), un gisement jusque-là peu exploité.
-
-| Source | Verdict 09/09/2026 |
-|---|---|
-| **hellowork.com** | Toujours la source la plus productive (20 offres) ; le gisement "Solutions Engineer"/"Solution Engineer" côté ESN françaises (hors éditeurs SaaS classiques) s'est révélé riche ce jour |
-| **free-work.com** | 7 offres, endpoint `?query=` toujours peu productif comme noté le 08/09, catégories `/jobs/sirh` et `/jobs/sap-hcm` restent la meilleure entrée |
-| **mission-freelances.fr** | 5 nouveautés, dont le filon formateur IA qui continue de produire alors que SIRH/CSM/PM sont saturés |
-| **freelance-informatique.fr, eursap.eu, freelance-day.eu** | Entièrement à sec, toutes les pages de référence saturées |
-| **hansonregan.com** | Correctif confirmé : `/jobs/` redirige en 301 vers `/sap-jobs/`, fonctionne en non-www ; postes déjà connus |
-| **whitehallresources.com / opusresourcing.com** | Nouveaux pièges UK/US reconfirmés (résidence UK sans mention remote, poste Workday pour cabinet d'avocats US hors profil FR) |
-| **redglobal.com** | 1 poste SuccessFactors trouvé mais ancré Pologne hybride, écarté |
-| **apec.fr** | Toujours inaccessible (200 mais page JS coquille vide) |
-| **API Ashby/Lever/Greenhouse (~35 slugs)** | Rendement quasi nul, vivier très saturé ; seul ClickUp (Ashby) a produit une nouveauté (Principal PM, éligibilité internationale à confirmer) |
-| **GitLab (Greenhouse)** | Director Customer Success EMEA avec la France explicite, la meilleure offre USA de la relance |
-| **Hightouch (Greenhouse)** | Solutions Engineer Enterprise EMEA, bon fit USA |
-| **Cabinets de conseil (Deloitte, KPMG, Capgemini, Sopra Steria, Wavestone)** | Deloitte en redirection morte, KPMG 404, Capgemini/Sopra Steria/Wavestone en JS non exploitables sans navigateur ; seul EY a produit une nouveauté (Consultant Gestion de projets Paie) |
-| **recrutement.cegos.com** | Piège de republication reconfirmé une nouvelle fois (nouvel ID = doublon déjà connu) |
-| **jobs.stationf.co (Algolia)** | Piège technique confirmé : la clé API doit être envoyée telle qu'affichée en base64 dans le header `X-Algolia-API-Key`, jamais décodée, sous peine de faux 403. A produit 2 postes Joko (Lead PM Business Lines + Lead PM AI Platform), full remote France/Espagne |
-| **remoterocketship.com** | N'est plus bloqué en 403, mais les mentions "worldwide remote" testées se sont révélées Allemagne-only une fois le détail vérifié ; piège de mention trompeuse reconfirmé |
-| **euremotejobs.com, workingnomads.com, weworkremotely.com, remotifyeurope.com, RemoteOK, Remotive, collective.work, cremedelacreme.io, boards VC (Index/Balderton/a16z/Sequoia), upwork/freelancer, wellfound/workatastartup** | Rendement nul confirmé, tout candidat déjà en base ou disqualifié |
-| **Pays Basque, ensemble des sources habituelles** | Quasi à sec de nouveau (4 offres via HelloWork/pays-basque-digital.fr) : Chef de Projet SI Bayonne (Crit, ⭐⭐⭐⭐), Business Analyst CSAT Tarnos (Randstad, probable Safran), Formateur Logiciel Lescar, Chargée de compte ELI. Intescia/WANAO, Safran Bordes/Tarnos, Wipro Lauak (43 postes balayés), Dassault Aviation, Arkema, Teréga, TotalEnergies Pau, Enovis, B.Braun, Boardriders, Daher, Euralis, Maïsadour, 360Learning Urt, French Tech Pays Basque : tous confirmés à sec ou hors profil. Nouveau piège noté : un même poste Wipro Lauak réapparaît sous un slug d'URL différent à chaque régénération du site, à traiter comme republication et non comme nouvelle offre |
-
 ## Sites de recherche IA (onglet "Offres IA")
 
 **À inclure systématiquement dans chaque relance de recherche**, en parallèle des recherches SIRH/CSM.
