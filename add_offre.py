@@ -454,6 +454,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     _ecrire_onglet(ws_ia,   rows_ia,   verbose)
     _ecrire_onglet(ws_pm,   rows_pm,   verbose)
     _ecrire_onglet(ws_ux,   rows_ux,   verbose)
+    _ecrire_onglet(ws_seo,  rows_seo,  verbose)
     _ecrire_onglet(ws_usa,  rows_usa,  verbose)
     _ecrire_onglet(ws_pb,   rows_pb,   verbose)
     _ecrire_onglet(ws_nore, rows_nore, verbose)
