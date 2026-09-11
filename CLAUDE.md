@@ -762,6 +762,29 @@ Pas de CV dédié SEO/GEO à ce jour. À créer si les premières offres retenue
 ### Lacune à connaître
 Gaëtan n'a pas d'expérience SEO en environnement agence ou en équipe SEO structurée avec des outils spécialisés poussés (Screaming Frog, SEMrush/Ahrefs en profondeur, netlinking à grande échelle) ; son expérience est celle d'un fondateur solo qui gérait le SEO parmi d'autres responsabilités produit. Sur le GEO/AEO spécifiquement, aucune expérience formelle à ce jour, discipline trop récente. Concession honnête à faire en lettre de motivation sur les postes qui demandent explicitement une expertise SEO technique poussée ou une expérience GEO déjà démontrée.
 
+### État des sources — première relance SEO/GEO du 11/09/2026
+
+2 clusters parallèles (sources FR, ATS/international). **54 offres candidates compilées, 54 ajoutées** (0 doublon interne, 0 doublon rejeté par `add_offre.py`). Répartition par onglet : Offres SEO +38, NoRemote +11, Offres USA +3 (Reedsy, ElevenLabs, Replit), Offres IA +2 (le mot "IA"/"AI" apparaît en toutes lettres dans le titre, ex. "SEO Specialist / Évaluateur de contenus IA", "Technical Operator, AI Visibility" — routage cohérent avec l'ordre de priorité IA > SEO déjà en place, ces offres restent trouvables juste dans un autre onglet).
+
+**Enseignement principal : le GEO n'est pas encore un métier séparé du SEO en France, mais une extension qui s'affiche déjà dans l'intitulé.** 17 des 45 offres du cluster FR portaient un intitulé hybride explicite type "Consultant SEO - Geo" ou "Chef de Projet SEO & Geo" (Axess, Tecnomat, EVOLUDERM, SAYCO, Caboost, Salutech, Groupewold...) : le marché français semble avoir absorbé le GEO comme une compétence de plus dans une fiche SEO classique plutôt que comme un intitulé de poste à part. **De vraies offres GEO/AEO pures existent en revanche côté international** : Reedsy (SEO technique + GEO/AEO explicite), ElevenLabs ("B2B SEO/AEO Expert"), Parallels Inc ("Senior Manager, SEO & GEO"), Replit ("AEO/GEO/SEO Lead"), et surtout **ELIA Atelier/USKALE** — mission freelance 100% GEO/AEO sans aucune composante SEO trafic classique, pour rendre des maisons de luxe visibles dans les réponses IA non sourcées (routée en Offres IA à cause du mot "AI").
+
+**Meilleure offre du lot : Consultant SEO Senior chez La Solive** (mission-freelances.fr, ⭐⭐⭐⭐⭐, full remote confirmé, GEO + automatisation IA/prompting explicites).
+
+| Source | Verdict 11/09/2026 |
+|---|---|
+| **hellowork.com** | Très productif (27 offres), recherche par mots-clés "SEO Manager"/"Responsable SEO"/"Consultant SEO"/"SEO" |
+| **mission-freelances.fr** | 14 offres, gisement particulièrement riche en missions freelance SEO+GEO hybrides avec description détaillée du GEO |
+| **free-work.com** | La catégorie `/jobs/expert-seo-consultant-referencement` existe (contrairement à l'hypothèse de départ calquée sur UX) mais n'affiche aucune mission en direct ; l'endpoint `?query=SEO` reste la bonne porte d'entrée, 2 offres |
+| **malt.fr** | Rendement nul, la plateforme n'expose pas de missions ouvertes en scraping public (uniquement des profils freelances) |
+| **welcometothejungle.com** | 1 offre vivante confirmée via l'API (l-olivier), une autre (France Médias Monde) écartée car archivée depuis 2024 malgré son apparition en WebSearch — piège déjà documenté, reconfirmé |
+| **geojobs.ai** | **Nouveau board dédié GEO/AI-search, à ajouter au dispositif permanent** : 1 offre retenue (ELIA Atelier) sur 9 examinées, le reste Allemagne/UK on-site ou hybride pur |
+| **AthenaHQ (plateforme GEO/AEO elle-même)** | 4 postes ouverts, tous onsite San Francisco — pas de piste remote, à re-tester ponctuellement |
+| **API Ashby (~180 slugs)** | 4 retenus (Reedsy, ElevenLabs, Synthesia, Replit) |
+| **API Lever (~44 slugs directs + feed Jobgether complet 4674 postes)** | 0 — les matches Jobgether SEO existants sont tous ancrés US/Brésil/Canada |
+| **WebSearch Ashby/Lever/Greenhouse ciblé** | ~25 pistes explorées, quasi toutes fermées ou US-only (Directive, Clio, Flodesk, GR0, Webflow, Similarweb, Hostinger, GoCardless, Pulumi...) |
+| **Remotive** | 1 retenu (Parallels Inc, worldwide) |
+| **RemoteOK, weworkremotely (catégorie marketing)** | 0 — résultats trop génériques pour qualifier sans fetch individuel supplémentaire |
+
 ---
 
 ## Recherche USA (onglet dédié "Offres USA") — ajoutée le 22/08/2026
