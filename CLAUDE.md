@@ -521,7 +521,34 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
-> **Historique complet des relances antérieures au 2026-09-09 : voir `HISTORIQUE_RELANCES.md`** (déplacé le 2026-09-08, puis complété le 2026-09-11 avec la relance du 08/09 pour respecter la règle des 2 relances récentes ci-dessous). Ce fichier garde les verdicts détaillés source par source, les pièges découverts et les slugs ATS testés depuis le 07/08/2026 jusqu'au 08/09/2026 inclus. **Seules les deux relances les plus récentes doivent rester ci-dessous ; à chaque nouvel ajout, déplacer la plus ancienne des deux vers `HISTORIQUE_RELANCES.md`.**
+> **Historique complet des relances antérieures au 2026-09-10 : voir `HISTORIQUE_RELANCES.md`** (déplacé le 2026-09-08, complété le 2026-09-11 avec la relance du 08/09, puis avec celle du 09/09). Ce fichier garde les verdicts détaillés source par source, les pièges découverts et les slugs ATS testés depuis le 07/08/2026 jusqu'au 09/09/2026 inclus. **Seules les deux relances les plus récentes doivent rester ci-dessous ; à chaque nouvel ajout, déplacer la plus ancienne des deux vers `HISTORIQUE_RELANCES.md`.**
+
+### État des sources — relance du 2026-09-11
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **104 offres candidates compilées, 103 ajoutées** (1 doublon interne retiré avant insertion : même mission S-quaar "Expert UX/UI" republiée sur deux villes avec deux URLs individuelles distinctes ; 0 doublon rejeté par `add_offre.py`, chaque agent ayant dédoublonné en amont contre un export à plat des 2848 liens déjà en base). Aucune ligne à archiver ce jour (pas de `x`/`Expiré` en attente). Répartition des ajouts (delta de lignes par onglet) : SIRH +11, CSM +20, IA +2, PM +9, UX +18, USA +13, Pays Basque +4, NoRemote +26.
+
+Rendement nettement plus élevé que les relances précédentes (103 contre 42 les deux jours d'avant), porté par deux facteurs : le déblocage d'**euremotejobs.com** (voir ci-dessous, source jusque-là intermittente) et une forte moisson UX/UI sur HelloWork et free-work (+18 dans l'onglet UX en une seule relance, du jamais vu depuis la création de l'onglet le 10/09). Le cluster remote/VC/niches, habituellement le plus faible (0 offre le 10/09), a produit à lui seul 40 offres ce jour, autant que le cluster FR/freelance (46).
+
+**Piège shell à connaître pour toute future session scriptant des boucles bash-style** : le shell par défaut de cette machine est **zsh**, pas bash. En zsh, `for x in $VAR` ne fait **pas** de word-splitting automatique sur une variable contenant plusieurs mots séparés par des espaces (contrairement à bash) — la boucle ne s'exécute qu'une seule fois avec toute la chaîne comme valeur unique. Utiliser `for x in ${=VAR}` (word-splitting explicite) en zsh, ou repasser par `xargs`/un tableau `array=(...)`. Ce piège a fait perdre du temps sur `euremotejobs.com` avant d'être identifié.
+
+| Source | Verdict 11/09/2026 |
+|---|---|
+| **hellowork.com** | Toujours très productif (20 offres cluster FR + gros volume sur le cluster UX inclus dans le total), y compris via les pages `metier_<slug>-ville_<ville>` pour le cluster Pays Basque |
+| **free-work.com** | 20 offres retenues côté cluster FR (catégories `/jobs/sirh`, `/jobs/sap-hcm`, `/jobs/sap-successfactors`, `/jobs/ia`, `/jobs/ia-generative`, endpoint `?query=` pour UX/PM) |
+| **mission-freelances.fr** | 5 offres, dont 4 missions UX 100% remote confirmé (Pixie Services, Pachamama, Smartsolution It, Wearephenix) — le paramètre `?s=` ne filtre toujours pas, obligeant à scanner la liste complète (~1450 liens) |
+| **freelance-day.eu** | 1 offre via la homepage (toujours pas de contenu exploitable sur `/missions/`, en JS) |
+| **freelance-informatique.fr (3 pages catégorie data-obf), eursap.eu, hansonregan.com, malt.fr, apec.fr** | Entièrement à sec ou bloqués, confirmant les verdicts précédents à l'identique |
+| **whitehallresources.com / opusresourcing.com** | 0 nouveauté : postes examinés tous à éligibilité UK/US stricte, hors profil |
+| **euremotejobs.com** | **Débloqué, la vraie percée de cette relance.** Le 403 constaté le 10/09 ne s'est pas reproduit (curl + UA navigateur standard est passé directement) ; a fourni la majorité des 40 offres du cluster remote/VC/niches. Deux méthodes efficaces trouvées : (1) fiches individuelles `/job/<slug>/` avec JSON-LD + tag de localisation + lien ATS d'origine dans le bouton Apply ; (2) page de recherche `/?s=<mot-clé>`, où chaque `<article class="... job_listing_region-XXX ...">` porte directement le tag pays/région dans sa classe CSS, ce qui permet de filtrer par zone sans ouvrir chaque fiche. **À repasser systématiquement désormais**, en gardant en tête que la source reste intermittente (403 un jour, ouverte le lendemain) |
+| **API Ashby (nouveaux slugs découverts par WebSearch)** | `everai`, `reedsy` productifs (Product Designer Europe) ; **`kong`** nouveau et très bon (2 Senior/Staff Solutions Engineer France, `isRemote:true` confirmé) — à ajouter au balayage systématique |
+| **API Lever** | Rendement quasi nul sur les slugs classiques (qonto, alan, doctolib, deel, oyster, collabora, pennylane) ; seul **Jobgether** a produit, avec son piège habituel de republication à employeur anonymisé (7 offres retenues après tri) |
+| **API Greenhouse (gitlab, hightouch, dataiku, remotecom)** | 1 seule nouveauté (Remote.com Senior Product Designer EMEA → Offres USA), le reste déjà connu |
+| **Atlassian, jobs.sap.com, HR Path, delaware, Intescia, SD Worx RSS, Employment Hero** | 0 nouveauté, tout déjà en base ou toujours ancré pays unique |
+| **Sopra Steria** | 4 nouveautés (chef de projet/PM généralistes + migration de données, Lyon/Aix/Nantes/Brest) ; EY, KPMG, Capgemini, Wavestone, Deloitte à sec ou en JS non exploitable |
+| **jobs.stationf.co (Algolia)** | Confirmé stérile pour la 2e fois : 0 poste en remote total (`remote:full`) sur tous les mots-clés testés, tout le reste est hybride Paris ou onsite — ce filon semble épuisé pour ce profil |
+| **RemoteOK, Remotive, Built In, boards VC (a16z, General Catalyst, Sequoia)** | Rendement nul confirmé une nouvelle fois |
+| **SD Worx (flux RSS, Pays Basque)** | Confirmé productif une 2e fois (source fiable désormais, l'URL correcte est `careers.sdworx.com/jobs.rss`, pas `/services/rss/job/`) |
+| **Pays Basque, reste des sources habituelles** | Faible (4 offres au total) : Intescia/WANAO 0 poste Bidart ce jour, Technopole Izarbel (Exakis Nelite toujours ECONNREFUSED, IS Decisions hors profil, SEI-Groupe LKS toujours injoignable), French Tech Pays Basque sans board propre (redirige vers pays-basque-digital.fr, 3 offres trouvées toutes expirées), Teréga/Safran/TotalEnergies/Dassault Aviation/Lauak/Euralis/Daher/Arkema tous à sec ou hors profil |
 
 ### État des sources — relance du 2026-09-10
 
