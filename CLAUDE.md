@@ -521,7 +521,7 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
-> **Historique complet des relances antérieures au 2026-09-05 : voir `HISTORIQUE_RELANCES.md`** (déplacé le 2026-09-08 pour alléger CLAUDE.md, qui dépassait la limite de taille du contexte). Ce fichier garde les verdicts détaillés source par source, les pièges découverts et les slugs ATS testés depuis le 07/08/2026 jusqu'au 03/09/2026 inclus. Les deux relances les plus récentes restent ci-dessous.
+> **Historique complet des relances antérieures au 2026-09-09 : voir `HISTORIQUE_RELANCES.md`** (déplacé le 2026-09-08, puis complété le 2026-09-11 avec la relance du 08/09 pour respecter la règle des 2 relances récentes ci-dessous). Ce fichier garde les verdicts détaillés source par source, les pièges découverts et les slugs ATS testés depuis le 07/08/2026 jusqu'au 08/09/2026 inclus. **Seules les deux relances les plus récentes doivent rester ci-dessous ; à chaque nouvel ajout, déplacer la plus ancienne des deux vers `HISTORIQUE_RELANCES.md`.**
 
 ### État des sources — relance du 2026-09-10
 
