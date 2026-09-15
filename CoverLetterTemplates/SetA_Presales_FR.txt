@@ -1,6 +1,6 @@
 Bonjour,
 
-En 2014, j'ai remporté un appel d'offres compétitif face aux prestataires en place pour le contrat de TMA SAP HR de L'Oréal, avant de piloter ce programme comme point de contact principal sur quarante pays pendant dix ans. C'est le moment de mon parcours qui se rapproche le plus de l'avant-vente technique : comprendre ce que le client fait déjà, démontrer concrètement où la solution apporte de la valeur, puis prouver que l'équipe qui reprend le contrat tiendra ses engagements.
+En 2014, j'ai remporté un appel d'offres compétitif face aux prestataires en place pour le contrat de TMA SAP HR de L'Oréal, avant de piloter ce programme comme point de contact principal sur quarante pays pendant dix ans. C'est le moment de mon parcours qui se rapproche le plus de l'avant-vente technique : comprendre ce que le client fait déjà, démontrer concrètement où la solution apporte de la valeur, et prouver que l'équipe qui reprend le contrat tiendra ses engagements.
 
 Le reste du poste chez L'Oréal ressemblait à du pre-sales permanent en interne. J'étais le point de passage entre les équipes métier RH et les développeurs : je cadrais chaque demande, je la traduisais en spécification exploitable, et j'organisais des démonstrations régulières pour valider que ce qui était construit correspondait à l'usage réel avant chaque go-live.
 
