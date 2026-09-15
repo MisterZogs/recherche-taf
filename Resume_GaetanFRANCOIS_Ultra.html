@@ -80,19 +80,14 @@
       line-height: 1.35;
     }
 
-    .lang-item { margin-bottom: 9px; }
-    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
-    .lang-bar-track {
-      height: 5px;
-      background: #2e4560;
-      border-radius: 3px;
-      overflow: hidden;
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
     }
-    .lang-bar-fill {
-      height: 100%;
-      background: #e8c040;
-      border-radius: 3px;
-    }
+    .lang-name { color: #fff; }
+    .lang-level { color: #e8c040; }
 
     .main {
       flex: 1;
@@ -214,12 +209,8 @@
         <div class="contact-value">gaetan8francois@gmail.com</div>
       </div>
       <div class="contact-item">
-        <div class="contact-label">Localisation :</div>
-        <div class="contact-value">Anglet, France</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Disponibilité :</div>
-        <div class="contact-value">Immédiate</div>
+        <div class="contact-label">Téléphone :</div>
+        <div class="contact-value">+33 6 75 97 51 62</div>
       </div>
     </div>
 
@@ -243,19 +234,19 @@
       <div class="sb-divider"></div>
       <div class="lang-item">
         <div class="lang-name">Français</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+        <div class="lang-level">Natif</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Anglais</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+        <div class="lang-level">Courant</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Espagnol</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermédiaire</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Portugais</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermédiaire</div>
       </div>
     </div>
 
@@ -293,12 +284,12 @@
       <div class="exp-left">
         <div class="exp-years">2018 - 2025</div>
         <div class="exp-company">WallOfTraders.com</div>
-        <div class="exp-location">Co-fondateur - Remote</div>
+        <div class="exp-location">Remote</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Co-fondateur & Product Manager - Startup SaaS B2C</div>
+        <div class="exp-role">Product Manager - Startup SaaS B2C</div>
         <ul>
-          <li>Construction de la fonction client depuis zéro, en tant que co-fondateur, pour une communauté de traders actifs</li>
+          <li>Construction de la fonction client depuis zéro, en tant que Product Manager, pour une communauté de traders actifs</li>
           <li>Approche data-driven : analyse comportementale pour identifier les frictions et prioriser les actions</li>
           <li>Animation de communauté et échanges réguliers avec les utilisateurs ; boucle de feedback vers la roadmap produit</li>
           <li>Management de stagiaires et d'alternants ; pilotage de l'acquisition digitale (SEO, Facebook Ads)</li>

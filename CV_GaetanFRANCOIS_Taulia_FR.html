@@ -77,19 +77,14 @@
       line-height: 1.35;
     }
 
-    .lang-item { margin-bottom: 9px; }
-    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
-    .lang-bar-track {
-      height: 5px;
-      background: #2e4560;
-      border-radius: 3px;
-      overflow: hidden;
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
     }
-    .lang-bar-fill {
-      height: 100%;
-      background: #e8c040;
-      border-radius: 3px;
-    }
+    .lang-name { color: #fff; }
+    .lang-level { color: #e8c040; }
 
     /* ── MAIN ── */
     .main {
@@ -216,12 +211,8 @@
         <div class="contact-value">gaetan8francois@gmail.com</div>
       </div>
       <div class="contact-item">
-        <div class="contact-label">Localisation :</div>
-        <div class="contact-value">Anglet, France</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Disponibilité :</div>
-        <div class="contact-value">Immédiate - Remote</div>
+        <div class="contact-label">Téléphone :</div>
+        <div class="contact-value">+33 6 75 97 51 62</div>
       </div>
     </div>
 
@@ -250,23 +241,23 @@
 
       <div class="lang-item">
         <div class="lang-name">Français</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+        <div class="lang-level">Natif</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Anglais</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+        <div class="lang-level">Courant</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Espagnol</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermédiaire</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Portugais</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermédiaire</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Allemand</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:20%"></div></div>
+        <div class="lang-level">Notions</div>
       </div>
     </div>
 
@@ -299,7 +290,7 @@
     <h2>Profil</h2>
     <hr class="section-line">
     <p class="profile-text">
-      Professionnel Customer Success Senior avec 15 ans d'expérience dans l'écosystème SAP, gérant des grands comptes à l'échelle mondiale (40+ pays). Bonne maîtrise de SAP HR/HCM et SAP SuccessFactors, et de la façon dont les solutions SAP s'intègrent aux opérations globales, aux flux financiers et aux processus supply chain. Expérience en gestion de compte après le go-live, en business reviews, et en change management et engagement des parties prenantes au niveau senior et C-suite. À l'aise pour traduire des données système complexes en explications business claires. Co-fondateur d'une startup tech, utilise l'IA générative au quotidien pour continuer à apprendre.
+      Professionnel Customer Success Senior avec 15 ans d'expérience dans l'écosystème SAP, gérant des grands comptes à l'échelle mondiale (40+ pays). Bonne maîtrise de SAP HR/HCM et SAP SuccessFactors, et de la façon dont les solutions SAP s'intègrent aux opérations globales, aux flux financiers et aux processus supply chain. Expérience en gestion de compte après le go-live, en business reviews, et en change management et engagement des parties prenantes au niveau senior et C-suite. À l'aise pour traduire des données système complexes en explications business claires. Product Manager d'une startup tech, utilise l'IA générative au quotidien pour continuer à apprendre.
     </p>
 
     <!-- EXPÉRIENCE -->
@@ -327,10 +318,10 @@
       <div class="exp-left">
         <div class="exp-years">2018 - 2025</div>
         <div class="exp-company">WallOfTraders.com</div>
-        <div class="exp-location">Co-fondateur - Remote</div>
+        <div class="exp-location">Remote</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Co-fondateur &amp; Product Manager - Startup SaaS B2C</div>
+        <div class="exp-role">Product Manager - Startup SaaS B2C</div>
         <ul>
           <li>Responsabilité end-to-end du customer success, support utilisateur et animation de communauté de traders</li>
           <li>Approche data-driven de l'adoption produit, tests &amp; validation, SEO, Facebook Ads, management de stagiaires et d'alternants</li>

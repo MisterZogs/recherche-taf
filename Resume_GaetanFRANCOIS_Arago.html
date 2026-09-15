@@ -77,19 +77,14 @@
       line-height: 1.35;
     }
 
-    .lang-item { margin-bottom: 9px; }
-    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
-    .lang-bar-track {
-      height: 5px;
-      background: #2e4560;
-      border-radius: 3px;
-      overflow: hidden;
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
     }
-    .lang-bar-fill {
-      height: 100%;
-      background: #e8c040;
-      border-radius: 3px;
-    }
+    .lang-name { color: #fff; }
+    .lang-level { color: #e8c040; }
 
     /* ── MAIN ── */
     .main {
@@ -212,16 +207,12 @@
       <div class="sb-title">Contact</div>
       <div class="sb-divider"></div>
       <div class="contact-item">
-        <div class="contact-label">Email:</div>
+        <div class="contact-label">Email :</div>
         <div class="contact-value">gaetan8francois@gmail.com</div>
       </div>
       <div class="contact-item">
-        <div class="contact-label">Location:</div>
-        <div class="contact-value">Anglet, France</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Availability:</div>
-        <div class="contact-value">Immediate - open to travel</div>
+        <div class="contact-label">Phone :</div>
+        <div class="contact-value">+33 6 75 97 51 62</div>
       </div>
     </div>
 
@@ -249,23 +240,23 @@
 
       <div class="lang-item">
         <div class="lang-name">French</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+        <div class="lang-level">Native</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">English</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+        <div class="lang-level">Fluent</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Spanish</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermediate</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Portuguese</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermediate</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">German</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:20%"></div></div>
+        <div class="lang-level">Basic</div>
       </div>
     </div>
 
@@ -298,7 +289,7 @@
     <h2>Profile</h2>
     <hr class="section-line">
     <p class="profile-text">
-      Senior HRIS consultant with 15 years spent designing, migrating and running SAP HR solutions for large multi-country organisations, including 10 years on the L'Oréal worldwide account (40+ countries). Used to sitting in front of HR sponsors and local teams: running design workshops, turning HR needs into functional specifications, showing what a system can and cannot do, and defending the option that stays maintainable three years later. Led and won an outsourcing tender for SAP HR application maintenance. Co-founder of WallOfTraders.com, a B2C SaaS platform. Trained in Machine Learning with Python (Coursera) and a daily user of generative AI tools.
+      Senior HRIS consultant with 15 years spent designing, migrating and running SAP HR solutions for large multi-country organisations, including 10 years on the L'Oréal worldwide account (40+ countries). Used to sitting in front of HR sponsors and local teams: running design workshops, turning HR needs into functional specifications, showing what a system can and cannot do, and defending the option that stays maintainable three years later. Led and won an outsourcing tender for SAP HR application maintenance. Product Manager at WallOfTraders.com, a B2C SaaS platform. Trained in Machine Learning with Python (Coursera) and a daily user of generative AI tools.
     </p>
 
     <!-- EXPERIENCE -->
@@ -327,10 +318,10 @@
       <div class="exp-left">
         <div class="exp-years">2018 - 2025</div>
         <div class="exp-company">WallOfTraders.com</div>
-        <div class="exp-location">Co-founder - Remote</div>
+        <div class="exp-location">Remote</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Co-founder & Product Manager - B2C SaaS startup</div>
+        <div class="exp-role">Product Manager - B2C SaaS startup</div>
         <ul>
           <li>Crypto trading platform: product management, feature acceptance testing, user support, community management (Telegram, newsletter)</li>
           <li>Acquisition side: SEO strategy, Facebook advertising, intern and apprentice management</li>

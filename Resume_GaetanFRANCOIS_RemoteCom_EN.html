@@ -87,19 +87,14 @@
     }
 
     /* Languages */
-    .lang-item { margin-bottom: 6px; }
-    .lang-name { font-size: 8pt; color: #fff; margin-bottom: 3px; }
-    .lang-bar-track {
-      height: 5px;
-      background: #2e4560;
-      border-radius: 3px;
-      overflow: hidden;
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 8pt;
     }
-    .lang-bar-fill {
-      height: 100%;
-      background: #e8c040;
-      border-radius: 3px;
-    }
+    .lang-name { color: #fff; }
+    .lang-level { color: #e8c040; }
 
     /* ── RIGHT MAIN CONTENT ── */
     .main {
@@ -232,12 +227,8 @@
         <div class="contact-value">gaetan8francois@gmail.com</div>
       </div>
       <div class="contact-item">
-        <div class="contact-label">Location :</div>
-        <div class="contact-value">Anglet, France</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Availability :</div>
-        <div class="contact-value">Immediate - Remote</div>
+        <div class="contact-label">Phone :</div>
+        <div class="contact-value">+33 6 75 97 51 62</div>
       </div>
     </div>
 
@@ -265,19 +256,19 @@
 
       <div class="lang-item">
         <div class="lang-name">French</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+        <div class="lang-level">Native</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">English</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+        <div class="lang-level">Fluent</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Spanish</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermediate</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Portuguese</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermediate</div>
       </div>
     </div>
 
@@ -305,13 +296,13 @@
 
     <!-- NAME -->
     <div class="name">Gaëtan FRANÇOIS</div>
-    <div class="subtitle">Product Manager and SaaS Startup Co-founder - Enterprise Platform Delivery</div>
+    <div class="subtitle">Product Manager - Enterprise Platform Delivery</div>
 
     <!-- PROFILE -->
     <h2>Profile</h2>
     <hr class="section-line">
     <p class="profile-text">
-      I co-founded WallOfTraders.com, a B2C crypto trading platform, and served as its Product Manager. I owned the roadmap, decided what shipped, specified it, and validated every feature against how users actually behaved. Around that, I spent 15 years on enterprise platforms, ten of them between L'Oréal's HR business teams and the developers building for them. I wrote the functional specifications, arbitrated scope, ran the data migrations, and stayed with each release through go-live and third-line support. More recently I have gone back to building products directly: I specify, build and ship my own AI tools solo, end to end. I trained as an engineer, hold a Master's degree in Applied Mathematics, and work in Python, SQL and C++ well enough to talk to engineers without a translator.
+      I was Product Manager at WallOfTraders.com, a B2C crypto trading platform. I owned the roadmap, decided what shipped, specified it, and validated every feature against how users actually behaved. Around that, I spent 15 years on enterprise platforms, ten of them between L'Oréal's HR business teams and the developers building for them. I wrote the functional specifications, arbitrated scope, ran the data migrations, and stayed with each release through go-live and third-line support. More recently I have gone back to building products directly: I specify, build and ship my own AI tools solo, end to end. I trained as an engineer, hold a Master's degree in Applied Mathematics, and work in Python, SQL and C++ well enough to talk to engineers without a translator.
     </p>
 
     <!-- EXPERIENCE -->
@@ -338,10 +329,10 @@
       <div class="exp-left">
         <div class="exp-years">2018 - 2025</div>
         <div class="exp-company">WallOfTraders.com</div>
-        <div class="exp-location">Co-founder - Remote</div>
+        <div class="exp-location">Remote</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Co-founder &amp; Product Manager - B2C SaaS Startup</div>
+        <div class="exp-role">Product Manager - B2C SaaS Startup</div>
         <ul>
           <li>Owned the product of a crypto trading platform end to end: decided what shipped, specified it, tested it, and validated each feature against how users actually behaved</li>
           <li>Ran a continuous feedback loop with an active trader community (Telegram, newsletters) and turned recurring friction into product changes</li>
