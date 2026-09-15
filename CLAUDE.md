@@ -56,6 +56,8 @@ Autres postes ciblés :
 
 ## Fichiers du projet
 
+> **⚠️ Dossiers miroirs pour l'envoi aux recruteurs (identifiés le 15/09/2026) — à resynchroniser à chaque modification d'un CV source.** La plupart des CV listés ci-dessous ont un dossier du même nom à la racine (ex. `Resume_GaetanFRANCOIS_Octime/`, `CV_GaetanFRANCOIS_CSM/`) qui contient une **copie du PDF renommée en `Resume_GaetanFRANCOIS.pdf` ou `CV_GaetanFRANCOIS.pdf`** (nom générique, sans le suffixe qui révèle le ciblage), destinée à être jointe telle quelle à un email de candidature. Ces copies ne sont **pas** régénérées automatiquement quand le CV source change : 19 dossiers de ce type ont été retrouvés désynchronisés le 15/09/2026 (encore sur l'ancienne version avec « Co-founder », les barres de langue et Location/Availability) lors d'une correction appliquée à tous les CV. **Après toute modification en masse d'un CV existant (pas juste sa création), vérifier `find . -maxdepth 1 -type d \( -iname "Resume_GaetanFRANCOIS_*" -o -iname "CV_GaetanFRANCOIS_*" \)` et recopier chaque PDF source mis à jour vers son dossier miroir correspondant.**
+
 ### CV visuels (format sidebar sombre + photo – style Gregory Debargue)
 | Fichier | Usage |
 |---------|-------|
