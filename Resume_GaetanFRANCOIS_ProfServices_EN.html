@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume - Gaëtan FRANÇOIS - Director, Professional Services</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.5pt;
+      color: #222;
+      background: #fff;
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .page {
+      display: flex;
+      min-height: 297mm;
+      width: 210mm;
+      margin: 0 auto;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .sidebar {
+      width: 195px;
+      min-width: 195px;
+      background: #1c2b3a;
+      color: #fff;
+      padding-bottom: 30px;
+    }
+
+    /* Photo */
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 28px 0 20px 0;
+    }
+    .photo-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #2e4560;
+      border: 3px solid #e8c040;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22pt;
+      font-weight: bold;
+      color: #e8c040;
+      letter-spacing: 1px;
+      overflow: hidden;
+    }
+    .photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Sidebar sections */
+    .sb-section { padding: 12px 18px 6px 18px; }
+    .sb-title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .sb-divider {
+      height: 2px;
+      background: #e8c040;
+      margin-bottom: 10px;
+    }
+
+    /* Contact */
+    .contact-item { margin-bottom: 8px; line-height: 1.4; }
+    .contact-label { font-weight: bold; font-size: 8.5pt; color: #ccc; }
+    .contact-value { font-size: 8.5pt; color: #fff; word-break: break-all; }
+
+    /* Expertise */
+    .expertise-list { list-style: none; padding: 0; }
+    .expertise-list li {
+      font-size: 8.5pt;
+      color: #ddd;
+      padding: 3px 0;
+      line-height: 1.35;
+    }
+
+    /* Languages */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+    }
+    .lang-name { color: #fff; }
+    .lang-level { color: #e8c040; }
+
+    /* ── RIGHT MAIN CONTENT ── */
+    .main {
+      flex: 1;
+      padding: 14px 26px 10px 24px;
+      background: #fff;
+    }
+
+    /* Name + subtitle */
+    .name {
+      font-size: 21pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    /* Section headers */
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1c2b3a;
+      margin: 8px 0 3px 0;
+    }
+    .section-line {
+      border: none;
+      border-top: 1.5px solid #1c2b3a;
+      margin-bottom: 5px;
+    }
+
+    /* Profile */
+    .profile-text {
+      font-size: 9pt;
+      line-height: 1.35;
+      color: #333;
+      text-align: justify;
+    }
+
+    /* Experience entries */
+    .exp-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 5px;
+    }
+    .exp-left {
+      min-width: 105px;
+      width: 105px;
+    }
+    .exp-years {
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .exp-company {
+      font-size: 8.5pt;
+      color: #444;
+    }
+    .exp-location {
+      font-size: 8pt;
+      color: #777;
+    }
+    .exp-right { flex: 1; }
+    .exp-role {
+      font-weight: bold;
+      font-size: 9.5pt;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .exp-right ul {
+      list-style: disc;
+      padding-left: 14px;
+    }
+    .exp-right ul li {
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.25;
+      margin-bottom: 1px;
+    }
+
+    /* Education */
+    .edu-entry {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+    .edu-school {
+      min-width: 105px;
+      width: 105px;
+      font-weight: bold;
+      font-size: 8.5pt;
+      color: #1c2b3a;
+    }
+    .edu-detail {
+      flex: 1;
+      font-size: 8.5pt;
+      color: #333;
+      line-height: 1.2;
+    }
+
+    @media print {
+      body { margin: 0; }
+      .page { width: 100%; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════
+       LEFT SIDEBAR
+  ══════════════════════════════ -->
+  <div class="sidebar">
+
+    <!-- PHOTO -->
+    <div class="photo-wrap">
+      <div class="photo-circle"><img src="photo_cv.jpg" alt="Gaëtan François"></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sb-section">
+      <div class="sb-title">Contact</div>
+      <div class="sb-divider"></div>
+      <div class="contact-item">
+        <div class="contact-label">Email :</div>
+        <div class="contact-value">gaetan8francois@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Phone :</div>
+        <div class="contact-value">+33 6 75 97 51 62</div>
+      </div>
+    </div>
+
+    <!-- EXPERTISE -->
+    <div class="sb-section">
+      <div class="sb-title">Expertise</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Professional Services Delivery</li>
+        <li>Program &amp; Portfolio Management</li>
+        <li>Contract Negotiation &amp; Commercial Ownership</li>
+        <li>Escalation &amp; Executive Stakeholder Management</li>
+        <li>Team Leadership &amp; Coaching</li>
+        <li>Multi-country Rollouts (EMEA / Americas / APAC)</li>
+        <li>Data Migration &amp; Go-live</li>
+        <li>SAP HR/HCM Enterprise Programs</li>
+        <li>Business / Engineering Liaison</li>
+      </ul>
+    </div>
+
+    <!-- LANGUAGE -->
+    <div class="sb-section" style="margin-top:3px;">
+      <div class="sb-title">Language</div>
+      <div class="sb-divider"></div>
+
+      <div class="lang-item">
+        <div class="lang-name">French</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Fluent</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Spanish</div>
+        <div class="lang-level">Intermediate</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-level">Intermediate</div>
+      </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="sb-section" style="margin-top:3px;">
+      <div class="sb-title">Interests</div>
+      <div class="sb-divider"></div>
+      <ul class="expertise-list">
+        <li>Running</li>
+        <li>Surfing</li>
+        <li>Tennis</li>
+        <li>Gym</li>
+        <li>Chess</li>
+        <li>Travel</li>
+        <li>Daily Reading</li>
+      </ul>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- ══════════════════════════════
+       RIGHT MAIN CONTENT
+  ══════════════════════════════ -->
+  <div class="main">
+
+    <!-- NAME -->
+    <div class="name">Gaëtan FRANÇOIS</div>
+    <div class="subtitle">Professional Services &amp; Program Delivery Leader - Global Enterprise Accounts</div>
+
+    <!-- PROFILE -->
+    <h2>Profile</h2>
+    <hr class="section-line">
+    <p class="profile-text">
+      Delivery leader with 15 years running professional services and enterprise programs for large multinational organisations, including winning a competitive outsourcing tender and then owning the resulting managed services contract for L'Oréal's global SAP HR platform across 40+ countries spanning EMEA, the Americas and APAC, for ten years. Built and led a distributed delivery team in India, carried programs from scoping and data migration through go-live and ongoing support, and resolved the escalations that reached executive sponsors. Comfortable owning commercial performance alongside delivery quality, and working across Sales, Product and Customer Success to turn a live program into renewed and expanded scope. Native French, fluent English, working Spanish and Portuguese; daily practitioner of generative AI tools.
+    </p>
+
+    <!-- EXPERIENCE -->
+    <h2>Experience</h2>
+    <hr class="section-line">
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2025</div>
+        <div class="exp-company">L'ORÉAL</div>
+        <div class="exp-location">Freelance - Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Program Delivery Lead / Senior HRIS Consultant - Global Account (40+ countries)</div>
+        <ul>
+          <li>Owned program delivery for SAP SuccessFactors Employee Central (<strong>OneProfile</strong>) across 40+ countries spanning EMEA, the Americas and APAC: rollout plan, milestone tracking, key-user training and post-deployment support</li>
+          <li>Led data migration and production rollout for <strong>OnePayroll</strong>, the group's global payroll centralisation programme, and deployed a time and attendance SaaS platform (Tamigo) across retail stores worldwide</li>
+          <li>Acted as the primary liaison between HR business teams, developers and executive sponsors, prioritising the requests with the most business impact</li>
+          <li>Owned L1/L2/L3 support for 40+ countries in English and French, resolving the escalations that reached executive sponsors while holding delivery to agreed service levels</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2018 - 2026</div>
+        <div class="exp-company">WallOfTraders.com</div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Product Manager - B2B/B2C SaaS Startup</div>
+        <ul>
+          <li>Owned B2B relationships with trader accounts (demos, onboarding onto the marketplace) and B2C relationships with the clients who copied them; tracked adoption and retention KPIs</li>
+          <li>Recruited and managed interns and apprentices; ran product testing, feature validation and acquisition (SEO, paid social)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2016 - 2018</div>
+        <div class="exp-company">Personal Projects</div>
+        <div class="exp-location">R&amp;D</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">AI, Machine Learning &amp; Robotics</div>
+        <ul>
+          <li>Completed Coursera training in Python, Machine Learning and Deep Learning; designed an autonomous drone (Pixhawk controller, Mission Planner)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2012 - 2016</div>
+        <div class="exp-company">ALTI - TCS</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Techno-Functional HRIS Consultant - Enterprise Accounts</div>
+        <ul>
+          <li><strong>L'Oréal</strong> (2014-2016): won a competitive tender against incumbent providers for the group's SAP HR outsourcing contract, then owned delivery of the resulting managed services agreement across 40 countries (L1/L2/L3, English and French), managing the commercial relationship alongside day-to-day service levels</li>
+          <li>Built and led the offshore delivery team in India that ran the contract: recruitment, knowledge transfer from the incumbent provider, and two years of day-to-day management</li>
+          <li><strong>FMC Technologies</strong> (2013): deployed SAP HR across 8 European countries; personnel and organisational structure, data migration, business blueprint</li>
+          <li>Further enterprise accounts across the same period: Air France, Generali, Sanofi, Canal+, Degremont, Cofely-Ineo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-left">
+        <div class="exp-years">2011 - 2012</div>
+        <div class="exp-company">eFront &amp; Enablon</div>
+        <div class="exp-location">Paris</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Software Support &amp; Configuration</div>
+        <ul>
+          <li>Supported, maintained and configured finance and quality management software</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <h2>Education</h2>
+    <hr class="section-line">
+
+    <div class="edu-entry">
+      <div class="edu-school">ESILV</div>
+      <div class="edu-detail">Master's degree in Engineering - Applied Mathematics, 2010<br>
+      <span style="color:#777; font-size:8pt;">Léonard de Vinci - Courbevoie La Défense, France</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">Konkuk University</div>
+      <div class="edu-detail">Exchange semester - Science courses in English, 2008<br>
+      <span style="color:#777; font-size:8pt;">Seoul, South Korea</span></div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-school">CPGE Pasteur</div>
+      <div class="edu-detail">Preparatory Classes MPSI - Mathematics, Physics, Engineering<br>
+      <span style="color:#777; font-size:8pt;">Neuilly-sur-Seine, France</span></div>
+    </div>
+
+  </div><!-- /main -->
+
+</div><!-- /page -->
+</body>
+</html>
