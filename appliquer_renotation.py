@@ -52,7 +52,7 @@ def appliquer(fichiers):
             if fit_cell.value and MARQUEUR in str(fit_cell.value):
                 deja_revu += 1
                 continue
-            if res.get('statut') == 'Expiré':
+            if str(res.get('statut') or '').startswith('Expiré'):
                 wb[sn].cell(row=r, column=idx['Statut']).value = 'Expiré'
                 note = res.get('nouveau_fit') or 'Lien mort constaté lors de la repasse de renotation'
                 fit_cell.value = f"{MARQUEUR} {note}"
