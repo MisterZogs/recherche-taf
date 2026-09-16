@@ -584,3 +584,30 @@ Rendement nettement plus élevé que les relances précédentes (103 contre 42 l
 | **SD Worx (flux RSS, Pays Basque)** | Confirmé productif une 2e fois (source fiable désormais, l'URL correcte est `careers.sdworx.com/jobs.rss`, pas `/services/rss/job/`) |
 | **Pays Basque, reste des sources habituelles** | Faible (4 offres au total) : Intescia/WANAO 0 poste Bidart ce jour, Technopole Izarbel (Exakis Nelite toujours ECONNREFUSED, IS Decisions hors profil, SEI-Groupe LKS toujours injoignable), French Tech Pays Basque sans board propre (redirige vers pays-basque-digital.fr, 3 offres trouvées toutes expirées), Teréga/Safran/TotalEnergies/Dassault Aviation/Lauak/Euralis/Daher/Arkema tous à sec ou hors profil |
 
+### État des sources — relance du 2026-09-12
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **226 offres candidates compilées, 226 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par `add_offre.py` : chaque agent avait dédoublonné en amont contre un export à plat des 3005 liens déjà en base, généré une fois avant de lancer les 4 agents). Répartition des ajouts (delta de lignes par onglet) : SIRH proche de stable, CSM +9, IA +4, PM +19, UX +19, SEO +2, USA +8, Pays Basque +13, NoRemote +beaucoup (gros volume UX/PM/CSM en télétravail non confirmé ou hybride).
+
+Rendement très déséquilibré une nouvelle fois : le cluster FR/freelance a produit 197 des 226 offres à lui seul (59 France Travail, 57 HelloWork, 43 mission-freelances.fr, 24 Jooble, 13 free-work, 1 freelance-informatique.fr), porté notamment par un fort volume UX/PM. Le cluster Pays Basque a bien performé (13 offres), avec un changement de méthode notable : **l'API France Travail filtrée par département (64/40) s'est révélée bien plus productive que les pages carrière directes des grands groupes**, qui restent quasi toutes à sec (TotalEnergies, Dassault Aviation, Lindt, Celsa, Technoflex). Les clusters ATS+HRIS+USA (9 offres) et remote/VC EU+niches (7 offres) confirment la saturation progressive déjà notée les jours précédents, avec malgré tout de bonnes trouvailles isolées (Linear, Constructor.io, Synthesia, Circle.so côté USA).
+
+**Piège WTTJ reconfirmé une nouvelle fois** : les 3 offres hyffen/Ad's up Consulting (SEO/GEO) trouvées via WebSearch welcometothejungle étaient toutes archivées à la vérification API — toujours vérifier `archived_at` avant d'ajouter un lien WTTJ, ne jamais faire confiance au seul résultat WebSearch.
+
+| Source | Verdict 12/09/2026 |
+|---|---|
+| **api.francetravail.io** | Très productif sur les deux clusters où il a été utilisé (59 offres FR/freelance + l'essentiel des 13 offres Pays Basque via filtre département). Confirmé comme la meilleure source à filtrer géographiquement pour le cluster Pays Basque, à généraliser aux prochaines relances locales |
+| **hellowork.com** | Toujours très productif (57 offres), gros volume UX/PM/SEO |
+| **mission-freelances.fr** | 43 offres, toujours un fort volume de bruit à filtrer manuellement (~1450 liens à scanner, paramètre `?s=` inopérant) |
+| **fr.jooble.org** | 24 offres, bon rendement ce jour via WebFetch |
+| **free-work.com** | 13 offres cluster FR (catégories `/jobs/sirh`, `/jobs/sap-hcm`, `/jobs/sap-successfactors`, `/jobs/ia`, `/jobs/ia-generative`, endpoint `?query=`) |
+| **freelance-informatique.fr (3 pages data-obf), eursap.eu, hansonregan.com, malt.fr, apec.fr, jobijoba.com, fr.jobrapido.com, freelance-day.eu** | Quasi entièrement à sec ou bloqués, confirmant les verdicts précédents ; jobijoba.com écarté par manque de valeur (quasi-doublons multi-villes) |
+| **API Ashby/Lever/Greenhouse (~80 slugs), Atlassian, jobs.sap.com, HR Path, delaware, Intescia, SD Worx, Employment Hero, Access Group UK, cabinets de conseil (EY/KPMG/Capgemini/Sopra Steria)** | Cluster très saturé (9 offres sur l'ensemble), l'écrasante majorité des résultats étant déjà en base — tendance confirmée depuis plusieurs relances |
+| **Jobgether** | Piège de tag remote reconfirmé : 237 postes filtrés `workplaceType: remote` mais aucun avec tag France/EMEA/Worldwide explicite |
+| **TopCSJobs, Built In, Y Combinator remote** | US-only confirmé une nouvelle fois, y compris les offres tagguées "remote" |
+| **euremotejobs.com** | Non retesté spécifiquement ce jour (cluster remote/niches concentré sur d'autres pistes), à repasser systématiquement la prochaine fois vu son caractère intermittent |
+| **jobs.stationf.co (Algolia)** | Non retesté ce jour |
+| **Oyster, Omnipresent, Multiplier, dribbble.com/jobs (hors ClickGUARD), workingnomads.com** | Rendement nul confirmé une nouvelle fois |
+| **cremedelacreme.io** | Nouvelle source confirmée productive (3 offres, dont une mission PM crypto/blockchain 700€/j en écho direct à WallOfTraders.com) |
+| **Circle.so (API Ashby)** | Nouvelle entreprise repérée, 10 postes ouverts tous en remote "Anywhere" confirmé — 2 postes Lead Product Designer retenus |
+| **Technopole Izarbel, Intescia/WANAO, SD Worx RSS (Pays Basque)** | 0 nouveauté ce jour (les postes trouvés étaient déjà en base ou expirés), le relais a été pris par l'API France Travail filtrée département |
+| **Safran (toutes filiales)** | 4 offres retenues via France Travail (Bordes/Tarnos), confirmant que cette source contourne bien le blocage Cloudflare habituel de safran-group.com |
+
