@@ -273,6 +273,60 @@ def _col_index(ws, name):
     raise ValueError(f"Colonne '{name}' introuvable dans {ws.title}")
 
 
+# Réutilisés pour le filet de sécurité Entreprise+Poste contre l'onglet Fait
+# (même logique que dedoublonnage_20260902.py, simplifiée pour une comparaison
+# stricte plutôt que floue : ici on ne veut sauter une offre que si le match
+# est sûr, pas juste probable).
+_ANONYME_RE = re.compile(
+    r'^\s*$|n\.?/?c\b|anonym|non\s+(communiqu|divulgu|pr[ée]cis|sp[ée]cifi)|'
+    r'confidentiel|^client\b', re.I)
+_PLATEFORMES_RE = re.compile(
+    r'\b(via|freelance[- ]informatique|mission[- ]freelances?|free[- ]work|'
+    r'workdispo|eursap|movement group|michael page|welcome to the jungle|'
+    r'linkedin|indeed|jobgether|wizbii|whitehall|hays)\b', re.I)
+_HF_RE = re.compile(r'\b[hf]\s*/\s*[hf]\b', re.I)
+
+
+def _norm(s) -> str:
+    if s is None:
+        return ''
+    s = unicodedata.normalize('NFKD', str(s)).encode('ascii', 'ignore').decode()
+    return re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip()
+
+
+def _norm_entreprise(v) -> str:
+    """Nom d'employeur normalisé, ou '' si la cellule est anonymisée ou ne
+    porte qu'une mention de plateforme source (auquel cas on ne peut pas
+    être sûr qu'il s'agit du même employeur)."""
+    if _ANONYME_RE.search(str(v or '')):
+        return ''
+    s = re.sub(r'\([^)]*\)', ' ', str(v or ''))
+    s = _PLATEFORMES_RE.sub(' ', s)
+    return _norm(s)
+
+
+def _norm_poste(v) -> str:
+    s = _HF_RE.sub(' ', str(v or ''))
+    return _norm(s)
+
+
+def _paires_fait(wb) -> set:
+    """Couples (Entreprise, Poste) normalisés déjà présents dans Fait."""
+    paires = set()
+    ws = wb['Fait']
+    try:
+        poste_idx = _col_index(ws, 'Poste')
+        entreprise_idx = _col_index(ws, 'Entreprise')
+    except ValueError:
+        return paires
+    for row in ws.iter_rows(min_row=2):
+        entreprise = _norm_entreprise(row[entreprise_idx].value)
+        poste = _norm_poste(row[poste_idx].value)
+        if entreprise and poste:
+            paires.add((entreprise, poste))
+    return paires
+
+
 def _liens_existants(wb) -> set:
     """Tous les liens déjà présents dans le classeur, tous onglets confondus (y compris Fait)."""
     liens = set()
