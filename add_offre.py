@@ -314,20 +314,51 @@ def _norm_poste(v) -> str:
     return _norm(s)
 
 
-def _paires_fait(wb) -> set:
-    """Couples (Entreprise, Poste) normalisés déjà présents dans Fait."""
-    paires = set()
+# Seuil de similarité (0-1, ratio SequenceMatcher) en dessous duquel deux
+# offres à Entreprise+Poste identiques sont considérées comme des missions
+# différentes (le même intitulé republié plus tard) plutôt qu'un doublon.
+_SEUIL_CONTENU_PROCHE = 0.4
+
+
+def _contenu(offre: dict) -> str:
+    """Texte représentatif du contenu réel d'une offre, pour distinguer une
+    vraie republication d'une simple homonymie Entreprise+Poste. 'Fit / Notes'
+    est la seule description disponible dans le tableur ; à défaut, on retombe
+    sur Localisation+Contrat+Salaire, qui distinguent au moins grossièrement
+    deux missions différentes chez le même client."""
+    notes = str(offre.get('Fit / Notes') or '').strip()
+    if notes:
+        return _norm(notes)
+    repli = ' '.join(str(offre.get(c) or '') for c in
+                      ('Localisation', 'Contrat', 'Salaire / TJM', 'Durée mission'))
+    return _norm(repli)
+
+
+def _contenus_proches(a: str, b: str) -> bool:
+    if not a or not b:
+        # Sans texte des deux côtés à comparer, impossible de trancher :
+        # on considère prudemment que ça peut être le même contenu (skip).
+        return True
+    return SequenceMatcher(None, a, b).ratio() >= _SEUIL_CONTENU_PROCHE
+
+
+def _paires_fait(wb) -> dict:
+    """Couples (Entreprise, Poste) normalisés déjà présents dans Fait, avec
+    la liste des contenus (Fit / Notes normalisé) rencontrés pour ce couple."""
+    paires = {}
     ws = wb['Fait']
     try:
         poste_idx = _col_index(ws, 'Poste')
         entreprise_idx = _col_index(ws, 'Entreprise')
+        notes_idx = _col_index(ws, 'Fit / Notes')
     except ValueError:
         return paires
     for row in ws.iter_rows(min_row=2):
         entreprise = _norm_entreprise(row[entreprise_idx].value)
         poste = _norm_poste(row[poste_idx].value)
         if entreprise and poste:
-            paires.add((entreprise, poste))
+            paires.setdefault((entreprise, poste), []).append(
+                _norm(row[notes_idx].value))
     return paires
 
 
