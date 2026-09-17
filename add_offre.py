@@ -494,6 +494,10 @@ def ajouter_offres(offres: list[dict], verbose=True):
     rows_pb   = _archiver_faits(ws_pb,   ws_fait, fait_idx, statut_idx, verbose)
     rows_nore = _archiver_faits(ws_nore, ws_fait, fait_idx, statut_idx, verbose)
 
+    # Calculé après l'archivage : les lignes tout juste déplacées vers Fait
+    # (marquées 'x' ou Expiré dans cette même passe) doivent aussi compter.
+    fait_paires = _paires_fait(wb)
+
     if verbose:
         print("── Ajout ──")
 
@@ -504,6 +508,17 @@ def ajouter_offres(offres: list[dict], verbose=True):
             if verbose:
                 print(f"= [doublon ignoré] {poste} | {offre.get('Entreprise')} | {lien}")
             continue
+        cle = (_norm_entreprise(offre.get('Entreprise')), _norm_poste(poste))
+        if cle[0] and cle[1] and cle in fait_paires:
+            contenus_fait = fait_paires[cle]
+            contenu_offre = _contenu(offre)
+            if any(_contenus_proches(contenu_offre, c) for c in contenus_fait):
+                if verbose:
+                    print(f"= [doublon Fait ignoré] {poste} | {offre.get('Entreprise')} | {lien}")
+                continue
+            elif verbose:
+                print(f"! [même Entreprise+Poste que Fait, contenu différent, conservée] "
+                      f"{poste} | {offre.get('Entreprise')} | {lien}")
         if lien:
             liens_connus.add(lien)
         ligne = _nouvelle_ligne(offre)
