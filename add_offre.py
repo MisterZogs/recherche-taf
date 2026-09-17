@@ -33,15 +33,19 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   l'offre est ignorée plutôt qu'ajoutée une seconde fois.
 - Filet de sécurité supplémentaire, posé le 17/09/2026 : une offre dont le
   couple (Entreprise, Poste) normalisé correspond déjà à une ligne de "Fait"
-  est ignorée elle aussi, même si son Lien diffère (cas d'une même offre
-  republiée sur un autre site avec une URL différente). Ce filet ne s'applique
-  qu'à "Fait" (pas aux autres onglets) et seulement quand l'Entreprise n'est
-  pas anonymisée, pour éviter les faux positifs entre deux offres différentes
-  à client non communiqué.
+  ET dont le contenu (Fit / Notes) est proche de celui de cette ligne est
+  ignorée elle aussi, même si son Lien diffère (cas d'une même offre
+  republiée sur un autre site avec une URL différente). Si Entreprise et
+  Poste correspondent mais que le contenu est nettement différent (même
+  intitulé republié plus tard pour une mission différente), l'offre est
+  conservée. Ce filet ne s'applique qu'à "Fait" (pas aux autres onglets) et
+  seulement quand l'Entreprise n'est pas anonymisée, pour éviter les faux
+  positifs entre deux offres différentes à client non communiqué.
 """
 
 import re
 import unicodedata
+from difflib import SequenceMatcher
 
 import openpyxl
 from openpyxl.styles import PatternFill, Alignment
