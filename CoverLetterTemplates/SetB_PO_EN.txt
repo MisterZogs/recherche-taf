@@ -4,7 +4,7 @@ The product I'm most proud of is WallOfTraders.com, a crypto trading platform I 
 
 It reached over 10,000 users, driven by an active Telegram community and newsletter that turned recurring friction directly into product changes. I also owned acquisition through SEO and paid social, and grew the team with interns and apprentices along the way.
 
-I don't code; that side was my cofounder's. But writing specifications precise enough that engineering never has to guess has been my job for fifteen years, on both sides of the table, ten of them at L'Oréal as a HRIS freelance consultant.
+I don't code; the technical team owned that side. But writing specifications precise enough that engineering never has to guess has been my job for fifteen years, on both sides of the table, ten of them at L'Oréal as a HRIS freelance consultant.
 
 I've also learnt that the product is constantly moving, and it should not move to follow your own expectations: you have to change a feature if customers do not like it, even after weeks of work, even if you love it yourself. You don't have to like your product; you need to make sure your customers like it.
 
