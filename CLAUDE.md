@@ -984,6 +984,19 @@ Sur les 28 entreprises passées en revue lors du premier test (fit fort + second
 
 **Confirmation du 10/09/2026 : `careers.sdworx.com` (flux RSS `jobs.rss`) est un filon fiable, à fetcher systématiquement à chaque relance Pays Basque.** 100 postes dans le flux ce jour-là, dont un Product Manager Integrations listant explicitement Bayonne parmi les bureaux éligibles. Contrairement à WANAO/Intescia (variable, parfois 0 poste Bidart) ou Exakis Nelite (lien mort ce jour), SD Worx a produit une offre exploitable deux fois de suite.
 
+### Extension Bordeaux et périphérie — ajoutée le 17/09/2026
+
+**À inclure systématiquement dans chaque relance**, en plus des entreprises du bassin Pau/Lacq/Bayonne/Mont-de-Marsan listées plus haut. Demande de Gaëtan : Bordeaux est trop loin pour un présentiel régulier (hors du rayon d'1h15 de Biarritz qui justifie le reste de l'onglet), donc **ces offres ne sont retenues dans "Pays Basque" que si elles autorisent explicitement 3 jours ou plus de télétravail par semaine** (hybride 3j+/semaine, ou plus). C'est l'inverse de la règle pour le reste de l'onglet, qui elle ignore volontairement le critère télétravail.
+
+**Critère de filtrage propre à ce sous-périmètre, à ne pas confondre avec le reste de l'onglet :**
+- Retenir : mentions explicites "3 jours de télétravail/semaine", "2 jours sur site / 3 jours remote", "télétravail majoritaire", "full remote", "100% remote", ou toute formulation qui confirme sans ambiguïté 3 jours ou plus de remote par semaine.
+- Écarter (ne pas ajouter, ni dans Pays Basque ni ailleurs) : hybride 1 ou 2 jours de télétravail/semaine, présentiel, ou télétravail non précisé dans le texte de l'offre. Contrairement à la règle générale des onglets métier (télétravail non renseigné = on garde), ici l'information manquante ne suffit pas : il faut une confirmation positive du nombre de jours avant d'ajouter, parce que la seule justification de inclure du Bordelais est ce volume de remote.
+- Zone géographique : Bordeaux intra-muros et périphérie proche (Mérignac, Pessac, Talence, Bègles, Bruges, Le Bouscat, Villenave-d'Ornon, Bordeaux Métropole au sens large).
+
+Techniquement : ces offres portent aussi le marqueur `Onglet: 'Pays Basque'` dans le dict transmis à `ajouter_offres()` (comme le reste de l'onglet), donc `add_offre.py` n'a pas besoin d'être modifié. Le filtre des 3j+ télétravail se fait en amont, à la lecture du texte de chaque offre, avant même de la soumettre à `ajouter_offres()` — il n'existe pas de champ structuré pour le nombre de jours de télétravail dans les sources habituelles, donc ce tri reste manuel/qualitatif à chaque relance.
+
+**Où chercher** : mêmes familles de sources que le reste du dispositif (API France Travail avec filtre localisation Bordeaux/33, HelloWork page métier+ville Bordeaux, free-work.com, mission-freelances.fr, welcometothejungle.com, boards ATS Ashby/Lever/Greenhouse), plus les grandes entreprises et scale-ups bordelaises à contacter directement le cas échéant (à enrichir au fil des relances, pas de liste figée pour l'instant).
+
 ---
 
 ## Règles de gestion du tableur offres_emploi.xlsx
