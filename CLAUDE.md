@@ -534,28 +534,7 @@ Le schéma `/fr/tech-it/jobs/<mot-clé>` se généralise (`/jobs/ia`, `/jobs/ia-
 
 > **Note :** Ne pas fetcher les catégories dev pur (`/lead-developer/`, `/developpeur-autre-langage-*/`, `/product-owner/`) — elles contiennent surtout des postes hors profil (LangChain, RAG, MLOps).
 
-> **Historique complet des relances antérieures au 2026-09-12 : voir `HISTORIQUE_RELANCES.md`** (déplacé le 2026-09-08, complété au fil des relances suivantes, la plus récente déplacée étant celle du 11/09). Ce fichier garde les verdicts détaillés source par source, les pièges découverts et les slugs ATS testés depuis le 07/08/2026. **Seules les deux relances les plus récentes doivent rester ci-dessous ; à chaque nouvel ajout, déplacer la plus ancienne des deux vers `HISTORIQUE_RELANCES.md`.**
-
-### État des sources — relance du 2026-09-14
-
-4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **471 offres candidates compilées, 471 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par `add_offre.py` ; dédoublonnage fait contre un export à plat des 3231 liens déjà en base, généré une fois avant de lancer les 4 agents, et revérifié par un second passage idempotent de `ajouter_offres()` qui a bien reclassé les 471 lignes en doublons sans rien ajouter). Répartition par onglet après ajout : SIRH 528, CSM 540, IA 266, PM 454, UX 162, SEO 56, USA 86, Pays Basque 85, NoRemote 843.
-
-**Leçon méthodologique majeure de cette relance, à appliquer systématiquement désormais : les agents de recherche plantent ou stagnent (timeout 600s, coupure de connexion) quand ils essaient de filtrer/catégoriser de gros volumes de résultats (200+) en les lisant et raisonnant dessus un par un dans leur propre réflexion.** Les 4 agents lancés en parallèle ont tous échoué au moins une fois pour cette raison (jusqu'à 3 échecs consécutifs pour le cluster FR/freelance). La consigne qui a débloqué la situation à chaque fois : ne plus lire/traiter les résultats manuellement, mais écrire et exécuter UN script Python qui fait le filtrage par mots-clés, la dédup et la mise en forme finale en une seule passe, en réutilisant les fichiers déjà fetchés dans le scratchpad plutôt que de re-scraper. **Pour toute prochaine relance à 4 clusters, inclure cette consigne dès le prompt initial de chaque agent** (pas seulement en rattrapage après un premier crash), pour éviter de perdre du temps sur 2-3 relances à vide avant la version qui aboutit.
-
-Rendement une nouvelle fois porté par le cluster FR/freelance (433 des 471 offres : 239 France Travail, 140 mission-freelances.fr, 54 HelloWork ; Jooble/Jobrapido/free-work.com/freelance-informatique.fr non traités faute de temps après les redémarrages, à couvrir en priorité la prochaine fois). Le cluster ATS+HRIS+USA reste saturé (10 offres, cabinets de conseil et boards USA classiques non traités). Le cluster remote/VC+niches a bien performé (22 offres), porté par un nouveau déblocage d'**euremotejobs.com** via un User-Agent Windows + Referer Google (le UA navigateur standard qui avait fonctionné le 11/09 redonnait un 403 ce jour ; la source reste intermittente et sensible aux headers exacts). Le cluster Pays Basque a produit 6 offres solides malgré un existant déjà bien couvert (dont Chef de projet ERP chez Wipro Lauak à Hasparren, très bon fit programme SAP HR multi-pays).
-
-| Source | Verdict 14/09/2026 |
-|---|---|
-| **api.francetravail.io** | Toujours très productif (239 offres FR/freelance après filtrage, 4 Pays Basque via filtre département 64/40) |
-| **hellowork.com** | 54 offres retenues après élimination des faux positifs (ex. "Responsable Produits Electromécanique" mal catégorisé PM par coïncidence de mot-clé) |
-| **mission-freelances.fr** | 140 offres extraites du JSON-LD de chaque fiche déjà téléchargée — le plus gros volume jamais obtenu de cette source en une relance |
-| **euremotejobs.com** | Débloqué à nouveau, mais avec des headers différents de la dernière fois (UA Windows + Referer Google au lieu d'UA navigateur standard) — confirme le caractère intermittent et sensible aux headers exacts, à retenter avec plusieurs combinaisons si le premier essai échoue |
-| **API Lever (Jobgether)** | Seule source productive côté Lever (6 offres, employeur anonymisé) ; API Ashby quasi entièrement saturée (~50 slugs testés, 0 nouveauté) |
-| **Atlassian** | 2 nouvelles offres (Strategic AE France confirmé remote, AE Southern Europe) |
-| **Technopole Izarbel / Intescia / WANAO** | 1 offre (Product Marketing Manager chez WANAO/Intescia à Bidart, très bon fit croisant Produit/Marketing) |
-| **Jooble, Jobrapido, free-work.com, freelance-informatique.fr** | Non traités ce jour (cluster FR/freelance a priorisé la consolidation du travail déjà fetché après ses redémarrages) — à couvrir en priorité lors de la prochaine relance |
-| **welcometothejungle.com** | Piège `archived_at` reconfirmé une nouvelle fois : 6 pistes trouvées par WebSearch, 0 retenue, toutes archivées à la vérification API |
-| **jobs.stationf.co, boards VC, RemoteOK, Remotive, weworkremotely, dribbble.com/jobs, cremedelacreme.io, collective.work, malt.fr, Upwork/Freelancer.com, AthenaHQ, cabinets de conseil (EY/KPMG/Capgemini/Sopra Steria/Deloitte/Wavestone), TopCSJobs/Built In/YC/Wellfound** | Rendement nul ou non traités par manque de temps après les redémarrages d'agents |
+> **Historique complet des relances antérieures au 2026-09-14 : voir `HISTORIQUE_RELANCES.md`** (déplacé le 2026-09-08, complété au fil des relances suivantes, la plus récente déplacée étant celle du 14/09). Ce fichier garde les verdicts détaillés source par source, les pièges découverts et les slugs ATS testés depuis le 07/08/2026. **Seules les deux relances les plus récentes doivent rester ci-dessous ; à chaque nouvel ajout, déplacer la plus ancienne des deux vers `HISTORIQUE_RELANCES.md`.**
 
 ### État des sources — relance du 2026-09-16
 
