@@ -960,6 +960,19 @@ Mêmes familles que le reste du dispositif : CSM/Senior CSM, Technical Account M
 | **welcometothejungle.com** | 403 en WebFetch direct côté Suisse, API avec mauvais slug ; piège `archived_at` déjà documenté, aucune offre confirmée retenue |
 | **Jobgether** | Écarté volontairement côté Suisse : duplication par pays, pas de vraies entreprises suisses derrière |
 
+### État des sources — relance SIRH/SAP Suisse (présentiel/hybride) du 22/09/2026
+
+Suite à la demande de Gaëtan d'élargir spécifiquement le SIRH/SAP suisse au présentiel/hybride (voir section « Exception SIRH/SAP Suisse » ci-dessus), une relance dédiée a trouvé **8 offres, toutes insérées** (0 doublon). Meilleure pépite : ⭐⭐⭐⭐⭐ Consultant/Senior Consultant SAP HCM/Payroll chez **Thoma & Partner Management Consulting AG** (cabinet SAP boutique suisse, mandat exclusif, "ganze Schweiz").
+
+| Source | Verdict 22/09/2026 |
+|---|---|
+| **ictcareer.ch** | **Nouveau filon confirmé productif, à ajouter au dispositif permanent pour la Suisse** : 3 offres solides dont la meilleure pépite du lot |
+| **freehire.me** | Agrégateur avec API/MCP, 3 offres via le cabinet FFI Advisory — **piège de sécurité relevé** : le contenu de la page contenait un bloc de texte parasite ressemblant à une tentative d'injection de prompt (commentaires techniques hors-sujet sur le préchargement de pages), ignoré sans effet sur la recherche mais à surveiller sur ce site en particulier lors des prochains passages |
+| **jobscout24.ch** | 11 résultats "SAP HCM Zürich", 1 retenue (HR Campus AG) |
+| **eursap.eu, whitehallresources.com, hansonregan.com, opusresourcing.com, talentlakeit.com, belsberg.com** | Rendement nul : soit rendu JS non scrapable en fetch direct, soit modules SAP hors RH (FICO/BW/MM) |
+
+**Rappel** : ces 8 offres portent `RemoteExempt=True`, réservé au SIRH/SAP suisse — ne pas réutiliser ce marqueur pour d'autres métiers ou pour les Pays-Bas sans une nouvelle décision explicite de Gaëtan.
+
 ---
 
 ## Recherche HRIS internationale hors USA (Canada, UK, Australie, APAC) — ajoutée le 08/09/2026, révisée le 08/09/2026 après premier test
