@@ -496,6 +496,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     ws_ux   = wb['Offres UX']
     ws_seo  = wb['Offres SEO']
     ws_usa  = wb['Offres USA']
+    ws_chnl = wb['Offres CH-NL']
     ws_pb   = wb['Pays Basque']
     ws_nore = wb['NoRemote']
     ws_fait = wb['Fait']
