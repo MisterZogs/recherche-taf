@@ -556,8 +556,12 @@ def ajouter_offres(offres: list[dict], verbose=True):
             if verbose:
                 print(f"+ [Pays Basque] {offre.get('Priorité')} | {poste} | {offre.get('Entreprise')}")
             continue
-        # Sans télétravail confirmé, l'offre va dans NoRemote quel que soit le métier.
-        if not accepte_remote(offre.get('Remote')):
+        # Exception posée le 22/09/2026 : les missions SIRH/SAP en Suisse
+        # (Zurich/Genève/Bâle...) restent pertinentes même en présentiel/hybride,
+        # marché local trop important pour l'écarter comme le reste de l'onglet
+        # CH-NL. L'appelant doit le signaler explicitement via `RemoteExempt=True`
+        # (jamais déduit automatiquement du titre, pour éviter tout faux positif).
+        if not offre.get('RemoteExempt') and not accepte_remote(offre.get('Remote')):
             rows_nore.append(ligne)
             if verbose:
                 print(f"+ [NoRemote] {offre.get('Priorité')} | {poste} | {offre.get('Entreprise')}")
