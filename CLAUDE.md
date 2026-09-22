@@ -908,6 +908,16 @@ Ne retenir que les offres explicitement ouvertes à l'international : mentions *
 
 En cas de doute sur une offre par ailleurs excellente, la garder avec priorité réduite et une note explicite (« éligibilité internationale à confirmer ») plutôt que de la perdre.
 
+### Exception SIRH/SAP Suisse : présentiel/hybride accepté (posée le 22/09/2026)
+
+**Le filtre remote strict ci-dessus ne s'applique pas aux missions SIRH/SAP en Suisse.** Gaëtan a confirmé le 22/09/2026, après un premier passage qui n'avait rien remonté d'exploitable en remote pur sur ce métier, qu'il voulait élargir spécifiquement les missions **SAP HCM/SuccessFactors/HRIS en Suisse** (Zurich, Genève, Bâle...) au présentiel et à l'hybride, même logique que l'onglet "Pays Basque" : le marché SAP suisse (banques, pharma, horlogerie) est trop important au regard de ses 14 ans d'expertise SAP pour l'écarter uniquement parce que la mission n'est pas 100% télétravail, et les TJM suisses sont nettement supérieurs aux fourchettes FR.
+
+**Portée de l'exception, à respecter strictement :**
+- **Suisse uniquement, pas les Pays-Bas** (le marché néerlandais n'a pas ce même poids SAP, l'exception ne les concerne pas).
+- **SIRH/SAP uniquement** (HRIS, SAP HCM, SuccessFactors, Payroll, HR Access...), pas les autres métiers (CSM, PM, UX, SEO restent soumis au remote strict même en Suisse).
+- Techniquement : marquer `RemoteExempt=True` dans le dict passé à `ajouter_offres()` (voir `add_offre.py`), en plus de `Onglet='Offres CH-NL'`. **Ne jamais déduire ce marqueur automatiquement du titre ou de la localisation** : contrairement au reste du dispositif, ce n'est pas un motif de routage détecté par regex mais une décision qu'il faut poser explicitement offre par offre, pour ne jamais faire fuiter l'exception vers un autre métier ou un autre pays par accident.
+- Ces offres continuent d'atterrir dans **"Offres CH-NL"** (pas un onglet séparé), avec le champ Remote qui reflète honnêtement la réalité (« Hybride 2j/sem », « Présentiel », etc.) plutôt qu'une valeur qui laisserait croire à du télétravail confirmé.
+
 ### Postes ciblés
 Mêmes familles que le reste du dispositif : CSM/Senior CSM, Technical Account Manager/Solutions Engineer/Solutions Consultant, Implementation Consultant/Onboarding Manager/Professional Services, HRIS/SIRH/SAP HCM/SuccessFactors Consultant (marché suisse très SAP, nombreuses banques et industries pharma/horlogerie à Zurich/Genève/Bâle qui tournent sur SAP HCM), Product Manager, UX/Product Designer, SEO/GEO, Formateur IA.
 
