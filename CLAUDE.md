@@ -894,6 +894,46 @@ Leçon principale, valable pour toutes les sources US sans exception : **le cham
 
 ---
 
+## Recherche Suisse / Pays-Bas (onglet dédié "Offres CH-NL") — ajoutée le 22/09/2026
+
+**À inclure systématiquement dans chaque relance**, au même titre que SIRH, CSM, IA, PM et USA. Demande de Gaëtan le 22/09/2026 : on lui a signalé qu'il y avait des offres intéressantes en Suisse et aux Pays-Bas. Cet onglet capte les offres d'**entreprises basées en Suisse ou aux Pays-Bas**, tous métiers confondus (CSM, SIRH/HRIS, PM, UX, SEO, IA/formation), du moment qu'elles sont ouvertes au télétravail total depuis la France. **Gaëtan n'est pas ouvert à la relocalisation ni au présentiel/hybride en Suisse ou aux Pays-Bas** (confirmé le 22/09/2026, même logique stricte que pour l'onglet USA) : une offre CH/NL non 100% télétravail part dans `NoRemote`, jamais dans `Offres CH-NL`.
+
+### Critère de filtrage : le remote ouvert à la France, pas le remote local CH/NL
+
+**Le point le plus important de cette recherche, identique au piège déjà documenté dans la section « Recherche HRIS internationale hors USA ».** Une offre suisse ou néerlandaise marquée « Remote » n'est pas automatiquement candidatable : beaucoup de postes remote en Suisse ou aux Pays-Bas exigent d'être **résident du pays ou d'y avoir une autorisation de travail** (payroll et cotisations sociales locales, surtout marqué en Suisse hors UE/AELE). Gaëtan est basé en France, sans autorisation de travail suisse ni néerlandaise.
+
+Ne retenir que les offres explicitement ouvertes à l'international : mentions **« Remote - Worldwide »**, **« Remote - Anywhere »**, **« Remote - EMEA »**, **« Remote - Europe »**, **« Remote (International) »**, ou une entreprise déjà connue comme employeur multi-pays (souvent via une EOR type Deel/Remote.com/Oyster en arrière-plan, ou un éditeur SaaS EU qui recrute nommément "France" en plus de "Suisse"/"Pays-Bas"). Écarter (ou envoyer vers `NoRemote` avec une note) toute offre marquée **« Remote (Switzerland only) »**, **« Remote - Netherlands only »**, **« Must be based in Switzerland/the Netherlands »**, **« Swiss work permit required »** sans mention d'ouverture internationale.
+
+En cas de doute sur une offre par ailleurs excellente, la garder avec priorité réduite et une note explicite (« éligibilité internationale à confirmer ») plutôt que de la perdre.
+
+### Postes ciblés
+Mêmes familles que le reste du dispositif : CSM/Senior CSM, Technical Account Manager/Solutions Engineer/Solutions Consultant, Implementation Consultant/Onboarding Manager/Professional Services, HRIS/SIRH/SAP HCM/SuccessFactors Consultant (marché suisse très SAP, nombreuses banques et industries pharma/horlogerie à Zurich/Genève/Bâle qui tournent sur SAP HCM), Product Manager, UX/Product Designer, SEO/GEO, Formateur IA.
+
+### Où chercher
+
+| Source | Méthode |
+|---|---|
+| **API Ashby / Lever / Greenhouse** (dispositif habituel) | Mêmes commandes `curl` que d'habitude ; filtrer sur les entreprises basées en Suisse (Zurich, Genève, Lausanne, Zoug, Bâle) ou aux Pays-Bas (Amsterdam, Rotterdam, Utrecht, Eindhoven) et sur les mentions remote internationales |
+| **jobs.ch** | Premier board généraliste suisse (équivalent local d'Indeed/APEC), filtrer sur télétravail/remote |
+| **jobup.ch** | Board suisse romande, bon pour Genève/Lausanne |
+| **indeed.ch** | Probablement bloqué comme les autres Indeed déjà testés (403), à vérifier une fois |
+| **nationaljobs.ch, jobsuisse.ch** | Boards suisses secondaires, à tester |
+| **nationalevacaturebank.nl** | Board généraliste néerlandais, filtrer sur "thuiswerken"/"remote" |
+| **indeed.nl** | Probablement bloqué comme les autres Indeed déjà testés (403), à vérifier une fois |
+| **jobbird.com, werkzoeken.nl** | Boards néerlandais secondaires, à tester |
+| **welcometothejungle.com** | Filtrer sur Suisse/Pays-Bas dans les résultats, même piège `archived_at` déjà documenté à vérifier avant tout ajout |
+| **Boards VC EU** (Index Ventures a un fort ancrage suisse/genevois, Atomico a un fort ancrage néerlandais) | WebSearch `site:jobs.indexventures.com "customer success" OR "product manager" Switzerland OR remote`, idem Atomico pour les Pays-Bas |
+| **LinkedIn** | Même méthode radar que d'habitude (catégories `fr.linkedin.com/jobs/...-emplois` sans filtre géo, ou `f_WT=2` remote), en ajoutant Suisse/Pays-Bas comme mots-clés de localisation |
+
+### Éditeurs SaaS/HR Tech connus avec forte présence CH ou NL, à tester en priorité
+- **Suisse** : Bexio, Abacus (éditeurs ERP/RH suisses), Klara, On (marque mais probablement pas remote), Temenos (fintech genevoise, gros effectif), SAP (bureau Zurich/Genève, déjà couvert par jobs.sap.com), Adecco Group (siège Zurich)
+- **Pays-Bas** : Adyen, Mollie, Messagebird/Bird, Elastic (racines néerlandaises), Randstad (siège Diemen), Booking.com (Amsterdam, gros effectif, probablement CSM/PM en volume)
+
+### État des sources
+Première relance à mener ; aucun verdict source par source pour l'instant. À compléter après la première passe, comme pour les autres onglets dédiés (voir le format des sections USA/Pays Basque ci-dessus/ci-dessous).
+
+---
+
 ## Recherche HRIS internationale hors USA (Canada, UK, Australie, APAC) — ajoutée le 08/09/2026, révisée le 08/09/2026 après premier test
 
 **Verdict du premier test (08/09/2026) : rendement nul, 0 offre retenue sur ~15 éditeurs testés avec un board exploitable.** Ne pas en faire un cluster systématique à chaque relance ; un passage ponctuel (une fois par mois environ) suffit, en se concentrant sur les deux sources ci-dessous qui bougent. Le reste de cette section documente la méthode pour ce passage ponctuel.
