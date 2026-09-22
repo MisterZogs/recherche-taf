@@ -565,6 +565,9 @@ def ajouter_offres(offres: list[dict], verbose=True):
         if _is_usa(offre):
             rows_usa.append(ligne)
             target = 'Offres USA'
+        elif _is_chnl(offre):
+            rows_chnl.append(ligne)
+            target = 'Offres CH-NL'
         elif _is_ia(poste):
             rows_ia.append(ligne)
             target = 'Offres IA'
