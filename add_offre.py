@@ -516,6 +516,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
     rows_ux   = _archiver_faits(ws_ux,   ws_fait, fait_idx, statut_idx, verbose)
     rows_seo  = _archiver_faits(ws_seo,  ws_fait, fait_idx, statut_idx, verbose)
     rows_usa  = _archiver_faits(ws_usa,  ws_fait, fait_idx, statut_idx, verbose)
+    rows_chnl = _archiver_faits(ws_chnl, ws_fait, fait_idx, statut_idx, verbose)
     rows_pb   = _archiver_faits(ws_pb,   ws_fait, fait_idx, statut_idx, verbose)
     rows_nore = _archiver_faits(ws_nore, ws_fait, fait_idx, statut_idx, verbose)
 
