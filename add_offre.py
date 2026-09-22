@@ -258,6 +258,13 @@ def _is_usa(offre: dict) -> bool:
     return bool(USA_MARKERS.search(loc))
 
 
+def _is_chnl(offre: dict) -> bool:
+    if offre.get('Onglet') == 'Offres CH-NL':
+        return True
+    loc = str(offre.get('Localisation') or '')
+    return bool(CHNL_MARKERS.search(loc))
+
+
 def _capture_cell(cell):
     return {
         'value':         cell.value,
