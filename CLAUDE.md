@@ -871,6 +871,8 @@ Utiliser les CV EN habituels selon le métier (CSM générique, SIRH EN, PM EN/P
 
 À ce jour (11/09/2026), aucune offre HRIS n'est encore tombée dans "Offres USA" (0 sur 59 lignes) ; les offres HRIS actuellement en base sont toutes localisées en France, UK, Portugal ou Allemagne et restent donc dans "Offres SIRH". Cette règle s'appliquera dès qu'une telle offre apparaîtra.
 
+**Même règle appliquée à "Offres CH-NL" (posée le 22/09/2026) :** le marché suisse en particulier est riche en SAP HCM/SuccessFactors (banques, pharma, horlogerie à Zurich/Genève/Bâle) ; une offre HRIS/SIRH/SAP qui atterrit dans "Offres CH-NL" plutôt que dans "Offres SIRH" doit recevoir la même priorité ⭐⭐⭐⭐⭐ par défaut.
+
 ### État des sources — première relance USA du 22/08/2026
 
 Leçon principale, valable pour toutes les sources US sans exception : **le champ `isRemote: true` des API Ashby/Greenhouse/Lever ne garantit jamais l'éligibilité internationale**, il indique seulement l'absence d'obligation de présence au bureau. Toujours lire le champ `location`/`categories.location` et, en cas de doute, le corps de la description (souvent une phrase explicite type « Candidates must reside in the United States »). Un `Remote (US)` ou une ville US dans `location` sans mention EMEA/Europe/Worldwide = à écarter.
