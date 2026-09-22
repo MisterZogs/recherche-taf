@@ -122,6 +122,16 @@ USA_MARKERS = re.compile(
     r'\b(USA|U\.S\.A\.?|United States|U\.S\.|Etats-Unis|États-Unis)\b'
     r'|Remote\s*-\s*US\b|Remote\s*\(US\b', re.I)
 
+# Marqueurs de localisation Suisse / Pays-Bas, pour le routage automatique vers
+# "Offres CH-NL" quand l'appelant n'a pas explicitement mis
+# Onglet='Offres CH-NL' dans le dict.
+CHNL_MARKERS = re.compile(
+    r'\b(Suisse|Switzerland|Schweiz|Svizzera|Confédération helvétique|Genève|Geneva|'
+    r'Gen[eè]ve|Z[uü]rich|Lausanne|B[aâ]le|Basel|Berne|Bern|Zug|Vaud|Neuch[aâ]tel|Lugano|'
+    r'Pays-Bas|Pays Bas|Netherlands|Nederland|Holland|Hollande|Amsterdam|Rotterdam|'
+    r'Utrecht|Eindhoven|La Haye|The Hague|Den Haag)\b'
+    r'|Remote\s*-\s*(CH|NL)\b|Remote\s*\((CH|NL)\b', re.I)
+
 COLORS = {
     '⭐⭐⭐⭐⭐': '00FF0000',
     '⭐⭐⭐⭐':   '00FF8C00',
