@@ -931,8 +931,24 @@ Mêmes familles que le reste du dispositif : CSM/Senior CSM, Technical Account M
 - **Suisse** : Bexio, Abacus (éditeurs ERP/RH suisses), Klara, On (marque mais probablement pas remote), Temenos (fintech genevoise, gros effectif), SAP (bureau Zurich/Genève, déjà couvert par jobs.sap.com), Adecco Group (siège Zurich)
 - **Pays-Bas** : Adyen, Mollie, Messagebird/Bird, Elastic (racines néerlandaises), Randstad (siège Diemen), Booking.com (Amsterdam, gros effectif, probablement CSM/PM en volume)
 
-### État des sources
-Première relance à mener ; aucun verdict source par source pour l'instant. À compléter après la première passe, comme pour les autres onglets dédiés (voir le format des sections USA/Pays Basque ci-dessus/ci-dessous).
+### État des sources — première relance CH/NL du 22/09/2026
+
+2 clusters parallèles (Suisse, Pays-Bas). **13 offres retenues sur les deux pays, 13 insérées** (0 doublon). Répartition : 5 Suisse (Smallpdf ⭐⭐⭐⭐⭐, Proton ×4 ⭐⭐⭐/⭐⭐⭐⭐), 8 Pays-Bas (toutes chez **Nebius**, infrastructure cloud IA cotée Nasdaq basée à Amsterdam, dont un Technical Account Manager ⭐⭐⭐⭐⭐).
+
+**Piège structurel confirmé sur les deux pays, cohérent avec ce qui est déjà documenté pour le reste du monde hors USA** : la grande majorité des scale-ups suisses et néerlandaises connues (SonarSource, Nexthink, Beekeeper, Yokoy, Frontify, Temenos, Scandit côté CH ; Mollie, Bynder, Fonoa, Adyen, Catawiki, Elastic côté NL) publient sur Ashby/Greenhouse avec `isRemote: true` mais un `workplaceType` réel `Hybrid`/local, aucune n'ouvre le remote à la France. Les seules offres retenues viennent d'éditeurs nativement **remote-first distribués** (Smallpdf, Proton, Nebius), pas des entreprises suisses/néerlandaises traditionnelles (banques, pharma, staffing, grands groupes).
+
+| Source | Verdict 22/09/2026 |
+|---|---|
+| **API Greenhouse (Nebius, Proton EU)** | Très productif — 12 des 13 offres retenues viennent de ces deux boards |
+| **API Ashby (Smallpdf)** | 1 pépite ⭐⭐⭐⭐⭐ (Head of SEO/AI Visibility) |
+| **API Ashby/Lever/Greenhouse sur ~15 autres scale-ups suisses connues** | 0 résultat, board absent ou rien de remote/pertinent |
+| **jobs.ch** | Rendu React côté client, quasi impossible à scraper en statique ; les rares fiches vérifiées sont du CDD on-site local |
+| **jobs.sap.com filtré Suisse/Pays-Bas** | Tout en Hybrid (Suisse : programme SAP Academy junior ; Pays-Bas : postes 's-Hertogenbosch `#LI-Hybrid`) |
+| **Temenos via API Workday** | 16 postes, aucun remote confirmé, localisés Paris/Singapour/US |
+| **careers.atomico.com (Getro)** | Bon filon technique côté Suisse (rien de remote confirmé ce jour) mais **bloqué en 403 côté Pays-Bas** (invite à passer par une API payante) — filon Atomico qui s'était bien comporté lors des relances de mi-septembre semble désormais fermé à l'accès direct, à re-tester ponctuellement |
+| **remoterocketship.com/country/netherlands** | Filtre des postes *localisés* aux Pays-Bas avec résidence NL obligatoire (ex. No Isolation, employeur norvégien) — inadapté à ce critère, à ne pas réutiliser pour cet onglet |
+| **welcometothejungle.com** | 403 en WebFetch direct côté Suisse, API avec mauvais slug ; piège `archived_at` déjà documenté, aucune offre confirmée retenue |
+| **Jobgether** | Écarté volontairement côté Suisse : duplication par pays, pas de vraies entreprises suisses derrière |
 
 ---
 
