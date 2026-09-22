@@ -16,6 +16,13 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   dans l'onglet "Offres USA", tous métiers confondus, à condition d'être
   ouvertes au télétravail (le filtre remote prioritaire s'applique comme
   pour les autres onglets).
+- Les offres d'entreprises basées en Suisse ou aux Pays-Bas (repérées via
+  `Onglet='Offres CH-NL'` dans le dict, ou par défaut via un marqueur
+  Suisse/Pays-Bas dans la Localisation) vont dans l'onglet "Offres CH-NL",
+  tous métiers confondus, à condition d'être ouvertes au télétravail total
+  depuis la France (le filtre remote prioritaire s'applique comme pour les
+  autres onglets ; un remote limité aux résidents suisses ou néerlandais ne
+  suffit pas, même logique que pour "Offres USA").
 - Les offres marquées `Onglet='Pays Basque'` vont dans l'onglet "Pays Basque"
   (grosses entreprises du Sud-Ouest à moins de 1h15 de route de Biarritz),
   AVANT tout filtre télétravail : cet onglet échappe volontairement à la
