@@ -23,6 +23,13 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   depuis la France (le filtre remote prioritaire s'applique comme pour les
   autres onglets ; un remote limité aux résidents suisses ou néerlandais ne
   suffit pas, même logique que pour "Offres USA").
+- Exception posée le 22/09/2026 : les missions SIRH/SAP en Suisse (Zurich,
+  Genève, Bâle...) marquées `RemoteExempt=True` échappent au filtre
+  télétravail, même logique que "Pays Basque" ci-dessous, mais restent
+  routées vers "Offres CH-NL" (pas un onglet séparé). Réservé au SIRH/SAP
+  suisse par décision explicite de Gaëtan (marché local trop important pour
+  l'écarter) ; jamais déduit automatiquement du titre ou de la Localisation,
+  toujours signalé explicitement par l'appelant.
 - Les offres marquées `Onglet='Pays Basque'` vont dans l'onglet "Pays Basque"
   (grosses entreprises du Sud-Ouest à moins de 1h15 de route de Biarritz),
   AVANT tout filtre télétravail : cet onglet échappe volontairement à la
