@@ -437,7 +437,7 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 | Infosys | `https://career.infosys.com/jobdesc?jobReferenceCode=INFSRNJP00199` | SAP SuccessFactors, HCM (WebSearch "Infosys SAP HR France") |
 | Wipro | `https://careers.wipro.com/careers-home/jobs?search=SAP+HCM` | SAP HCM, SIRH |
 | HCL Technologies | `https://www.hcltech.com/careers` | SAP HR, HCM, SF (WebSearch "HCL SAP SuccessFactors France") |
-| Tech Mahindra | `https://careers.techmahindra.com/Search?q=SAP+HR` | SAP HR, HCM |
+| Tech Mahindra | `https://careers.techmahindra.com/Search?q=SAP+HR` | SAP HR, HCM — **testé le 23/09/2026 : aucun poste France identifiable via WebSearch, offres SAP SuccessFactors trouvées toutes en Inde (Hyderabad/Bengaluru/Pune) — rendement nul confirmé** |
 
 ### Cabinets RH / HR Tech spécialisés
 | Cabinet | URL carrière | Ce qu'on cherche |
