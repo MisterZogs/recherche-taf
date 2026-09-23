@@ -400,7 +400,7 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 | Atomico | atomico.com/careers-at-portfolio | CSM, HRIS, remote EU |
 | a16z | WebSearch `site:jobs.a16z.com "customer success" remote` | CSM senior, remote world |
 | Sequoia | WebSearch `site:jobs.sequoiacap.com "customer success" OR HRIS` | CSM, HRIS, startups |
-| Ribbit (fintech) | ribbitcap.com/companies | CSM fintech/HRIS |
+| Ribbit (fintech) | ribbitcap.com/companies | CSM fintech/HRIS — **testé le 23/09/2026 : pas de board carrières ni de page "companies" avec offres exploitable, uniquement des articles sur le fonds et son portefeuille (Affirm, Brex, Coinbase, Nubank, Revolut, Robinhood...). Pour toucher ce portefeuille, il faudrait tester les ATS de chaque société individuellement (déjà fait pour certaines par ailleurs), pas Ribbit lui-même — rendement nul confirmé, ne pas retester en tant que source directe** |
 
 ---
 
