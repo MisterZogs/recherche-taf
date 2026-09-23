@@ -419,7 +419,7 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 ### Big 3 (stratégie)
 | Cabinet | URL carrière | Ce qu'on cherche |
 |---------|-------------|-----------------|
-| McKinsey | `https://www.mckinsey.com/fr/careers` | Expert RH / People Analytics / transformation digitale |
+| McKinsey | `https://www.mckinsey.com/fr/careers` | Expert RH / People Analytics / transformation digitale — **testé le 23/09/2026 : connexion échoue en curl (timeout), WebSearch ne remonte que des publications de recherche (HR Monitor 2026) et la page carrières générique, aucun poste concret identifiable — rendement nul confirmé, ne pas relancer souvent** |
 | BCG | WebSearch — URL 404, postes génériques non extractibles (27-28/07/2026) — **relancer peu utile**, profil trop junior ciblé | Consultant transformation RH, digital HR |
 | Bain | WebSearch — URL 404, postes génériques non extractibles (27-28/07/2026) — **relancer peu utile** | Consultant transformation RH, expertise SAP |
 
