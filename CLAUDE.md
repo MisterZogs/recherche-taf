@@ -467,7 +467,7 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 | Entreprise | URL carrière | Ce qu'on cherche |
 |-----------|-------------|-----------------|
 | Strada (ex-Alight / ex-NGA Human Resources) | `https://careers.alight.com/strada` — WebSearch `"Strada" OR "Alight" consultant SAP HCM France 2026` | CSM, SAP HCM Consultant, Implementation Consultant — 1er partenaire mondial SAP HR. **Rebrand 2024 : la division SAP HCM s'appelle désormais Strada.** Postes France à Colombes, fetch direct fonctionne sur careers.alight.com/strada |
-| Zalaris | `https://www.zalaris.com/careers/` | SAP HR/HCM Consultant, Project Manager, Payroll Consultant — spécialiste SAP HR Europe nordique + DACH + France |
+| Zalaris | **URL corrigée le 23/09/2026 : `https://jobs.zalaris.com/`** (careers.zalaris.com en 404). Testé le 23/09/2026 via `/search/` : 37 postes ouverts, **0 en France**, tout ancré Chennai/Frankfurt/Gdynia/Granada/Helsinki/Riga/Weybridge (recrutement par pays comme la plupart des éditeurs HRIS internationaux) — rendement nul confirmé, ne pas relancer souvent | SAP HR/HCM Consultant, Project Manager, Payroll Consultant — spécialiste SAP HR Europe nordique + DACH + France |
 | Rizing (groupe Verizon) | WebSearch `"Rizing" SAP HCM SuccessFactors consultant France emploi 2026` | SAP HCM / SuccessFactors Consultant — postes hors France identifiés (28/07/2026), relancer ponctuellement |
 | Inetum (ex-GFI) | WebSearch `"Inetum" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR, Chef de projet SIRH, AMOA SIRH — acteur majeur SAP France (site ECONNREFUSED) |
 | Expleo | `https://www.expleo.com/fr/carrieres/nos-offres/` | Consultant SAP HR, Chef de projet SIRH — consulting technique France |
