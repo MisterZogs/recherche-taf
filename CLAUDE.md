@@ -471,7 +471,7 @@ Catégorie distincte des cabinets de conseil : ce sont des **éditeurs de logici
 | Rizing (groupe Verizon) | WebSearch `"Rizing" SAP HCM SuccessFactors consultant France emploi 2026` | SAP HCM / SuccessFactors Consultant — postes hors France identifiés (28/07/2026), relancer ponctuellement |
 | Inetum (ex-GFI) | WebSearch `"Inetum" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR, Chef de projet SIRH, AMOA SIRH — acteur majeur SAP France (site ECONNREFUSED) |
 | Expleo | `https://www.expleo.com/fr/carrieres/nos-offres/` | Consultant SAP HR, Chef de projet SIRH — consulting technique France |
-| Randstad Digital (ex-Ausy) | WebSearch `"Randstad Digital" SAP HCM SuccessFactors consultant France 2026` | SAP HCM, SuccessFactors, AMOA SIRH |
+| Randstad Digital (ex-Ausy) | WebSearch `"Randstad Digital" SAP HCM SuccessFactors consultant France 2026` | SAP HCM, SuccessFactors, AMOA SIRH — **testé le 23/09/2026 : postes SAP SuccessFactors trouvés quasi tous en Allemagne (Munich), rien de spécifique France identifié — rendement faible confirmé** |
 | Alten | WebSearch `"Alten" consultant SAP HR HCM SIRH France CDI 2026` | Consultant SAP HR/HCM, Chef de projet SIRH — SSII France (site en 403) |
 | delaware | **La vraie URL France est `carriere.delaware.pro/jobs`** (`careers.delaware.pro` est en ENOTFOUND) — 12 postes le 01/09/2026, tous SAP FICO/SD/MM/S4, **aucun HCM/SF** ; les postes SuccessFactors indexés sont en Belgique (fr-be) |
 | NTT Data Business Solutions (ex-itelligence) | **Flux RSS exploitable** : `careers.nttdata-solutions.com/services/rss/job/?keywords=successfactors` — mais tous les postes SF sont Inde/Allemagne/UK/Malaisie le 01/09/2026, 0 France et 0 remote worldwide |
