@@ -443,10 +443,10 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 | Cabinet | URL carrière | Ce qu'on cherche |
 |---------|-------------|-----------------|
 | HR Path | `https://jobs.hr-path.com/jobs` | Consultant SAP HCM, SuccessFactors, AMOA SIRH — très ciblé |
-| Mercer | `https://careers.mercer.com/en/search-jobs?q=SIRH+SAP&country=FR` | Consultant SIRH, transformation RH, SAP |
-| Aon | `https://jobs.aon.com/jobs?q=SAP+HR&location=France` | HR Consulting, SIRH, données RH |
-| Willis Towers Watson (WTW) | `https://careers.wtwco.com/en/jobs?q=SAP+HR&location=France` | Consultant RH, transformation SIRH |
-| Korn Ferry | `https://jobs.kornferry.com/?search=SAP+HR+France` | Consultant RH, SIRH, talent management |
+| Mercer | **Découverte majeure du 23/09/2026 : le recrutement SIRH de Mercer France passe par `convictionsrh.com`, pas `careers.mercer.com` (page JS non exploitable).** ConvictionsRH, cabinet SIRH historique, a rejoint Mercer/Marsh en août 2025 et reste la marque de recrutement pour ce périmètre. **Endpoint REST WordPress exploitable en curl : `https://www.convictionsrh.com/wp-json/wp/v2/job?per_page=50`** (renvoie titre, lien, date de chaque offre en JSON, sans avoir besoin de parser le HTML). 14 offres trouvées le 23/09 (12 retenues après exclusion stage/alternance/offre 2023 périmée), 8 nouvelles ajoutées à Offres SIRH — **à fetcher systématiquement désormais** | Consultant SIRH, transformation RH, SAP |
+| Aon | `https://jobs.aon.com/jobs?q=SAP+HR&location=France` | HR Consulting, SIRH, données RH — **testé le 23/09/2026 : page JS non exploitable en fetch direct (spinner de chargement). WebSearch ne remonte aucun poste SAP HR/SIRH propre à Aon (uniquement ACT-ON GROUP, déjà connu) — rendement nul confirmé** |
+| Willis Towers Watson (WTW) | `https://careers.wtwco.com/en/jobs?q=SAP+HR&location=France` | Consultant RH, transformation SIRH — **testé le 23/09/2026 : URL directe en 404. WebSearch confirme 57 postes WTW en France mais rien de spécifique SIRH/SAP identifié, un poste "Consultant Confirmé / Chef de Projet Work & Rewards" (compensation, pas SIRH) repéré sur Workopia sans confirmation de vivacité — rendement faible, à retester ponctuellement** |
+| Korn Ferry | `https://jobs.kornferry.com/?search=SAP+HR+France` | Consultant RH, SIRH, talent management — **testé le 23/09/2026 : URL directe injoignable (timeout). WebSearch ne remonte aucun poste SIRH/SAP concret en France, seulement des pages génériques — rendement nul confirmé** |
 | Sia Partners | WebSearch `"Sia Partners" consultant SIRH SAP IA France CDI 2026` | Consultant IA, transformation RH, AMOA SIRH (URL directe retournait 404) |
 | Forvis Mazars | `https://www.mazars.fr/Home/Carrieres/Nos-offres-d-emploi` | Consultant SIRH, transformation RH |
 | Oliver Wyman | `https://careers.oliverwyman.com/search/?q=HR+SAP&locationsearch=France` | Conseil RH, transformation digitale |
