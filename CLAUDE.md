@@ -428,7 +428,7 @@ Liste soumise par Gaëtan. Verdict après test de chacune : la plupart sont des 
 |---------|-------------|-----------------|
 | Accenture | WebSearch `"Accenture" consultant SAP HCM SuccessFactors SIRH France CDI 2026` — postes SAP SF trouvés US/NZ uniquement, pas France (28/07/2026) — relancer ponctuellement | SAP HCM, SuccessFactors, Consultant SIRH, CSM |
 | Capgemini | `https://www.capgemini.com/fr-fr/jobs/` | SAP HR, SIRH, Chef de projet SIRH, AMOA (ancienne URL retournait 404) |
-| IBM Consulting | `https://www.ibm.com/fr-fr/employment/` | SAP SuccessFactors, HRIS Consultant, AI Transformation |
+| IBM Consulting | `https://www.ibm.com/fr-fr/employment/` | SAP SuccessFactors, HRIS Consultant, AI Transformation — **testé le 23/09/2026 : page d'accueil générique en fetch direct, aucun listing exploitable.** WebSearch remonte plusieurs postes SAP SuccessFactors réels (Bois-Colombes) mais le lien LinkedIn trouvé était déjà expiré (`trk=expired_jd_redirect`) — à retester via WebSearch ponctuellement en cherchant un lien direct `ibm.com/careers` plutôt que LinkedIn |
 | Sopra Steria | `https://careers.soprasteria.fr/` | Consultant SAP HR/HCM/SF, Chef de projet SIRH |
 | CGI | `https://cgi.njoyn.com/corp/xweb/xweb.asp?CLID=21001` | SAP HCM, SIRH (ATS propriétaire, déjà référencé) |
 | Atos / Eviden | WebSearch `"Eviden" OR "Atos" consultant SAP HR SuccessFactors France 2026` — ECONNREFUSED, aucun poste France identifié (27-28/07/2026) — relancer ponctuellement | SAP HR, SuccessFactors, AMOA SIRH |
