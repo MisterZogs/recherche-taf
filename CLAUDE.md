@@ -593,7 +593,7 @@ Rendement porté comme d'habitude par le cluster FR/freelance (le detail source-
 | **careers.atomico.com** | Paramètre `query` toujours ignoré, aucun résultat pertinent |
 | **n8n (Ashby)** | Aucun fit remote-France (tout ancré Berlin/US) |
 
-
+## Sites de recherche IA (onglet "Offres IA")
 
 **À inclure systématiquement dans chaque relance de recherche**, en parallèle des recherches SIRH/CSM.
 
