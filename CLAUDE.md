@@ -574,7 +574,26 @@ Rendement à nouveau massivement porté par le cluster FR/freelance (1138 candid
 | **intescia.recruitee.com/api/offers/ (Pays Basque)** | 0 poste à Bidart ce jour, seulement des rôles remote hors périmètre géographique de l'onglet |
 | **Pages carrière directes TotalEnergies/Teréga/Dassault Aviation/Euralis** | Toutes rendues en JS, non scrapables en fetch direct — à creuser via Workday/ATS propre lors d'une prochaine relance si le temps le permet |
 
-## Sites de recherche IA (onglet "Offres IA")
+### État des sources — relance du 2026-09-24
+
+4 clusters lancés en parallèle en tâche de fond (FR/freelance, ATS+HRIS+USA+CH-NL, remote/VC EU+cabinets/éditeurs, Pays Basque+Bordeaux). **Incident majeur en cours de route, à intégrer dans la méthode pour toute relance future : la limite de session Claude Code a été atteinte pendant que les 4 forks tournaient encore.** Les messages utilisateur envoyés pour relancer ("continue"/"reprends") ont fait reprendre plusieurs fois les mêmes agents en tâche de fond, générant des doublons de process : à un moment, deux exécutions du cluster FR ont tourné en parallèle et écrit concurremment sur le même fichier de sortie JSON. L'agent l'a détecté lui-même et a sauvegardé les deux jeux de données séparément (`relance_20260924_cluster_fr.json` et `relance_20260924_cluster_fr_agentB.json`, plus une sauvegarde `..._OTHERPROCESS_backup.json`) plutôt que de laisser l'un écraser l'autre — bon réflexe, à saluer, mais qui confirme un vrai risque structurel : **écrire un fichier JSON scratch par cluster (jamais directement dans le classeur xlsx pendant que plusieurs clusters tournent) reste la bonne pratique, mais elle ne protège pas contre deux instances du MÊME cluster qui tournent en même temps sur le MÊME fichier.** Leçon pour la prochaine fois : en cas de coupure de session pendant une relance en tâche de fond, vérifier l'état des fichiers scratch avant de renvoyer un message de relance à l'aveugle, plutôt que de risquer une reprise en double. Malgré l'incident, l'écriture incrémentale (toutes les 3-5 offres) a une nouvelle fois permis de tout récupérer : rien n'a été perdu, seulement dupliqué (le dédoublonnage en fusion a nettoyé le surplus).
+
+**Résultat malgré l'incident** : 1596 offres candidates brutes compilées (746 + 57 + 689 + 58 + 31 + 15 sur les 6 fichiers scratch), fusionnées avec un script dédié (`merge_relance_20260924.py`, même logique que le 23/09) : 780 doublons retirés par lien exact, 8 par paire Entreprise+Poste normalisée, 0 stage/alternance détecté à ce stade (les agents avaient déjà filtré en amont). **808 offres uniques soumises à `add_offre.ajouter_offres()`, qui en a rejeté 486 supplémentaires (déjà présentes dans le classeur), pour 322 lignes effectivement insérées.** Répartition par onglet après ajout : SIRH 1396 (+110), PM 819 (+32), CSM 762 (+48), IA 441 (+34), UX 381 (+12), SEO 110 (+1), Pays Basque 115 (+2), CH-NL 31 (+1), USA 111 (+0), NoRemote 1316 (+82). Le rendement net (322/808 ≈ 40%) est plus faible que le 23/09 (511/1233 ≈ 41%, comparable en fait), mais le volume brut est resté correct malgré la moitié du temps de recherche effective perdue à cause de l'incident de session.
+
+Rendement porté comme d'habitude par le cluster FR/freelance (le detail source-par-source n'a pas pu être collecté proprement à cause de l'incident de fusion des deux exécutions concurrentes). Le cluster remote/VC/cabinets a eu un rendement plus faible que les relances précédentes : euremotejobs.com passé de productif à bloqué en 403 malgré plusieurs UA testés, remotifyeurope.com n'a rendu aucune offre France ce jour (contraste avec le 23/09), careers.atomico.com toujours à 0 sur ce cluster. Seules 7 offres retenues sur ce cluster, dont 2 pépites Nebius avec France explicitement listée (Customer Engineer EMEA, Key Customers Solutions Architect EMEA) et Transatel/Ubigi (SEO/GEO hybride).
+
+| Source | Verdict 24/09/2026 |
+|---|---|
+| **Cluster FR/freelance** | 746-689 offres selon la version retenue après incident de concurrence (voir plus haut), détail source-par-source non disponible cette fois |
+| **Nebius (Greenhouse)** | Toujours un bon filon, 381 postes balayés, plusieurs avec France explicite |
+| **Proton (Greenhouse EU)** | 61 postes mais tous présentiel/hybride bureaux (Paris/Genève/Londres) sans option remote — écartés |
+| **geojobs.ai** | 71 rôles SEO/GEO/AEO balayés, rendement faible ce jour (très US-centré) |
+| **euremotejobs.com** | Bloqué en 403 malgré plusieurs User-Agent testés — à re-tester, comportement intermittent déjà documenté |
+| **remotifyeurope.com** | 0 offre France ce jour (pages catégorie/pays vides), contraste avec le 23/09 — confirme la forte variabilité de ce board d'une relance à l'autre |
+| **careers.atomico.com** | Paramètre `query` toujours ignoré, aucun résultat pertinent |
+| **n8n (Ashby)** | Aucun fit remote-France (tout ancré Berlin/US) |
+
+
 
 **À inclure systématiquement dans chaque relance de recherche**, en parallèle des recherches SIRH/CSM.
 
