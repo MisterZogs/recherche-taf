@@ -6,6 +6,18 @@
 
 **Mémoire entre sessions : ce fichier est la seule mémoire qui survit.** Une nouvelle session ne se souvient de rien de ce qui a été dit ou fait dans une conversation précédente, seul ce que ce fichier contient est relu à chaque lancement. Toute leçon durable trouvée en session (une erreur méthodologique identifiée, une source qui se comporte différemment de ce qui était noté, une règle métier précisée ou corrigée par Gaëtan) doit être écrite ici avant la fin de la session, immédiatement quand elle est découverte plutôt que remise à plus tard. Ne pas se contenter de la dire dans le chat en pensant que « la prochaine fois » on y pensera : il n'y aura pas de prochaine fois qui s'en souvienne si ce n'est pas écrit ici.
 
+## Méthode de lancement d'une relance (posée le 24/09/2026, pour tenir dans une seule session)
+
+**Ne jamais lancer les 4 clusters de relance en `fork`.** Un fork hérite de tout le contexte de la conversation en cours, y compris l'intégralité de ce fichier CLAUDE.md (plusieurs milliers de lignes) : lancer 4 forks revient à payer 4 fois le coût de lecture de ce fichier avant même le premier appel réseau. Sur la relance du 24/09/2026, ça a suffi à épuiser tout le budget de la session alors qu'aucune autre tâche n'avait été faite.
+
+**Utiliser 4 agents `general-purpose` frais** (pas fork), un par cluster (FR/freelance, ATS+HRIS+USA+CH-NL, remote/VC EU+cabinets/éditeurs, Pays Basque+Bordeaux). Chaque agent reçoit une consigne courte qui lui dit de lire uniquement `relance_regles_communes.md` puis son fichier `relance_sources_<cluster>.md` (`relance_sources_fr.md`, `relance_sources_ats.md`, `relance_sources_remote.md`, `relance_sources_pb.md`) — jamais CLAUDE.md en entier. Ces fichiers contiennent le résumé du profil, le format de sortie, les exclusions, le filtre remote et la liste condensée des sources (URL/endpoint + verdict en une ligne, sans la narration historique). Préciser dans la consigne le nom du fichier JSON de sortie attendu (`relance_<date>_cluster_<nom>.json`).
+
+Après complétion des 4 clusters : fusionner avec un script (voir `merge_relance_20260924.py` comme modèle, dédoublonnage par lien exact + paire Entreprise/Poste normalisée + exclusion stage/alternance en filet de sécurité), puis une seule passe `add_offre.ajouter_offres()` sur le fichier fusionné. Ne jamais laisser un cluster écrire directement dans `offres_emploi.xlsx`.
+
+**Si la limite de session est atteinte pendant qu'un cluster tourne encore** : avant d'envoyer un message pour relancer, vérifier l'état du fichier JSON de sortie de ce cluster (il doit déjà contenir du contenu grâce à l'écriture incrémentale). Reprendre l'agent existant (`SendMessage` vers son id) plutôt que d'en relancer un nouveau à l'aveugle : le 24/09/2026, une reprise mal gérée a fait tourner deux instances du même cluster en parallèle sur le même fichier de sortie (récupéré sans perte grâce à l'écriture incrémentale, mais budget de session gaspillé en travail dupliqué).
+
+Garder à jour `relance_sources_<cluster>.md` au fil des relances (déplacer une source qui devient morte/productive dans la bonne section), exactement comme les tableaux "État des sources" de ce fichier CLAUDE.md sont mis à jour aujourd'hui — les deux doivent rester cohérents, mais `relance_sources_*.md` est la version condensée réellement lue par les agents de relance.
+
 ---
 
 ## Contexte général
