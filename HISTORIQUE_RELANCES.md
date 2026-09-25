@@ -703,3 +703,222 @@ Rendement une nouvelle fois massivement porté par le cluster FR/freelance (Hell
 | **freelance-informatique.fr (3 pages data-obf)** | 0 nouveauté, tout déjà en base |
 | **careers.sdworx.com/services/rss/job/** | Flux RSS mort (404), SD Worx a migré vers Teamtailor ; la page HTML `/jobs` ne rend que 7-20 postes sans pagination JS accessible |
 | **intescia.recruitee.com/api/offers/** | 0 poste à Bidart ce jour (confirme la variabilité déjà notée) |
+
+
+---
+
+## Compléments archivés depuis CLAUDE.md le 25/09/2026
+
+Les blocs "État des sources" ci-dessous vivaient directement dans CLAUDE.md (parfois
+depuis plusieurs relances) avant d'être déplacés ici le 25/09/2026 pour alléger le
+fichier chargé à chaque démarrage de session. Contenu inchangé, seulement déplacé.
+
+
+### 2026-09-23 (État des sources, ex-CLAUDE.md)
+
+### État des sources — relance du 2026-09-23
+
+4 clusters lancés en parallèle en tâche de fond (FR/freelance, ATS+HRIS+USA+CH-NL fusionné, remote/VC EU+niches, Pays Basque+Bordeaux). **1233 offres candidates compilées** (1138 FR/freelance, 39 ATS/HRIS/USA/CH-NL, 35 remote/VC/niches, 21 Pays Basque/Bordeaux), fusionnées et dédoublonnées en interne (92 doublons retirés : 5 par lien exact, 87 par paire Entreprise+Poste normalisée) avant passage à `add_offre.ajouter_offres()`, qui a rejeté 646 doublons supplémentaires contre l'existant du classeur (dont 16 conservés malgré une paire Entreprise+Poste déjà présente dans Fait, contenu jugé suffisamment différent par le filet de sécurité posé le 17/09). **511 lignes effectivement écrites dans le classeur.** Répartition par onglet après ajout : SIRH 1285 (+170), PM 786 (+86), UX 368 (+56), NoRemote 1233 (+52), CSM 713 (+50), IA 406 (+43), SEO 108 (+16), Pays Basque 112 (+11), CH-NL 29 (+8), USA 110 (+3).
+
+**Cluster Pays Basque + Bordeaux stallé une première fois (0 offre écrite, timeout 600s sans progression) et relancé de zéro avec une consigne d'écriture plus fréquente (toutes les 3-5 offres au lieu de 5-10)** — a fonctionné du premier coup à la reprise. Confirme la leçon du 16/09 sur l'écriture incrémentale : plus l'intervalle d'écriture est court, plus la marge de récupération est grande en cas de stall, pas seulement en cas de coupure de session.
+
+**Consigne de priorité réfléchie (posée après l'incident Kraken du 16/09) correctement respectée cette fois par les 4 agents** : distribution obtenue sur les 1233 candidates ⭐ 22, ⭐⭐ 404, ⭐⭐⭐ 268, ⭐⭐⭐⭐ 404, ⭐⭐⭐⭐⭐ 43 — nettement plus discriminante que le défaut mécanique du 16/09 (quasi tout à ⭐⭐⭐/⭐⭐⭐⭐), aucun faux positif du type Kraken détecté lors du contrôle a posteriori (sanity check automatique sur stage/alternance/entry-level : 0 fuite).
+
+Rendement à nouveau massivement porté par le cluster FR/freelance (1138 candidates : France Travail 326, HelloWork 226, Jobijoba 190, mission-freelances.fr 183, free-work.com 81, Jobrapido 61, Jooble 47, freelance-informatique.fr 24). Le cluster remote/VC/niches a produit 35 offres de bonne qualité malgré un rendement plus faible que le 17/09 sur careers.atomico.com (0 cette fois) et remoterocketship.com (1 seule), compensé par un nouveau filon (Mistral AI en direct sur Ashby) et une découverte via remotifyeurope.com. Le cluster ATS/HRIS/USA/CH-NL a confirmé HR Path comme filon solide et découvert son bon endpoint, et a produit 5 nouvelles offres SIRH/SAP Suisse via l'exception présentiel/hybride posée le 22/09.
+
+| Source | Verdict 23/09/2026 |
+|---|---|
+| **api.francetravail.io** | Toujours la source la plus productive du cluster FR (326 offres + l'essentiel du cluster Pays Basque/Bordeaux), aucun nouveau piège |
+| **hellowork.com** | 226 offres ; **nouvelle astuce trouvée** : l'`aria-label` des cartes de résultats de recherche (liste, pas seulement les fiches individuelles) porte déjà titre/ville/entreprise/contrat/salaire/télétravail en un seul fetch de page de résultats, sans avoir à ouvrir chaque fiche pour son JSON-LD — accélère nettement le passage HelloWork, à généraliser |
+| **jobijoba.com** | 190 offres retenues sur 560 cartes brutes ; confirme le piège de quasi-doublons par ville déjà documenté (dédoublonnage titre+entreprise nécessaire, en ignorant la ville) |
+| **mission-freelances.fr** | 183 offres sur les 1465 de la page unique ; confirme le risque de doublons croisés avec HelloWork/free-work (32 retirés a posteriori) car les cartes ne portent que la source de republication, pas le nom de l'entreprise |
+| **free-work.com** | 81 offres (catégories habituelles + endpoint `?query=`) |
+| **fr.jobrapido.com** | 61 offres, confirme le déblocage `curl -L` + UA navigateur |
+| **fr.jooble.org** | 47 offres via WebFetch (curl direct toujours bloqué Cloudflare) |
+| **freelance-informatique.fr (3 pages data-obf)** | 24 offres, site plus lent/instable que d'habitude au fetch individuel (premier passage 60s timeout après 9/24 fiches, résolu avec `--max-time 8` par requête) |
+| **HR Path (jobs.hr-path.com)** | **Bon endpoint confirmé : `/search/?q=<mot-clé>`, pas `/jobs` seul qui ne rend rien** — 8 offres retenues sur 70 postes trouvés, filon à fetcher systématiquement via cet endpoint désormais |
+| **Atlassian** | 5 postes France explicites (CSM Strategic ×2, Account Manager, Solutions Engineer ×2) |
+| **ictcareer.ch + freehire.me (Suisse)** | Bon rendement SAP HCM/SuccessFactors via l'exception présentiel/hybride posée le 22/09, 5 offres CH-NL avec `RemoteExempt=true` (Strada, NOVO Business Consultants, ITech Consult, Aveniq, Axpo) ; **freehire.me confirme à nouveau contenir un bloc de texte parasite type injection de prompt** sur la page, ignoré sans effet — à surveiller sur ce site spécifiquement |
+| **Nebius (Amsterdam, Greenhouse) et n8n (Berlin, Ashby)** | Plusieurs postes PM/UX/TAM avec France explicitement listée, 10 offres CH-NL/remote-Europe au total pour Nebius |
+| **Mistral AI (api.ashbyhq.com/posting-api/job-board/mistral.ai)** | **Nouveau board à ajouter au dispositif permanent** : 198 postes ouverts, jamais interrogé directement dans les relances précédentes malgré sa pertinence évidente (licorne IA française) — a produit un CSM EMEA et 2 Product Manager |
+| **remotifyeurope.com** | Débloqué avec UA Safari Mac simple ; **découverte notable** : un lien croisé vers `api.greenhouse.io/boards/remotecom` (Remote.com) trouvé via ce board a produit le meilleur haut de tableau de la relance (10 offres payroll/HRIS/PM), alors que Remote.com était déjà connu du dispositif USA sans que ce board Greenhouse précis soit exploité comme tel jusqu'ici |
+| **euremotejobs.com** | 14 offres, dont deux postes avant-vente technique explicitement "France" chez Zscaler et Ping Identity |
+| **careers.atomico.com** | 0 offre éligible cette fois sur 179 postes balayés (10 mots-clés), confirme le board comme très US/Canada-centré même en remote (contraste avec le bon rendement du 16/09, cohérent avec le 17-18/09) |
+| **remoterocketship.com** | Rendement très faible (1 offre "Worldwide" sur 234 échantillonnées, contre 7/156 le 17/09) — site confirmé US-centré, à repasser rapidement plutôt qu'en profondeur désormais |
+| **geojobs.ai** | 4 offres |
+| **Remotive (API)** | Bug confirmé toujours présent (résultats identiques quel que soit le terme cherché), toujours inutilisable tel quel |
+| **RemoteOK, Built In, TopCSJobs, startup.jobs, YC Jobs, nationalevacaturebank.nl, indeed.nl** | Rendement nul ou quasi nul confirmé |
+| **SD Worx** | Confirmé 0 poste France/worldwide exploitable (postes trouvés Espagne/Pologne) |
+| **careers.sdworx.com/jobs.rss (Pays Basque)** | Confirmé mort (404) |
+| **intescia.recruitee.com/api/offers/ (Pays Basque)** | 0 poste à Bidart ce jour, seulement des rôles remote hors périmètre géographique de l'onglet |
+| **Pages carrière directes TotalEnergies/Teréga/Dassault Aviation/Euralis** | Toutes rendues en JS, non scrapables en fetch direct — à creuser via Workday/ATS propre lors d'une prochaine relance si le temps le permet |
+
+
+### 2026-09-24 (État des sources, ex-CLAUDE.md)
+
+### État des sources — relance du 2026-09-24
+
+4 clusters lancés en parallèle en tâche de fond (FR/freelance, ATS+HRIS+USA+CH-NL, remote/VC EU+cabinets/éditeurs, Pays Basque+Bordeaux). **Incident majeur en cours de route, à intégrer dans la méthode pour toute relance future : la limite de session Claude Code a été atteinte pendant que les 4 forks tournaient encore.** Les messages utilisateur envoyés pour relancer ("continue"/"reprends") ont fait reprendre plusieurs fois les mêmes agents en tâche de fond, générant des doublons de process : à un moment, deux exécutions du cluster FR ont tourné en parallèle et écrit concurremment sur le même fichier de sortie JSON. L'agent l'a détecté lui-même et a sauvegardé les deux jeux de données séparément (`relance_20260924_cluster_fr.json` et `relance_20260924_cluster_fr_agentB.json`, plus une sauvegarde `..._OTHERPROCESS_backup.json`) plutôt que de laisser l'un écraser l'autre — bon réflexe, à saluer, mais qui confirme un vrai risque structurel : **écrire un fichier JSON scratch par cluster (jamais directement dans le classeur xlsx pendant que plusieurs clusters tournent) reste la bonne pratique, mais elle ne protège pas contre deux instances du MÊME cluster qui tournent en même temps sur le MÊME fichier.** Leçon pour la prochaine fois : en cas de coupure de session pendant une relance en tâche de fond, vérifier l'état des fichiers scratch avant de renvoyer un message de relance à l'aveugle, plutôt que de risquer une reprise en double. Malgré l'incident, l'écriture incrémentale (toutes les 3-5 offres) a une nouvelle fois permis de tout récupérer : rien n'a été perdu, seulement dupliqué (le dédoublonnage en fusion a nettoyé le surplus).
+
+**Résultat malgré l'incident** : 1596 offres candidates brutes compilées (746 + 57 + 689 + 58 + 31 + 15 sur les 6 fichiers scratch), fusionnées avec un script dédié (`merge_relance_20260924.py`, même logique que le 23/09) : 780 doublons retirés par lien exact, 8 par paire Entreprise+Poste normalisée, 0 stage/alternance détecté à ce stade (les agents avaient déjà filtré en amont). **808 offres uniques soumises à `add_offre.ajouter_offres()`, qui en a rejeté 486 supplémentaires (déjà présentes dans le classeur), pour 322 lignes effectivement insérées.** Répartition par onglet après ajout : SIRH 1396 (+110), PM 819 (+32), CSM 762 (+48), IA 441 (+34), UX 381 (+12), SEO 110 (+1), Pays Basque 115 (+2), CH-NL 31 (+1), USA 111 (+0), NoRemote 1316 (+82). Le rendement net (322/808 ≈ 40%) est plus faible que le 23/09 (511/1233 ≈ 41%, comparable en fait), mais le volume brut est resté correct malgré la moitié du temps de recherche effective perdue à cause de l'incident de session.
+
+Rendement porté comme d'habitude par le cluster FR/freelance (le detail source-par-source n'a pas pu être collecté proprement à cause de l'incident de fusion des deux exécutions concurrentes). Le cluster remote/VC/cabinets a eu un rendement plus faible que les relances précédentes : euremotejobs.com passé de productif à bloqué en 403 malgré plusieurs UA testés, remotifyeurope.com n'a rendu aucune offre France ce jour (contraste avec le 23/09), careers.atomico.com toujours à 0 sur ce cluster. Seules 7 offres retenues sur ce cluster, dont 2 pépites Nebius avec France explicitement listée (Customer Engineer EMEA, Key Customers Solutions Architect EMEA) et Transatel/Ubigi (SEO/GEO hybride).
+
+| Source | Verdict 24/09/2026 |
+|---|---|
+| **Cluster FR/freelance** | 746-689 offres selon la version retenue après incident de concurrence (voir plus haut), détail source-par-source non disponible cette fois |
+| **Nebius (Greenhouse)** | Toujours un bon filon, 381 postes balayés, plusieurs avec France explicite |
+| **Proton (Greenhouse EU)** | 61 postes mais tous présentiel/hybride bureaux (Paris/Genève/Londres) sans option remote — écartés |
+| **geojobs.ai** | 71 rôles SEO/GEO/AEO balayés, rendement faible ce jour (très US-centré) |
+| **euremotejobs.com** | Bloqué en 403 malgré plusieurs User-Agent testés — à re-tester, comportement intermittent déjà documenté |
+| **remotifyeurope.com** | 0 offre France ce jour (pages catégorie/pays vides), contraste avec le 23/09 — confirme la forte variabilité de ce board d'une relance à l'autre |
+| **careers.atomico.com** | Paramètre `query` toujours ignoré, aucun résultat pertinent |
+| **n8n (Ashby)** | Aucun fit remote-France (tout ancré Berlin/US) |
+
+
+### 2026-09-10 UX/UI (État des sources, ex-CLAUDE.md)
+
+### État des sources — première relance UX/UI du 10/09/2026
+
+20 offres ajoutées d'un coup (7 en 100% remote confirmé, 3 Jobgether remote France à employeur anonymisé, 10 en télétravail non précisé qui restent dans l'onglet métier selon la règle du 18/08) ; 10 offres apparentées routées vers NoRemote. Chevauchement de routage à connaître, non corrigé volontairement (comportement cohérent avec l'ordre de priorité IA > CSM > PM > UX déjà établi) : un titre "Head of Product Design" part en Offres PM (matché par le mot-clé PM "Head of Product") et un titre "... IA Générative / Agentique" part en Offres IA plutôt qu'en Offres UX — ces offres restent trouvables, juste dans un autre onglet que celui attendu au premier coup d'œil.
+
+**Bug de casse corrigé ce jour** : `_is_ux()` utilisait un regex standalone `\b(UX|UI)\b` sensible à la casse (même logique que `\b(IA|AI)\b`), mais contrairement à "ai" qui est un vrai fragment de mot français ("j'ai"), "ux"/"ui" ne le sont pas à une frontière de mot — la casse-sensibilité n'avait donc pas la même justification et faisait rater les titres HelloWork en casse mixte ("Designer Ux Expérimenté", "Ux & Digital Product Specialist"). Corrigé en `re.I`. Deux lignes mal routées vers Offres SIRH ont été déplacées manuellement vers Offres UX après coup.
+
+| Source | Verdict 10/09/2026 |
+|---|---|
+| **HelloWork** | Très productive sur "UX designer"/"UI designer" (26 offres pertinentes) ; "product designer" seul quasi inexploitable (pollution "Concepteur" mécanique/électrique) |
+| **free-work.com** | Catégories `/jobs/<mot-clé>` mortes pour ce vertical (301), mais l'endpoint `?query=` très productif |
+| **API Ashby** | Productive sur 3 nouveaux slugs (n8n, EverAI, Reedsy, tous avec France en remote secondaire ou explicite) ; nulle sur la plupart des slugs déjà connus du dispositif PM/CSM (Constructor, Attio, ClickUp, Owkin, Oyster, Worldly, Plain, ElevenLabs, Checkly, Deepgram, Remote.com, Linear, Notion, Camunda) |
+| **API Lever** | Nulle sur les slugs classiques (Qonto, Alan, Doctolib, Deel, Oyster, Collabora, Pennylane — ce dernier a un slug mort malgré une offre indexée Google) ; seul Jobgether a produit (avec son piège habituel de republication à employeur anonymisé, déjà documenté) |
+| **welcometothejungle.com** | Modeste : 2 pistes full remote FR identifiées, dont 360Learning confirmée archivée à la vérification API — seul Joko reste vivant mais hybride, donc classé NoRemote |
+| **dribbble.com/jobs** | Testé pour la première fois, fetch direct fonctionne mais sans qualification remote/localisation dans le listing — à approfondir fiche par fiche lors d'une prochaine relance |
+| **weworkremotely.com (catégorie design)** | Bloqué (403) en fetch direct ; via WebSearch, résultats presque tous ancrés Brésil/Colombie/Argentine/Mexique/USA, aucun confirmé éligible France |
+
+---
+
+
+### 2026-09-11 SEO/GEO (État des sources, ex-CLAUDE.md)
+
+### État des sources — première relance SEO/GEO du 11/09/2026
+
+2 clusters parallèles (sources FR, ATS/international). **54 offres candidates compilées, 54 ajoutées** (0 doublon interne, 0 doublon rejeté par `add_offre.py`). Répartition par onglet : Offres SEO +38, NoRemote +11, Offres USA +3 (Reedsy, ElevenLabs, Replit), Offres IA +2 (le mot "IA"/"AI" apparaît en toutes lettres dans le titre, ex. "SEO Specialist / Évaluateur de contenus IA", "Technical Operator, AI Visibility" — routage cohérent avec l'ordre de priorité IA > SEO déjà en place, ces offres restent trouvables juste dans un autre onglet).
+
+**Enseignement principal : le GEO n'est pas encore un métier séparé du SEO en France, mais une extension qui s'affiche déjà dans l'intitulé.** 17 des 45 offres du cluster FR portaient un intitulé hybride explicite type "Consultant SEO - Geo" ou "Chef de Projet SEO & Geo" (Axess, Tecnomat, EVOLUDERM, SAYCO, Caboost, Salutech, Groupewold...) : le marché français semble avoir absorbé le GEO comme une compétence de plus dans une fiche SEO classique plutôt que comme un intitulé de poste à part. **De vraies offres GEO/AEO pures existent en revanche côté international** : Reedsy (SEO technique + GEO/AEO explicite), ElevenLabs ("B2B SEO/AEO Expert"), Parallels Inc ("Senior Manager, SEO & GEO"), Replit ("AEO/GEO/SEO Lead"), et surtout **ELIA Atelier/USKALE** — mission freelance 100% GEO/AEO sans aucune composante SEO trafic classique, pour rendre des maisons de luxe visibles dans les réponses IA non sourcées (routée en Offres IA à cause du mot "AI").
+
+**Meilleure offre du lot : Consultant SEO Senior chez La Solive** (mission-freelances.fr, ⭐⭐⭐⭐⭐, full remote confirmé, GEO + automatisation IA/prompting explicites).
+
+| Source | Verdict 11/09/2026 |
+|---|---|
+| **hellowork.com** | Très productif (27 offres), recherche par mots-clés "SEO Manager"/"Responsable SEO"/"Consultant SEO"/"SEO" |
+| **mission-freelances.fr** | 14 offres, gisement particulièrement riche en missions freelance SEO+GEO hybrides avec description détaillée du GEO |
+| **free-work.com** | La catégorie `/jobs/expert-seo-consultant-referencement` existe (contrairement à l'hypothèse de départ calquée sur UX) mais n'affiche aucune mission en direct ; l'endpoint `?query=SEO` reste la bonne porte d'entrée, 2 offres |
+| **malt.fr** | Rendement nul, la plateforme n'expose pas de missions ouvertes en scraping public (uniquement des profils freelances) |
+| **welcometothejungle.com** | 1 offre vivante confirmée via l'API (l-olivier), une autre (France Médias Monde) écartée car archivée depuis 2024 malgré son apparition en WebSearch — piège déjà documenté, reconfirmé |
+| **geojobs.ai** | **Nouveau board dédié GEO/AI-search, à ajouter au dispositif permanent** : 1 offre retenue (ELIA Atelier) sur 9 examinées, le reste Allemagne/UK on-site ou hybride pur |
+| **AthenaHQ (plateforme GEO/AEO elle-même)** | 4 postes ouverts, tous onsite San Francisco — pas de piste remote, à re-tester ponctuellement |
+| **API Ashby (~180 slugs)** | 4 retenus (Reedsy, ElevenLabs, Synthesia, Replit) |
+| **API Lever (~44 slugs directs + feed Jobgether complet 4674 postes)** | 0 — les matches Jobgether SEO existants sont tous ancrés US/Brésil/Canada |
+| **WebSearch Ashby/Lever/Greenhouse ciblé** | ~25 pistes explorées, quasi toutes fermées ou US-only (Directive, Clio, Flodesk, GR0, Webflow, Similarweb, Hostinger, GoCardless, Pulumi...) |
+| **Remotive** | 1 retenu (Parallels Inc, worldwide) |
+| **RemoteOK, weworkremotely (catégorie marketing)** | 0 — résultats trop génériques pour qualifier sans fetch individuel supplémentaire |
+
+---
+
+
+### 2026-08-22 USA (État des sources, ex-CLAUDE.md)
+
+### État des sources — première relance USA du 22/08/2026
+
+Leçon principale, valable pour toutes les sources US sans exception : **le champ `isRemote: true` des API Ashby/Greenhouse/Lever ne garantit jamais l'éligibilité internationale**, il indique seulement l'absence d'obligation de présence au bureau. Toujours lire le champ `location`/`categories.location` et, en cas de doute, le corps de la description (souvent une phrase explicite type « Candidates must reside in the United States »). Un `Remote (US)` ou une ville US dans `location` sans mention EMEA/Europe/Worldwide = à écarter.
+
+| Source | Verdict 22/08/2026 |
+|---|---|
+| **Éditeurs EOR/HRIS eux-mêmes** (Remote.com, Deel, Oyster) | **La source la plus fiable** : leur modèle économique les pousse à publier des bandes salariales et une éligibilité par pays très explicites. Remote.com (`remotecom` sur Greenhouse) reste l'éditeur le mieux aligné, y compris sur des postes Workday Implementation Specialist purement SIRH |
+| GitLab (`gitlab` sur Greenhouse) | Bon rendement : au moins un poste avec **la France listée nommément** (Customer Success Architect EMEA) |
+| Ashby (son propre board, `ashby`) et Hightouch (`hightouch`) | Bon rendement CSM/TAM/SE EMEA, France incluse dans "European Union"/"Europe" |
+| Dataiku (`dataiku` sur Greenhouse) | Éditeur IA authentique avec plusieurs postes **"France, Remote" explicite** — le meilleur niveau de garantie possible |
+| PostHog, Checkly (via HN Who's Hiring, confirmés sur Ashby) | Bon rendement, fuseaux horaires EMEA/UTC+1-2 compatibles France |
+| Deepgram (`deepgram` sur Ashby) | Un poste avant-vente EU-remote trouvé |
+| **API Ashby/Lever/Greenhouse des éditeurs HRIS US "classiques"** (Rippling, Gusto, Justworks, HiBob, Lattice, Culture Amp, Workday, UKG, Paycor, Paylocity, Namely, Zenefits, TriNet...) | Rendement quasi nul : soit pas de board public, soit postes verrouillés US-only/pays unique. Ne pas y consacrer trop de temps à chaque relance, un passage rapide suffit |
+| RemoteOK, Remotive | Rendement décevant sur cette première tentative (0 correspondance HRIS, 403 sur CSM) malgré le changement de règle qui les autorise désormais — à retenter, le contenu tourne vite sur ces boards |
+| Built In (`/jobs/remote/customer-success`, `/jobs/remote/product`) | **Quasiment 100% Remote-US strict** malgré le nom « remote » — rendement très faible pour ce critère spécifique, à garder en dernier recours |
+| Wellfound, workatastartup.com/Y Combinator, startup.jobs, Product Manager Job Board | Quasi exclusivement Remote-US ou pays unique (hors France) une fois vérifié fiche par fiche ; utiles comme radar mais peu d'ajouts concrets |
+| TopCSJobs | Bon board pour repérer des pistes, mais les liens directs vers les ATS d'origine ne sont pas exposés au fetch — passer ensuite par l'API du board d'origine plutôt que par TopCSJobs lui-même |
+| HNHIRING (fetch direct) | 403 systématique — passer par l'API Algolia du thread HN "Who is hiring" directement (id de thread à retrouver chaque mois) plutôt que par hnhiring.com |
+| Boards VC (a16z, General Catalyst, Accel, BVP, NEA, LSVP, Greylock) | Republient surtout les mêmes offres Remote.com/Deel déjà captées ailleurs ; BVP/NEA/LSVP/Greylock non scrapables in fine — rendement très faible, passage rapide suffit |
+| "AI Enablement Manager" et variantes littérales | Voir la note dans la section « Postes ciblés » ci-dessus : rendement faible, presque toujours US-only/onsite/trop technique |
+
+---
+
+
+### 2026-09-22 CH-NL (État des sources, ex-CLAUDE.md)
+
+### État des sources — première relance CH/NL du 22/09/2026
+
+2 clusters parallèles (Suisse, Pays-Bas). **13 offres retenues sur les deux pays, 13 insérées** (0 doublon). Répartition : 5 Suisse (Smallpdf ⭐⭐⭐⭐⭐, Proton ×4 ⭐⭐⭐/⭐⭐⭐⭐), 8 Pays-Bas (toutes chez **Nebius**, infrastructure cloud IA cotée Nasdaq basée à Amsterdam, dont un Technical Account Manager ⭐⭐⭐⭐⭐).
+
+**Piège structurel confirmé sur les deux pays, cohérent avec ce qui est déjà documenté pour le reste du monde hors USA** : la grande majorité des scale-ups suisses et néerlandaises connues (SonarSource, Nexthink, Beekeeper, Yokoy, Frontify, Temenos, Scandit côté CH ; Mollie, Bynder, Fonoa, Adyen, Catawiki, Elastic côté NL) publient sur Ashby/Greenhouse avec `isRemote: true` mais un `workplaceType` réel `Hybrid`/local, aucune n'ouvre le remote à la France. Les seules offres retenues viennent d'éditeurs nativement **remote-first distribués** (Smallpdf, Proton, Nebius), pas des entreprises suisses/néerlandaises traditionnelles (banques, pharma, staffing, grands groupes).
+
+| Source | Verdict 22/09/2026 |
+|---|---|
+| **API Greenhouse (Nebius, Proton EU)** | Très productif — 12 des 13 offres retenues viennent de ces deux boards |
+| **API Ashby (Smallpdf)** | 1 pépite ⭐⭐⭐⭐⭐ (Head of SEO/AI Visibility) |
+| **API Ashby/Lever/Greenhouse sur ~15 autres scale-ups suisses connues** | 0 résultat, board absent ou rien de remote/pertinent |
+| **jobs.ch** | Rendu React côté client, quasi impossible à scraper en statique ; les rares fiches vérifiées sont du CDD on-site local |
+| **jobs.sap.com filtré Suisse/Pays-Bas** | Tout en Hybrid (Suisse : programme SAP Academy junior ; Pays-Bas : postes 's-Hertogenbosch `#LI-Hybrid`) |
+| **Temenos via API Workday** | 16 postes, aucun remote confirmé, localisés Paris/Singapour/US |
+| **careers.atomico.com (Getro)** | Bon filon technique côté Suisse (rien de remote confirmé ce jour) mais **bloqué en 403 côté Pays-Bas** (invite à passer par une API payante) — filon Atomico qui s'était bien comporté lors des relances de mi-septembre semble désormais fermé à l'accès direct, à re-tester ponctuellement |
+| **remoterocketship.com/country/netherlands** | Filtre des postes *localisés* aux Pays-Bas avec résidence NL obligatoire (ex. No Isolation, employeur norvégien) — inadapté à ce critère, à ne pas réutiliser pour cet onglet |
+| **welcometothejungle.com** | 403 en WebFetch direct côté Suisse, API avec mauvais slug ; piège `archived_at` déjà documenté, aucune offre confirmée retenue |
+| **Jobgether** | Écarté volontairement côté Suisse : duplication par pays, pas de vraies entreprises suisses derrière |
+
+
+### 2026-09-22 SIRH/SAP Suisse (État des sources, ex-CLAUDE.md)
+
+### État des sources — relance SIRH/SAP Suisse (présentiel/hybride) du 22/09/2026
+
+Suite à la demande de Gaëtan d'élargir spécifiquement le SIRH/SAP suisse au présentiel/hybride (voir section « Exception SIRH/SAP Suisse » ci-dessus), une relance dédiée a trouvé **8 offres, toutes insérées** (0 doublon). Meilleure pépite : ⭐⭐⭐⭐⭐ Consultant/Senior Consultant SAP HCM/Payroll chez **Thoma & Partner Management Consulting AG** (cabinet SAP boutique suisse, mandat exclusif, "ganze Schweiz").
+
+| Source | Verdict 22/09/2026 |
+|---|---|
+| **ictcareer.ch** | **Nouveau filon confirmé productif, à ajouter au dispositif permanent pour la Suisse** : 3 offres solides dont la meilleure pépite du lot |
+| **freehire.me** | Agrégateur avec API/MCP, 3 offres via le cabinet FFI Advisory — **piège de sécurité relevé** : le contenu de la page contenait un bloc de texte parasite ressemblant à une tentative d'injection de prompt (commentaires techniques hors-sujet sur le préchargement de pages), ignoré sans effet sur la recherche mais à surveiller sur ce site en particulier lors des prochains passages |
+| **jobscout24.ch** | 11 résultats "SAP HCM Zürich", 1 retenue (HR Campus AG) |
+| **eursap.eu, whitehallresources.com, hansonregan.com, opusresourcing.com, talentlakeit.com, belsberg.com** | Rendement nul : soit rendu JS non scrapable en fetch direct, soit modules SAP hors RH (FICO/BW/MM) |
+
+**Rappel** : ces 8 offres portent `RemoteExempt=True`, réservé au SIRH/SAP suisse — ne pas réutiliser ce marqueur pour d'autres métiers ou pour les Pays-Bas sans une nouvelle décision explicite de Gaëtan.
+
+---
+
+
+### 2026-09-09 Technopole Izarbel (ex-CLAUDE.md)
+
+### Technopole Izarbel (Bidart) — testé le 09/09/2026
+
+**Annuaire officiel exploitable** : `https://www.technopolepaysbasque.fr/fr/4-sites-technopolitains/izarbel/entreprises.html` liste ~79 entreprises réellement présentes sur le site (à distinguer des 3 autres sites technopolitains du même groupe : Technocité, Arkinova, ID Ocean, qui ne sont pas à Bidart). Bon complément à la liste de grands groupes ci-dessus, qui ne couvrait pas les ESN/éditeurs/PME numériques du bassin.
+
+Sur les 28 entreprises passées en revue lors du premier test (fit fort + secondaire), seules 3 offres ont été trouvées : **SD Worx** (Analyste Fonctionnel Paie & DSN, `careers.sdworx.com`, poste publié sous Bayonne mais même bassin), et **Exakis Nelite** (2 postes, Consultant Microsoft BI + Consultant SharePoint) dont les liens n'ont pas pu être vérifiés en direct (`exakis.com` en `ECONNREFUSED` systématique, curl et WebFetch) — trouvés via Google avec des slugs individuels a priori légitimes, à revérifier avant candidature. **WANAO/Intescia** (déjà bien couvert par ailleurs, voir `intescia.recruitee.com/api/offers/`) avait 2 postes Bidart mais déjà en base.
+
+**Rendement faible confirmé sur ce premier passage**, cohérent avec le reste du dispositif Pays Basque : Novaldi, Axiome Solution, Dev 1.0, EC Conseil, Meta-IT, NextiraOne, Call Door, Badjoto, Basik, Lekooa, Setavoo, Bluelogic, Tips sans page carrière exploitable ou postes hors profil ; Apave Sud Europe, Siemens Building Technologies, Telespazio, Egis International avec des postes techniques terrain uniquement, aucun à Bidart pour Telespazio/Egis. **SEI - Groupe LKS** et **IS Decisions** acceptent les candidatures spontanées (0 poste ouvert au moment du test, à retenter). **Sophia Genetics** (Bidart, R&D, hors annuaire officiel mais repéré en bonus via API Workable) n'a que des postes techniques (Software Engineer) ou lab, aucun fit.
+
+À retester périodiquement (le vivier tourne), en particulier SD Worx, WANAO, Exakis Nelite et SEI - Groupe LKS.
+
+**Confirmation du 10/09/2026 : `careers.sdworx.com` (flux RSS `jobs.rss`) est un filon fiable, à fetcher systématiquement à chaque relance Pays Basque.** 100 postes dans le flux ce jour-là, dont un Product Manager Integrations listant explicitement Bayonne parmi les bureaux éligibles. Contrairement à WANAO/Intescia (variable, parfois 0 poste Bidart) ou Exakis Nelite (lien mort ce jour), SD Worx a produit une offre exploitable deux fois de suite.
+
+
+### Notes diverses (ex-CLAUDE.md, non datées individuellement)
+
+## Notes diverses
+
+> **Grand contrôle de vivacité des liens WTTJ, fait le 03/09/2026 : ~85% des liens welcometothejungle.com du classeur étaient morts.** Sur 162 liens WTTJ répartis dans tous les onglets, la vérification systématique via `api.welcometothejungle.com/api/v1/organizations/<org>/jobs/<slug>` (champ `job.archived_at`) a trouvé 138 liens archivés ou 404, et seulement ~20 encore vivants. Détail par onglet actionnable (Statut mis à `Expiré`, note ajoutée, onglet retrié) : Offres CSM 34/37, Offres SIRH 11/12, Offres IA 8/10, Offres PM 1/2, Pays Basque 1/3, NoRemote 60/73. Dans Fait, 23/25 étaient aussi archivés mais aucune modification n'y a été faite (le Statut de Fait reflète une action déjà prise par Gaëtan — postulé/pourvu/refusé — indépendante de la vivacité ultérieure de l'annonce). **Leçon : WTTJ décroît beaucoup plus vite que les autres sources, une offre ajoutée il y a plusieurs semaines a de bonnes chances d'être fermée.** Un contrôle de ce type vaut la peine d'être repassé périodiquement (pas à chaque relance, mais par exemple tous les mois) sur les onglets actifs, pas seulement au moment de l'ajout.
+>
+> **Piège de slug confirmé une nouvelle fois pendant ce contrôle** : le lien Ecair "Customer Success Manager Freelance" dans Offres CSM est vivant mais pointe en réalité vers "Ops Analyst - Financement particulier", une offre sans rapport. Marqué `À vérifier` plutôt que `Expiré`. Toujours comparer le `name` renvoyé par l'API au `Poste` du tableur avant de faire confiance à un lien "LIVE".
+>
+> **Correctif Safran, même occasion** : le lien `chef-fe-projet-moa-sap4hana-fh-152431` (Chef de Projet MOA SAP S/4HANA, Bordes) donnait un vrai 404 en navigateur (pas le blocage Cloudflare habituel de safran-group.com, qui lui donne un 403). L'offre a été retirée du site. Une contrepartie technique **MOE SAP S/4HANA** (id 183421) a été republiée le jour même sur le même projet ; ajoutée en priorité réduite (⭐⭐⭐) car nettement plus orientée ABAP/technique que le profil fonctionnel de Gaëtan. Pour distinguer un vrai 404 d'un blocage anti-bot sur un site Cloudflare, le seul moyen fiable reste de charger la page dans un vrai navigateur (Claude in Chrome), pas juste curl/WebFetch avec un User-Agent différent.
+
+- Photo CV : `PHOTO-2023-12-09-21-52-05 4.jpg` (portrait fond blanc, déc. 2023)
+- L'Oréal est classé 370e au Fortune Global 500 (2023)
+- Cominty : poste hybride Paris mais Gaëtan veut full remote — à négocier en entretien
+- SAP Taulia Londres : question visa UK à clarifier (poste remote depuis FR possible)
+- "Preferred name" sur les formulaires = Gaëtan
+- **the-ultracoaching.com / ULTRA (Marvin Ndiaye) — évalué le 28/08/2026, hors profil.** Coaching business pour dirigeants de PME (CA > 250k€), pas un éditeur SaaS/HR Tech. Recrute des "Closer" (vente) et des "coach" (accompagnement hebdo 16 semaines, appel d'1h/semaine avec plan d'action) via un portail séparé `jobs.ultra-mastermind.com` (souvent hors service, HTTP 503, ou "site rendu indisponible" — bâti sur Manus). Fit partiel sur le rôle de coach (relationnel client, suivi régulier, proche du CSM ; l'expérience de co-fondateur WallOfTraders.com y est un vrai atout), mais secteur hors cible (pas de SIRH/SaaS/IA) et rémunération probablement à dominante variable/commission comme les postes commerciaux du même board. Non ajouté au tableur ; ne pas relancer sauf si Gaëtan élargit explicitement vers le coaching business.
