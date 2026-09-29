@@ -136,6 +136,7 @@ Autres postes ciblés :
 | Fichier | Usage |
 |---------|-------|
 | `offres_emploi.xlsx` | Tableur principal de suivi des offres, avec priorité, statut, TJM, liens — c'est ici qu'on ajoute toutes les nouvelles offres trouvées |
+| `LinkedIn_Info_FR.txt` / `LinkedIn_Info_EN.txt` | Texte final validé le 29/09/2026 pour la section "Infos" (About) du profil LinkedIn de Gaëtan, FR et EN. Structure en questions d'accroche + phrases courtes déclaratives, optimisé pour le score de lisibilité Hemingway App (aucune phrase de plus de ~20 mots) et pour le référencement recruteur (mots-clés SAP HCM, SuccessFactors, SIRH/HRIS, CSM, Product Owner répétés naturellement). Titre LinkedIn associé : "Consultant SAP HCM SuccessFactors". Rôle chez WallOfTraders.com décrit comme "Product Manager" uniquement, conformément à la règle du projet |
 | `photo_cv.jpg` | Photo portrait (déc. 2023), utilisée dans les CV visuels |
 | `greg` | Fichier offres partagé par un contact |
 
