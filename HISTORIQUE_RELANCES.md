@@ -4,6 +4,27 @@ Ce fichier contient l'historique détaillé des relances de recherche (verdicts 
 
 **CLAUDE.md ne garde en ligne que les 2 ou 3 relances les plus récentes** (état courant des sources). Ce fichier sert de mémoire longue si besoin de retrouver quand une source a été testée, pourquoi elle a été écartée, ou l'historique d'un piège déjà documenté.
 
+### État des sources — relance du 2026-09-30
+
+4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA+CH-NL, remote/VC EU+cabinets, Pays Basque+Bordeaux). **485 offres candidates compilées** via `merge_relance.py` (9 doublons lien retirés, 17 doublons paire Entreprise/Poste retirés, 0 stage/alternance), **459 fusionnées, 176 réellement ajoutées** (283 déjà connues du classeur — beaucoup de recouvrement entre mission-freelances.fr et les autres agrégateurs déjà bien couverts). Répartition des ajouts : SIRH +115, IA +21, PM +14, CSM +6, UX +6, SEO +3, CH-NL +2, Pays Basque +1, NoRemote +8. 7 offres à ⭐⭐⭐⭐⭐ : Arago Consulting (Lead Consultant SAP HCM/SuccessFactors Payroll, Genève, RemoteExempt), Collective.work (3 Consultants SuccessFactors LMS freelance), ConvictionsRH/Mercer (Manager SIRH), Pixie Services (Consultant Workday/SuccessFactors Migration), Spring Health (AEO & GEO Lead, hit direct GEO), GitLab (Engagement Manager French Speaking), Agence 148 (Freelance Spécialiste SEO/GEO).
+
+Le cluster FR/freelance a de nouveau été le plus volumineux (420 offres brutes, dont beaucoup de doublons avec le reste du classeur), le cluster ATS+HRIS+USA+CH-NL le plus riche en pépites 5 étoiles (40 offres, dont Arago Suisse trouvée via WebSearch ciblé hors radar habituel).
+
+**Corrections de sources reportées dans `relance_sources_fr.md` et `relance_sources_ats.md`** : `mission-freelances.fr/missions/` exige désormais le préfixe `www.` (sans lui, 404) ; les 3 pages catégorie de `freelance-informatique.fr` n'ont PAS le préfixe `/mission-freelance/` documenté précédemment, juste le slug direct ; slugs Lever `alan`/`doctolib`/`deel`/`pennylane`/`yassir` confirmés morts (`Document not found`), à retirer du balayage ; `jobs.sap.com` rend une page vide en fetch direct (JS-only) et le WebSearch de repli n'a rien donné pour la France ; `delaware.pro` confirmé toujours sans poste HCM/SuccessFactors.
+
+| Source | Verdict 30/09/2026 |
+|---|---|
+| **api.francetravail.io** | Toujours la plus productive côté FR (238 offres sur le cluster FR), et a permis de retrouver des liens individuels vérifiés pour le cluster Pays Basque quand `safran-group.com` était bloqué par Cloudflare |
+| **euremotejobs.com** | Le plus productif du cluster remote (9 offres dont ElevenLabs, GitLab, Spring Health) |
+| **Ashby (cluster ATS)** | Très productif (29 offres), tous les slugs connus vivants sauf `remote-com` (404) |
+| **Greenhouse (cluster ATS)** | 9 offres (GitLab, Dataiku, Nebius, Remote.com) |
+| **WebSearch ciblé Suisse** | A trouvé Arago Consulting (Genève) hors radar des sources habituelles CH-NL — à retenir comme méthode complémentaire aux boards ATS pour ce marché |
+| **geojobs.ai** | A fonctionné cette fois via WebFetch rendu (88 offres listées, très US-centré, 1 seule pépite France onsite chez Coty) |
+| **SD Worx RSS** | 404 ce jour (page de recherche vide), cohérent avec son comportement historiquement intermittent documenté depuis 09/2026 |
+| **Technopole Izarbel / SEI-Groupe LKS / French Tech Pays Basque / pays-basque-digital.fr** | Toujours à sec, cohérent avec les relances précédentes |
+
+---
+
 ### État des sources — relance du 2026-09-10
 
 4 clusters parallèles au format habituel (FR/freelance, ATS+HRIS+USA fusionné, remote/VC EU+niches, Pays Basque). **42 offres candidates compilées, 42 ajoutées** (0 doublon inter-clusters, 0 doublon rejeté par `add_offre.py` : chaque agent avait dédoublonné en amont contre un export à plat des 2754 liens déjà en base, généré une fois avant de lancer les 4 agents). 7 lignes archivées vers Fait (6 SIRH, 1 Pays Basque). Répartition des ajouts : SIRH +12, CSM +7, IA +3, PM +6, USA +1, Pays Basque +3, NoRemote +10.
