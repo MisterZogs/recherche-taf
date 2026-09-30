@@ -23,8 +23,10 @@ Worldwide/Anywhere/EMEA/Europe/International. Un `Remote (US)` ou une ville US s
 `camunda`, `posthog`, `hightouch`, `filigran`, `dash0`, `cribl`.
 
 ### Slugs Lever déjà connus
-`qonto`, `alan`, `doctolib`, `deel`, `collabora`, `pennylane` (slug souvent mort),
-`yassir`. Board Jobgether republie en doublon par pays (jusqu'à 9 lignes pour un seul
+`qonto` (40 postes mais tout hybride Paris/Berlin), `collabora` (2 postes, hors profil
+Linux). **Slugs morts confirmés le 30/09/2026, retirer du balayage** : `alan`,
+`doctolib`, `deel`, `pennylane`, `yassir` (tous `{"ok":false,"error":"Document not
+found"}`). Board Jobgether republie en doublon par pays (jusqu'à 9 lignes pour un seul
 poste) : ne garder que la variante France/remote-Europe, et vérifier l'employeur réel
 derrière (souvent anonymisé).
 
