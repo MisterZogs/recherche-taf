@@ -38,10 +38,13 @@ explicite), `proton...eu` (Proton, mais quasi tout présentiel/hybride bureaux).
 ### Endpoints spécifiques
 - Atlassian : `curl -s "https://www.atlassian.com/endpoint/careers/listings"` — filtrer
   sur `Remote - France` dans `locations`.
-- jobs.sap.com : fetch direct `jobs.sap.com/go/SAP-Jobs-in-France/850401/`.
+- jobs.sap.com : page JS-only, `curl`/fetch direct sur `/go/SAP-Jobs-in-France/850401/`
+  renvoie une page vide depuis le 30/09/2026 ; WebSearch de repli n'a rien donné pour la
+  France non plus (que Walldorf/Bangalore/Budapest). Repasser en essai rapide seulement.
 - HR Path : `jobs.hr-path.com/search/?q=<mot-clé>` (**pas** `/jobs` seul, qui ne rend
   rien).
-- delaware : `carriere.delaware.pro/jobs` (tout SAP FICO/SD/MM, rarement HCM/SF).
+- delaware : `carriere.delaware.pro/jobs` (tout SAP FICO/SD/MM, rarement HCM/SF) —
+  confirmé toujours sans poste HCM/SuccessFactors le 30/09/2026.
 - Employment Hero (Humi/KeyPay) : `https://services.employmenthero.com/ats/api/v1/career_page/organisations/employmenthero/jobs?page_index=N` — quasi tout ancré pays unique (GB/AU/CA/NZ), à passage rapide seulement.
 - Access Group UK : `theaccessgroup.wd103.myworkdayjobs.com/Access_Group_External_Careers` — UK-résident de fait.
 
