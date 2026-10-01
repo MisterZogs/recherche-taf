@@ -47,6 +47,11 @@ explicite), `proton...eu` (Proton, mais quasi tout présentiel/hybride bureaux).
   confirmé toujours sans poste HCM/SuccessFactors le 30/09/2026.
 - Employment Hero (Humi/KeyPay) : `https://services.employmenthero.com/ats/api/v1/career_page/organisations/employmenthero/jobs?page_index=N` — quasi tout ancré pays unique (GB/AU/CA/NZ), à passage rapide seulement.
 - Access Group UK : `theaccessgroup.wd103.myworkdayjobs.com/Access_Group_External_Careers` — UK-résident de fait.
+- himalayas.app : **à interroger systématiquement à chaque relance** (demande de Gaëtan du
+  01/10/2026), mots-clés `HRIS`, `HCM`, `SuccessFactors`. Fetch direct en 403 depuis le
+  05-06/08/2026, passer par WebSearch (`site:himalayas.app/jobs HRIS` /
+  `site:himalayas.app/jobs SuccessFactors` / `site:himalayas.app/jobs HCM`). Salaire
+  souvent affiché sur les fiches, utile pour calibrer la colonne Prétention.
 
 ## Suisse (onglet CH-NL) — exception SIRH/SAP présentiel/hybride autorisée
 
