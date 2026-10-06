@@ -16,17 +16,32 @@ de lancement (vérifier s'il existe déjà avant de commencer, voir règles comm
 | **free-work.com** | Catégories qui fonctionnent : `/fr/tech-it/jobs/sirh`, `/jobs/sap-hcm`, `/jobs/sap-successfactors`, `/jobs/ia`, `/jobs/ia-generative`. Pour PM/UX/SEO, utiliser l'endpoint `?query=<mot-clé>` (ex. `?query=product manager`, `?query=UX designer`, `?query=SEO`). Quand un client est identifié par ailleurs, `free-work.com/fr/companies/<slug>/jobs` liste ses missions ouvertes en clair. |
 | **freelance-informatique.fr** | 3 pages catégorie à toujours vérifier, SANS le préfixe `/mission-freelance/` (corrigé le 30/09/2026 : juste `freelance-informatique.fr/<slug>` directement) : `chef-de-projet-sirh-freelance-n112`, `categorie-modules-sap-hr-238`, `categorie-progiciels-sirh-222`. Les liens "Voir la mission" sont encodés en base64 dans l'attribut `data-obf` sur un `<span>` (pas de `href` classique) : `re.findall(r'data-obf="([^"]+)"[^>]*>Voir la mission', html)` puis `base64.b64decode(...).decode()` préfixé par `https://www.freelance-informatique.fr`. Site parfois lent : mettre un `--max-time 8` par requête individuelle. |
 | **convictionsrh.com** (Mercer/ConvictionsRH, recrutement SIRH) | `curl -s "https://www.convictionsrh.com/wp-json/wp/v2/job?per_page=50"` — JSON direct, titre+lien+date. |
+| **collective.work** (débloqué le 06/10/2026, ~1 500 missions freelance et CDI) | Plus de blocage Cloudflare. `curl` + UA navigateur sur `https://www.collective.work/jobs/fr?search=<mot-clé>` (**`search=`, pas `q=`/`query=`/`skills=`**, qui sont ignorés), puis `&page=2`, `&page=3`... Les missions sont dans le JSON `<script id="__NEXT_DATA__">` : `props.pageProps.dehydratedState.queries[0].state.data.results.projects` (30 par page ; champs `slug`, `name`, `sumUp`, `description`, `workPreferences` = `REMOTE`/`HYBRID`/`ON_SITE`, `expirationDate`, `contractTypes`, `isPermanentContract`). Lien = `https://www.collective.work/jobs/fr/<slug>`. **Un slug inexistant renvoie aussi 200** : la vivacité se juge sur `expirationDate`, pas sur le code HTTP. Le 06/10 : AMOA SIRH, Chef de projet SIRH, Product Manager SIRH senior, Lead Integration SAP SuccessFactors, Consultant SAP HCM Time (remote), plusieurs SuccessFactors en remote, CSM remote. Mots-clés : `SIRH`, `SuccessFactors`, `SAP HCM`, `HR Access`, `customer success`, `product manager`, `product owner`, `chef de projet`. Beaucoup de missions viennent d'ESN qui republient aussi sur free-work/mission-freelances : dédoublonner par Entreprise+Poste. `workPreferences` = `REMOTE` → Remote `Full remote` ; `HYBRID` → `Hybride` (NoRemote après routage). |
+| **jobs.stationf.co** (réintégré le 06/10/2026, 45 offres historiques) | Board WelcomeKit rendu en JS, mais **index Algolia public interrogeable en curl** : app `CSEKHVMS53`, index `wk_cms_jobs_production_careers`, clé API à lire dans le HTML de `https://jobs.stationf.co/search` (`<input id="algolia_api_key">`). ~540 offres, ~40 pertinentes. Piège : les slugs d'org diffèrent des noms affichés (Tomorro=`airflow`, Joko=`joko-1`). Quasi tout est Paris hybride, donc NoRemote après routage, mais ça reste à remonter. |
+| **michaelpage.fr** (ajouté le 06/10/2026) | `curl` + UA navigateur sur `https://www.michaelpage.fr/jobs/<mot-clé>` (ex. `sirh`, `sap-hcm`, `customer-success`, `chef-de-projet-sirh`). Liens individuels en clair : `/job-detail/<slug>/ref/jn-<MMYYYY>-<id>` (retirer le paramètre `?ng-src=...`). Surtout du CDI client final (Responsable SIRH, Manager de transition paie/SIRH), télétravail souvent partiel. |
+| **choisirleservicepublic.gouv.fr** (ajouté le 06/10/2026) | `curl` + UA sur `https://choisirleservicepublic.gouv.fr/nos-offres/filtres/mot-cles/<mot-clé>/` (ex. `SIRH`, `chef de projet SIRH`). Liens individuels `/offre-emploi/<slug>-reference-<ref>/`, ~20 par page. Offres SIRH du secteur public (chargé de projet SIRH, administrateur fonctionnel SIRH) : télétravail presque toujours partiel (→ NoRemote), mais utile pour les postes Pays Basque/Landes/Pyrénées-Atlantiques (à mettre alors dans le cluster PB). |
+| **LinkedIn (radar uniquement)** (réintégré le 06/10/2026, ~200 offres historiques) | Ne sert qu'à repérer **qui recrute** : une page catégorie n'affiche qu'une dizaine d'offres. Fetch `https://fr.linkedin.com/jobs/<mot-clé>-emplois` (sans `-france`, pour avoir aussi l'EMEA) avec `successfactors`, `sap-hcm`, `hris`, `consultant-sirh`, `customer-success-manager`. Puis aller chercher l'offre sur l'ATS ou le site carrière de l'entreprise repérée et mettre CE lien-là. **Jamais un lien `linkedin.com/jobs/...-emplois` en colonne Lien.** Un lien LinkedIn individuel `/jobs/view/<id>` est acceptable en dernier recours. |
 
 ## Sources à tester en repli rapide (rendement faible ou nul confirmé, passage <2min)
 
-malt.fr (0 mission publique scrapée, profils freelances seulement) ; collective.work
-(bloqué Cloudflare Turnstile sur le listing) ; freelance-day.eu (homepage seule
+malt.fr (0 mission publique scrapée, profils freelances seulement) ; freelance-day.eu (homepage seule
 fetchable, `/missions/` en JS).
 
-## Règle absolue sur les liens
+**Testés le 06/10/2026 et non exploitables, ne pas y passer de temps :** hays.fr
+(résultats en JS, aucun lien d'offre dans le HTML), robertwalters.fr (403), fed-human.fr
+(timeout, ancienne URL en 410), silkhom.com (pas de fiches individuelles, juste des
+billets hebdomadaires), kicklox.com (app Algolia en JS sur `app.kicklox.com`),
+freelancerepublik.com et littlebigconnection.com (pas de liste publique de missions),
+cremedelacreme.io (missions réservées aux membres), freelancermap.fr (timeout).
 
-Ne jamais mettre une URL de page catégorie/listing en colonne Lien. Signal d'alerte
-freelance-informatique.fr : une URL de mission individuelle valide est TOUJOURS de la
-forme `mission-<titre>-<5-7 chiffres>-de` ou `mission-<titre>-<YYMMDD><lettre><NNN>` —
-toute autre forme (`-n<chiffres>`, `-e<chiffres>`, `cv-mission-*`) est une page
-catégorie, décoder les `data-obf` pour trouver le lien individuel.
+**Adzuna (agrège Indeed/Monster, bloqués en direct) — clé active depuis le 06/10/2026, à
+interroger systématiquement.** Identifiants dans `.env` (`ADZUNA_APP_ID`/`ADZUNA_APP_KEY`,
+jamais committer ni afficher). Requête :
+`https://api.adzuna.com/v1/api/jobs/fr/search/1?app_id=$ADZUNA_APP_ID&app_key=$ADZUNA_APP_KEY&what=<mot-clé>&results_per_page=50&sort_by=date&max_days_old=14`
+(pagination par le numéro après `/search/`). Champs : `title`, `company.display_name`,
+`location.display_name`, `created`, `redirect_url`. Lien = `redirect_url` sans les
+paramètres `utm_*` (forme `https://www.adzuna.fr/details/<id>`, page d'offre individuelle
+valide). 3 371 résultats pour `SIRH` le 06/10, beaucoup de stages/alternances et de
+gestion de paie à filtrer. Plan « Trial Access » : quotas limités, rester à ~20-30
+requêtes par relance (mêmes mots-clés que France Travail). Pour la Suisse/Pays-Bas,
+remplacer `/fr/` par `/ch/` ou `/nl/`.

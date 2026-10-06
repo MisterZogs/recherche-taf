@@ -539,3 +539,36 @@ Les recherches directes `site:linkedin.com/jobs "mot-clé"` retournent surtout d
 
 ---
 
+
+
+---
+
+## Audit d'exhaustivité du 06/10/2026
+
+**Sources réintégrées dans `relance_sources_*.md`** (présentes ici mais perdues lors de
+l'allègement du 25/09) : jobs.stationf.co (Algolia), LinkedIn radar, RED Global,
+Greenhouse `datadog`/`elastic`/`stripe`/`mongodb`/`grafanalabs`/`samsara`/`canonical`/
+`cloudflare`/`customerio`/`platformsh`/`pingidentity`/`automatticcareers`/`asana`/
+`pandadoc`, Ashby `pencil`/`fieldguide`/`mural`/`socket`/`zip`/`supabase`, Lever
+`superside`/`pigment`/`aircall`, SmartRecruiters `ACT-ON`, Daher (Workday CXS), Wipro
+Lauak, pays-basque-digital.fr, emploi-paysbasque.fr. Slugs morts au 06/10 : Greenhouse
+`postman` (0), Ashby `tilla` (0), Lever `teramind` (0), Lever `veeva` (erreur).
+
+**Nouvelles sources testées et retenues** : API Himalayas
+(`himalayas.app/jobs/api/search?q=&country=France`, remplace le contournement WebSearch),
+Jobicy (`jobicy.com/api/v2/remote-jobs?geo=france`), Jobgether (`/search-offers`),
+4dayweek.io, RemoteOK/Arbeitnow/Working Nomads/landing.jobs (API, passage rapide),
+michaelpage.fr (`/jobs/<mot-clé>`), choisirleservicepublic.gouv.fr (SIRH secteur public),
+freelancermap.de (`/projekte?query=SuccessFactors`, 22 projets SAP HCM/SF, allemand
+souvent exigé).
+
+**collective.work débloqué** (était noté « Cloudflare Turnstile ») : `/jobs/fr?search=<mot-clé>`,
+JSON `__NEXT_DATA__`, ~1 500 missions, très riche en SIRH/SuccessFactors/SAP HCM. Méthode
+dans `relance_sources_fr.md`. Passé de « repli » à « source prioritaire ».
+
+**Testées et non exploitables** : hays.fr (JS), robertwalters.fr (403), fed-human.fr
+(timeout/410), silkhom.com (pas de fiches individuelles), kicklox.com (app JS),
+freelancerepublik.com, littlebigconnection.com, cremedelacreme.io (pas de liste
+publique), freelancermap.fr (timeout), gulp.de (JS).
+
+**Adzuna** : clé créée par Gaëtan le 06/10/2026 (plan Trial), dans `.env`. Testée : 3 371 résultats `SIRH` France, méthode dans `relance_sources_fr.md`.

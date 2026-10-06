@@ -24,7 +24,12 @@ BRUIT = {
     'api', 'ashby', 'ashbyhq', 'lever', 'greenhouse', 'board', 'boards', 'via', 'jobs',
     'job', 'www', 'com', 'fr', 'io', 'co', 'recherche', 'page', 'websearch', 'relance',
     'cluster', 'radar', 'remote', 'emploi', 'careers', 'career', 'the', 'and', 'de', 'des',
+    'ats', 'who',
 }
+
+# Sources volontairement hors des fichiers de relance (intermédiaires de republication,
+# canaux non interrogeables). Ajouter ici une source écartée en connaissance de cause.
+IGNOREES = {'whatjobs.com', 'carriere-info.fr', 'réseau'}
 
 
 def cles(source):
@@ -34,8 +39,15 @@ def cles(source):
     if domaines:
         # garder le nom de domaine sans sous-domaine générique (jobs., careers., www.)
         return [re.sub(r'^(www|jobs|careers|career|api|boards-api|job-boards|fr|open\.app)\.', '', d) for d in domaines]
-    mots = [m for m in re.findall(r'[a-z0-9][a-z0-9.&-]{2,}', s) if m not in BRUIT]
+    mots = [m for m in re.findall(r'[^\W_][\w.&-]{2,}', s) if m not in BRUIT]
     return mots[:1]
+
+
+def reference(cle, texte):
+    """Vrai si la source apparaît dans le texte, sous son domaine ou son nom nu."""
+    nom = cle.split('.')[0]
+    variantes = {nom, nom.replace('-', ' '), nom.replace('-', ''), re.split(r'[-.]', cle)[0]}
+    return cle in IGNOREES or cle in texte or any(len(v) >= 3 and v in texte for v in variantes)
 
 
 def main():
@@ -57,7 +69,7 @@ def main():
                 compte[k] += 1
                 exemples.setdefault(k, str(r[i])[:60])
     manquantes = [(k, n) for k, n in compte.most_common()
-                  if n >= SEUIL and k.split('.')[0] not in texte]
+                  if n >= SEUIL and not reference(k, texte)]
     if not manquantes:
         print(f'OK : toutes les sources à {SEUIL}+ offres sont référencées dans relance_sources_*.md')
         return

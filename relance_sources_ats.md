@@ -7,6 +7,7 @@ de lancement (vérifier s'il existe déjà avant de commencer, voir règles comm
 par WebSearch `site:jobs.ashbyhq.com "customer success" OR "product manager" OR "HRIS"
 remote EMEA`, idem Lever/Greenhouse)
 
+- Y Combinator Work at a Startup (`workatastartup.com`) : voir aussi la section USA.
 - Ashby : `curl -s "https://api.ashbyhq.com/posting-api/job-board/<slug>"`
 - Lever : `curl -s "https://api.lever.co/v0/postings/<slug>?mode=json"`
 - Greenhouse : `curl -s "https://boards-api.greenhouse.io/v1/boards/<slug>/jobs?content=true"`
@@ -20,11 +21,14 @@ Worldwide/Anywhere/EMEA/Europe/International. Un `Remote (US)` ou une ville US s
 `mistral.ai` (licorne IA FR, 200 postes, très bon filon), `oyster`, `ashby`, `n8n`,
 `everai`, `reedsy`, `smallpdf`, `constructor`, `attio`, `clickup`, `owkin`, `worldly`,
 `plain`, `elevenlabs`, `checkly`, `deepgram`, `remote-com`, `linear`, `notion`,
-`camunda`, `posthog`, `hightouch`, `filigran`, `dash0`, `cribl`.
+`camunda`, `posthog`, `hightouch`, `filigran`, `dash0`, `cribl`, `pencil`, `fieldguide`,
+`mural`, `socket`, `zip`, `supabase` (remote-first mondial) (ces six derniers réintégrés le
+06/10/2026, vivants).
 
 ### Slugs Lever déjà connus
 `qonto` (40 postes mais tout hybride Paris/Berlin), `collabora` (2 postes, hors profil
-Linux). **Slugs morts confirmés le 30/09/2026, retirer du balayage** : `alan`,
+Linux), `superside` (Global remote explicite, réintégré le 06/10/2026), `pigment`
+(~137 postes, éditeur FP&A français), `aircall` (~77 postes) (réintégrés le 06/10/2026). **Slugs morts confirmés le 30/09/2026, retirer du balayage** : `alan`,
 `doctolib`, `deel`, `pennylane`, `yassir` (tous `{"ok":false,"error":"Document not
 found"}`). Board Jobgether republie en doublon par pays (jusqu'à 9 lignes pour un seul
 poste) : ne garder que la variante France/remote-Europe, et vérifier l'employeur réel
@@ -34,6 +38,26 @@ derrière (souvent anonymisé).
 `remotecom` (Remote.com, très bon filon HRIS/payroll), `gitlab`, `dataiku`, `chainguard`,
 `ddome` (DataDome), `zscaler`, `nebius` (Amsterdam, ~380 postes, plusieurs avec France
 explicite), `proton...eu` (Proton, mais quasi tout présentiel/hybride bureaux).
+
+**Réintégrés le 06/10/2026** (sources qui ont produit ~170 offres dans le tableur mais
+avaient disparu de ce fichier lors de l'allègement du 25/09, tous vérifiés vivants) :
+`datadog` (~430 postes), `elastic` (~400), `stripe` (~720), `mongodb` (~390),
+`grafanalabs` (~125 ; attention, variante Senior du Solutions Engineer France qui exige
+l'arabe), `samsara`, `canonical`, `cloudflare`, `customerio`, `platformsh`,
+`pingidentity`, `automatticcareers` (Automattic, remote-first mondial), `asana` (~100 postes), `pandadoc` (~10
+postes). Sur les gros boards (Stripe, Datadog, Cloudflare), filtrer d'abord sur
+`location.name` contenant `France`, `Paris`, `EMEA`, `Europe` ou `Remote` avant de lire
+les fiches. `postman` est vide (0 poste) au 06/10/2026, ne plus le balayer.
+
+### SmartRecruiters (ajouté le 06/10/2026)
+`curl -s "https://api.smartrecruiters.com/v1/companies/<slug>/postings?limit=100"` (JSON,
+`content[].name`, `location`, lien `https://jobs.smartrecruiters.com/<slug>/<id>`).
+Slug connu : `ACT-ON` (Act-On Group, `actongroup.com`, cabinet SIRH/paie, ~35 postes, 8 offres historiques).
+
+### Cabinets de recrutement SAP (1x/mois seulement)
+eursap.eu (bloqué par JS sur les filtres), hansonregan.com, whitehallresources.com,
+opusresourcing.com : ont donné 8 à 11 offres chacun au début, puis à sec plusieurs
+relances de suite. Passage rapide une fois par mois, pas à chaque relance.
 
 ### Endpoints spécifiques
 - Atlassian : `curl -s "https://www.atlassian.com/endpoint/careers/listings"` — filtrer
@@ -48,10 +72,21 @@ explicite), `proton...eu` (Proton, mais quasi tout présentiel/hybride bureaux).
 - Employment Hero (Humi/KeyPay) : `https://services.employmenthero.com/ats/api/v1/career_page/organisations/employmenthero/jobs?page_index=N` — quasi tout ancré pays unique (GB/AU/CA/NZ), à passage rapide seulement.
 - Access Group UK : `theaccessgroup.wd103.myworkdayjobs.com/Access_Group_External_Careers` — UK-résident de fait.
 - himalayas.app : **à interroger systématiquement à chaque relance** (demande de Gaëtan du
-  01/10/2026), mots-clés `HRIS`, `HCM`, `SuccessFactors`. Fetch direct en 403 depuis le
-  05-06/08/2026, passer par WebSearch (`site:himalayas.app/jobs HRIS` /
-  `site:himalayas.app/jobs SuccessFactors` / `site:himalayas.app/jobs HCM`). Salaire
-  souvent affiché sur les fiches, utile pour calibrer la colonne Prétention.
+  01/10/2026), mots-clés `HRIS`, `HCM`, `SuccessFactors`, `customer success`, `product
+  manager`. **API JSON publique qui fonctionne en curl (vérifié le 06/10/2026), à utiliser
+  à la place de WebSearch** : `curl -s "https://himalayas.app/jobs/api/search?q=<mot-clé>&country=France"`
+  (champs `jobs[].title`, `companyName`, `applicationLink`/`guid`, restrictions de pays).
+  18 résultats pour `HRIS` + France le 06/10. Salaire souvent présent, utile pour
+  calibrer la colonne Prétention.
+- **RED Global** (cabinet SAP, réintégré le 06/10/2026) : `curl` + UA sur
+  `https://www.redglobal.com/jobs` (~10 postes, slugs individuels `/jobs/job/<slug>/<id>`,
+  JSON-LD `JobPosting` complet par fiche). Chercher HCM/SuccessFactors/Payroll.
+- **freelancermap.de** (ajouté le 06/10/2026, gros marché SAP freelance DACH) : `curl` + UA
+  sur `https://www.freelancermap.de/projekte?query=SuccessFactors` (puis `SAP%20HCM`,
+  `SAP%20HR`). 22 projets SuccessFactors/HCM le 06/10, liens individuels `/projekt/<slug>`.
+  Lire chaque fiche : beaucoup exigent l'allemand courant (Gaëtan n'a que des notions,
+  à écarter dans ce cas) et une partie est 100% remote. Un projet en Allemagne suit le
+  routage standard (pas d'onglet pays), un projet en Suisse va dans `Offres CH-NL`.
 
 ## Suisse (onglet CH-NL) — exception SIRH/SAP présentiel/hybride autorisée
 

@@ -29,6 +29,12 @@ Boardriders Saint-Jean-de-Luz, Celsa France Bayonne.
 
 ## Sources confirmées productives, à repasser en priorité
 
+- **Daher** (réintégré le 06/10/2026, 8 offres historiques) : API Workday CXS en POST,
+  `curl -s -X POST -H 'Content-Type: application/json' -d '{"limit":20,"offset":0,"searchText":"<mot-clé>","appliedFacets":{}}' https://daher.wd3.myworkdayjobs.com/wday/cxs/daher/Daher/jobs`
+  (~264 postes le 06/10). Filtrer sur les sites Tarbes/Pau/Lacq.
+- **Wipro Lauak** (réintégré le 06/10/2026) : `wiprolauak.nous-recrutons.fr` **en racine**
+  (pas `nous-recrutons.fr/lauak`, en 404). Souvent saturé/hors profil, passage rapide.
+
 - **SD Worx RSS** : `careers.sdworx.com/services/rss/job/?keywords=<mot-clé>` — chercher
   mentions Bayonne/Bidart. Flux parfois mort (404), retester quand même (déjà vu
   fonctionner puis mourir puis refonctionner).
@@ -39,6 +45,13 @@ Boardriders Saint-Jean-de-Luz, Celsa France Bayonne.
   entreprises). Repasser en priorité SEI-Groupe LKS, IS Decisions, Sophia Genetics
   (candidatures spontanées acceptées, à retester si 0 poste ouvert la dernière fois).
 - **French Tech Pays Basque** : `frenchtechpaysbasque.fr`, radar startups locales.
+- **pays-basque-digital.fr** (réintégré le 06/10/2026) : board local de la filière
+  numérique, a déjà donné des offres (Chef de Projet SI Bayonne, offre de la relance du
+  05/10). Rendement faible mais spécifique au bassin.
+- **emploi-paysbasque.fr** (réintégré le 06/10/2026) : board d'emploi local, passage rapide.
+- **choisirleservicepublic.gouv.fr** : postes SIRH des collectivités et hôpitaux du
+  bassin (CD64, CAPB, CH Côte Basque, CH Pau...). Voir la méthode dans
+  `relance_sources_fr.md` ; ici le télétravail partiel n'est pas un problème.
 
 ## Extension Bordeaux
 
