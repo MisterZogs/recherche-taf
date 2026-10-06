@@ -37,8 +37,11 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   locales, pas malgré leur caractère présentiel/hybride.
 - FILTRE PRIORITAIRE (sauf pour "Pays Basque" ci-dessus) : une offre qui
   exclut explicitement le télétravail total (hybride, partiel, présentiel)
-  va dans "NoRemote", quel que soit le métier. Une information manquante ne
-  disqualifie plus : l'offre reste dans son onglet métier.
+  va dans "NoRemote", quel que soit le métier. Depuis le 06/10/2026, une
+  information manquante (vide, "Non précisé", "n.p.", "À vérifier") envoie
+  aussi l'offre dans "NoRemote" ; seule une évocation du télétravail la
+  garde dans l'onglet métier (voir accepte_remote()). Les remote us-only /
+  uk-only partent aussi dans "NoRemote".
 - Avant chaque ajout, les lignes marquées "x" dans la colonne Fait, ou dont
   le Statut vaut "Expiré"/"Expirée" (lien vérifié mort), sont déplacées vers
   l'onglet "Fait".
@@ -169,23 +172,44 @@ STATUS_DEFAUT = 2
 
 
 # ── Filtre télétravail ──────────────────────────────────────────────────────
-# Règle révisée le 18/08/2026 : une information manquante ne disqualifie plus
-# une offre. Partent dans "NoRemote" les seules offres qui excluent
-# explicitement le télétravail total, c'est-à-dire l'hybride, le partiel et le
-# présentiel confirmés. Une colonne Remote vide, un "n.p." ou un "à vérifier"
-# laisse l'offre dans son onglet métier, à charge de clarifier ensuite.
+# Règle révisée le 06/10/2026 (annule celle du 18/08/2026) : une offre ne reste
+# dans un onglet métier que si sa colonne Remote ÉVOQUE le télétravail. Une
+# cellule vide, "Non précisé", "n.p.", "nc", "À vérifier"... part dans
+# "NoRemote". Dès qu'il y a une évocation du télétravail (même "Télétravail
+# occasionnel", "Télétravail mentionné (à vérifier)"), l'offre reste.
+#
+# Partent aussi dans NoRemote :
+# - l'hybride, le partiel et le présentiel (règle du 14/08/2026, inchangée) ;
+# - les remote limités aux USA ou au Royaume-Uni ("us-only", "US only, non
+#   éligible international", "uk-only"), même quand le mot "remote" y figure.
+#
+# Restent les codes de zone issus des boards 100% remote ("france", "EMEA",
+# "Europe", "single-country-only", "Germany, UK"...) : le remote y est
+# implicite, seule l'éligibilité France varie.
 #
 # Marqueurs qui disqualifient, même si "remote" ou "oui" apparaît ailleurs
 # (ex. "Hybride (3j remote + 2j sur site)").
 _REMOTE_NON = re.compile(
     r'(hybrid|partiel|pr[ée]sentiel|sur site|on\s*-?\s*site|\d\s*j\b|\d\s*jours'
     r'|^non$|^no$)', re.I)
+# Remote limité aux USA / au Royaume-Uni : non candidatable depuis la France.
+_REMOTE_US_UK = re.compile(r'\b(us|u\.s\.|uk|u\.k\.)\s*[- ]?\s*only\b', re.I)
+# Évocation explicite du télétravail dans la cellule.
+_REMOTE_EVOQUE = re.compile(
+    r'(remote|t[ée]l[ée]\s*-?\s*travail|\bTT\b|[àa] distance|home\s*-?\s*office'
+    r'|telecommut|anywhere|worldwide|distributed|^oui\b|^yes\b|^100\s?%'
+    r'|ponctuel|occasionnel)', re.I)
+# Codes de zone laissés par les boards remote (la cellule commence par la zone).
+_REMOTE_ZONE = re.compile(
+    r'^(single-country-only|france|emea|europe|germany|canada)\b', re.I)
 
 
 def accepte_remote(valeur) -> bool:
-    """Faux seulement si la valeur exclut explicitement le télétravail total."""
+    """Vrai seulement si la valeur évoque le télétravail sans l'exclure."""
     s = str(valeur).strip() if valeur is not None else ''
-    return not _REMOTE_NON.search(s)
+    if not s or _REMOTE_NON.search(s) or _REMOTE_US_UK.search(s):
+        return False
+    return bool(_REMOTE_EVOQUE.search(s) or _REMOTE_ZONE.search(s))
 
 
 def _hors_sirh(poste: str) -> bool:
@@ -615,3 +639,42 @@ def ajouter_offres(offres: list[dict], verbose=True):
     _ecrire_onglet(ws_nore, rows_nore, verbose)
 
     wb.save(FICHIER)
+
+
+ONGLETS_REMOTE = ['Offres SIRH', 'Offres CSM', 'Offres IA', 'Offres PM',
+                  'Offres UX', 'Offres SEO', 'Offres USA']
+
+
+def reclasser_remote(verbose=True, simuler=False):
+    """Déplace vers NoRemote les lignes des onglets métier dont la colonne Remote
+    n'évoque pas le télétravail (règle du 06/10/2026, voir accepte_remote()).
+
+    Ne touche ni "Pays Basque" ni "Offres CH-NL" (exemptions explicites), ni
+    "Fait" ni "En process". `simuler=True` compte sans rien écrire."""
+    wb = openpyxl.load_workbook(FICHIER)
+    ws_nore = wb['NoRemote']
+    fait_idx = _col_index(wb['Offres SIRH'], 'Fait')
+    statut_idx = _col_index(wb['Offres SIRH'], 'Statut')
+    rows_nore = _archiver_faits(ws_nore, wb['Fait'], fait_idx, statut_idx, False)
+    bilan = {}
+    nouveaux = {}
+    for nom in ONGLETS_REMOTE:
+        ws = wb[nom]
+        remote_idx = _col_index(ws, 'Remote')
+        gardees = _archiver_faits(ws, wb['Fait'], fait_idx, statut_idx, False)
+        restent, partent = [], []
+        for row in gardees:
+            (restent if accepte_remote(row[remote_idx]['value']) else partent).append(row)
+        nouveaux[nom] = restent
+        rows_nore.extend(partent)
+        bilan[nom] = (len(restent), len(partent))
+    if verbose:
+        for nom, (r, p) in bilan.items():
+            print(f"  {nom:14s} reste {r:5d}   vers NoRemote {p:5d}")
+    if simuler:
+        return bilan
+    for nom, rows in nouveaux.items():
+        _ecrire_onglet(wb[nom], rows, verbose)
+    _ecrire_onglet(ws_nore, rows_nore, verbose)
+    wb.save(FICHIER)
+    return bilan

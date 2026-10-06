@@ -67,13 +67,22 @@ missions SIRH/SAP en Suisse, voir fichier sources ATS).
   Le parent refait un dédoublonnage global à la fusion, donc pas besoin d'être
   paranoïaque, juste éviter les doublons évidents en cours de route.
 
-## Filtre télétravail
+## Filtre télétravail (règle inversée le 06/10/2026)
 
-Indiquer honnêtement dans `Remote` ce que dit l'offre (Full remote / Hybride Nj/semaine
-/ Présentiel / Non précisé). **Ne pas trier soi-même vers NoRemote** : le routage
-automatique d'`add_offre.py` s'en charge à l'insertion, sauf pour le cluster Pays Basque
-(qui échappe totalement au filtre, voir son fichier sources) et sauf mention contraire
-dans le fichier sources du cluster (ex. exception SIRH/SAP Suisse).
+Indiquer **fidèlement** dans `Remote` ce que dit l'offre (Full remote / Hybride Nj/semaine
+/ Présentiel / `Non précisé` si l'annonce ne dit rien). **Depuis le 06/10/2026, une offre dont
+la colonne Remote n'évoque pas le télétravail part en `NoRemote`** (`add_offre.py` le fait
+automatiquement) ; une offre qui évoque le télétravail, même vaguement (« télétravail
+possible », « télétravail occasionnel »), reste dans son onglet métier. Les remote `us-only` /
+`uk-only` partent aussi en `NoRemote`. Ne jamais inventer un télétravail que l'annonce ne
+mentionne pas pour faire passer une offre. Conséquence pratique : une offre dont le remote
+n'est pas précisé n'a d'intérêt que si le fit est excellent ; ouvrir la fiche pour trouver
+la mention quand l'offre est une vraie pépite.
+
+**Ne pas trier soi-même vers NoRemote** : le routage automatique d'`add_offre.py` s'en
+charge à l'insertion, sauf pour le cluster Pays Basque (qui échappe totalement au filtre,
+voir son fichier sources) et sauf mention contraire dans le fichier sources du cluster
+(ex. exception SIRH/SAP Suisse).
 
 ## Écriture incrémentale (règle de survie critique)
 

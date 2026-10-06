@@ -490,21 +490,27 @@ Ce garde-fou ne nettoie pas rétroactivement les doublons accumulés par des rel
 
 **Fait n'est pas concerné par cette règle** : un Statut `Expiré` déjà présent dans Fait (l'offre y est déjà) ne déclenche rien de plus, et un contrôle de vivacité qui confirme la mort d'un lien déjà dans Fait ne doit **pas** changer son Statut existant (Postulé/Refusé/Pourvu...), qui reflète une action déjà prise par Gaëtan indépendamment de la vivacité ultérieure de l'annonce — voir la note du 03/09/2026 dans « Notes diverses ».
 
-### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026)
+### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026 puis **inversée le 06/10/2026**)
 
-**`NoRemote` ne reçoit que les offres qui excluent explicitement le télétravail total.** Ce filtre s'applique **avant** le routage par métier.
+**Depuis le 06/10/2026, une offre ne reste dans un onglet métier que si sa colonne Remote ÉVOQUE le télétravail.** Ce filtre s'applique **avant** le routage par métier. Il remplace la règle du 18/08/2026 (« information manquante = on garde »), que Gaëtan a inversée : une absence de précision n'est plus une raison de garder l'offre.
 
 Valeurs qui partent dans `NoRemote` :
-- **Hybride et partiel** sous toutes leurs formes (`Hybride`, `Partiel`, `Hybride 2j/sem`, `Partiel (3j/sem)`...). Décision explicite de Gaëtan le 14/08/2026 : le télétravail partiel ne suffit pas, et il l'a reconfirmée le 18/08.
-- **Présentiel**, `Sur site` et `Non`.
+- **L'information manquante** : cellule vide, `n.p.`, `nc`, `N/C`, `Non précisé`, `Non renseigné`, `À vérifier`, `À clarifier`, `À confirmer`, ou toute valeur qui ne dit rien du télétravail.
+- **Hybride et partiel** sous toutes leurs formes (`Hybride`, `Partiel`, `Hybride 2j/sem`...), **présentiel**, `Sur site`, `Non` (règle du 14/08/2026, inchangée).
+- **Les remote limités aux USA ou au Royaume-Uni** : `us-only`, `US only, non éligible international`, `uk-only`, même quand le mot « remote » apparaît.
 
-Valeurs qui **restent** dans les onglets métier :
-- Le télétravail confirmé : `Oui` et ses variantes entre parenthèses, `Full remote`, `Remote`, `Remote-first`, `Remote Europe`, `100% remote`, `Télétravail total`, `yes`, `En ligne`.
-- **L'information manquante**, depuis la révision du 18/08/2026 : cellule vide, `n.p.`, `nc`, `N/C`, `Non précisé`, `À vérifier`, `À clarifier`, `À confirmer`, `Non confirmé`. Une offre dont le télétravail n'est pas renseigné n'est plus écartée ; elle reste dans son onglet métier, à charge de clarifier au moment de candidater.
+Valeurs qui **restent** dans les onglets métier (dès qu'il y a une évocation du télétravail) :
+- Le télétravail confirmé : `Oui` et ses variantes, `Full remote`, `Remote`, `Remote-first`, `Remote Europe`, `100% remote`, `Télétravail total`, `Anywhere in the World`, `Worldwide`.
+- **Toute mention de télétravail, même vague** : `Télétravail mentionné (à vérifier)`, `Télétravail occasionnel`, `Ponctuel`, `Occasionnel`, `Non précisé (télétravail possible après essai)`. Décision de Gaëtan le 06/10/2026 : « dès qu'il y a une évocation du télétravail ça reste ».
+- **Les codes de zone des boards remote** (`france`, `EMEA`, `Europe`, `single-country-only`, `Germany, UK`...) : le remote y est implicite, seule l'éligibilité France varie. Décision de Gaëtan le 06/10/2026 (elles restent, sauf `us-only`/`uk-only`).
 
 Un marqueur d'hybride l'emporte sur la présence du mot « remote » : `Hybride (3j remote + 2j sur site)` part dans `NoRemote`.
 
-La fonction `accepte_remote()` d'`add_offre.py` implémente cette règle et le routage est automatique.
+**Exemptions inchangées** : `Pays Basque` (marqueur `Onglet='Pays Basque'`) et les missions SIRH/SAP en Suisse (`RemoteExempt=True`, onglet `Offres CH-NL`) échappent au filtre ; le reclassement de masse ne touche ni `Pays Basque` ni `Offres CH-NL`, ni `Fait`, ni `En process`.
+
+**Conséquence pour les relances** : la colonne `Remote` doit reprendre fidèlement ce que dit l'offre. Si l'annonce ne mentionne aucun télétravail, écrire `Non précisé` : l'offre ira en `NoRemote`, c'est voulu. Ne jamais écrire « télétravail possible » sans que l'annonce le dise.
+
+`accepte_remote()` d'`add_offre.py` implémente la règle (marqueur négatif → us/uk-only → évocation du télétravail → code de zone), et le routage est automatique. **`add_offre.reclasser_remote()`** reclasse en masse les lignes existantes des 7 onglets métier vers `NoRemote` (`simuler=True` pour compter sans écrire) : à relancer si la règle change encore. Premier passage le 06/10/2026 : 3 523 lignes déplacées (Offres SIRH 1 647 → 113, CSM 797 → 351, PM 850 → 155, IA 489 → 74, UX 400 → 77, SEO 124 → 32, USA 123 → 105 ; NoRemote 1 398 → 4 921).
 
 - **Neuf onglets d'offres** : `Offres SIRH`, `Offres CSM`, `Offres IA`, `Offres PM`, `Offres UX` (ajouté le 10/09/2026), `Offres SEO` (ajouté le 11/09/2026), `Offres USA` (ajouté le 22/08/2026), `Offres CH-NL` (ajouté le 22/09/2026), `NoRemote`, plus `Fait`. (L'onglet `Légende` a été supprimé le 14/08/2026 ; ne pas le recréer. L'onglet `En process` est une zone de travail manuelle de Gaëtan pour une négociation en cours, hors dispositif `add_offre.py` : ne jamais l'automatiser ni la vider.) Le routage est automatique dans `add_offre.py` : **USA d'abord** (dès qu'une offre vient d'une entreprise basée aux USA — marqueur explicite `Onglet='Offres USA'` dans le dict, ou détection sur la Localisation), **puis CH-NL** (même logique pour la Suisse/Pays-Bas, marqueur explicite `Onglet='Offres CH-NL'` ou détection sur la Localisation), puis IA, puis CSM, puis PM, puis UX, puis SEO, sinon SIRH. Une offre Product Manager ou UX/UI dont l'intitulé porte aussi un marqueur SIRH ou SAP (« Product Owner HRIS », « UX Designer SuccessFactors ») reste dans `Offres SIRH` ; le métier SIRH prime sur le titre. Le filtre télétravail (`NoRemote`) reste prioritaire sur tout, y compris sur USA et CH-NL : une offre non ouverte au remote international part dans `NoRemote`, pas dans l'onglet pays.
 - **Ne jamais supprimer une ligne** du tableau, même si une offre semble expirée ou hors profil — changer le statut à la place.
