@@ -67,17 +67,19 @@ missions SIRH/SAP en Suisse, voir fichier sources ATS).
   Le parent refait un dédoublonnage global à la fusion, donc pas besoin d'être
   paranoïaque, juste éviter les doublons évidents en cours de route.
 
-## Filtre télétravail (règle inversée le 06/10/2026)
+## Filtre télétravail (règle du 06/10/2026, précisée le même jour)
 
-Indiquer **fidèlement** dans `Remote` ce que dit l'offre (Full remote / Hybride Nj/semaine
-/ Présentiel / `Non précisé` si l'annonce ne dit rien). **Depuis le 06/10/2026, une offre dont
-la colonne Remote n'évoque pas le télétravail part en `NoRemote`** (`add_offre.py` le fait
-automatiquement) ; une offre qui évoque le télétravail, même vaguement (« télétravail
-possible », « télétravail occasionnel »), reste dans son onglet métier. Les remote `us-only` /
-`uk-only` partent aussi en `NoRemote`. Ne jamais inventer un télétravail que l'annonce ne
-mentionne pas pour faire passer une offre. Conséquence pratique : une offre dont le remote
-n'est pas précisé n'a d'intérêt que si le fit est excellent ; ouvrir la fiche pour trouver
-la mention quand l'offre est une vraie pépite.
+**Une offre reste dans un onglet métier dès que sa colonne `Remote` ÉVOQUE le télétravail,
+sous n'importe quelle forme, y compris partiel ou hybride. Le télétravail partiel/hybride
+n'est PAS un motif d'envoi en `NoRemote`.** Seuls partent en `NoRemote` : l'absence de
+mention (`Non précisé`, vide, `Présentiel` sans mot de télétravail), le télétravail
+explicitement exclu (« pas de télétravail », « in-office »), et les remote `us-only`/`uk-only`.
+
+Indiquer **fidèlement** dans `Remote` ce que dit l'offre : `Full remote`, `Hybride 2j/sem`,
+`Télétravail partiel`, `Télétravail possible`, ou `Non précisé` si l'annonce ne dit rien.
+Ne jamais inventer un télétravail que l'annonce ne mentionne pas. Une offre dont le remote
+n'est pas précisé n'a d'intérêt que si le fit est excellent : ouvrir la fiche pour chercher
+la mention quand c'est une vraie pépite.
 
 **Ne pas trier soi-même vers NoRemote** : le routage automatique d'`add_offre.py` s'en
 charge à l'insertion, sauf pour le cluster Pays Basque (qui échappe totalement au filtre,

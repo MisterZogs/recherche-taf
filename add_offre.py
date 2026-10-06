@@ -37,11 +37,12 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
   locales, pas malgré leur caractère présentiel/hybride.
 - FILTRE PRIORITAIRE (sauf pour "Pays Basque" ci-dessus) : une offre qui
   exclut explicitement le télétravail total (hybride, partiel, présentiel)
-  va dans "NoRemote", quel que soit le métier. Depuis le 06/10/2026, une
-  information manquante (vide, "Non précisé", "n.p.", "À vérifier") envoie
-  aussi l'offre dans "NoRemote" ; seule une évocation du télétravail la
-  garde dans l'onglet métier (voir accepte_remote()). Les remote us-only /
-  uk-only partent aussi dans "NoRemote".
+  va dans "NoRemote", quel que soit le métier. Depuis le 06/10/2026, c'est
+  l'ABSENCE d'évocation du télétravail (vide, "Non précisé", "Présentiel"...)
+  ou son exclusion explicite qui envoie l'offre dans "NoRemote" ; toute
+  évocation, y compris le télétravail PARTIEL ou HYBRIDE, la garde dans
+  l'onglet métier (voir accepte_remote()). Les remote us-only / uk-only
+  partent aussi dans "NoRemote".
 - Avant chaque ajout, les lignes marquées "x" dans la colonne Fait, ou dont
   le Statut vaut "Expiré"/"Expirée" (lien vérifié mort), sont déplacées vers
   l'onglet "Fait".
@@ -61,6 +62,7 @@ Utilitaire pour ajouter des offres dans offres_emploi.xlsx.
 """
 
 import re
+import collections
 import unicodedata
 from difflib import SequenceMatcher
 
@@ -172,42 +174,46 @@ STATUS_DEFAUT = 2
 
 
 # ── Filtre télétravail ──────────────────────────────────────────────────────
-# Règle révisée le 06/10/2026 (annule celle du 18/08/2026) : une offre ne reste
-# dans un onglet métier que si sa colonne Remote ÉVOQUE le télétravail. Une
-# cellule vide, "Non précisé", "n.p.", "nc", "À vérifier"... part dans
-# "NoRemote". Dès qu'il y a une évocation du télétravail (même "Télétravail
-# occasionnel", "Télétravail mentionné (à vérifier)"), l'offre reste.
+# Règle du 06/10/2026, PRÉCISÉE le même jour par Gaëtan (annule celles du
+# 14/08 et du 18/08) : une offre reste dans un onglet métier DÈS QUE sa colonne
+# Remote ÉVOQUE le télétravail, sous n'importe quelle forme : télétravail total,
+# partiel, hybride, occasionnel, « possible », « à vérifier ». LE TÉLÉTRAVAIL
+# PARTIEL / HYBRIDE N'EST PAS UN MOTIF D'ENVOI EN NoRemote (j'avais à tort
+# conservé l'exclusion hybride du 14/08 ; Gaëtan l'a corrigé).
 #
-# Partent aussi dans NoRemote :
-# - l'hybride, le partiel et le présentiel (règle du 14/08/2026, inchangée) ;
-# - les remote limités aux USA ou au Royaume-Uni ("us-only", "US only, non
-#   éligible international", "uk-only"), même quand le mot "remote" y figure.
+# Partent dans "NoRemote" uniquement :
+# - l'absence d'évocation : cellule vide, "Non précisé", "n.p.", "nc",
+#   "À vérifier", "Présentiel", "Sur site" sans aucun mot de télétravail ;
+# - le télétravail explicitement exclu : "pas de télétravail", "no remote",
+#   "in-office", "Non" ;
+# - les remote limités aux USA ou au Royaume-Uni ("us-only", "uk-only"), même
+#   quand le mot "remote" y figure.
 #
-# Restent les codes de zone issus des boards 100% remote ("france", "EMEA",
-# "Europe", "single-country-only", "Germany, UK"...) : le remote y est
-# implicite, seule l'éligibilité France varie.
-#
-# Marqueurs qui disqualifient, même si "remote" ou "oui" apparaît ailleurs
-# (ex. "Hybride (3j remote + 2j sur site)").
-_REMOTE_NON = re.compile(
-    r'(hybrid|partiel|pr[ée]sentiel|sur site|on\s*-?\s*site|\d\s*j\b|\d\s*jours'
-    r'|^non$|^no$)', re.I)
+# Restent aussi les codes de zone issus des boards 100% remote ("france",
+# "EMEA", "Europe", "single-country-only", "Germany, UK"...).
+
+# Télétravail explicitement exclu (l'emporte sur toute évocation).
+_REMOTE_EXCLU = re.compile(
+    r'(pas de t[ée]l[ée]\s*-?\s*travail|sans t[ée]l[ée]\s*-?\s*travail'
+    r'|t[ée]l[ée]\s*-?\s*travail (impossible|non|interdit)|no remote|not remote'
+    r'|remote[- ]?(not|no)\b|in-?\s*office|^non$|^no$)', re.I)
 # Remote limité aux USA / au Royaume-Uni : non candidatable depuis la France.
 _REMOTE_US_UK = re.compile(r'\b(us|u\.s\.|uk|u\.k\.)\s*[- ]?\s*only\b', re.I)
-# Évocation explicite du télétravail dans la cellule.
+# Évocation du télétravail dans la cellule, partiel et hybride compris.
 _REMOTE_EVOQUE = re.compile(
     r'(remote|t[ée]l[ée]\s*-?\s*travail|\bTT\b|[àa] distance|home\s*-?\s*office'
-    r'|telecommut|anywhere|worldwide|distributed|^oui\b|^yes\b|^100\s?%'
-    r'|ponctuel|occasionnel)', re.I)
+    r'|telecommut|anywhere|worldwide|distributed|hybrid|partiel|flexib'
+    r'|^oui\b|^yes\b|^100\s?%|ponctuel|occasionnel)', re.I)
 # Codes de zone laissés par les boards remote (la cellule commence par la zone).
 _REMOTE_ZONE = re.compile(
     r'^(single-country-only|france|emea|europe|germany|canada)\b', re.I)
 
 
 def accepte_remote(valeur) -> bool:
-    """Vrai seulement si la valeur évoque le télétravail sans l'exclure."""
+    """Vrai si la valeur évoque le télétravail (total, partiel ou hybride) sans
+    l'exclure ni le limiter aux USA/UK."""
     s = str(valeur).strip() if valeur is not None else ''
-    if not s or _REMOTE_NON.search(s) or _REMOTE_US_UK.search(s):
+    if not s or _REMOTE_EXCLU.search(s) or _REMOTE_US_UK.search(s):
         return False
     return bool(_REMOTE_EVOQUE.search(s) or _REMOTE_ZONE.search(s))
 
@@ -642,39 +648,79 @@ def ajouter_offres(offres: list[dict], verbose=True):
 
 
 ONGLETS_REMOTE = ['Offres SIRH', 'Offres CSM', 'Offres IA', 'Offres PM',
-                  'Offres UX', 'Offres SEO', 'Offres USA']
+                  'Offres UX', 'Offres SEO', 'Offres USA', 'Offres CH-NL']
+
+
+def _onglet_pour_ligne(poste: str, localisation) -> str:
+    """Onglet métier d'une ligne rapatriée de NoRemote (même ordre que ajouter_offres)."""
+    offre = {'Localisation': localisation}
+    if _is_usa(offre):
+        return 'Offres USA'
+    if _is_chnl(offre):
+        return 'Offres CH-NL'
+    if _is_ia(poste):
+        return 'Offres IA'
+    if _is_csm(poste):
+        return 'Offres CSM'
+    if _is_pm(poste):
+        return 'Offres PM'
+    if _is_ux(poste):
+        return 'Offres UX'
+    if _is_seo(poste):
+        return 'Offres SEO'
+    return 'Offres SIRH'
 
 
 def reclasser_remote(verbose=True, simuler=False):
-    """Déplace vers NoRemote les lignes des onglets métier dont la colonne Remote
-    n'évoque pas le télétravail (règle du 06/10/2026, voir accepte_remote()).
+    """Reclasse dans les deux sens selon accepte_remote() (règle du 06/10/2026) :
+    - lignes des onglets métier SANS évocation du télétravail -> NoRemote ;
+    - lignes de NoRemote QUI ÉVOQUENT le télétravail (partiel/hybride compris)
+      -> onglet métier, retrouvé par le routage habituel.
 
-    Ne touche ni "Pays Basque" ni "Offres CH-NL" (exemptions explicites), ni
-    "Fait" ni "En process". `simuler=True` compte sans rien écrire."""
+    Ne touche ni "Pays Basque" (exemption) ni "Fait" ni "En process". Les lignes
+    d'"Offres CH-NL" ne sont pas déplacées vers NoRemote (exception SIRH Suisse
+    non repérable automatiquement), mais celles de NoRemote y reviennent si leur
+    localisation est suisse/néerlandaise. `simuler=True` compte sans écrire."""
     wb = openpyxl.load_workbook(FICHIER)
     ws_nore = wb['NoRemote']
     fait_idx = _col_index(wb['Offres SIRH'], 'Fait')
     statut_idx = _col_index(wb['Offres SIRH'], 'Statut')
     rows_nore = _archiver_faits(ws_nore, wb['Fait'], fait_idx, statut_idx, False)
-    bilan = {}
-    nouveaux = {}
+    onglets = {nom: _archiver_faits(wb[nom], wb['Fait'], fait_idx, statut_idx, False)
+               for nom in ONGLETS_REMOTE}
+    bilan = collections.Counter()
+    # Onglets métier -> NoRemote (CH-NL exclu : exemption SIRH Suisse)
     for nom in ONGLETS_REMOTE:
-        ws = wb[nom]
-        remote_idx = _col_index(ws, 'Remote')
-        gardees = _archiver_faits(ws, wb['Fait'], fait_idx, statut_idx, False)
-        restent, partent = [], []
-        for row in gardees:
-            (restent if accepte_remote(row[remote_idx]['value']) else partent).append(row)
-        nouveaux[nom] = restent
-        rows_nore.extend(partent)
-        bilan[nom] = (len(restent), len(partent))
+        if nom == 'Offres CH-NL':
+            continue
+        ridx = _col_index(wb[nom], 'Remote')
+        restent = []
+        for row in onglets[nom]:
+            if accepte_remote(row[ridx]['value']):
+                restent.append(row)
+            else:
+                rows_nore.append(row)
+                bilan[(nom, 'vers NoRemote')] += 1
+        onglets[nom] = restent
+    # NoRemote -> onglet métier
+    ridx = _col_index(ws_nore, 'Remote')
+    iposte = _col_index(ws_nore, 'Poste')
+    iloc = _col_index(ws_nore, 'Localisation')
+    reste_nore = []
+    for row in rows_nore:
+        if accepte_remote(row[ridx]['value']):
+            cible = _onglet_pour_ligne(str(row[iposte]['value'] or ''), row[iloc]['value'])
+            onglets[cible].append(row)
+            bilan[(cible, 'depuis NoRemote')] += 1
+        else:
+            reste_nore.append(row)
     if verbose:
-        for nom, (r, p) in bilan.items():
-            print(f"  {nom:14s} reste {r:5d}   vers NoRemote {p:5d}")
+        for (nom, sens), n in sorted(bilan.items()):
+            print(f"  {nom:14s} {sens:16s} {n:5d}")
     if simuler:
         return bilan
-    for nom, rows in nouveaux.items():
+    for nom, rows in onglets.items():
         _ecrire_onglet(wb[nom], rows, verbose)
-    _ecrire_onglet(ws_nore, rows_nore, verbose)
+    _ecrire_onglet(ws_nore, reste_nore, verbose)
     wb.save(FICHIER)
     return bilan

@@ -421,7 +421,7 @@ Mêmes familles que le reste du dispositif : HRIS Manager/Consultant, CSM/Senior
 
 ### Règle de routage : cet onglet échappe volontairement au filtre télétravail
 
-**Point le plus important de cette recherche, à ne jamais oublier.** Le reste du dispositif (`add_offre.py`) envoie systématiquement dans `NoRemote` toute offre qui exclut le télétravail total (hybride, partiel, présentiel). **Cette règle ne s'applique pas à l'onglet "Pays Basque"** : ces offres sont pertinentes précisément parce qu'elles sont locales et à distance de trajet raisonnable, pas malgré leur caractère présentiel. Une offre chez TotalEnergies à Pau en présentiel reste dans "Pays Basque", elle ne part jamais dans NoRemote.
+**Point le plus important de cette recherche, à ne jamais oublier.** Le reste du dispositif (`add_offre.py`) envoie dans `NoRemote` toute offre dont la colonne Remote n'évoque pas le télétravail (règle du 06/10/2026 : l'hybride et le partiel restent dans les onglets métier). **Cette règle ne s'applique pas à l'onglet "Pays Basque"** : ces offres sont pertinentes précisément parce qu'elles sont locales et à distance de trajet raisonnable, pas malgré leur caractère présentiel. Une offre chez TotalEnergies à Pau en présentiel reste dans "Pays Basque", elle ne part jamais dans NoRemote.
 
 Techniquement : marquer `'Onglet': 'Pays Basque'` dans le dict passé à `ajouter_offres()`. Ce marqueur est vérifié en priorité absolue, avant même le filtre télétravail (voir `add_offre.py`, section "Ajout" de `ajouter_offres()`). L'onglet a été créé manuellement par Gaëtan dans le tableur le 27/08/2026 avec les mêmes colonnes que les autres onglets métier.
 
@@ -490,27 +490,28 @@ Ce garde-fou ne nettoie pas rétroactivement les doublons accumulés par des rel
 
 **Fait n'est pas concerné par cette règle** : un Statut `Expiré` déjà présent dans Fait (l'offre y est déjà) ne déclenche rien de plus, et un contrôle de vivacité qui confirme la mort d'un lien déjà dans Fait ne doit **pas** changer son Statut existant (Postulé/Refusé/Pourvu...), qui reflète une action déjà prise par Gaëtan indépendamment de la vivacité ultérieure de l'annonce — voir la note du 03/09/2026 dans « Notes diverses ».
 
-### Filtre télétravail (règle prioritaire, posée le 14/08/2026, révisée le 18/08/2026 puis **inversée le 06/10/2026**)
+### Filtre télétravail (règle prioritaire — historique : 14/08/2026, 18/08/2026, puis **inversée et précisée le 06/10/2026**)
 
-**Depuis le 06/10/2026, une offre ne reste dans un onglet métier que si sa colonne Remote ÉVOQUE le télétravail.** Ce filtre s'applique **avant** le routage par métier. Il remplace la règle du 18/08/2026 (« information manquante = on garde »), que Gaëtan a inversée : une absence de précision n'est plus une raison de garder l'offre.
+> **⚠️ RÈGLE EN UNE LIGNE, À NE JAMAIS RÉINTERPRÉTER : une offre reste dans un onglet métier dès que sa colonne Remote ÉVOQUE le télétravail, sous n'importe quelle forme, y compris le télétravail PARTIEL ou HYBRIDE. Le télétravail partiel/hybride n'est PAS un motif d'envoi en `NoRemote`.** Gaëtan l'a rappelé explicitement le 06/10/2026 après que j'avais à tort conservé l'exclusion hybride de la règle du 14/08 (« télétravail partiel donc en théorie NoRemote » : faux). Les règles des 14/08 et 18/08 ne s'appliquent plus.
 
-Valeurs qui partent dans `NoRemote` :
-- **L'information manquante** : cellule vide, `n.p.`, `nc`, `N/C`, `Non précisé`, `Non renseigné`, `À vérifier`, `À clarifier`, `À confirmer`, ou toute valeur qui ne dit rien du télétravail.
-- **Hybride et partiel** sous toutes leurs formes (`Hybride`, `Partiel`, `Hybride 2j/sem`...), **présentiel**, `Sur site`, `Non` (règle du 14/08/2026, inchangée).
-- **Les remote limités aux USA ou au Royaume-Uni** : `us-only`, `US only, non éligible international`, `uk-only`, même quand le mot « remote » apparaît.
+Ce filtre s'applique **avant** le routage par métier.
 
-Valeurs qui **restent** dans les onglets métier (dès qu'il y a une évocation du télétravail) :
-- Le télétravail confirmé : `Oui` et ses variantes, `Full remote`, `Remote`, `Remote-first`, `Remote Europe`, `100% remote`, `Télétravail total`, `Anywhere in the World`, `Worldwide`.
-- **Toute mention de télétravail, même vague** : `Télétravail mentionné (à vérifier)`, `Télétravail occasionnel`, `Ponctuel`, `Occasionnel`, `Non précisé (télétravail possible après essai)`. Décision de Gaëtan le 06/10/2026 : « dès qu'il y a une évocation du télétravail ça reste ».
-- **Les codes de zone des boards remote** (`france`, `EMEA`, `Europe`, `single-country-only`, `Germany, UK`...) : le remote y est implicite, seule l'éligibilité France varie. Décision de Gaëtan le 06/10/2026 (elles restent, sauf `us-only`/`uk-only`).
+Partent dans `NoRemote`, et seulement :
+- **L'absence d'évocation du télétravail** : cellule vide, `n.p.`, `nc`, `N/C`, `Non précisé`, `Non renseigné`, `À vérifier`, `À clarifier`, `Présentiel` ou `Sur site` sans aucun mot de télétravail.
+- **Le télétravail explicitement exclu** : `Pas de télétravail`, `No remote`, `In-office`, `Non`.
+- **Les remote limités aux USA ou au Royaume-Uni** : `us-only`, `US only, non éligible international`, `uk-only`, même avec le mot « remote ».
 
-Un marqueur d'hybride l'emporte sur la présence du mot « remote » : `Hybride (3j remote + 2j sur site)` part dans `NoRemote`.
+Restent dans les onglets métier (dès qu'il y a une évocation) :
+- Le télétravail total : `Oui`, `Full remote`, `Remote`, `100% remote`, `Anywhere in the World`, `Worldwide`...
+- **Le télétravail partiel et l'hybride, sous toutes leurs formes** : `Hybride`, `Hybride 2j/sem`, `Télétravail partiel`, `Télétravail jusqu'à 4j/sem`, `Hybride (3j remote + 2j sur site)`.
+- **Toute mention vague ou occasionnelle** : `Télétravail mentionné (à vérifier)`, `Télétravail occasionnel`, `Ponctuel`, `Flexibilité sur le télétravail`, `Non précisé (télétravail possible après essai)`.
+- **Les codes de zone des boards remote** (`france`, `EMEA`, `Europe`, `single-country-only`, `Germany, UK`...).
 
-**Exemptions inchangées** : `Pays Basque` (marqueur `Onglet='Pays Basque'`) et les missions SIRH/SAP en Suisse (`RemoteExempt=True`, onglet `Offres CH-NL`) échappent au filtre ; le reclassement de masse ne touche ni `Pays Basque` ni `Offres CH-NL`, ni `Fait`, ni `En process`.
+**Exemptions inchangées** : `Pays Basque` (marqueur `Onglet='Pays Basque'`, pas de filtre) et les missions SIRH/SAP en Suisse (`RemoteExempt=True`, onglet `Offres CH-NL`). Le reclassement ne touche ni `Pays Basque`, ni `Fait`, ni `En process`.
 
-**Conséquence pour les relances** : la colonne `Remote` doit reprendre fidèlement ce que dit l'offre. Si l'annonce ne mentionne aucun télétravail, écrire `Non précisé` : l'offre ira en `NoRemote`, c'est voulu. Ne jamais écrire « télétravail possible » sans que l'annonce le dise.
+**Conséquence pour les relances** : la colonne `Remote` doit reprendre fidèlement ce que dit l'offre. Si l'annonce ne mentionne aucun télétravail, écrire `Non précisé` : l'offre ira en `NoRemote`, c'est voulu. Si elle mentionne un hybride ou un partiel, l'écrire tel quel : l'offre reste dans l'onglet métier. Ne jamais écrire « télétravail possible » sans que l'annonce le dise.
 
-`accepte_remote()` d'`add_offre.py` implémente la règle (marqueur négatif → us/uk-only → évocation du télétravail → code de zone), et le routage est automatique. **`add_offre.reclasser_remote()`** reclasse en masse les lignes existantes des 7 onglets métier vers `NoRemote` (`simuler=True` pour compter sans écrire) : à relancer si la règle change encore. Premier passage le 06/10/2026 : 3 523 lignes déplacées (Offres SIRH 1 647 → 113, CSM 797 → 351, PM 850 → 155, IA 489 → 74, UX 400 → 77, SEO 124 → 32, USA 123 → 105 ; NoRemote 1 398 → 4 921).
+`accepte_remote()` d'`add_offre.py` implémente la règle (télétravail exclu ou us/uk-only → faux ; évocation, hybride/partiel compris, ou code de zone → vrai). **`add_offre.reclasser_remote()`** reclasse le classeur **dans les deux sens** : onglets métier sans évocation → `NoRemote`, et `NoRemote` avec évocation → onglet métier (routage habituel) ; `simuler=True` compte sans écrire. À relancer si la règle change. Passage du 06/10/2026 : première version (hybride exclu à tort) = 3 523 lignes vers NoRemote ; correction le même jour = rapatriement des lignes hybrides/partielles.
 
 - **Neuf onglets d'offres** : `Offres SIRH`, `Offres CSM`, `Offres IA`, `Offres PM`, `Offres UX` (ajouté le 10/09/2026), `Offres SEO` (ajouté le 11/09/2026), `Offres USA` (ajouté le 22/08/2026), `Offres CH-NL` (ajouté le 22/09/2026), `NoRemote`, plus `Fait`. (L'onglet `Légende` a été supprimé le 14/08/2026 ; ne pas le recréer. L'onglet `En process` est une zone de travail manuelle de Gaëtan pour une négociation en cours, hors dispositif `add_offre.py` : ne jamais l'automatiser ni la vider.) Le routage est automatique dans `add_offre.py` : **USA d'abord** (dès qu'une offre vient d'une entreprise basée aux USA — marqueur explicite `Onglet='Offres USA'` dans le dict, ou détection sur la Localisation), **puis CH-NL** (même logique pour la Suisse/Pays-Bas, marqueur explicite `Onglet='Offres CH-NL'` ou détection sur la Localisation), puis IA, puis CSM, puis PM, puis UX, puis SEO, sinon SIRH. Une offre Product Manager ou UX/UI dont l'intitulé porte aussi un marqueur SIRH ou SAP (« Product Owner HRIS », « UX Designer SuccessFactors ») reste dans `Offres SIRH` ; le métier SIRH prime sur le titre. Le filtre télétravail (`NoRemote`) reste prioritaire sur tout, y compris sur USA et CH-NL : une offre non ouverte au remote international part dans `NoRemote`, pas dans l'onglet pays.
 - **Ne jamais supprimer une ligne** du tableau, même si une offre semble expirée ou hors profil — changer le statut à la place.
