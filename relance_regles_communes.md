@@ -75,6 +75,8 @@ n'est PAS un motif d'envoi en `NoRemote`.** Seuls partent en `NoRemote` : l'abse
 mention (`Non précisé`, vide, `Présentiel` sans mot de télétravail), le télétravail
 explicitement exclu (« pas de télétravail », « in-office »), et les remote `us-only`/`uk-only`.
 
+**Exception freelance (règle du 06/10/2026) : une mission freelance sans mention du télétravail reste dans les onglets habituels** (elle ne va pas en `NoRemote`), sauf télétravail exclu explicitement, présentiel/sur site affiché, ou remote us-only/uk-only. **Renseigner donc toujours `Contrat` = `Freelance` pour une mission freelance** (c'est ce champ qui déclenche l'exception), et laisser `Remote` = `Non précisé` si l'annonce ne dit rien.
+
 Indiquer **fidèlement** dans `Remote` ce que dit l'offre : `Full remote`, `Hybride 2j/sem`,
 `Télétravail partiel`, `Télétravail possible`, ou `Non précisé` si l'annonce ne dit rien.
 Ne jamais inventer un télétravail que l'annonce ne mentionne pas. Une offre dont le remote

@@ -501,6 +501,8 @@ Partent dans `NoRemote`, et seulement :
 - **Le télétravail explicitement exclu** : `Pas de télétravail`, `No remote`, `In-office`, `Non`.
 - **Les remote limités aux USA ou au Royaume-Uni** : `us-only`, `US only, non éligible international`, `uk-only`, même avec le mot « remote ».
 
+**Cas particulier — mission freelance (règle ajoutée le 06/10/2026) : une mission freelance SANS mention du télétravail reste dans les onglets habituels, elle ne va PAS en `NoRemote`** (le télétravail se négocie à la candidature). Une mission freelance ne part en `NoRemote` que si le télétravail est exclu explicitement (« pas de télétravail », `Non`), si la fiche affiche du présentiel / sur site, ou si le remote est `us-only`/`uk-only`. Est considérée freelance : un `Contrat` contenant freelance / indépendant / contractor / profession libérale / portage / mission, un intitulé contenant « freelance » ou « TJM », ou un lien `mission-freelances.fr` / `freelance-informatique.fr` / `freelancermap` (sauf si le `Contrat` est explicitement CDI/CDD/alternance/stage/intérim). **Pour que la règle marche, renseigner toujours la colonne `Contrat` avec `Freelance` pour les missions.** Implémentée dans `est_freelance()` et `accepte_remote(valeur, offre)` d'`add_offre.py`.
+
 Restent dans les onglets métier (dès qu'il y a une évocation) :
 - Le télétravail total : `Oui`, `Full remote`, `Remote`, `100% remote`, `Anywhere in the World`, `Worldwide`...
 - **Le télétravail partiel et l'hybride, sous toutes leurs formes** : `Hybride`, `Hybride 2j/sem`, `Télétravail partiel`, `Télétravail jusqu'à 4j/sem`, `Hybride (3j remote + 2j sur site)`.

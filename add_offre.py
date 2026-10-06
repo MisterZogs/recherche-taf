@@ -209,13 +209,51 @@ _REMOTE_ZONE = re.compile(
     r'^(single-country-only|france|emea|europe|germany|canada)\b', re.I)
 
 
-def accepte_remote(valeur) -> bool:
-    """Vrai si la valeur évoque le télétravail (total, partiel ou hybride) sans
-    l'exclure ni le limiter aux USA/UK."""
-    s = str(valeur).strip() if valeur is not None else ''
-    if not s or _REMOTE_EXCLU.search(s) or _REMOTE_US_UK.search(s):
+# Mission freelance (règle du 06/10/2026) : une mission freelance SANS mention
+# du télétravail reste dans les onglets métier (le télétravail se négocie à la
+# candidature). Elle ne part en NoRemote que si le télétravail est exclu
+# explicitement ou si la fiche affiche du présentiel / du sur site, ou un
+# remote us-only / uk-only.
+_FREELANCE_CONTRAT = re.compile(
+    r'(freelance|free-?lance|ind[ée]pendant|contractor|profession\s*lib|portage|mission)', re.I)
+_CONTRAT_SALARIE = re.compile(r'^\s*(cdi|cdd|alternance|stage|interim|int[ée]rim)\b', re.I)
+_FREELANCE_LIEN = re.compile(r'(mission-freelances\.fr|freelance-informatique\.fr|freelancermap\.)', re.I)
+_REMOTE_PRESENTIEL = re.compile(r'(pr[ée]sentiel|sur site|on\s*-?\s*site|obligatoire)', re.I)
+
+
+def est_freelance(offre) -> bool:
+    """Vrai si l'offre est une mission freelance/indépendant (Contrat, intitulé ou
+    site 100% freelance). `offre` est un dict avec Contrat, Poste, Lien."""
+    if not offre:
         return False
-    return bool(_REMOTE_EVOQUE.search(s) or _REMOTE_ZONE.search(s))
+    contrat = str(offre.get('Contrat') or '')
+    if _CONTRAT_SALARIE.search(contrat):
+        return False
+    if _FREELANCE_CONTRAT.search(contrat):
+        return True
+    if re.search(r'free-?lance|\bTJM\b', str(offre.get('Poste') or ''), re.I):
+        return True
+    return bool(_FREELANCE_LIEN.search(str(offre.get('Lien') or '')))
+
+
+def accepte_remote(valeur, offre=None) -> bool:
+    """Vrai si l'offre reste dans un onglet métier.
+
+    - le télétravail est évoqué (total, partiel, hybride...) sans être exclu ni
+      limité aux USA/UK ; ou
+    - c'est une mission freelance (`offre` fourni) sans exclusion explicite du
+      télétravail, sans présentiel/sur site affiché et sans us/uk-only."""
+    s = str(valeur).strip() if valeur is not None else ''
+    if _REMOTE_EXCLU.search(s) or _REMOTE_US_UK.search(s):
+        return False
+    if s and (_REMOTE_EVOQUE.search(s) or _REMOTE_ZONE.search(s)):
+        return True
+    return est_freelance(offre) and not _REMOTE_PRESENTIEL.search(s)
+
+
+def _offre_ligne(row, idx):
+    """Dict minimal (Contrat, Poste, Lien) d'une ligne de cellules capturées."""
+    return {k: row[i]['value'] for k, i in idx.items()}
 
 
 def _hors_sirh(poste: str) -> bool:
@@ -598,7 +636,7 @@ def ajouter_offres(offres: list[dict], verbose=True):
         # marché local trop important pour l'écarter comme le reste de l'onglet
         # CH-NL. L'appelant doit le signaler explicitement via `RemoteExempt=True`
         # (jamais déduit automatiquement du titre, pour éviter tout faux positif).
-        if not offre.get('RemoteExempt') and not accepte_remote(offre.get('Remote')):
+        if not offre.get('RemoteExempt') and not accepte_remote(offre.get('Remote'), offre):
             rows_nore.append(ligne)
             if verbose:
                 print(f"+ [NoRemote] {offre.get('Priorité')} | {poste} | {offre.get('Entreprise')}")
@@ -694,9 +732,10 @@ def reclasser_remote(verbose=True, simuler=False):
         if nom == 'Offres CH-NL':
             continue
         ridx = _col_index(wb[nom], 'Remote')
+        oidx = {k: _col_index(wb[nom], k) for k in ('Contrat', 'Poste', 'Lien')}
         restent = []
         for row in onglets[nom]:
-            if accepte_remote(row[ridx]['value']):
+            if accepte_remote(row[ridx]['value'], _offre_ligne(row, oidx)):
                 restent.append(row)
             else:
                 rows_nore.append(row)
@@ -706,9 +745,10 @@ def reclasser_remote(verbose=True, simuler=False):
     ridx = _col_index(ws_nore, 'Remote')
     iposte = _col_index(ws_nore, 'Poste')
     iloc = _col_index(ws_nore, 'Localisation')
+    oidx_nr = {k: _col_index(ws_nore, k) for k in ('Contrat', 'Poste', 'Lien')}
     reste_nore = []
     for row in rows_nore:
-        if accepte_remote(row[ridx]['value']):
+        if accepte_remote(row[ridx]['value'], _offre_ligne(row, oidx_nr)):
             cible = _onglet_pour_ligne(str(row[iposte]['value'] or ''), row[iloc]['value'])
             onglets[cible].append(row)
             bilan[(cible, 'depuis NoRemote')] += 1
