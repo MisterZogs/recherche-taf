@@ -49,6 +49,8 @@ postes). Sur les gros boards (Stripe, Datadog, Cloudflare), filtrer d'abord sur
 `location.name` contenant `France`, `Paris`, `EMEA`, `Europe` ou `Remote` avant de lire
 les fiches. `postman` est vide (0 poste) au 06/10/2026, ne plus le balayer.
 
+**Rendement du 06/10/2026** : Himalayas 11 (liens agrégateur, pas l'ATS d'origine : retrouver le lien carrière quand c'est possible), Act-On 7, freelancermap.de 5, jobs.ch/jobscout24.ch 5 (CH-NL + RemoteExempt), Ashby 7, Greenhouse 7. **Non balayés ce jour** : TopCSJobs, Built In, YC, HN, boards VC (volet USA générique), à refaire. Nebius contient beaucoup de Technical Program Manager infra (data centers), hors profil.
+
 ### SmartRecruiters (ajouté le 06/10/2026)
 `curl -s "https://api.smartrecruiters.com/v1/companies/<slug>/postings?limit=100"` (JSON,
 `content[].name`, `location`, lien `https://jobs.smartrecruiters.com/<slug>/<id>`).

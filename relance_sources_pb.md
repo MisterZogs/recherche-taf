@@ -48,7 +48,10 @@ Boardriders Saint-Jean-de-Luz, Celsa France Bayonne.
 - **pays-basque-digital.fr** (réintégré le 06/10/2026) : board local de la filière
   numérique, a déjà donné des offres (Chef de Projet SI Bayonne, offre de la relance du
   05/10). Rendement faible mais spécifique au bassin.
-- **emploi-paysbasque.fr** (réintégré le 06/10/2026) : board d'emploi local, passage rapide.
+- **emploi-paysbasque.fr** (a donné la pépite CGI Anglet le 06/10/2026) : la recherche renvoie ses résultats dans l'attribut `data-gtm-product-display-param` ; lien d'une offre = `/offre/i_<product_id>`.
+- **HelloWork (changement du 06/10/2026)** : les fiches n'ont plus de JSON-LD ; titre, ville et date sont dans `<title>` et `"datePosted"`.
+- **Adzuna local** : `what_or` + `where` + `distance` fonctionne mais bruit très fort (aide à domicile, immobilier), filtrer sur le titre. 503 constatés en rafale : espacer les requêtes.
+- **Betclic Bordeaux** : seul employeur bordelais à confirmer 3j+ de télétravail le 06/10 (HRIS & People Data Specialist, PM Payment...), à repasser. Team.is/Lectra : 70 jours/an, écartés.
 - **choisirleservicepublic.gouv.fr** : postes SIRH des collectivités et hôpitaux du
   bassin (CD64, CAPB, CH Côte Basque, CH Pau...). Voir la méthode dans
   `relance_sources_fr.md` ; ici le télétravail partiel n'est pas un problème.

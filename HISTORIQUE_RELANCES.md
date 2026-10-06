@@ -943,3 +943,12 @@ Sur les 28 entreprises passées en revue lors du premier test (fit fort + second
 - SAP Taulia Londres : question visa UK à clarifier (poste remote depuis FR possible)
 - "Preferred name" sur les formulaires = Gaëtan
 - **the-ultracoaching.com / ULTRA (Marvin Ndiaye) — évalué le 28/08/2026, hors profil.** Coaching business pour dirigeants de PME (CA > 250k€), pas un éditeur SaaS/HR Tech. Recrute des "Closer" (vente) et des "coach" (accompagnement hebdo 16 semaines, appel d'1h/semaine avec plan d'action) via un portail séparé `jobs.ultra-mastermind.com` (souvent hors service, HTTP 503, ou "site rendu indisponible" — bâti sur Manus). Fit partiel sur le rôle de coach (relationnel client, suivi régulier, proche du CSM ; l'expérience de co-fondateur WallOfTraders.com y est un vrai atout), mais secteur hors cible (pas de SIRH/SaaS/IA) et rémunération probablement à dominante variable/commission comme les postes commerciaux du même board. Non ajouté au tableur ; ne pas relancer sauf si Gaëtan élargit explicitement vers le coaching business.
+
+
+## Relance du 06/10/2026 (après audit des sources, 4 agents Sonnet 5.5)
+
+**Résultat : 204 offres brutes, 198 après fusion, 194 insérées** (SIRH 80, NoRemote 38, PM 15, CSM 12, IA 12, Pays Basque 17, CH-NL 7, UX 6, SEO 4, USA 3). Clusters : FR 112, ATS 46, remote 29, Pays Basque 17. Sources nouvelles les plus productives : collective.work (17), Adzuna (15 + 3), LinkedIn radar (15), Jobgether (15), Himalayas API (11), Act-On SmartRecruiters (7), freelancermap.de (5), Station F (5).
+
+**Pépites ⭐⭐⭐⭐⭐** : Consultant fonctionnel SAP CGI Anglet (CDI) ; Senior Business Engineer HR/SuccessFactors Zürcher Kantonalbank et SAP Payroll/Time Axpo Baden (CH, allemand à vérifier) ; HRIS Workday & Data Team Lead Pennylane (remote France) ; Consultant SAP SuccessFactors EC/ECP/Time 100% remote Europe (collective.work) ; Lead Product Manager IA Staff&Go (remote, expire le 31/10) ; Principal PM Simple Trading (via Jobgether, trading retail, proche de WallOfTraders.com) ; plusieurs AMOA/consultants SuccessFactors.
+
+**Incidents / leçons** : les agents FR et ATS ont écrit leur JSON en une seule fois (collecte par script), pas de façon incrémentale ; sans conséquence ici, mais à rappeler. Adzuna a renvoyé des 503 en rafale (Trial Access). Le lancement en Sonnet 5.5 a suffi pour tenir le cahier des charges (aucun stage, aucun lien générique, aucun doublon avec le tableur).
