@@ -47,3 +47,5 @@ valide). 3 371 résultats pour `SIRH` le 06/10, beaucoup de stages/alternances e
 gestion de paie à filtrer. Plan « Trial Access » : quotas limités, rester à ~20-30
 requêtes par relance (mêmes mots-clés que France Travail). Pour la Suisse/Pays-Bas,
 remplacer `/fr/` par `/ch/` ou `/nl/`.
+
+**France Travail + Adzuna via script (posé le 07/10/2026)** : `python3 fetch_api_ft_adzuna.py <YYYYMMDD>` lit lui-même `.env` (aucune clé affichée, ne jamais `cat` le `.env` : un agent s'est fait refuser la lecture) et écrit `relance_<date>_api_brut.json` (~900 candidats, déjà débarrassés des liens connus). À lancer par le parent (ou par Gaëtan avec `!`), pas par un agent. Le tri se fait ensuite : ne garder que les offres freelance ou qui évoquent le télétravail, écarter paie/gestionnaire/dev ; ~18 retenues sur 913 le 07/10. Beaucoup de missions Collective.work remontent avec un lien France Travail.
