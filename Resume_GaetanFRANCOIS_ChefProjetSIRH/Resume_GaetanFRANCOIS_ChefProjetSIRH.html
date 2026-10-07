@@ -77,24 +77,19 @@
       line-height: 1.35;
     }
 
-    .lang-item { margin-bottom: 9px; }
-    .lang-name { font-size: 8.5pt; color: #fff; margin-bottom: 4px; }
-    .lang-bar-track {
-      height: 5px;
-      background: #2e4560;
-      border-radius: 3px;
-      overflow: hidden;
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
     }
-    .lang-bar-fill {
-      height: 100%;
-      background: #e8c040;
-      border-radius: 3px;
-    }
+    .lang-name { color: #fff; }
+    .lang-level { color: #e8c040; }
 
     /* ── MAIN ── */
     .main {
       flex: 1;
-      padding: 29px 26px 24px 24px;
+      padding: 28px 26px 28px 24px;
       background: #fff;
     }
 
@@ -108,24 +103,24 @@
     .subtitle {
       font-size: 11pt;
       color: #555;
-      margin-bottom: 11px;
+      margin-bottom: 14px;
     }
 
     h2 {
       font-size: 12pt;
       font-weight: bold;
       color: #1c2b3a;
-      margin: 8px 0 4px 0;
+      margin: 14px 0 4px 0;
     }
     .section-line {
       border: none;
       border-top: 1.5px solid #1c2b3a;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .profile-text {
       font-size: 9pt;
-      line-height: 1.48;
+      line-height: 1.55;
       color: #333;
       text-align: justify;
     }
@@ -133,7 +128,7 @@
     .exp-entry {
       display: flex;
       gap: 12px;
-      margin-bottom: 7px;
+      margin-bottom: 10px;
     }
     .exp-left {
       min-width: 105px;
@@ -157,7 +152,7 @@
       font-weight: bold;
       font-size: 9.5pt;
       color: #222;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
     .exp-right ul {
       list-style: disc;
@@ -166,14 +161,14 @@
     .exp-right ul li {
       font-size: 8.5pt;
       color: #333;
-      line-height: 1.40;
+      line-height: 1.45;
       margin-bottom: 2px;
     }
 
     .edu-entry {
       display: flex;
       gap: 12px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .edu-school {
       min-width: 105px;
@@ -216,12 +211,8 @@
         <div class="contact-value">gaetan8francois@gmail.com</div>
       </div>
       <div class="contact-item">
-        <div class="contact-label">Localisation :</div>
-        <div class="contact-value">Anglet, France</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Disponibilité :</div>
-        <div class="contact-value">Immédiate - Remote</div>
+        <div class="contact-label">Téléphone :</div>
+        <div class="contact-value">+33 6 75 97 51 62</div>
       </div>
     </div>
 
@@ -230,17 +221,15 @@
       <div class="sb-title">Compétences</div>
       <div class="sb-divider"></div>
       <ul class="expertise-list">
-        <li>SAP HR/HCM & SuccessFactors EC</li>
-        <li>Profil technico-fonctionnel</li>
-        <li>Excel expert & gros volumes de données</li>
-        <li>Chargements de masse & reporting SAP</li>
-        <li>Déploiement & TMA</li>
-        <li>Migration de données</li>
-        <li>Formation utilisateurs-clés</li>
-        <li>Gestion de projet</li>
-        <li>Python & Machine Learning</li>
-        <li>Salesforce, Jira, Confluence</li>
-        <li>HTML5, CSS3, SQL, SEO</li>
+        <li>Gestion de projet SIRH, planning &amp; risques</li>
+        <li>Comités de pilotage &amp; reporting d'avancement</li>
+        <li>AMOA : spécifications fonctionnelles, recette, TNR</li>
+        <li>Reprise de données : mapping, contrôles</li>
+        <li>Coordination métiers RH, IT &amp; international</li>
+        <li>SAP HR/HCM &amp; SuccessFactors EC</li>
+        <li>Pilotage de prestataires &amp; équipe offshore</li>
+        <li>Claude Code</li>
+        <li>Jira, Confluence</li>
       </ul>
     </div>
 
@@ -251,23 +240,23 @@
 
       <div class="lang-item">
         <div class="lang-name">Français</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div>
+        <div class="lang-level">Natif</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Anglais</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:80%"></div></div>
+        <div class="lang-level">Courant</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Espagnol</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermédiaire</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Portugais</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:50%"></div></div>
+        <div class="lang-level">Intermédiaire</div>
       </div>
       <div class="lang-item">
         <div class="lang-name">Allemand</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:20%"></div></div>
+        <div class="lang-level">Notions</div>
       </div>
     </div>
 
@@ -294,13 +283,13 @@
   <div class="main">
 
     <div class="name">Gaëtan FRANÇOIS</div>
-    <div class="subtitle">Consultant SIRH Senior technico-fonctionnel - SAP HR / SuccessFactors</div>
+    <div class="subtitle">Chef de projet SIRH &amp; AMOA - SAP SuccessFactors</div>
 
     <!-- PROFIL -->
     <h2>Profil</h2>
     <hr class="section-line">
     <p class="profile-text">
-      Je suis consultant SIRH freelance et j'interviens depuis 15 ans sur le déploiement, la TMA et la migration de solutions SAP HR dans des environnements enterprise multi-pays, avec un fort ancrage sur le compte L'Oréal mondial (40+ pays). Mon profil est technico-fonctionnel : je traduis un besoin RH en spécification et je paramètre la solution. Expert Excel, je traite de très gros volumes de données au quotidien et je construis aussi bien les chargements en masse d'Excel vers SAP que les reportings extraits de SAP vers Excel. J'ai co-fondé une startup SaaS crypto et j'utilise l'IA au quotidien.
+      Chef de projet SIRH et AMOA freelance avec 15 ans d'expérience sur SAP HR et SuccessFactors Employee Central, dont 10 ans sur le compte L'Oréal mondial (40+ pays). J'ai piloté la migration SAP HR vers SuccessFactors et la centralisation mondiale de la paie : planning, risques, avancement présenté en comité de pilotage, reprise de données. Interface entre métiers RH, développeurs et équipes internationales.
     </p>
 
     <!-- EXPÉRIENCE -->
@@ -314,28 +303,12 @@
         <div class="exp-location">Freelance - Remote</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Consultant SIRH technico-fonctionnel</div>
+        <div class="exp-role">Consultant SIRH</div>
         <ul>
-          <li>Migration mondiale SAP HR vers SAP SuccessFactors Employee Central (<strong>OneProfile</strong>) : spécifications fonctionnelles, reprise de données, recette, déploiement</li>
-          <li>Centralisation mondiale de la paie (<strong>OnePayroll</strong>) : coordination cross-fonctionnelle, migration de données, mise en production</li>
-          <li>Chargements en masse d'Excel vers SAP (personnel, structure organisationnelle, temps) avec contrôles de cohérence après reprise, et reportings SAP vers Excel pour les équipes RH et paie</li>
-          <li>Déploiement Tamigo (gestion des temps) en boutiques : UAT, go-live, support post-démarrage</li>
-          <li>Support et maintenance SAP HR, analyse de cause racine sur les incidents</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-entry">
-      <div class="exp-left">
-        <div class="exp-years">2018 - 2025</div>
-        <div class="exp-company">WallOfTraders.com</div>
-        <div class="exp-location">Co-fondateur - Remote</div>
-      </div>
-      <div class="exp-right">
-        <div class="exp-role">Co-fondateur & Product Manager - Startup SaaS</div>
-        <ul>
-          <li>Plateforme de trading crypto B2C : gestion produit, support utilisateur, animation communauté (Telegram, newsletter), publicité Facebook</li>
-          <li>SEO : rédaction blog, cocons sémantiques ; gestion de stagiaires et d'alternants ; recette des nouvelles fonctionnalités</li>
+          <li>Pilotage de la migration mondiale SAP HR vers SAP SuccessFactors Employee Central (<strong>OneProfile</strong>), 40+ pays : planning, risques, avancement présenté en comités de pilotage ; reprise de données (mapping, contrôles, recette)</li>
+          <li>Interface entre métiers RH, développeurs et équipes internationales : spécifications fonctionnelles, recette</li>
+          <li>Centralisation mondiale de la paie (<strong>OnePayroll</strong>) : coordination, migration de données, mise en production</li>
+          <li>Déploiement Tamigo (gestion des temps) en boutiques : UAT, go-live</li>
         </ul>
       </div>
     </div>
@@ -343,13 +316,13 @@
     <div class="exp-entry">
       <div class="exp-left">
         <div class="exp-years">2016 - 2018</div>
-        <div class="exp-company">Projets R&D</div>
-        <div class="exp-location">Personnel</div>
+        <div class="exp-company">R&D</div>
+        <div class="exp-location">Bordeaux</div>
       </div>
       <div class="exp-right">
         <div class="exp-role">IA, Machine Learning & Robotique</div>
         <ul>
-          <li><strong>Machine Learning</strong> (mai 2017 - avr. 2018) : formations Coursera Python, ML, Deep Learning, scraping - prédiction financière appliquée aux crypto-monnaies</li>
+          <li><strong>Machine Learning</strong> (mai 2017 - avr. 2018) : formations Coursera Python, ML, Deep Learning, scraping - prédictions hippiques</li>
           <li><strong>Conception drone</strong> (nov. 2016 - avr. 2017) : drone waterproof autonome GoPro, contrôleur Pixhawk / Mission Planner, robotique & electronique</li>
         </ul>
       </div>
@@ -362,11 +335,10 @@
         <div class="exp-location">Paris</div>
       </div>
       <div class="exp-right">
-        <div class="exp-role">Consultant Technico-Fonctionnel SIRH</div>
+        <div class="exp-role">Consultant SIRH - AMOA &amp; Pilotage</div>
         <ul>
-          <li><strong>L'Oréal</strong> (2014 - 2016) : TMA SAP HR 40 pays (L1/L2/L3 FR & EN), gestion des évolutions, lien RH/développeurs, recette et mise en production ; RFP externalisation gagné ; transfert de connaissances et pilotage équipe Inde ; refonte application gestion des temps (spécifications, TNR, Jira)</li>
-          <li><strong>FMC Technologies</strong> (juil. - déc. 2013) : déploiement SAP HR 8 pays Europe - personnel & structure organisation, reprise de données, business blueprint</li>
-          <li><strong>Reprise et chargement en masse</strong> de données sous Excel vers SAP HR sur les projets de déploiement, contrôles et rapprochements sur de gros volumes multi-pays ; reportings SAP vers Excel pour les équipes RH</li>
+          <li><strong>L'Oréal</strong> (2014 - 2016) : lien RH/développeurs sur la TMA SAP HR 40 pays (L1/L2/L3 FR &amp; EN), évolutions, recette et mise en production ; RFP d'externalisation gagné ; transfert de connaissances et pilotage de l'équipe en Inde ; refonte de l'application de gestion des temps (spécifications, TNR)</li>
+          <li><strong>FMC Technologies</strong> (juil. - déc. 2013) : déploiement SAP HR dans 8 pays d'Europe - personnel &amp; structure d'organisation, reprise de données, business blueprint</li>
           <li><strong>Air France, Generali, Degremont, Canal+, Sanofi, Cofely-Ineo</strong> : paramétrage SAP HR, support, recette, reprise de données, reporting</li>
         </ul>
       </div>
