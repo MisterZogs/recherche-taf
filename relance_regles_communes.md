@@ -39,6 +39,7 @@ missions SIRH/SAP en Suisse, voir fichier sources ATS).
 
 - `Priorité` : `"⭐"` à `"⭐⭐⭐⭐⭐"`, réfléchie et réelle (fit avec le profil), jamais un
   défaut mécanique basé sur le remote ou la présence de mots-clés.
+- **Allemand obligatoire (règle du 08/10/2026) : toute offre qui exige l'allemand (courant, très bon niveau, « German required/fluent », *Deutsch erforderlich*) reçoit ⭐ (1 étoile), quel que soit le fit par ailleurs.** Gaëtan n'a que des notions d'allemand. Une offre où l'allemand est seulement « un plus » n'est pas concernée. Le préciser dans `Fit / Notes`.
 - `Statut` : date ISO `YYYY-MM-DD` de publication si connue, sinon la date du jour
   (date de la relance).
 - `Fait` : toujours laissé vide (chaîne vide ou absent).
