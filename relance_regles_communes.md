@@ -114,3 +114,6 @@ session en travail dupliqué).
 
 Répondre avec un résumé court : nombre d'offres par source, total, meilleures pépites
 (⭐⭐⭐⭐⭐).
+
+## Hors périmètre (décision de Gaëtan, 08/10/2026)
+- **Oracle HCM** (et Oracle HCM Cloud) seul : ne pas retenir. Une offre multi-solutions qui cite aussi SAP HCM / SuccessFactors (ex. « Workday, Oracle HCM, SAP SuccessFactors ») reste acceptable.
