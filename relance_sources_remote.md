@@ -41,3 +41,9 @@ Toute offre d'une entreprise non basée en France : ne retenir que le remote ouv
 l'international (Worldwide/Anywhere/EMEA/Europe), jamais le remote local à un seul
 pays. Si l'entreprise est basée aux USA ou en Suisse/Pays-Bas avec remote international
 confirmé, ajouter `"Onglet": "Offres USA"` ou `"Onglet": "Offres CH-NL"`.
+
+## Notes relance du 08/10/2026
+- remoterocketship : le JSON `__NEXT_DATA__` de `https://www.remoterocketship.com/jobs/<titre>/` est exploitable en curl (titres dans `sitemap_job_titles.xml`).
+- Jobgether (board Lever) : employeurs anonymisés ; recouper pour identifier l'employeur (ex. ElevenLabs).
+- Agrégateurs (Jobicy, 4dayweek) : annonces parfois périmées, vérifier sur le board ATS d'origine.
+- Remote.com (slugs Greenhouse/Ashby) vide ou introuvable ; Ashby `cribl` JSON illisible.
