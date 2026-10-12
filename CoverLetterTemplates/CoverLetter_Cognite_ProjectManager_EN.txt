@@ -1,0 +1,14 @@
+Dear Cognite Hiring Team,
+
+I spent the last three years of my ten at L'Oréal as the project manager of a data migration programme moving SAP HR to SuccessFactors. I helped the client choose the roadmap and ran the deployments country by country.
+
+What kept those projects on plan was simple. We named a key user in each country early and trained them while the system was still being configured, rather than at the end. We wrote down every decision so nobody reopened it three months later. And we put the customer's own tasks on the same plan as ours, so a customer slipping showed up in week two instead of week ten. Before that, I won the outsourcing tender for L'Oréal's SAP HR support at ALTI (TCS) and managed a team of five consultants in India for two years, covering forty countries.
+
+I was also Product Manager of WallOfTraders.com, a trading marketplace that reached over 10,000 users. I owned the roadmap end to end, wrote the specs, and turned recurring feedback from our Telegram community into product changes. I use generative AI every day and have built two products with Claude Code, lifaia.com and archikk.com.
+
+I have not delivered in an industrial setting, and OT data sources are new to me. I would spend my first weeks with your engineers and your PMO playbooks. The delivery side is what I have done for fifteen years: planning, risks, and clear communication with customers across several countries.
+
+I work in French and English every day, I am based in Anglet, available immediately, and I can travel for client engagements. I'd genuinely enjoy a conversation about the role.
+
+Kind regards,
+Gaëtan FRANÇOIS
