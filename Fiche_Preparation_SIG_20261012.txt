@@ -1,0 +1,79 @@
+FICHE DE PREPARATION SIG - VISIO TEAMS DE 25 MINUTES
+Poste : Expert IT HCM SuccessFactors (reference 52922, Linnich, Allemagne)
+Recruteuse : Beatrice Fertea, Talent Acquisition EU (European Talent Acquisition Hub)
+Contact : recruiting@sig.biz, +49 246 279 1436
+Candidature envoyee le 30/09/2026 ; mail de Beatrice recu le 12/10/2026, disponibilites demandees a partir de mercredi.
+Lien de l'offre : https://career2.successfactors.eu/career?career_company=SIGProd&lang=en_US&company=SIGProd&career_ns=job_listing&navBarLevel=JOB_SEARCH&career_job_req_id=52922
+
+
+OBJECTIF DE L'ECHANGE
+Beatrice ne juge pas la technique en detail. Elle verifie que ton profil colle a l'annonce et que le lieu, le salaire et la disponibilite sont compatibles. Ton objectif est de passer a l'entretien technique, et de clarifier le lieu.
+
+
+1. OUVERTURE (30 SECONDES)
+"Ingenieur de formation, j'ai 15 ans d'experience dans des projets internationaux de transformation SIRH sur SAP HCM et SuccessFactors, dont 10 ans pour L'Oreal, sur 40 pays. Je suis disponible immediatement."
+
+
+2. CE QUE DEMANDE L'ANNONCE ET TA PREUVE
+- Employee Central indispensable : SuccessFactors, migration SAP HR vers SF chez L'Oreal.
+- ECC HCM souhaite : 14 ans de SAP HR, dont la migration de donnees.
+- Transition vers S/4HANA et SF : la migration est ton dernier grand projet chez L'Oreal.
+- Integrations et incidents : tu as dirige 5 consultants en support L1/L2/L3 sur 40 pays chez ALTI/TCS, et tu avais monte l'appel d'offres.
+- Gestion de projet : pilotage des deploiements pays par pays sur ta derniere periode chez L'Oreal.
+- Strategie HCM, vision fonctionnelle et technique : interface entre les equipes RH et les developpeurs pendant 10 ans.
+- Anglais courant : tu l'es.
+
+A PREPARER ABSOLUMENT : LE DETAIL EMPLOYEE CENTRAL.
+L'annonce en fait une condition. Tes notes disent "3 ans sur SuccessFactors" dans un cas et "SAP HCM et SuccessFactors" dans l'autre. Prepare une reponse precise : quels modules (EC de base, Time, Compensation, Onboarding), quels pays, quels volumes de donnees, et ce que tu as configure toi-meme plutot que supervise. Ne dis rien que tu ne pourrais pas detailler en entretien technique.
+
+
+3. L'ANECDOTE QUI PROUVE (UNE SEULE, 45 SECONDES)
+"Les projets qui se passaient mal commencaient presque toujours par un besoin que le metier et le developpeur avaient compris differemment. J'ecrivais la specification pour que personne n'ait a deviner. Et on testait chaque brique au fil de la configuration plutot qu'au go-live, donc les corrections restaient petites."
+
+
+4. TES QUESTIONS A POSER (DANS CET ORDRE)
+1. Lieu et teletravail : "L'annonce indique Linnich et du teletravail partiel. Quelle part du temps faut-il passer sur site ? Un fonctionnement depuis la France avec des deplacements ponctuels est-il envisageable ?"
+2. Contrat : quelle entite de SIG me recruterait, et dans quel pays ?
+3. Equipe : la langue de travail est-elle bien l'anglais ? (L'annonce ne mentionne pas l'allemand.)
+4. Perimetre : quels modules SuccessFactors sont deployes, et a quelle etape est la transition vers S/4HANA ?
+5. Processus : combien d'etapes ensuite, et dans quel delai ?
+
+
+5. LES PIEGES A ANTICIPER
+- Le lieu : c'est le point sensible. Annonce-le sans detour : "je suis base a Anglet, je cherche un poste majoritairement a distance". Si la reponse est une presence reguliere a Linnich, tu sauras vite si ca vaut la suite.
+- Le salaire : l'annonce n'en affiche pas. Laisse-la annoncer sa fourchette en premier. Si elle insiste, ta cible pour un consultant SIRH senior est 70 a 85 KEUR en CDI. La fourchette de 59 a 73 KEUR vue sur StudySmarter n'est qu'une estimation du site.
+- L'allemand : si on te le demande, tu n'as que des notions. La fiche n'exige que l'anglais courant.
+- La concession honnete : si on creuse un module que tu n'as pas pratique, dis-le puis propose la solution : "Je ne l'ai pas pratique, je peux me former rapidement."
+
+
+6. LOGISTIQUE
+- Elle demande tes disponibilites a partir de mercredi pour 25 minutes sur Teams. Reponds par mail avec 2 ou 3 creneaux.
+- Disponibilite : immediate.
+- Contact : recruiting@sig.biz.
+
+
+ANNEXE : TEXTE DE L'OFFRE (portail officiel SIG, 25/09/2026)
+
+Expert IT HCM Successfactors
+Main Location: Linnich | Requisition ID: 52922 | Posting Start Date: 9/25/26
+
+Key responsibilities
+- Coordinate and collaborate on technical design, configuration and further project- and support related tasks
+- Continuous process improvements
+- Watch and coordinate lifecycle activities
+- Understanding and support of integrations to other platform incl. incident coordination and issues mitigations
+- Support the definition of future HCM strategy by bringing in technical and functional expertise
+- Be a part of our transition towards S/4 HANA and Successfactors
+
+You bring these skills, experience & education
+- Degree in Business Informatics/Business Administration or alternatively relevant years of comparable professional experience
+- Project Management experience
+- Fluent level of business English
+- Solution oriented mentality with high affinity for new technologies and standardization
+- Strong experience in SAP Successfactors modules, especially Employee Central, is a must
+- Experience in SAP ECC HCM modules desirable
+- Concur experience optional
+- Knowledge in process and cloud integrations
+
+Our promise
+Competitive compensation and an opportunity to partially work from home. Globally successful international company, leading its industry in sustainability, technology, and more. SIG is a leading provider of packaging systems and solutions (carton, pouch, bag-in-box). Founded in 1853, headquartered in Neuhausen, Switzerland, listed at the SIX Swiss Exchange.
