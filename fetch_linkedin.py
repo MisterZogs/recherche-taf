@@ -1,3 +1,5 @@
+# Récupère les offres LinkedIn via l'API publique guest (curl, sans compte).
+# Trier ensuite à la main les titres pertinents ; détail d'une offre : https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/<id>
 import re,html,json,time,subprocess,urllib.parse,openpyxl
 UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
 KW=["SuccessFactors","SAP HCM","SAP HR","SIRH","HRIS","consultant SIRH","chef de projet SIRH","data migration SAP","Customer Success Manager","Senior Customer Success Manager","Technical Account Manager","Solutions Consultant","Solutions Engineer","Implementation Consultant","Onboarding Manager","Product Manager","Product Owner","Product Designer","UX Designer","SEO Manager","GEO SEO","formateur IA","IA générative consultant","AI enablement","chef de projet","Project Manager SaaS","Engagement Manager","Chief of Staff"]
